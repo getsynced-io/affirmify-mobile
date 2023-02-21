@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons / 24x24 / Black / circle-plus</title>
+    <g id="Icons-/-24x24-/-Black-/-circle-plus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+        <circle id="Bg" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="9"></circle>
+        <line x1="9" y1="12" x2="15" y2="12" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
+        <line x1="12" y1="9" x2="12" y2="15" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
+    </g>
+</svg>

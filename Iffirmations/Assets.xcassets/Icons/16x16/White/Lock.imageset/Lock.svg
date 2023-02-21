@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons / 16x16 / White / Lock</title>
+    <g id="Icons-/-16x16-/-White-/-Lock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" points="0 0 16 0 16 16 0 16"></polygon>
+        <rect id="Bg" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" x="3.33333333" y="7.33333333" width="9.33333333" height="6.66666667" rx="1.33333333"></rect>
+        <path d="M5.33333333,7.33333333 L5.33333333,4.66666667 C5.33333333,3.19390733 6.52724067,2 8,2 C9.47275933,2 10.6666667,3.19390733 10.6666667,4.66666667 L10.6666667,7.33333333" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>
