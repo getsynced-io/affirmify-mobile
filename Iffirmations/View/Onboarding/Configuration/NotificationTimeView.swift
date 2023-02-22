@@ -14,52 +14,68 @@ struct NotificationTimeView: View {
     @ObservedObject var userConfigVM : UserConfigurationVM
     @State var showTimeSheet : Bool = false
     @State private var dateType: DateType = .From
-    @State var nextView : Bool = false
+    @State var nextViewIsActive : Bool = false
 
     var body: some View {
-        ZStack(alignment: .bottom){
-            VStack(spacing: 0){
-                header
-                    .padding(.horizontal , 16)
-                
-                Spacer(minLength: 0)
-                
-                
-                Quantity
-                    .frame(height: 24)
-                    .padding(16)
-                
-                seperator
-                
-                from
-                    .frame(height: 24)
-                    .padding(16)
-                
-                seperator
-                to
-                    .frame(height: 24)
-                    .padding(16)
-                
-                
-                GreenButtonView(buttonTitle: "Next") {
-                    withAnimation {
-                        nextView = true
+        NavigationView {
+            ZStack(alignment: .bottom){
+                VStack(spacing: 0){
+                    nextView
+                    
+                    header
+                        .padding(.horizontal , 16)
+                    
+                    Spacer(minLength: 0)
+                    
+                    
+                    Quantity
+                        .frame(height: 24)
+                        .padding(16)
+                    
+                    seperator
+                    
+                    from
+                        .frame(height: 24)
+                        .padding(16)
+                    
+                    seperator
+                    to
+                        .frame(height: 24)
+                        .padding(16)
+                    
+                    
+                    GreenButtonView(buttonTitle: "Next") {
+                        withAnimation {
+                            nextViewIsActive = true
+                        }
                     }
+                    .padding(.horizontal ,16)
+                    .padding(.vertical ,32)
+                    
+                    
+                }
+                .ignoresSafeArea(.keyboard,edges: .all)
+              
+                .background(Color._F6F5EC)
+                .onAppear {
+                    userConfigVM.userConfig.from = .now
+                    userConfigVM.userConfig.to = .now.addHours(1)
                 }
                 
-                
+                timeSheet(userConfigVM: userConfigVM, dateType: $dateType, showTimeSheet: $showTimeSheet)
+     
+                  
             }
-            .ignoresSafeArea(.keyboard,edges: .all)
-          
-            .background(Color._F6F5EC)
-            .onAppear {
-                userConfigVM.userConfig.from = .now
-                userConfigVM.userConfig.to = .now.addHours(1)
-            }
-            
-            timeSheet(userConfigVM: userConfigVM, dateType: $dateType, showTimeSheet: $showTimeSheet)
- 
-              
+            .navigationTitle("")
+            .navigationBarHidden(true)
+        }
+
+    }
+    
+    
+    var nextView : some View {
+        CustomNavigationLink(isActive: $nextViewIsActive) {
+            NotificationRequestView()
         }
     }
     
@@ -73,6 +89,7 @@ struct NotificationTimeView: View {
     var header : some View {
         Text("Focus on what truly matters with reminders")
             .customFont(font: .IBMPlexSerifMedium, size: 24 , color: ._000000)
+            .multilineTextAlignment(.center)
             .padding(.top , 32 + 44)
     }
     var Quantity : some View {

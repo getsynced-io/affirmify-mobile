@@ -226,9 +226,11 @@ struct GreenButtonView: View {
                 Color._3FBA73.frame(width: width, height: 48)
                     .cornerRadius(24)
                 Text(buttonTitle)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._FFFFFF)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._F6F5EC)
             }
         }
         .buttonStyle(.plain)
     }
 }
+
+

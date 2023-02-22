@@ -13,6 +13,10 @@
 		170871D829A4C67C0078645B /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871D729A4C67C0078645B /* HapticManager.swift */; };
 		170871DB29A4D5D80078645B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 170871DA29A4D5D80078645B /* IQKeyboardManagerSwift */; };
 		170871DD29A4F1F60078645B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871DC29A4F1F60078645B /* DateExtension.swift */; };
+		170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871DE29A5156D0078645B /* NotificationRequestView.swift */; };
+		170871E129A5225B0078645B /* WidgetDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E029A5225B0078645B /* WidgetDemoView.swift */; };
+		170871E329A5264D0078645B /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E229A5264D0078645B /* CategoryModel.swift */; };
+		170871E529A527100078645B /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E429A527100078645B /* CategoryViewModel.swift */; };
 		1714444F29A3D81B00ADBA03 /* IffirmationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714444E29A3D81B00ADBA03 /* IffirmationsApp.swift */; };
 		1714445129A3D81B00ADBA03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714445029A3D81B00ADBA03 /* ContentView.swift */; };
 		1714445329A3D81D00ADBA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1714445229A3D81D00ADBA03 /* Assets.xcassets */; };
@@ -41,6 +45,8 @@
 		171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */; };
 		171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A729A3E59E00ADBA03 /* EnumExtension.swift */; };
 		171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */; };
+		17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92329A61E12003DF105 /* CustomGridView.swift */; };
+		17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92529A621D1003DF105 /* CategorySelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,10 @@
 		170871D429A4C0770078645B /* UserConfigurationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfigurationViewModel.swift; sourceTree = "<group>"; };
 		170871D729A4C67C0078645B /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		170871DC29A4F1F60078645B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		170871DE29A5156D0078645B /* NotificationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequestView.swift; sourceTree = "<group>"; };
+		170871E029A5225B0078645B /* WidgetDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDemoView.swift; sourceTree = "<group>"; };
+		170871E229A5264D0078645B /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		170871E429A527100078645B /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		1714444B29A3D81B00ADBA03 /* Iffirmations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iffirmations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714444E29A3D81B00ADBA03 /* IffirmationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IffirmationsApp.swift; sourceTree = "<group>"; };
 		1714445029A3D81B00ADBA03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +89,8 @@
 		171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideTransition.swift; sourceTree = "<group>"; };
 		171444A729A3E59E00ADBA03 /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		17E9C92329A61E12003DF105 /* CustomGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGridView.swift; sourceTree = "<group>"; };
+		17E9C92529A621D1003DF105 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				170871CF29A4B3EB0078645B /* NotificationTimeView.swift */,
+				170871DE29A5156D0078645B /* NotificationRequestView.swift */,
+				170871E029A5225B0078645B /* WidgetDemoView.swift */,
+				17E9C92529A621D1003DF105 /* CategorySelectionView.swift */,
+				17E9C92329A61E12003DF105 /* CustomGridView.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -176,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				170871D229A4C0040078645B /* UserConfigurationModel.swift */,
+				170871E229A5264D0078645B /* CategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				170871D429A4C0770078645B /* UserConfigurationViewModel.swift */,
+				170871E429A527100078645B /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,18 +349,24 @@
 				1714448729A3DF6E00ADBA03 /* ColorsExtension.swift in Sources */,
 				1714448F29A3E3FC00ADBA03 /* NavigationExtension.swift in Sources */,
 				1714449329A3E43200ADBA03 /* UIApplicationExtension.swift in Sources */,
+				170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */,
 				1714448329A3DD2000ADBA03 /* OnboardingView.swift in Sources */,
 				171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */,
+				170871E529A527100078645B /* CategoryViewModel.swift in Sources */,
 				1714445129A3D81B00ADBA03 /* ContentView.swift in Sources */,
+				17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */,
 				1714448B29A3E39E00ADBA03 /* xcode14Sync.swift in Sources */,
+				17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */,
 				1714448529A3DD4600ADBA03 /* FontsExtension.swift in Sources */,
 				1714448D29A3E3AC00ADBA03 /* appInfo.swift in Sources */,
 				171444A429A3E49300ADBA03 /* HalfASheet.swift in Sources */,
 				170871D829A4C67C0078645B /* HapticManager.swift in Sources */,
 				170871DD29A4F1F60078645B /* DateExtension.swift in Sources */,
+				170871E329A5264D0078645B /* CategoryModel.swift in Sources */,
 				1714449D29A3E48B00ADBA03 /* If.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
+				170871E129A5225B0078645B /* WidgetDemoView.swift in Sources */,
 				171444A529A3E49300ADBA03 /* HalfASheet+Modifiers.swift in Sources */,
 				1714449729A3E45600ADBA03 /* keyboardExtension.swift in Sources */,
 				170871D029A4B3EB0078645B /* NotificationTimeView.swift in Sources */,

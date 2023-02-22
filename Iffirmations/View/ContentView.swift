@@ -26,12 +26,5 @@ struct ContentView: View {
         case .payment:
             EmptyView()
         }
-   
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
