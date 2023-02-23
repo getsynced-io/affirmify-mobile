@@ -35,12 +35,12 @@ struct NotificationTimeView: View {
                     seperator
                     
                     from
-                        .frame(height: 24)
+                        .frame(height: 32)
                         .padding(16)
                     
                     seperator
                     to
-                        .frame(height: 24)
+                        .frame(height: 32)
                         .padding(16)
                     
                     
@@ -49,8 +49,8 @@ struct NotificationTimeView: View {
                             nextViewIsActive = true
                         }
                     }
-                    .padding(.horizontal ,16)
-                    .padding(.vertical ,32)
+                    .padding([.horizontal,.top] ,16)
+                    .padding(.bottom ,32)
                     
                     
                 }
@@ -218,7 +218,7 @@ struct TimePicker: View {
                     .padding(.vertical ,4)
                     .background(
                     Capsule()
-                        .stroke(lineWidth: 1)
+                        .strokeBorder(lineWidth: 1)
                         .foregroundColor(._000000)
                     )
                     .onTapGesture {
@@ -244,13 +244,14 @@ struct TimePicker: View {
     func  amPmPicker(_ amPm: Date.TimeConvention,dateFormat : Date.TimeConvention ) -> some View {
         Text(amPm.rawValue)
             .customFont(font: .IBMPlexSerifMedium, size: 16 , color: dateFormat == amPm ? Color._FFFFFF : Color._000000)
-            .frame(width: 64)
+            .frame(width: 48)
             .padding(.vertical ,4)
             .if(dateFormat == amPm, transform: { view in
                 view
                     .background(
                     Capsule()
                         .foregroundColor(._000000)
+                        .frame(width: 48)
                     )
             })
                 .onTapGesture {

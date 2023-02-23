@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "iqkeyboardmanager",
+      "identity" : "purchases-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "location" : "https://github.com/RevenueCat/purchases-ios.git",
       "state" : {
-        "revision" : "1e442766a41e2948df25559eb03ab752c6d3aad0",
-        "version" : "6.5.0"
+        "revision" : "b5562ed1409c47b20c74da3f2a1c2d603ca37508",
+        "version" : "4.17.7"
       }
     }
   ],

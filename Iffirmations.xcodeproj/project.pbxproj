@@ -11,7 +11,6 @@
 		170871D329A4C0040078645B /* UserConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871D229A4C0040078645B /* UserConfigurationModel.swift */; };
 		170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871D429A4C0770078645B /* UserConfigurationViewModel.swift */; };
 		170871D829A4C67C0078645B /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871D729A4C67C0078645B /* HapticManager.swift */; };
-		170871DB29A4D5D80078645B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 170871DA29A4D5D80078645B /* IQKeyboardManagerSwift */; };
 		170871DD29A4F1F60078645B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871DC29A4F1F60078645B /* DateExtension.swift */; };
 		170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871DE29A5156D0078645B /* NotificationRequestView.swift */; };
 		170871E129A5225B0078645B /* WidgetDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E029A5225B0078645B /* WidgetDemoView.swift */; };
@@ -45,6 +44,11 @@
 		171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */; };
 		171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A729A3E59E00ADBA03 /* EnumExtension.swift */; };
 		171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */; };
+		179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D945929A768BA00AB6F10 /* StoreKit.framework */; };
+		179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D945C29A769D800AB6F10 /* StoreViewModel.swift */; };
+		179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 179D945F29A76A3B00AB6F10 /* RevenueCat */; };
+		179D946329A76BE700AB6F10 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D946229A76BE700AB6F10 /* PaymentView.swift */; };
+		179D946529A771BB00AB6F10 /* DecimalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D946429A771BB00AB6F10 /* DecimalExtension.swift */; };
 		17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92329A61E12003DF105 /* CustomGridView.swift */; };
 		17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92529A621D1003DF105 /* CategorySelectionView.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +93,11 @@
 		171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideTransition.swift; sourceTree = "<group>"; };
 		171444A729A3E59E00ADBA03 /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		179D945B29A768D900AB6F10 /* Iffirmations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Iffirmations.entitlements; sourceTree = "<group>"; };
+		179D945C29A769D800AB6F10 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
+		179D946229A76BE700AB6F10 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		179D946429A771BB00AB6F10 /* DecimalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtension.swift; sourceTree = "<group>"; };
 		17E9C92329A61E12003DF105 /* CustomGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGridView.swift; sourceTree = "<group>"; };
 		17E9C92529A621D1003DF105 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170871DB29A4D5D80078645B /* IQKeyboardManagerSwift in Frameworks */,
+				179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */,
+				179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +149,7 @@
 			children = (
 				1714444D29A3D81B00ADBA03 /* Iffirmations */,
 				1714444C29A3D81B00ADBA03 /* Products */,
+				179D945829A768BA00AB6F10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +164,7 @@
 		1714444D29A3D81B00ADBA03 /* Iffirmations */ = {
 			isa = PBXGroup;
 			children = (
+				179D945B29A768D900AB6F10 /* Iffirmations.entitlements */,
 				1714448129A3DA8C00ADBA03 /* Info.plist */,
 				170871D629A4C6600078645B /* Utilities */,
 				1714446129A3D93400ADBA03 /* Fonts */,
@@ -180,6 +192,7 @@
 		1714445C29A3D90A00ADBA03 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				179D946129A76B7800AB6F10 /* Payment */,
 				170871D129A4B53B0078645B /* Onboarding */,
 				1714449E29A3E49200ADBA03 /* HalfSheet */,
 				1714445029A3D81B00ADBA03 /* ContentView.swift */,
@@ -201,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				170871D429A4C0770078645B /* UserConfigurationViewModel.swift */,
+				179D945C29A769D800AB6F10 /* StoreViewModel.swift */,
 				170871E429A527100078645B /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
@@ -221,6 +235,7 @@
 				1714448629A3DF6E00ADBA03 /* ColorsExtension.swift */,
 				171444A729A3E59E00ADBA03 /* EnumExtension.swift */,
 				170871DC29A4F1F60078645B /* DateExtension.swift */,
+				179D946429A771BB00AB6F10 /* DecimalExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,6 +279,22 @@
 			path = HalfSheet;
 			sourceTree = "<group>";
 		};
+		179D945829A768BA00AB6F10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				179D945929A768BA00AB6F10 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		179D946129A76B7800AB6F10 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				179D946229A76BE700AB6F10 /* PaymentView.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,7 +312,7 @@
 			);
 			name = Iffirmations;
 			packageProductDependencies = (
-				170871DA29A4D5D80078645B /* IQKeyboardManagerSwift */,
+				179D945F29A76A3B00AB6F10 /* RevenueCat */,
 			);
 			productName = Iffirmations;
 			productReference = 1714444B29A3D81B00ADBA03 /* Iffirmations.app */;
@@ -312,7 +343,7 @@
 			);
 			mainGroup = 1714444229A3D81B00ADBA03;
 			packageReferences = (
-				170871D929A4D5D80078645B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 1714444C29A3D81B00ADBA03 /* Products */;
 			projectDirPath = "";
@@ -347,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714448729A3DF6E00ADBA03 /* ColorsExtension.swift in Sources */,
+				179D946329A76BE700AB6F10 /* PaymentView.swift in Sources */,
 				1714448F29A3E3FC00ADBA03 /* NavigationExtension.swift in Sources */,
 				1714449329A3E43200ADBA03 /* UIApplicationExtension.swift in Sources */,
 				170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */,
@@ -354,6 +386,7 @@
 				171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */,
 				170871E529A527100078645B /* CategoryViewModel.swift in Sources */,
 				1714445129A3D81B00ADBA03 /* ContentView.swift in Sources */,
+				179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */,
 				17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */,
 				1714448B29A3E39E00ADBA03 /* xcode14Sync.swift in Sources */,
 				17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */,
@@ -363,6 +396,7 @@
 				170871D829A4C67C0078645B /* HapticManager.swift in Sources */,
 				170871DD29A4F1F60078645B /* DateExtension.swift in Sources */,
 				170871E329A5264D0078645B /* CategoryModel.swift in Sources */,
+				179D946529A771BB00AB6F10 /* DecimalExtension.swift in Sources */,
 				1714449D29A3E48B00ADBA03 /* If.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
@@ -502,10 +536,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Iffirmations/Iffirmations.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Iffirmations/Preview Content\"";
-				DEVELOPMENT_TEAM = ZR2Y3Y79RH;
+				DEVELOPMENT_TEAM = RQCTJKZJWB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
@@ -519,7 +554,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Iffirmations.Quotes.Iffirmations;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -532,10 +567,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Iffirmations/Iffirmations.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Iffirmations/Preview Content\"";
-				DEVELOPMENT_TEAM = ZR2Y3Y79RH;
+				DEVELOPMENT_TEAM = RQCTJKZJWB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
@@ -549,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Iffirmations.Quotes.Iffirmations;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -581,21 +617,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		170871D929A4D5D80078645B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
-				kind = exactVersion;
-				version = 6.5.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		170871DA29A4D5D80078645B /* IQKeyboardManagerSwift */ = {
+		179D945F29A76A3B00AB6F10 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 170871D929A4D5D80078645B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
+			package = 179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

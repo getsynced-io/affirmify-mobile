@@ -9,7 +9,7 @@ import SwiftUI
 
 
 enum OnboardingState {
-    case demo ,  configuration , payment
+    case demo ,  configuration
     
 }
 
@@ -23,8 +23,6 @@ struct ContentView: View {
             DemoView(state : $state)
         case .configuration:
             NotificationTimeView(userConfigVM: userConfigVM)
-        case .payment:
-            EmptyView()
         }
     }
 }

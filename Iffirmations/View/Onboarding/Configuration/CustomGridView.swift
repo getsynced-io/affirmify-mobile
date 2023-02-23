@@ -11,6 +11,8 @@ import SwiftUI
 struct CustomGridView: View {
     @Binding var categories : [CategoryModel]
     let n : Int = 11
+    @State private var relativePosition: CGFloat = 0.5
+    @State var blocker : Bool = false
     var body: some View {
 
         ScrollView(.horizontal,showsIndicators: false){
@@ -20,18 +22,34 @@ struct CustomGridView: View {
                         ForEach(0..<getColomunIndex(rowIndex: rowIndex), id: \.self) { columnIndex in
                             if (getIndex(rowIndex: rowIndex, columnIndex: columnIndex)) < categories.count {
                                 categoryCard(categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)])
+                                    .onTapGesture {
+                                        withAnimation {
+                                            categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)].isSelected.toggle()
+                                        }
+                                    }
                             } else {
                                 Spacer(minLength: 0)
                             }
                         }
                     }
+                    .padding(.horizontal, 16)
                 }
             }
-            .padding(.horizontal , 16)
+            .padding( .vertical,16)
         }
+       
+                .introspectScrollView { scrollView in
+                    if !blocker {
+                        let width = scrollView.contentSize.width - scrollView.frame.width
+                        scrollView.contentOffset.x = relativePosition * width
+                        blocker = true
+                    }
+                }
+
+      
+               
     }
     func getColomunIndex(rowIndex : Int )-> Int{
-        print("(n - (rowIndex % 2)) \(n - (rowIndex % 2))")
       return  (n - (rowIndex % 2))
     }
     func calculateNumberOfRows(items: Int) -> Int {
@@ -40,21 +58,22 @@ struct CustomGridView: View {
         return Int(ceil(rows))
     }
     func getIndex(rowIndex : Int , columnIndex : Int)-> Int {
-        print("rowIndex * n + columnIndex \(rowIndex * n + columnIndex)")
-        print("rowIndex \(rowIndex) ,columnIndex \(columnIndex)")
-
             return  rowIndex * (n - 1) + columnIndex +  (rowIndex - (rowIndex  / 2))
     }
     func categoryCard(_ card : CategoryModel) ->  some View {
         Text("\(card.title)")
-            .customFont(font: .IBMPlexSerifRegular, size: 16, color: ._000000)
+            .customFont(font: .IBMPlexSerifRegular, size: 16, color: card.isSelected ?  ._FFFFFF : ._000000)
             .background(
-            Capsule()
-                .stroke(lineWidth: 1)
-                .foregroundColor(._000000)
-                .frame(width: 128, height: 48)
-                
-            
+                Group{
+                        Capsule()
+                            .if(!card.isSelected, transform: { view in
+                                view
+                                    .strokeBorder(lineWidth: 1)
+                            })
+                            .foregroundColor(._000000)
+                            .frame(width: 128, height: 48)
+
+                }
             )
             .frame(width: 128, height: 48)
     }
