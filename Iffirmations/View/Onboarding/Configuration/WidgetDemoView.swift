@@ -36,7 +36,7 @@ struct WidgetDemoView: View {
             
         }
         .padding(.horizontal , 16)
-        .background(Color._F6F5EC)
+        .background(Color._F6F5EC.ignoresSafeArea())
     }
     
     var nextView : some View {

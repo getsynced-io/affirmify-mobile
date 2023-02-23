@@ -12,7 +12,7 @@ struct UserConfiguration  : Codable{
     var quantity : Int
     var from : Date
     var to : Date
-    init(quantity: Int = 0 , from: Date = .now, to: Date = .now) {
+    init(quantity: Int = 0 , from: Date = Date(), to: Date = Date()) {
         self.quantity = quantity
         self.from = from
         self.to = to

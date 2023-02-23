@@ -28,7 +28,7 @@ struct NotificationRequestView: View {
             .padding(.bottom,32)
         }
         .padding(.horizontal , 16)
-        .background(Color._F6F5EC)
+        .background(Color._F6F5EC.ignoresSafeArea())
 
     }
     

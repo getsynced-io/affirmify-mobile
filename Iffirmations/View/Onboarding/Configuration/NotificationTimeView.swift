@@ -56,10 +56,10 @@ struct NotificationTimeView: View {
                 }
                 .ignoresSafeArea(.keyboard,edges: .all)
               
-                .background(Color._F6F5EC)
+                .background(Color._F6F5EC.ignoresSafeArea())
                 .onAppear {
-                    userConfigVM.userConfig.from = .now
-                    userConfigVM.userConfig.to = .now.addHours(1)
+                    userConfigVM.userConfig.from = Date()
+                    userConfigVM.userConfig.to =  Date().addHours(1)
                 }
                 
                 timeSheet(userConfigVM: userConfigVM, dateType: $dateType, showTimeSheet: $showTimeSheet)
@@ -69,6 +69,7 @@ struct NotificationTimeView: View {
             .navigationTitle("")
             .navigationBarHidden(true)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
 
     }
     
@@ -149,7 +150,6 @@ struct timeSheet: View {
                 }
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
-                    .tint(Color._000000)
                     .accentColor(Color._000000)
             }
             .height(.fixed(162))

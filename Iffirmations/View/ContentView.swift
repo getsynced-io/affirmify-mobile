@@ -8,21 +8,37 @@
 import SwiftUI
 
 
-enum OnboardingState {
-    case demo ,  configuration
+enum OnboardingState: String, Codable, CaseIterable {
+    case demo ,  configuration , main
     
 }
 
 
 struct ContentView: View {
-    @State var state  : OnboardingState = .demo
+    @AppStorage("AppState") var state  : OnboardingState = .demo
     @StateObject var userConfigVM : UserConfigurationVM = UserConfigurationVM()
+    @StateObject var paymentVM : StoreViewModel = StoreViewModel.shared
     var body: some View {
-        switch state {
-        case .demo:
-            DemoView(state : $state)
-        case .configuration:
-            NotificationTimeView(userConfigVM: userConfigVM)
+        Group{
+            switch state {
+            case .demo:
+                DemoView()
+            case .configuration:
+                NotificationTimeView(userConfigVM: userConfigVM)
+                
+            case .main :
+                Text("Hello")
+            }
         }
+        .fullScreenCover(isPresented: $paymentVM.showPaymentView, content: {
+            PaymentView(isPresented: $paymentVM.showPaymentView)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                        withAnimation {
+                            state = .main
+                        }
+                    }
+                }
+        })
     }
 }

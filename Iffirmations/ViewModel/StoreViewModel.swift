@@ -102,6 +102,8 @@ class StoreViewModel: ObservableObject {
     
     @Published var OfferFirstFetch : Bool = false
 
+    @Published var showPaymentView : Bool = false
+    
     public func refreshSubscription() {
         Purchases.shared.getCustomerInfo {[weak self] (info, _) in
             withAnimation {

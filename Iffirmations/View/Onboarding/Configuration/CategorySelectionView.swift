@@ -17,6 +17,7 @@ struct CategorySelectionView: View {
         }
         .count
     }
+    @AppStorage("AppState") var state  : OnboardingState = .demo
     var body: some View {
         VStack(spacing: 0){
             
@@ -40,7 +41,9 @@ struct CategorySelectionView: View {
             Group{
                 if selectedCategoriesCount != 0 {
                     GreenButtonView(buttonTitle: "Next(\(selectedCategoriesCount))") {
-                        
+                        withAnimation {
+                            StoreViewModel.shared.showPaymentView  = true
+                        }
                     }
                 }
                 else{
@@ -51,8 +54,9 @@ struct CategorySelectionView: View {
             .padding(.vertical,16)
             .padding(.horizontal , 16)
         }
+ 
       
-        .background(Color._F6F5EC)
+        .background(Color._F6F5EC.ignoresSafeArea())
     }
     
     var backButtom : some View{

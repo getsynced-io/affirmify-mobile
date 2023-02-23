@@ -25,12 +25,20 @@ struct PaymentView: View {
                 .padding(.bottom ,32)
             Text("🎨")
                 .font(.system(size: 96))
+                .padding(.horizontal , 16)
                 .padding(.bottom,32)
             Text("Unlock Everything!")
                 .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                .padding(.horizontal , 16)
+                .padding(.bottom,32)
+            
+            description
+                .padding(.horizontal , 16)
+            
+            Spacer(minLength: 0)
         }
-        .padding(.horizontal , 16)
-        .background(Color._F6F5EC)
+       
+        .background(Color._F6F5EC.ignoresSafeArea())
     }
     
     var exitButton : some View {
@@ -75,11 +83,19 @@ struct PaymentView: View {
         }
         
     }
+    
+    var promotionLabel  : some View {
+            Text("\(price(.Annually,ex: true))/year \(price(.Annually))/year")
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .strikethrough()
+    }
+    
+    
     enum PricePeriod{
         case Annually , Monthly
     }
-    func price(_ pr : PricePeriod)-> String{
-        let price = annually?.storeProduct.price ?? 14.99
+    func price(_ pr : PricePeriod,ex: Bool = false)-> String{
+        let price = annually?.storeProduct.price ?? 114.99 + (ex ?  5.0 : 0.0)  // remider to revert it back to 14.99
         switch pr {
         case .Annually : return "\(price.Decimal2Digit()) US$"
         case .Monthly : return "\((price / 12.0).Decimal2Digit()) US$"
@@ -95,7 +111,7 @@ struct PymentDescriptionRowView: View {
     var body: some View {
         HStack(spacing: 16){
             Image("circle-check")
-                .frame(width: 16, height: 16)
+                .frame(width: 24, height: 24)
                 .clipped()
             Text(description)
                 .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
@@ -104,5 +120,6 @@ struct PymentDescriptionRowView: View {
         }
     }
 }
+
 
 
