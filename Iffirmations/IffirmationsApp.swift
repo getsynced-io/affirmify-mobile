@@ -15,9 +15,24 @@ struct IffirmationsApp: App {
         Purchases.configure(withAPIKey: Constants.apiKey)
         Purchases.shared.delegate = PurchasesDelegateHandler.shared
     }
+    @StateObject var paymentVM = StoreViewModel.shared
+    @StateObject var wQuoteVM : WQuoteViewModel =  WQuoteViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    firstCall()
+                }
+        }
+    }
+    
+    func firstCall() {
+        Task {
+            do {
+                paymentVM.offerings = try await Purchases.shared.offerings()
+                paymentVM.refreshSubscription()
+            } catch{
+            }
         }
     }
 }

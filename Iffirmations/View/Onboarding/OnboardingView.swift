@@ -70,9 +70,7 @@ struct DemoView: View {
         
                     if demoState == .eighth
                     {
-                        withAnimation {
                             state = .configuration
-                        }
                     }
                     else {
                         withAnimation {
@@ -124,9 +122,7 @@ struct DemoViewHeaderView: View {
             
             Spacer()
             Button {
-                withAnimation {
                     state = .configuration
-                }
             } label: {
                 Text("Skip")
                     .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)

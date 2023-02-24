@@ -44,6 +44,39 @@
 		171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */; };
 		171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A729A3E59E00ADBA03 /* EnumExtension.swift */; };
 		171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */; };
+		1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753040B29A8F6B800B51629 /* WQuoteVM.swift */; };
+		17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17532BA729A9135100B51629 /* LazyPaginable.swift */; };
+		17532BAA29A9149C00B51629 /* alone(1700).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BA929A9149C00B51629 /* alone(1700).json */; };
+		17532BAC29A914A800B51629 /* anxiety(218).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BAB29A914A800B51629 /* anxiety(218).json */; };
+		17532BAE29A914B200B51629 /* attitude(732).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BAD29A914B200B51629 /* attitude(732).json */; };
+		17532BB029A914C200B51629 /* change(4612).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BAF29A914C200B51629 /* change(4612).json */; };
+		17532BB229A914D200B51629 /* choice(737).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BB129A914D200B51629 /* choice(737).json */; };
+		17532BB429A914E000B51629 /* confidence(949).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BB329A914E000B51629 /* confidence(949).json */; };
+		17532BB629A914E900B51629 /* courage(800).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BB529A914E900B51629 /* courage(800).json */; };
+		17532BB829A914F200B51629 /* death(2194).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BB729A914F200B51629 /* death(2194).json */; };
+		17532BBA29A914FE00B51629 /* dream(1283).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BB929A914FE00B51629 /* dream(1283).json */; };
+		17532BBC29A9150800B51629 /* excellence(165).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BBB29A9150800B51629 /* excellence(165).json */; };
+		17532BBE29A9151100B51629 /* failure(998).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BBD29A9151100B51629 /* failure(998).json */; };
+		17532BC029A9151A00B51629 /* fear(2067).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BBF29A9151A00B51629 /* fear(2067).json */; };
+		17532BC229A9152500B51629 /* forgiveness(237).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BC129A9152500B51629 /* forgiveness(237).json */; };
+		17532BC429A9152E00B51629 /* freedom(2260).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BC329A9152E00B51629 /* freedom(2260).json */; };
+		17532BC629A9153600B51629 /* friendship(545).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BC529A9153600B51629 /* friendship(545).json */; };
+		17532BC829A9153E00B51629 /* future(2995).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BC729A9153E00B51629 /* future(2995).json */; };
+		17532BCA29A9154500B51629 /* gym(160).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BC929A9154500B51629 /* gym(160).json */; };
+		17532BCC29A9155100B51629 /* happiness(1354).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BCB29A9155100B51629 /* happiness(1354).json */; };
+		17532BCE29A9155C00B51629 /* health(1895).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BCD29A9155C00B51629 /* health(1895).json */; };
+		17532BD029A9156700B51629 /* inspiration(149).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BCF29A9156700B51629 /* inspiration(149).json */; };
+		17532BD229A9157100B51629 /* kindness(260).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BD129A9157100B51629 /* kindness(260).json */; };
+		17532BD429A9158300B51629 /* leadership.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BD329A9158300B51629 /* leadership.json */; };
+		17532BD629A9158F00B51629 /* life(23439).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BD529A9158F00B51629 /* life(23439).json */; };
+		17532BD829A9159F00B51629 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BD729A9159F00B51629 /* love.json */; };
+		17532BDA29A915AE00B51629 /* motivation(189).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BD929A915AE00B51629 /* motivation(189).json */; };
+		17532BDC29A915B600B51629 /* nature(3018).json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BDB29A915B600B51629 /* nature(3018).json */; };
+		17532BDE29A915C000B51629 /* pain.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BDD29A915C000B51629 /* pain.json */; };
+		17532BE029A915CA00B51629 /* past.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BDF29A915CA00B51629 /* past.json */; };
+		17532BE229A915D100B51629 /* positive.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE129A915D100B51629 /* positive.json */; };
+		17532BE429A915D700B51629 /* reading.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE329A915D700B51629 /* reading.json */; };
+		1762C67329A8BA9700577FA0 /* WQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762C67229A8BA9700577FA0 /* WQuote.swift */; };
 		179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D945929A768BA00AB6F10 /* StoreKit.framework */; };
 		179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D945C29A769D800AB6F10 /* StoreViewModel.swift */; };
 		179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 179D945F29A76A3B00AB6F10 /* RevenueCat */; };
@@ -93,6 +126,39 @@
 		171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideTransition.swift; sourceTree = "<group>"; };
 		171444A729A3E59E00ADBA03 /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		1753040B29A8F6B800B51629 /* WQuoteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuoteVM.swift; sourceTree = "<group>"; };
+		17532BA729A9135100B51629 /* LazyPaginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPaginable.swift; sourceTree = "<group>"; };
+		17532BA929A9149C00B51629 /* alone(1700).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "alone(1700).json"; sourceTree = "<group>"; };
+		17532BAB29A914A800B51629 /* anxiety(218).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "anxiety(218).json"; sourceTree = "<group>"; };
+		17532BAD29A914B200B51629 /* attitude(732).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "attitude(732).json"; sourceTree = "<group>"; };
+		17532BAF29A914C200B51629 /* change(4612).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "change(4612).json"; sourceTree = "<group>"; };
+		17532BB129A914D200B51629 /* choice(737).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "choice(737).json"; sourceTree = "<group>"; };
+		17532BB329A914E000B51629 /* confidence(949).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "confidence(949).json"; sourceTree = "<group>"; };
+		17532BB529A914E900B51629 /* courage(800).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "courage(800).json"; sourceTree = "<group>"; };
+		17532BB729A914F200B51629 /* death(2194).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "death(2194).json"; sourceTree = "<group>"; };
+		17532BB929A914FE00B51629 /* dream(1283).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dream(1283).json"; sourceTree = "<group>"; };
+		17532BBB29A9150800B51629 /* excellence(165).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "excellence(165).json"; sourceTree = "<group>"; };
+		17532BBD29A9151100B51629 /* failure(998).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "failure(998).json"; sourceTree = "<group>"; };
+		17532BBF29A9151A00B51629 /* fear(2067).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "fear(2067).json"; sourceTree = "<group>"; };
+		17532BC129A9152500B51629 /* forgiveness(237).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "forgiveness(237).json"; sourceTree = "<group>"; };
+		17532BC329A9152E00B51629 /* freedom(2260).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "freedom(2260).json"; sourceTree = "<group>"; };
+		17532BC529A9153600B51629 /* friendship(545).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "friendship(545).json"; sourceTree = "<group>"; };
+		17532BC729A9153E00B51629 /* future(2995).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "future(2995).json"; sourceTree = "<group>"; };
+		17532BC929A9154500B51629 /* gym(160).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "gym(160).json"; sourceTree = "<group>"; };
+		17532BCB29A9155100B51629 /* happiness(1354).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "happiness(1354).json"; sourceTree = "<group>"; };
+		17532BCD29A9155C00B51629 /* health(1895).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "health(1895).json"; sourceTree = "<group>"; };
+		17532BCF29A9156700B51629 /* inspiration(149).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "inspiration(149).json"; sourceTree = "<group>"; };
+		17532BD129A9157100B51629 /* kindness(260).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "kindness(260).json"; sourceTree = "<group>"; };
+		17532BD329A9158300B51629 /* leadership.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = leadership.json; sourceTree = "<group>"; };
+		17532BD529A9158F00B51629 /* life(23439).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "life(23439).json"; sourceTree = "<group>"; };
+		17532BD729A9159F00B51629 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
+		17532BD929A915AE00B51629 /* motivation(189).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "motivation(189).json"; sourceTree = "<group>"; };
+		17532BDB29A915B600B51629 /* nature(3018).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nature(3018).json"; sourceTree = "<group>"; };
+		17532BDD29A915C000B51629 /* pain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pain.json; sourceTree = "<group>"; };
+		17532BDF29A915CA00B51629 /* past.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = past.json; sourceTree = "<group>"; };
+		17532BE129A915D100B51629 /* positive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = positive.json; sourceTree = "<group>"; };
+		17532BE329A915D700B51629 /* reading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reading.json; sourceTree = "<group>"; };
+		1762C67229A8BA9700577FA0 /* WQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuote.swift; sourceTree = "<group>"; };
 		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		179D945B29A768D900AB6F10 /* Iffirmations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Iffirmations.entitlements; sourceTree = "<group>"; };
 		179D945C29A769D800AB6F10 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +230,7 @@
 		1714444D29A3D81B00ADBA03 /* Iffirmations */ = {
 			isa = PBXGroup;
 			children = (
+				1762C66F29A8B92500577FA0 /* Quotes */,
 				179D945B29A768D900AB6F10 /* Iffirmations.entitlements */,
 				1714448129A3DA8C00ADBA03 /* Info.plist */,
 				170871D629A4C6600078645B /* Utilities */,
@@ -192,6 +259,7 @@
 		1714445C29A3D90A00ADBA03 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17532BA629A9128A00B51629 /* Home */,
 				179D946129A76B7800AB6F10 /* Payment */,
 				170871D129A4B53B0078645B /* Onboarding */,
 				1714449E29A3E49200ADBA03 /* HalfSheet */,
@@ -206,6 +274,7 @@
 			children = (
 				170871D229A4C0040078645B /* UserConfigurationModel.swift */,
 				170871E229A5264D0078645B /* CategoryModel.swift */,
+				1762C67229A8BA9700577FA0 /* WQuote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +285,7 @@
 				170871D429A4C0770078645B /* UserConfigurationViewModel.swift */,
 				179D945C29A769D800AB6F10 /* StoreViewModel.swift */,
 				170871E429A527100078645B /* CategoryViewModel.swift */,
+				1753040B29A8F6B800B51629 /* WQuoteVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -277,6 +347,51 @@
 				171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */,
 			);
 			path = HalfSheet;
+			sourceTree = "<group>";
+		};
+		17532BA629A9128A00B51629 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				17532BA729A9135100B51629 /* LazyPaginable.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1762C66F29A8B92500577FA0 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				17532BE329A915D700B51629 /* reading.json */,
+				17532BE129A915D100B51629 /* positive.json */,
+				17532BDF29A915CA00B51629 /* past.json */,
+				17532BDD29A915C000B51629 /* pain.json */,
+				17532BD729A9159F00B51629 /* love.json */,
+				17532BD529A9158F00B51629 /* life(23439).json */,
+				17532BD329A9158300B51629 /* leadership.json */,
+				17532BDB29A915B600B51629 /* nature(3018).json */,
+				17532BD929A915AE00B51629 /* motivation(189).json */,
+				17532BCF29A9156700B51629 /* inspiration(149).json */,
+				17532BCD29A9155C00B51629 /* health(1895).json */,
+				17532BD129A9157100B51629 /* kindness(260).json */,
+				17532BCB29A9155100B51629 /* happiness(1354).json */,
+				17532BC329A9152E00B51629 /* freedom(2260).json */,
+				17532BC729A9153E00B51629 /* future(2995).json */,
+				17532BC929A9154500B51629 /* gym(160).json */,
+				17532BC129A9152500B51629 /* forgiveness(237).json */,
+				17532BBD29A9151100B51629 /* failure(998).json */,
+				17532BC529A9153600B51629 /* friendship(545).json */,
+				17532BBB29A9150800B51629 /* excellence(165).json */,
+				17532BBF29A9151A00B51629 /* fear(2067).json */,
+				17532BB929A914FE00B51629 /* dream(1283).json */,
+				17532BB729A914F200B51629 /* death(2194).json */,
+				17532BB529A914E900B51629 /* courage(800).json */,
+				17532BB329A914E000B51629 /* confidence(949).json */,
+				17532BB129A914D200B51629 /* choice(737).json */,
+				17532BAF29A914C200B51629 /* change(4612).json */,
+				17532BAD29A914B200B51629 /* attitude(732).json */,
+				17532BAB29A914A800B51629 /* anxiety(218).json */,
+				17532BA929A9149C00B51629 /* alone(1700).json */,
+			);
+			path = Quotes;
 			sourceTree = "<group>";
 		};
 		179D945829A768BA00AB6F10 /* Frameworks */ = {
@@ -360,13 +475,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714447329A3D9F400ADBA03 /* IBMPlexSerif-Regular.ttf in Resources */,
+				17532BE029A915CA00B51629 /* past.json in Resources */,
+				17532BBE29A9151100B51629 /* failure(998).json in Resources */,
 				1714447729A3D9F400ADBA03 /* IBMPlexSerif-SemiBold.ttf in Resources */,
+				17532BAA29A9149C00B51629 /* alone(1700).json in Resources */,
+				17532BB429A914E000B51629 /* confidence(949).json in Resources */,
+				17532BCE29A9155C00B51629 /* health(1895).json in Resources */,
+				17532BE229A915D100B51629 /* positive.json in Resources */,
+				17532BC029A9151A00B51629 /* fear(2067).json in Resources */,
+				17532BBA29A914FE00B51629 /* dream(1283).json in Resources */,
+				17532BD429A9158300B51629 /* leadership.json in Resources */,
+				17532BD029A9156700B51629 /* inspiration(149).json in Resources */,
+				17532BC429A9152E00B51629 /* freedom(2260).json in Resources */,
 				1714447B29A3D9F400ADBA03 /* IBMPlexSerif-Light.ttf in Resources */,
 				1714447C29A3D9F400ADBA03 /* IBMPlexSerif-Thin.ttf in Resources */,
+				17532BC629A9153600B51629 /* friendship(545).json in Resources */,
+				17532BB029A914C200B51629 /* change(4612).json in Resources */,
+				17532BAC29A914A800B51629 /* anxiety(218).json in Resources */,
+				17532BE429A915D700B51629 /* reading.json in Resources */,
+				17532BBC29A9150800B51629 /* excellence(165).json in Resources */,
+				17532BC829A9153E00B51629 /* future(2995).json in Resources */,
+				17532BD229A9157100B51629 /* kindness(260).json in Resources */,
+				17532BB629A914E900B51629 /* courage(800).json in Resources */,
+				17532BDA29A915AE00B51629 /* motivation(189).json in Resources */,
 				1714448029A3D9F400ADBA03 /* IBMPlexSerif-Bold.ttf in Resources */,
 				1714445629A3D81D00ADBA03 /* Preview Assets.xcassets in Resources */,
+				17532BB229A914D200B51629 /* choice(737).json in Resources */,
+				17532BAE29A914B200B51629 /* attitude(732).json in Resources */,
+				17532BDC29A915B600B51629 /* nature(3018).json in Resources */,
+				17532BCA29A9154500B51629 /* gym(160).json in Resources */,
+				17532BCC29A9155100B51629 /* happiness(1354).json in Resources */,
+				17532BDE29A915C000B51629 /* pain.json in Resources */,
 				1714447A29A3D9F400ADBA03 /* IBMPlexSerif-Medium.ttf in Resources */,
+				17532BC229A9152500B51629 /* forgiveness(237).json in Resources */,
 				1714445329A3D81D00ADBA03 /* Assets.xcassets in Resources */,
+				17532BD629A9158F00B51629 /* life(23439).json in Resources */,
+				17532BB829A914F200B51629 /* death(2194).json in Resources */,
+				17532BD829A9159F00B51629 /* love.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +527,7 @@
 				1714448F29A3E3FC00ADBA03 /* NavigationExtension.swift in Sources */,
 				1714449329A3E43200ADBA03 /* UIApplicationExtension.swift in Sources */,
 				170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */,
+				1762C67329A8BA9700577FA0 /* WQuote.swift in Sources */,
 				1714448329A3DD2000ADBA03 /* OnboardingView.swift in Sources */,
 				171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */,
 				170871E529A527100078645B /* CategoryViewModel.swift in Sources */,
@@ -393,6 +539,7 @@
 				1714448529A3DD4600ADBA03 /* FontsExtension.swift in Sources */,
 				1714448D29A3E3AC00ADBA03 /* appInfo.swift in Sources */,
 				171444A429A3E49300ADBA03 /* HalfASheet.swift in Sources */,
+				1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */,
 				170871D829A4C67C0078645B /* HapticManager.swift in Sources */,
 				170871DD29A4F1F60078645B /* DateExtension.swift in Sources */,
 				170871E329A5264D0078645B /* CategoryModel.swift in Sources */,
@@ -406,6 +553,7 @@
 				170871D029A4B3EB0078645B /* NotificationTimeView.swift in Sources */,
 				1714449529A3E44F00ADBA03 /* arraySafeAcces.swift in Sources */,
 				171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */,
+				17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */,
 				1714444F29A3D81B00ADBA03 /* IffirmationsApp.swift in Sources */,
 				1714449129A3E42800ADBA03 /* SwiftuiViewSnapshot.swift in Sources */,
 				1714449929A3E46900ADBA03 /* introspect.swift in Sources */,
