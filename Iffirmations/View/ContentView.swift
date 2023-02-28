@@ -18,6 +18,7 @@ struct ContentView: View {
     @AppStorage("AppState") var state  : OnboardingState = .demo
     @StateObject var userConfigVM : UserConfigurationVM = UserConfigurationVM()
     @StateObject var paymentVM : StoreViewModel = StoreViewModel.shared
+    @ObservedObject var wQuoteVM : WQuoteViewModel
     var body: some View {
         Group{
             switch state {
@@ -27,7 +28,7 @@ struct ContentView: View {
                 NotificationTimeView(userConfigVM: userConfigVM)
                 
             case .main :
-                Text("Hello")
+                HomeView(wQuoteVM: wQuoteVM)
             }
         }
         .fullScreenCover(isPresented: $paymentVM.showPaymentView, content: {

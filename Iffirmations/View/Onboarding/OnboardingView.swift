@@ -190,13 +190,14 @@ struct DemoInfo: View {
     @Binding var demoState : DemoState
     var body: some View {
         VStack(spacing: 32){
-            Text("\(demoState.rawValue + 1) of \(DemoState.allCases.count)")
+        Text("\(demoState.rawValue + 1) of \(DemoState.allCases.count)")
                 .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                 .frame(height: 24)
         VStack(spacing: 0){
         Text(title)
         .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
-        .fixedSize(horizontal: false, vertical: true)
+        .animation(nil)
+         .fixedSize(horizontal: false, vertical: true)
         .lineLimit(3)
         .multilineTextAlignment(.center)
         Spacer(minLength: 0)
@@ -205,6 +206,7 @@ struct DemoInfo: View {
        
         
         }
+        .frame(width: UIScreen.main.bounds.width - 32)
         .padding(.horizontal, 16)
 }
 }

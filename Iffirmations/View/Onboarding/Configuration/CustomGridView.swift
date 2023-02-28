@@ -61,7 +61,7 @@ struct CustomGridView: View {
             return  rowIndex * (n - 1) + columnIndex +  (rowIndex - (rowIndex  / 2))
     }
     func categoryCard(_ card : CategoryModel) ->  some View {
-        Text("\(card.title)")
+        Text("\(card.title.rawValue)")
             .customFont(font: .IBMPlexSerifRegular, size: 16, color: card.isSelected ?  ._FFFFFF : ._000000)
             .background(
                 Group{

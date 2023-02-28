@@ -10,23 +10,37 @@ import SwiftUI
 class WQuoteViewModel: ObservableObject{
     @Published var quotes : [WQuote] = []
 
-    func jsonParser(_  category : QuoteCategory){
-        if let path = Bundle.main.path(forResource: "\(category.rawValue)", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let decoder = JSONDecoder()
-                let quotes = try decoder.decode([WQuote].self, from: data)
-                print(quotes)
-                DispatchQueue.main.async {[weak self] in
-                    withAnimation {
-                        self?.quotes = quotes
-                    }
-                }
-            } catch {
-                print("Error decoding JSON: \(error)")
+    init() {
+        DispatchQueue.global().async {[weak self] in
+            let info = ProcessInfo.processInfo
+            let begin = info.systemUptime
+            autoreleasepool {
+                self?.protoBufParser()
             }
-        } else {
-            print("File not found.")
+            let diff = (info.systemUptime - begin)
+            print("diff \(diff)s")
         }
     }
+    
+    
+    private  func protoBufParser(){
+        if let path = Bundle.main.path(forResource: "file", ofType: "protobuf"){
+            do {
+                let protobufData = try Data(contentsOf: URL(fileURLWithPath: path))
+
+                let wquotes: WQuotes
+                wquotes = try WQuotes(serializedData: protobufData)
+                DispatchQueue.main.async {[weak self] in
+                    withAnimation {
+                        self?.quotes = wquotes.quotes
+//                        print("quotes \(self?.quotes.count)")
+                    }
+                }
+                
+            } catch {
+                print("error \(error)")
+            }
+        }
+    }
+
 }

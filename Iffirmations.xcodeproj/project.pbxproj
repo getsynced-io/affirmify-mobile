@@ -44,38 +44,109 @@
 		171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */; };
 		171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A729A3E59E00ADBA03 /* EnumExtension.swift */; };
 		171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */; };
+		17228F9229ACF15900415DBF /* file.protobuf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9029ACF15900415DBF /* file.protobuf */; };
+		17228F9329ACF15900415DBF /* WQuote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17228F9129ACF15900415DBF /* WQuote.pb.swift */; };
+		17228F9629ACF1BA00415DBF /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 17228F9529ACF1BA00415DBF /* SwiftProtobuf */; };
+		17228F9B29AD04AC00415DBF /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17228F9A29AD04AC00415DBF /* ThemeModel.swift */; };
+		17228FFB29AD074500415DBF /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9D29AD074500415DBF /* WorkSans-Regular.ttf */; };
+		17228FFC29AD074500415DBF /* McLaren-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9E29AD074500415DBF /* McLaren-Regular.ttf */; };
+		17228FFD29AD074500415DBF /* Lexend-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9F29AD074500415DBF /* Lexend-Regular.ttf */; };
+		17228FFE29AD074500415DBF /* Felipa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA029AD074500415DBF /* Felipa-Regular.ttf */; };
+		17228FFF29AD074500415DBF /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA129AD074500415DBF /* Merriweather-Bold.ttf */; };
+		1722900029AD074500415DBF /* Glegoo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA229AD074500415DBF /* Glegoo-Bold.ttf */; };
+		1722900129AD074500415DBF /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA329AD074500415DBF /* Exo-Regular.ttf */; };
+		1722900229AD074500415DBF /* Inika-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA429AD074500415DBF /* Inika-Bold.ttf */; };
+		1722900329AD074500415DBF /* Gluten-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA529AD074500415DBF /* Gluten-Regular.ttf */; };
+		1722900429AD074500415DBF /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA629AD074500415DBF /* IndieFlower-Regular.ttf */; };
+		1722900529AD074500415DBF /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA729AD074500415DBF /* DMSans-Bold.ttf */; };
+		1722900629AD074500415DBF /* BalsamiqSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA829AD074500415DBF /* BalsamiqSans-Bold.ttf */; };
+		1722900729AD074500415DBF /* IrishGrover-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA929AD074500415DBF /* IrishGrover-Regular.ttf */; };
+		1722900829AD074500415DBF /* Chivo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAA29AD074500415DBF /* Chivo-Bold.ttf */; };
+		1722900929AD074500415DBF /* NanumMyeongjo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAB29AD074500415DBF /* NanumMyeongjo-Regular.ttf */; };
+		1722900A29AD074500415DBF /* Gaegu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAC29AD074500415DBF /* Gaegu-Regular.ttf */; };
+		1722900B29AD074500415DBF /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAD29AD074500415DBF /* DotGothic16-Regular.ttf */; };
+		1722900C29AD074500415DBF /* Koulen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAE29AD074500415DBF /* Koulen-Regular.ttf */; };
+		1722900D29AD074500415DBF /* GeostarFill-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAF29AD074500415DBF /* GeostarFill-Regular.ttf */; };
+		1722900E29AD074500415DBF /* Marcellus-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB029AD074500415DBF /* Marcellus-Regular.ttf */; };
+		1722900F29AD074500415DBF /* Geo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB129AD074500415DBF /* Geo-Regular.ttf */; };
+		1722901029AD074500415DBF /* ZenDots-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB229AD074500415DBF /* ZenDots-Regular.ttf */; };
+		1722901129AD074500415DBF /* Margarine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB329AD074500415DBF /* Margarine-Regular.ttf */; };
+		1722901229AD074500415DBF /* Fruktur-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB429AD074500415DBF /* Fruktur-Regular.ttf */; };
+		1722901329AD074500415DBF /* Syne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB529AD074500415DBF /* Syne-Regular.ttf */; };
+		1722901429AD074500415DBF /* FjallaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB629AD074500415DBF /* FjallaOne-Regular.ttf */; };
+		1722901529AD074500415DBF /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB729AD074500415DBF /* PlayfairDisplay-Bold.ttf */; };
+		1722901629AD074500415DBF /* Bungee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB829AD074500415DBF /* Bungee-Regular.ttf */; };
+		1722901729AD074500415DBF /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB929AD074500415DBF /* Lora-Bold.ttf */; };
+		1722901829AD074500415DBF /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBA29AD074500415DBF /* Spectral-Regular.ttf */; };
+		1722901929AD074500415DBF /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBB29AD074500415DBF /* Sora-Bold.ttf */; };
+		1722901A29AD074500415DBF /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBC29AD074500415DBF /* AbrilFatface-Regular.ttf */; };
+		1722901B29AD074500415DBF /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBD29AD074500415DBF /* SpaceGrotesk-Regular.ttf */; };
+		1722901C29AD074500415DBF /* Jaldi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBE29AD074500415DBF /* Jaldi-Regular.ttf */; };
+		1722901D29AD074500415DBF /* LaBelleAurore-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBF29AD074500415DBF /* LaBelleAurore-Regular.ttf */; };
+		1722901E29AD074500415DBF /* PaletteMosaic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC029AD074500415DBF /* PaletteMosaic-Regular.ttf */; };
+		1722901F29AD074500415DBF /* BowlbyOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC129AD074500415DBF /* BowlbyOne-Regular.ttf */; };
+		1722902029AD074500415DBF /* SyneMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC229AD074500415DBF /* SyneMono-Regular.ttf */; };
+		1722902129AD074500415DBF /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC329AD074500415DBF /* Anton-Regular.ttf */; };
+		1722902229AD074500415DBF /* IMFellFrenchCanon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC429AD074500415DBF /* IMFellFrenchCanon-Regular.ttf */; };
+		1722902329AD074500415DBF /* OvertheRainbow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC529AD074500415DBF /* OvertheRainbow-Regular.ttf */; };
+		1722902429AD074500415DBF /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC629AD074500415DBF /* Knewave-Regular.ttf */; };
+		1722902529AD074500415DBF /* InknutAntiqua-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC729AD074500415DBF /* InknutAntiqua-Regular.ttf */; };
+		1722902629AD074500415DBF /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC829AD074500415DBF /* Montserrat-Bold.ttf */; };
+		1722902729AD074500415DBF /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC929AD074500415DBF /* IBMPlexMono-Regular.ttf */; };
+		1722902829AD074500415DBF /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCA29AD074500415DBF /* AlfaSlabOne-Regular.ttf */; };
+		1722902929AD074500415DBF /* Creepster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCB29AD074500415DBF /* Creepster-Regular.ttf */; };
+		1722902A29AD074500415DBF /* Kavivanar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCC29AD074500415DBF /* Kavivanar-Regular.ttf */; };
+		1722902B29AD074500415DBF /* Bonbon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCD29AD074500415DBF /* Bonbon-Regular.ttf */; };
+		1722902C29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCE29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf */; };
+		1722902D29AD074500415DBF /* GiveYouGlory-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCF29AD074500415DBF /* GiveYouGlory-Regular.ttf */; };
+		1722902E29AD074500415DBF /* Bangers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD029AD074500415DBF /* Bangers-Regular.ttf */; };
+		1722902F29AD074500415DBF /* FjordOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD129AD074500415DBF /* FjordOne-Regular.ttf */; };
+		1722903029AD074500415DBF /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD229AD074500415DBF /* PermanentMarker-Regular.ttf */; };
+		1722903129AD074500415DBF /* Astloch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD329AD074500415DBF /* Astloch-Bold.ttf */; };
+		1722903229AD074500415DBF /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD429AD074500415DBF /* DMSerifDisplay-Regular.ttf */; };
+		1722903329AD074500415DBF /* CabinSketch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD529AD074500415DBF /* CabinSketch-Regular.ttf */; };
+		1722903429AD074500415DBF /* KiteOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD629AD074500415DBF /* KiteOne-Regular.ttf */; };
+		1722903529AD074500415DBF /* Monofett-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD729AD074500415DBF /* Monofett-Regular.ttf */; };
+		1722903629AD074500415DBF /* ArchivoNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD829AD074500415DBF /* ArchivoNarrow-Bold.ttf */; };
+		1722903729AD074500415DBF /* Taviraj-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD929AD074500415DBF /* Taviraj-Regular.ttf */; };
+		1722903829AD074500415DBF /* Barrio-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDA29AD074500415DBF /* Barrio-Regular.ttf */; };
+		1722903929AD074500415DBF /* NothingYouCouldDo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDB29AD074500415DBF /* NothingYouCouldDo-Regular.ttf */; };
+		1722903A29AD074500415DBF /* SpecialElite-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDC29AD074500415DBF /* SpecialElite-Regular.ttf */; };
+		1722903B29AD074500415DBF /* Cormorant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDD29AD074500415DBF /* Cormorant-Bold.ttf */; };
+		1722903C29AD074500415DBF /* Khand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDE29AD074500415DBF /* Khand-Bold.ttf */; };
+		1722903D29AD074500415DBF /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDF29AD074500415DBF /* RobotoCondensed-Regular.ttf */; };
+		1722903E29AD074500415DBF /* FrederickatheGreat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE029AD074500415DBF /* FrederickatheGreat-Regular.ttf */; };
+		1722903F29AD074500415DBF /* Glegoo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE129AD074500415DBF /* Glegoo-Regular.ttf */; };
+		1722904029AD074500415DBF /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE229AD074500415DBF /* Poppins-Regular.ttf */; };
+		1722904129AD074500415DBF /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE329AD074500415DBF /* FingerPaint-Regular.ttf */; };
+		1722904229AD074500415DBF /* Barriecito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE429AD074500415DBF /* Barriecito-Regular.ttf */; };
+		1722904329AD074500415DBF /* JuliusSansOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE529AD074500415DBF /* JuliusSansOne-Regular.ttf */; };
+		1722904429AD074500415DBF /* Judson-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE629AD074500415DBF /* Judson-Regular.ttf */; };
+		1722904529AD074500415DBF /* LoveYaLikeASister-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE729AD074500415DBF /* LoveYaLikeASister-Regular.ttf */; };
+		1722904629AD074500415DBF /* BethEllen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE829AD074500415DBF /* BethEllen-Regular.ttf */; };
+		1722904729AD074500415DBF /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE929AD074500415DBF /* Lekton-Bold.ttf */; };
+		1722904829AD074500415DBF /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEA29AD074500415DBF /* Abel-Regular.ttf */; };
+		1722904929AD074500415DBF /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEB29AD074500415DBF /* Rubik-Regular.ttf */; };
+		1722904A29AD074500415DBF /* HomemadeApple-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEC29AD074500415DBF /* HomemadeApple-Regular.ttf */; };
+		1722904B29AD074500415DBF /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FED29AD074500415DBF /* Karla-Regular.ttf */; };
+		1722904C29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEE29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf */; };
+		1722904D29AD074500415DBF /* Miniver-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEF29AD074500415DBF /* Miniver-Regular.ttf */; };
+		1722904E29AD074500415DBF /* FontdinerSwanky-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF029AD074500415DBF /* FontdinerSwanky-Regular.ttf */; };
+		1722904F29AD074500415DBF /* Inconsolata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF129AD074500415DBF /* Inconsolata-Regular.ttf */; };
+		1722905029AD074500415DBF /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF229AD074500415DBF /* Manrope-Bold.ttf */; };
+		1722905129AD074500415DBF /* Farro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF329AD074500415DBF /* Farro-Regular.ttf */; };
+		1722905229AD074500415DBF /* BioRhyme-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF429AD074500415DBF /* BioRhyme-Regular.ttf */; };
+		1722905329AD074500415DBF /* PasseroOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF529AD074500415DBF /* PasseroOne-Regular.ttf */; };
+		1722905429AD074500415DBF /* HanaleiFill-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF629AD074500415DBF /* HanaleiFill-Regular.ttf */; };
+		1722905529AD074500415DBF /* Epilogue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF729AD074500415DBF /* Epilogue-Bold.ttf */; };
+		1722905629AD074500415DBF /* Meddon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF829AD074500415DBF /* Meddon.ttf */; };
+		1722905729AD074500415DBF /* Eczar-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF929AD074500415DBF /* Eczar-Bold.ttf */; };
+		1722905829AD074500415DBF /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */; };
+		1722905A29AD08BB00415DBF /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722905929AD08BB00415DBF /* ThemeViewModel.swift */; };
+		174AADC629AA3AC80008C287 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC529AA3AC80008C287 /* HomeView.swift */; };
+		174AADC829AA3D630008C287 /* GenralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC729AA3D630008C287 /* GenralView.swift */; };
 		1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753040B29A8F6B800B51629 /* WQuoteVM.swift */; };
 		17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17532BA729A9135100B51629 /* LazyPaginable.swift */; };
-		17532C0329A9176300B51629 /* forgiveness.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE529A9176300B51629 /* forgiveness.json */; };
-		17532C0429A9176300B51629 /* freedom.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE629A9176300B51629 /* freedom.json */; };
-		17532C0529A9176300B51629 /* friendship.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE729A9176300B51629 /* friendship.json */; };
-		17532C0629A9176300B51629 /* kindness.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE829A9176300B51629 /* kindness.json */; };
-		17532C0729A9176300B51629 /* choice.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BE929A9176300B51629 /* choice.json */; };
-		17532C0829A9176300B51629 /* life.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BEA29A9176300B51629 /* life.json */; };
-		17532C0929A9176300B51629 /* gym.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BEB29A9176300B51629 /* gym.json */; };
-		17532C0A29A9176300B51629 /* failure.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BEC29A9176300B51629 /* failure.json */; };
-		17532C0B29A9176300B51629 /* anxiety.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BED29A9176300B51629 /* anxiety.json */; };
-		17532C0C29A9176300B51629 /* future.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BEE29A9176300B51629 /* future.json */; };
-		17532C0D29A9176300B51629 /* dream.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BEF29A9176300B51629 /* dream.json */; };
-		17532C0E29A9176300B51629 /* confidence.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF029A9176300B51629 /* confidence.json */; };
-		17532C0F29A9176300B51629 /* health.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF129A9176300B51629 /* health.json */; };
-		17532C1029A9176300B51629 /* leadership.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF229A9176300B51629 /* leadership.json */; };
-		17532C1129A9176300B51629 /* excellence.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF329A9176300B51629 /* excellence.json */; };
-		17532C1229A9176300B51629 /* alone.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF429A9176300B51629 /* alone.json */; };
-		17532C1329A9176300B51629 /* pain.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF529A9176300B51629 /* pain.json */; };
-		17532C1429A9176300B51629 /* past.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF629A9176300B51629 /* past.json */; };
-		17532C1529A9176300B51629 /* happiness.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF729A9176300B51629 /* happiness.json */; };
-		17532C1629A9176300B51629 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF829A9176300B51629 /* love.json */; };
-		17532C1729A9176300B51629 /* fear.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BF929A9176300B51629 /* fear.json */; };
-		17532C1829A9176300B51629 /* inspiration.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFA29A9176300B51629 /* inspiration.json */; };
-		17532C1929A9176300B51629 /* change.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFB29A9176300B51629 /* change.json */; };
-		17532C1A29A9176300B51629 /* death.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFC29A9176300B51629 /* death.json */; };
-		17532C1B29A9176300B51629 /* attitude.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFD29A9176300B51629 /* attitude.json */; };
-		17532C1C29A9176300B51629 /* motivation.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFE29A9176300B51629 /* motivation.json */; };
-		17532C1D29A9176300B51629 /* nature.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532BFF29A9176300B51629 /* nature.json */; };
-		17532C1E29A9176300B51629 /* positive.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532C0029A9176300B51629 /* positive.json */; };
-		17532C1F29A9176300B51629 /* courage.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532C0129A9176300B51629 /* courage.json */; };
-		17532C2029A9176300B51629 /* reading.json in Resources */ = {isa = PBXBuildFile; fileRef = 17532C0229A9176300B51629 /* reading.json */; };
 		1762C67329A8BA9700577FA0 /* WQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762C67229A8BA9700577FA0 /* WQuote.swift */; };
 		179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D945929A768BA00AB6F10 /* StoreKit.framework */; };
 		179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D945C29A769D800AB6F10 /* StoreViewModel.swift */; };
@@ -126,38 +197,108 @@
 		171444A229A3E49300ADBA03 /* VerticalSlideTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideTransition.swift; sourceTree = "<group>"; };
 		171444A729A3E59E00ADBA03 /* EnumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExtension.swift; sourceTree = "<group>"; };
 		171444A929A3EA8500ADBA03 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		17228F9029ACF15900415DBF /* file.protobuf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.protobuf; sourceTree = "<group>"; };
+		17228F9129ACF15900415DBF /* WQuote.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WQuote.pb.swift; sourceTree = "<group>"; };
+		17228F9A29AD04AC00415DBF /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		17228F9D29AD074500415DBF /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		17228F9E29AD074500415DBF /* McLaren-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "McLaren-Regular.ttf"; sourceTree = "<group>"; };
+		17228F9F29AD074500415DBF /* Lexend-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Regular.ttf"; sourceTree = "<group>"; };
+		17228FA029AD074500415DBF /* Felipa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Felipa-Regular.ttf"; sourceTree = "<group>"; };
+		17228FA129AD074500415DBF /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		17228FA229AD074500415DBF /* Glegoo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Glegoo-Bold.ttf"; sourceTree = "<group>"; };
+		17228FA329AD074500415DBF /* Exo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Regular.ttf"; sourceTree = "<group>"; };
+		17228FA429AD074500415DBF /* Inika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inika-Bold.ttf"; sourceTree = "<group>"; };
+		17228FA529AD074500415DBF /* Gluten-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gluten-Regular.ttf"; sourceTree = "<group>"; };
+		17228FA629AD074500415DBF /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IndieFlower-Regular.ttf"; sourceTree = "<group>"; };
+		17228FA729AD074500415DBF /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		17228FA829AD074500415DBF /* BalsamiqSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalsamiqSans-Bold.ttf"; sourceTree = "<group>"; };
+		17228FA929AD074500415DBF /* IrishGrover-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IrishGrover-Regular.ttf"; sourceTree = "<group>"; };
+		17228FAA29AD074500415DBF /* Chivo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-Bold.ttf"; sourceTree = "<group>"; };
+		17228FAB29AD074500415DBF /* NanumMyeongjo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumMyeongjo-Regular.ttf"; sourceTree = "<group>"; };
+		17228FAC29AD074500415DBF /* Gaegu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Regular.ttf"; sourceTree = "<group>"; };
+		17228FAD29AD074500415DBF /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
+		17228FAE29AD074500415DBF /* Koulen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Koulen-Regular.ttf"; sourceTree = "<group>"; };
+		17228FAF29AD074500415DBF /* GeostarFill-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeostarFill-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB029AD074500415DBF /* Marcellus-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marcellus-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB129AD074500415DBF /* Geo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geo-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB229AD074500415DBF /* ZenDots-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZenDots-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB329AD074500415DBF /* Margarine-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Margarine-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB429AD074500415DBF /* Fruktur-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fruktur-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB529AD074500415DBF /* Syne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Syne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB629AD074500415DBF /* FjallaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FjallaOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB729AD074500415DBF /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		17228FB829AD074500415DBF /* Bungee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bungee-Regular.ttf"; sourceTree = "<group>"; };
+		17228FB929AD074500415DBF /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
+		17228FBA29AD074500415DBF /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		17228FBB29AD074500415DBF /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
+		17228FBC29AD074500415DBF /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbrilFatface-Regular.ttf"; sourceTree = "<group>"; };
+		17228FBD29AD074500415DBF /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		17228FBE29AD074500415DBF /* Jaldi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jaldi-Regular.ttf"; sourceTree = "<group>"; };
+		17228FBF29AD074500415DBF /* LaBelleAurore-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LaBelleAurore-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC029AD074500415DBF /* PaletteMosaic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PaletteMosaic-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC129AD074500415DBF /* BowlbyOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BowlbyOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC229AD074500415DBF /* SyneMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SyneMono-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC329AD074500415DBF /* Anton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anton-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC429AD074500415DBF /* IMFellFrenchCanon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IMFellFrenchCanon-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC529AD074500415DBF /* OvertheRainbow-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OvertheRainbow-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC629AD074500415DBF /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knewave-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC729AD074500415DBF /* InknutAntiqua-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InknutAntiqua-Regular.ttf"; sourceTree = "<group>"; };
+		17228FC829AD074500415DBF /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		17228FC929AD074500415DBF /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCA29AD074500415DBF /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCB29AD074500415DBF /* Creepster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Creepster-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCC29AD074500415DBF /* Kavivanar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kavivanar-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCD29AD074500415DBF /* Bonbon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bonbon-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCE29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IMFellFrenchCanonSC-Regular.ttf"; sourceTree = "<group>"; };
+		17228FCF29AD074500415DBF /* GiveYouGlory-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GiveYouGlory-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD029AD074500415DBF /* Bangers-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bangers-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD129AD074500415DBF /* FjordOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FjordOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD229AD074500415DBF /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD329AD074500415DBF /* Astloch-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Astloch-Bold.ttf"; sourceTree = "<group>"; };
+		17228FD429AD074500415DBF /* DMSerifDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD529AD074500415DBF /* CabinSketch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD629AD074500415DBF /* KiteOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KiteOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD729AD074500415DBF /* Monofett-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monofett-Regular.ttf"; sourceTree = "<group>"; };
+		17228FD829AD074500415DBF /* ArchivoNarrow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoNarrow-Bold.ttf"; sourceTree = "<group>"; };
+		17228FD929AD074500415DBF /* Taviraj-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Taviraj-Regular.ttf"; sourceTree = "<group>"; };
+		17228FDA29AD074500415DBF /* Barrio-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barrio-Regular.ttf"; sourceTree = "<group>"; };
+		17228FDB29AD074500415DBF /* NothingYouCouldDo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NothingYouCouldDo-Regular.ttf"; sourceTree = "<group>"; };
+		17228FDC29AD074500415DBF /* SpecialElite-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpecialElite-Regular.ttf"; sourceTree = "<group>"; };
+		17228FDD29AD074500415DBF /* Cormorant-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cormorant-Bold.ttf"; sourceTree = "<group>"; };
+		17228FDE29AD074500415DBF /* Khand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Khand-Bold.ttf"; sourceTree = "<group>"; };
+		17228FDF29AD074500415DBF /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE029AD074500415DBF /* FrederickatheGreat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrederickatheGreat-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE129AD074500415DBF /* Glegoo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Glegoo-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE229AD074500415DBF /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE329AD074500415DBF /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE429AD074500415DBF /* Barriecito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barriecito-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE529AD074500415DBF /* JuliusSansOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JuliusSansOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE629AD074500415DBF /* Judson-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Judson-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE729AD074500415DBF /* LoveYaLikeASister-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LoveYaLikeASister-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE829AD074500415DBF /* BethEllen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BethEllen-Regular.ttf"; sourceTree = "<group>"; };
+		17228FE929AD074500415DBF /* Lekton-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Bold.ttf"; sourceTree = "<group>"; };
+		17228FEA29AD074500415DBF /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
+		17228FEB29AD074500415DBF /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		17228FEC29AD074500415DBF /* HomemadeApple-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HomemadeApple-Regular.ttf"; sourceTree = "<group>"; };
+		17228FED29AD074500415DBF /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		17228FEE29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IMFellDoublePicaSC-Regular.ttf"; sourceTree = "<group>"; };
+		17228FEF29AD074500415DBF /* Miniver-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Miniver-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF029AD074500415DBF /* FontdinerSwanky-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontdinerSwanky-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF129AD074500415DBF /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF229AD074500415DBF /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		17228FF329AD074500415DBF /* Farro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Farro-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF429AD074500415DBF /* BioRhyme-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BioRhyme-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF529AD074500415DBF /* PasseroOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PasseroOne-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF629AD074500415DBF /* HanaleiFill-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HanaleiFill-Regular.ttf"; sourceTree = "<group>"; };
+		17228FF729AD074500415DBF /* Epilogue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Epilogue-Bold.ttf"; sourceTree = "<group>"; };
+		17228FF829AD074500415DBF /* Meddon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meddon.ttf; sourceTree = "<group>"; };
+		17228FF929AD074500415DBF /* Eczar-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eczar-Bold.ttf"; sourceTree = "<group>"; };
+		17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		1722905929AD08BB00415DBF /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		174AADC529AA3AC80008C287 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		174AADC729AA3D630008C287 /* GenralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralView.swift; sourceTree = "<group>"; };
 		1753040B29A8F6B800B51629 /* WQuoteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuoteVM.swift; sourceTree = "<group>"; };
 		17532BA729A9135100B51629 /* LazyPaginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPaginable.swift; sourceTree = "<group>"; };
-		17532BE529A9176300B51629 /* forgiveness.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forgiveness.json; sourceTree = "<group>"; };
-		17532BE629A9176300B51629 /* freedom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = freedom.json; sourceTree = "<group>"; };
-		17532BE729A9176300B51629 /* friendship.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friendship.json; sourceTree = "<group>"; };
-		17532BE829A9176300B51629 /* kindness.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kindness.json; sourceTree = "<group>"; };
-		17532BE929A9176300B51629 /* choice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = choice.json; sourceTree = "<group>"; };
-		17532BEA29A9176300B51629 /* life.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = life.json; sourceTree = "<group>"; };
-		17532BEB29A9176300B51629 /* gym.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gym.json; sourceTree = "<group>"; };
-		17532BEC29A9176300B51629 /* failure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = failure.json; sourceTree = "<group>"; };
-		17532BED29A9176300B51629 /* anxiety.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anxiety.json; sourceTree = "<group>"; };
-		17532BEE29A9176300B51629 /* future.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = future.json; sourceTree = "<group>"; };
-		17532BEF29A9176300B51629 /* dream.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dream.json; sourceTree = "<group>"; };
-		17532BF029A9176300B51629 /* confidence.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confidence.json; sourceTree = "<group>"; };
-		17532BF129A9176300B51629 /* health.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = health.json; sourceTree = "<group>"; };
-		17532BF229A9176300B51629 /* leadership.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = leadership.json; sourceTree = "<group>"; };
-		17532BF329A9176300B51629 /* excellence.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = excellence.json; sourceTree = "<group>"; };
-		17532BF429A9176300B51629 /* alone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alone.json; sourceTree = "<group>"; };
-		17532BF529A9176300B51629 /* pain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pain.json; sourceTree = "<group>"; };
-		17532BF629A9176300B51629 /* past.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = past.json; sourceTree = "<group>"; };
-		17532BF729A9176300B51629 /* happiness.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = happiness.json; sourceTree = "<group>"; };
-		17532BF829A9176300B51629 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
-		17532BF929A9176300B51629 /* fear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fear.json; sourceTree = "<group>"; };
-		17532BFA29A9176300B51629 /* inspiration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = inspiration.json; sourceTree = "<group>"; };
-		17532BFB29A9176300B51629 /* change.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = change.json; sourceTree = "<group>"; };
-		17532BFC29A9176300B51629 /* death.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = death.json; sourceTree = "<group>"; };
-		17532BFD29A9176300B51629 /* attitude.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = attitude.json; sourceTree = "<group>"; };
-		17532BFE29A9176300B51629 /* motivation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = motivation.json; sourceTree = "<group>"; };
-		17532BFF29A9176300B51629 /* nature.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nature.json; sourceTree = "<group>"; };
-		17532C0029A9176300B51629 /* positive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = positive.json; sourceTree = "<group>"; };
-		17532C0129A9176300B51629 /* courage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = courage.json; sourceTree = "<group>"; };
-		17532C0229A9176300B51629 /* reading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reading.json; sourceTree = "<group>"; };
 		1762C67229A8BA9700577FA0 /* WQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuote.swift; sourceTree = "<group>"; };
 		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		179D945B29A768D900AB6F10 /* Iffirmations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Iffirmations.entitlements; sourceTree = "<group>"; };
@@ -175,6 +316,7 @@
 			files = (
 				179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */,
 				179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */,
+				17228F9629ACF1BA00415DBF /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				170871D229A4C0040078645B /* UserConfigurationModel.swift */,
+				17228F9A29AD04AC00415DBF /* ThemeModel.swift */,
 				170871E229A5264D0078645B /* CategoryModel.swift */,
 				1762C67229A8BA9700577FA0 /* WQuote.swift */,
 			);
@@ -286,6 +429,7 @@
 				179D945C29A769D800AB6F10 /* StoreViewModel.swift */,
 				170871E429A527100078645B /* CategoryViewModel.swift */,
 				1753040B29A8F6B800B51629 /* WQuoteVM.swift */,
+				1722905929AD08BB00415DBF /* ThemeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -321,6 +465,7 @@
 		1714446129A3D93400ADBA03 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				17228F9C29AD074500415DBF /* ThemeFonts */,
 				1714446229A3D9F400ADBA03 /* IBM_Plex_Serif */,
 			);
 			path = Fonts;
@@ -349,10 +494,113 @@
 			path = HalfSheet;
 			sourceTree = "<group>";
 		};
+		17228F9C29AD074500415DBF /* ThemeFonts */ = {
+			isa = PBXGroup;
+			children = (
+				17228F9D29AD074500415DBF /* WorkSans-Regular.ttf */,
+				17228F9E29AD074500415DBF /* McLaren-Regular.ttf */,
+				17228F9F29AD074500415DBF /* Lexend-Regular.ttf */,
+				17228FA029AD074500415DBF /* Felipa-Regular.ttf */,
+				17228FA129AD074500415DBF /* Merriweather-Bold.ttf */,
+				17228FA229AD074500415DBF /* Glegoo-Bold.ttf */,
+				17228FA329AD074500415DBF /* Exo-Regular.ttf */,
+				17228FA429AD074500415DBF /* Inika-Bold.ttf */,
+				17228FA529AD074500415DBF /* Gluten-Regular.ttf */,
+				17228FA629AD074500415DBF /* IndieFlower-Regular.ttf */,
+				17228FA729AD074500415DBF /* DMSans-Bold.ttf */,
+				17228FA829AD074500415DBF /* BalsamiqSans-Bold.ttf */,
+				17228FA929AD074500415DBF /* IrishGrover-Regular.ttf */,
+				17228FAA29AD074500415DBF /* Chivo-Bold.ttf */,
+				17228FAB29AD074500415DBF /* NanumMyeongjo-Regular.ttf */,
+				17228FAC29AD074500415DBF /* Gaegu-Regular.ttf */,
+				17228FAD29AD074500415DBF /* DotGothic16-Regular.ttf */,
+				17228FAE29AD074500415DBF /* Koulen-Regular.ttf */,
+				17228FAF29AD074500415DBF /* GeostarFill-Regular.ttf */,
+				17228FB029AD074500415DBF /* Marcellus-Regular.ttf */,
+				17228FB129AD074500415DBF /* Geo-Regular.ttf */,
+				17228FB229AD074500415DBF /* ZenDots-Regular.ttf */,
+				17228FB329AD074500415DBF /* Margarine-Regular.ttf */,
+				17228FB429AD074500415DBF /* Fruktur-Regular.ttf */,
+				17228FB529AD074500415DBF /* Syne-Regular.ttf */,
+				17228FB629AD074500415DBF /* FjallaOne-Regular.ttf */,
+				17228FB729AD074500415DBF /* PlayfairDisplay-Bold.ttf */,
+				17228FB829AD074500415DBF /* Bungee-Regular.ttf */,
+				17228FB929AD074500415DBF /* Lora-Bold.ttf */,
+				17228FBA29AD074500415DBF /* Spectral-Regular.ttf */,
+				17228FBB29AD074500415DBF /* Sora-Bold.ttf */,
+				17228FBC29AD074500415DBF /* AbrilFatface-Regular.ttf */,
+				17228FBD29AD074500415DBF /* SpaceGrotesk-Regular.ttf */,
+				17228FBE29AD074500415DBF /* Jaldi-Regular.ttf */,
+				17228FBF29AD074500415DBF /* LaBelleAurore-Regular.ttf */,
+				17228FC029AD074500415DBF /* PaletteMosaic-Regular.ttf */,
+				17228FC129AD074500415DBF /* BowlbyOne-Regular.ttf */,
+				17228FC229AD074500415DBF /* SyneMono-Regular.ttf */,
+				17228FC329AD074500415DBF /* Anton-Regular.ttf */,
+				17228FC429AD074500415DBF /* IMFellFrenchCanon-Regular.ttf */,
+				17228FC529AD074500415DBF /* OvertheRainbow-Regular.ttf */,
+				17228FC629AD074500415DBF /* Knewave-Regular.ttf */,
+				17228FC729AD074500415DBF /* InknutAntiqua-Regular.ttf */,
+				17228FC829AD074500415DBF /* Montserrat-Bold.ttf */,
+				17228FC929AD074500415DBF /* IBMPlexMono-Regular.ttf */,
+				17228FCA29AD074500415DBF /* AlfaSlabOne-Regular.ttf */,
+				17228FCB29AD074500415DBF /* Creepster-Regular.ttf */,
+				17228FCC29AD074500415DBF /* Kavivanar-Regular.ttf */,
+				17228FCD29AD074500415DBF /* Bonbon-Regular.ttf */,
+				17228FCE29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf */,
+				17228FCF29AD074500415DBF /* GiveYouGlory-Regular.ttf */,
+				17228FD029AD074500415DBF /* Bangers-Regular.ttf */,
+				17228FD129AD074500415DBF /* FjordOne-Regular.ttf */,
+				17228FD229AD074500415DBF /* PermanentMarker-Regular.ttf */,
+				17228FD329AD074500415DBF /* Astloch-Bold.ttf */,
+				17228FD429AD074500415DBF /* DMSerifDisplay-Regular.ttf */,
+				17228FD529AD074500415DBF /* CabinSketch-Regular.ttf */,
+				17228FD629AD074500415DBF /* KiteOne-Regular.ttf */,
+				17228FD729AD074500415DBF /* Monofett-Regular.ttf */,
+				17228FD829AD074500415DBF /* ArchivoNarrow-Bold.ttf */,
+				17228FD929AD074500415DBF /* Taviraj-Regular.ttf */,
+				17228FDA29AD074500415DBF /* Barrio-Regular.ttf */,
+				17228FDB29AD074500415DBF /* NothingYouCouldDo-Regular.ttf */,
+				17228FDC29AD074500415DBF /* SpecialElite-Regular.ttf */,
+				17228FDD29AD074500415DBF /* Cormorant-Bold.ttf */,
+				17228FDE29AD074500415DBF /* Khand-Bold.ttf */,
+				17228FDF29AD074500415DBF /* RobotoCondensed-Regular.ttf */,
+				17228FE029AD074500415DBF /* FrederickatheGreat-Regular.ttf */,
+				17228FE129AD074500415DBF /* Glegoo-Regular.ttf */,
+				17228FE229AD074500415DBF /* Poppins-Regular.ttf */,
+				17228FE329AD074500415DBF /* FingerPaint-Regular.ttf */,
+				17228FE429AD074500415DBF /* Barriecito-Regular.ttf */,
+				17228FE529AD074500415DBF /* JuliusSansOne-Regular.ttf */,
+				17228FE629AD074500415DBF /* Judson-Regular.ttf */,
+				17228FE729AD074500415DBF /* LoveYaLikeASister-Regular.ttf */,
+				17228FE829AD074500415DBF /* BethEllen-Regular.ttf */,
+				17228FE929AD074500415DBF /* Lekton-Bold.ttf */,
+				17228FEA29AD074500415DBF /* Abel-Regular.ttf */,
+				17228FEB29AD074500415DBF /* Rubik-Regular.ttf */,
+				17228FEC29AD074500415DBF /* HomemadeApple-Regular.ttf */,
+				17228FED29AD074500415DBF /* Karla-Regular.ttf */,
+				17228FEE29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf */,
+				17228FEF29AD074500415DBF /* Miniver-Regular.ttf */,
+				17228FF029AD074500415DBF /* FontdinerSwanky-Regular.ttf */,
+				17228FF129AD074500415DBF /* Inconsolata-Regular.ttf */,
+				17228FF229AD074500415DBF /* Manrope-Bold.ttf */,
+				17228FF329AD074500415DBF /* Farro-Regular.ttf */,
+				17228FF429AD074500415DBF /* BioRhyme-Regular.ttf */,
+				17228FF529AD074500415DBF /* PasseroOne-Regular.ttf */,
+				17228FF629AD074500415DBF /* HanaleiFill-Regular.ttf */,
+				17228FF729AD074500415DBF /* Epilogue-Bold.ttf */,
+				17228FF829AD074500415DBF /* Meddon.ttf */,
+				17228FF929AD074500415DBF /* Eczar-Bold.ttf */,
+				17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */,
+			);
+			path = ThemeFonts;
+			sourceTree = "<group>";
+		};
 		17532BA629A9128A00B51629 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				17532BA729A9135100B51629 /* LazyPaginable.swift */,
+				174AADC529AA3AC80008C287 /* HomeView.swift */,
+				174AADC729AA3D630008C287 /* GenralView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -360,36 +608,8 @@
 		1762C66F29A8B92500577FA0 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				17532BF429A9176300B51629 /* alone.json */,
-				17532BED29A9176300B51629 /* anxiety.json */,
-				17532BFD29A9176300B51629 /* attitude.json */,
-				17532BFB29A9176300B51629 /* change.json */,
-				17532BE929A9176300B51629 /* choice.json */,
-				17532BF029A9176300B51629 /* confidence.json */,
-				17532C0129A9176300B51629 /* courage.json */,
-				17532BFC29A9176300B51629 /* death.json */,
-				17532BEF29A9176300B51629 /* dream.json */,
-				17532BF329A9176300B51629 /* excellence.json */,
-				17532BEC29A9176300B51629 /* failure.json */,
-				17532BF929A9176300B51629 /* fear.json */,
-				17532BE529A9176300B51629 /* forgiveness.json */,
-				17532BE629A9176300B51629 /* freedom.json */,
-				17532BE729A9176300B51629 /* friendship.json */,
-				17532BEE29A9176300B51629 /* future.json */,
-				17532BEB29A9176300B51629 /* gym.json */,
-				17532BF729A9176300B51629 /* happiness.json */,
-				17532BF129A9176300B51629 /* health.json */,
-				17532BFA29A9176300B51629 /* inspiration.json */,
-				17532BE829A9176300B51629 /* kindness.json */,
-				17532BF229A9176300B51629 /* leadership.json */,
-				17532BEA29A9176300B51629 /* life.json */,
-				17532BF829A9176300B51629 /* love.json */,
-				17532BFE29A9176300B51629 /* motivation.json */,
-				17532BFF29A9176300B51629 /* nature.json */,
-				17532BF529A9176300B51629 /* pain.json */,
-				17532BF629A9176300B51629 /* past.json */,
-				17532C0029A9176300B51629 /* positive.json */,
-				17532C0229A9176300B51629 /* reading.json */,
+				17228F9029ACF15900415DBF /* file.protobuf */,
+				17228F9129ACF15900415DBF /* WQuote.pb.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -428,6 +648,7 @@
 			name = Iffirmations;
 			packageProductDependencies = (
 				179D945F29A76A3B00AB6F10 /* RevenueCat */,
+				17228F9529ACF1BA00415DBF /* SwiftProtobuf */,
 			);
 			productName = Iffirmations;
 			productReference = 1714444B29A3D81B00ADBA03 /* Iffirmations.app */;
@@ -459,6 +680,7 @@
 			mainGroup = 1714444229A3D81B00ADBA03;
 			packageReferences = (
 				179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 			);
 			productRefGroup = 1714444C29A3D81B00ADBA03 /* Products */;
 			projectDirPath = "";
@@ -474,44 +696,109 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17532C1329A9176300B51629 /* pain.json in Resources */,
-				17532C0C29A9176300B51629 /* future.json in Resources */,
-				17532C1729A9176300B51629 /* fear.json in Resources */,
-				17532C1229A9176300B51629 /* alone.json in Resources */,
-				17532C0D29A9176300B51629 /* dream.json in Resources */,
-				17532C0329A9176300B51629 /* forgiveness.json in Resources */,
+				1722901529AD074500415DBF /* PlayfairDisplay-Bold.ttf in Resources */,
+				17228FFF29AD074500415DBF /* Merriweather-Bold.ttf in Resources */,
+				1722902329AD074500415DBF /* OvertheRainbow-Regular.ttf in Resources */,
+				1722903729AD074500415DBF /* Taviraj-Regular.ttf in Resources */,
+				1722903F29AD074500415DBF /* Glegoo-Regular.ttf in Resources */,
+				1722901B29AD074500415DBF /* SpaceGrotesk-Regular.ttf in Resources */,
+				1722904429AD074500415DBF /* Judson-Regular.ttf in Resources */,
+				1722902629AD074500415DBF /* Montserrat-Bold.ttf in Resources */,
+				1722903A29AD074500415DBF /* SpecialElite-Regular.ttf in Resources */,
+				1722901D29AD074500415DBF /* LaBelleAurore-Regular.ttf in Resources */,
+				1722901E29AD074500415DBF /* PaletteMosaic-Regular.ttf in Resources */,
+				1722905029AD074500415DBF /* Manrope-Bold.ttf in Resources */,
+				1722904629AD074500415DBF /* BethEllen-Regular.ttf in Resources */,
+				1722901A29AD074500415DBF /* AbrilFatface-Regular.ttf in Resources */,
+				1722903129AD074500415DBF /* Astloch-Bold.ttf in Resources */,
+				1722902029AD074500415DBF /* SyneMono-Regular.ttf in Resources */,
+				1722902B29AD074500415DBF /* Bonbon-Regular.ttf in Resources */,
+				1722900429AD074500415DBF /* IndieFlower-Regular.ttf in Resources */,
+				1722904929AD074500415DBF /* Rubik-Regular.ttf in Resources */,
+				1722902429AD074500415DBF /* Knewave-Regular.ttf in Resources */,
 				1714447329A3D9F400ADBA03 /* IBMPlexSerif-Regular.ttf in Resources */,
-				17532C1129A9176300B51629 /* excellence.json in Resources */,
-				17532C1E29A9176300B51629 /* positive.json in Resources */,
-				17532C0429A9176300B51629 /* freedom.json in Resources */,
-				17532C1929A9176300B51629 /* change.json in Resources */,
-				17532C0529A9176300B51629 /* friendship.json in Resources */,
-				17532C1C29A9176300B51629 /* motivation.json in Resources */,
-				17532C1429A9176300B51629 /* past.json in Resources */,
 				1714447729A3D9F400ADBA03 /* IBMPlexSerif-SemiBold.ttf in Resources */,
+				1722900E29AD074500415DBF /* Marcellus-Regular.ttf in Resources */,
 				1714447B29A3D9F400ADBA03 /* IBMPlexSerif-Light.ttf in Resources */,
-				17532C0729A9176300B51629 /* choice.json in Resources */,
-				17532C0E29A9176300B51629 /* confidence.json in Resources */,
+				1722903B29AD074500415DBF /* Cormorant-Bold.ttf in Resources */,
+				1722904329AD074500415DBF /* JuliusSansOne-Regular.ttf in Resources */,
+				1722901229AD074500415DBF /* Fruktur-Regular.ttf in Resources */,
+				1722905229AD074500415DBF /* BioRhyme-Regular.ttf in Resources */,
+				1722905629AD074500415DBF /* Meddon.ttf in Resources */,
+				1722901129AD074500415DBF /* Margarine-Regular.ttf in Resources */,
+				1722903529AD074500415DBF /* Monofett-Regular.ttf in Resources */,
+				17228FFC29AD074500415DBF /* McLaren-Regular.ttf in Resources */,
+				1722904129AD074500415DBF /* FingerPaint-Regular.ttf in Resources */,
+				1722904E29AD074500415DBF /* FontdinerSwanky-Regular.ttf in Resources */,
+				1722900B29AD074500415DBF /* DotGothic16-Regular.ttf in Resources */,
+				1722904829AD074500415DBF /* Abel-Regular.ttf in Resources */,
+				1722900229AD074500415DBF /* Inika-Bold.ttf in Resources */,
+				1722900F29AD074500415DBF /* Geo-Regular.ttf in Resources */,
+				1722905529AD074500415DBF /* Epilogue-Bold.ttf in Resources */,
+				1722902929AD074500415DBF /* Creepster-Regular.ttf in Resources */,
+				1722902229AD074500415DBF /* IMFellFrenchCanon-Regular.ttf in Resources */,
+				1722903C29AD074500415DBF /* Khand-Bold.ttf in Resources */,
+				1722900629AD074500415DBF /* BalsamiqSans-Bold.ttf in Resources */,
+				17228FFE29AD074500415DBF /* Felipa-Regular.ttf in Resources */,
+				1722902C29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf in Resources */,
+				1722902829AD074500415DBF /* AlfaSlabOne-Regular.ttf in Resources */,
+				1722901329AD074500415DBF /* Syne-Regular.ttf in Resources */,
+				1722900829AD074500415DBF /* Chivo-Bold.ttf in Resources */,
+				1722901629AD074500415DBF /* Bungee-Regular.ttf in Resources */,
+				1722904D29AD074500415DBF /* Miniver-Regular.ttf in Resources */,
+				1722904229AD074500415DBF /* Barriecito-Regular.ttf in Resources */,
+				1722900A29AD074500415DBF /* Gaegu-Regular.ttf in Resources */,
+				1722902729AD074500415DBF /* IBMPlexMono-Regular.ttf in Resources */,
+				1722900129AD074500415DBF /* Exo-Regular.ttf in Resources */,
+				1722905329AD074500415DBF /* PasseroOne-Regular.ttf in Resources */,
+				1722903229AD074500415DBF /* DMSerifDisplay-Regular.ttf in Resources */,
+				1722904F29AD074500415DBF /* Inconsolata-Regular.ttf in Resources */,
+				1722900729AD074500415DBF /* IrishGrover-Regular.ttf in Resources */,
+				1722903329AD074500415DBF /* CabinSketch-Regular.ttf in Resources */,
 				1714447C29A3D9F400ADBA03 /* IBMPlexSerif-Thin.ttf in Resources */,
-				17532C1629A9176300B51629 /* love.json in Resources */,
-				17532C0929A9176300B51629 /* gym.json in Resources */,
-				17532C1529A9176300B51629 /* happiness.json in Resources */,
+				1722903429AD074500415DBF /* KiteOne-Regular.ttf in Resources */,
+				1722903E29AD074500415DBF /* FrederickatheGreat-Regular.ttf in Resources */,
+				1722900C29AD074500415DBF /* Koulen-Regular.ttf in Resources */,
 				1714448029A3D9F400ADBA03 /* IBMPlexSerif-Bold.ttf in Resources */,
-				17532C1829A9176300B51629 /* inspiration.json in Resources */,
-				17532C0B29A9176300B51629 /* anxiety.json in Resources */,
-				17532C0629A9176300B51629 /* kindness.json in Resources */,
-				17532C1A29A9176300B51629 /* death.json in Resources */,
+				1722904C29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf in Resources */,
+				1722902A29AD074500415DBF /* Kavivanar-Regular.ttf in Resources */,
+				1722901C29AD074500415DBF /* Jaldi-Regular.ttf in Resources */,
+				1722905429AD074500415DBF /* HanaleiFill-Regular.ttf in Resources */,
+				1722901029AD074500415DBF /* ZenDots-Regular.ttf in Resources */,
+				1722900529AD074500415DBF /* DMSans-Bold.ttf in Resources */,
 				1714445629A3D81D00ADBA03 /* Preview Assets.xcassets in Resources */,
-				17532C2029A9176300B51629 /* reading.json in Resources */,
-				17532C0F29A9176300B51629 /* health.json in Resources */,
-				17532C0A29A9176300B51629 /* failure.json in Resources */,
-				17532C1D29A9176300B51629 /* nature.json in Resources */,
-				17532C0829A9176300B51629 /* life.json in Resources */,
+				1722902529AD074500415DBF /* InknutAntiqua-Regular.ttf in Resources */,
+				1722902D29AD074500415DBF /* GiveYouGlory-Regular.ttf in Resources */,
+				1722905829AD074500415DBF /* IBMPlexSans-Bold.ttf in Resources */,
+				1722901429AD074500415DBF /* FjallaOne-Regular.ttf in Resources */,
+				1722903029AD074500415DBF /* PermanentMarker-Regular.ttf in Resources */,
+				1722905129AD074500415DBF /* Farro-Regular.ttf in Resources */,
+				1722904A29AD074500415DBF /* HomemadeApple-Regular.ttf in Resources */,
+				1722901929AD074500415DBF /* Sora-Bold.ttf in Resources */,
+				1722903929AD074500415DBF /* NothingYouCouldDo-Regular.ttf in Resources */,
+				17228F9229ACF15900415DBF /* file.protobuf in Resources */,
+				1722904729AD074500415DBF /* Lekton-Bold.ttf in Resources */,
+				1722902F29AD074500415DBF /* FjordOne-Regular.ttf in Resources */,
 				1714447A29A3D9F400ADBA03 /* IBMPlexSerif-Medium.ttf in Resources */,
-				17532C1F29A9176300B51629 /* courage.json in Resources */,
-				17532C1B29A9176300B51629 /* attitude.json in Resources */,
-				17532C1029A9176300B51629 /* leadership.json in Resources */,
+				17228FFD29AD074500415DBF /* Lexend-Regular.ttf in Resources */,
+				1722901829AD074500415DBF /* Spectral-Regular.ttf in Resources */,
+				1722900929AD074500415DBF /* NanumMyeongjo-Regular.ttf in Resources */,
+				1722900329AD074500415DBF /* Gluten-Regular.ttf in Resources */,
 				1714445329A3D81D00ADBA03 /* Assets.xcassets in Resources */,
+				1722904B29AD074500415DBF /* Karla-Regular.ttf in Resources */,
+				1722903D29AD074500415DBF /* RobotoCondensed-Regular.ttf in Resources */,
+				17228FFB29AD074500415DBF /* WorkSans-Regular.ttf in Resources */,
+				1722901729AD074500415DBF /* Lora-Bold.ttf in Resources */,
+				1722903829AD074500415DBF /* Barrio-Regular.ttf in Resources */,
+				1722902129AD074500415DBF /* Anton-Regular.ttf in Resources */,
+				1722903629AD074500415DBF /* ArchivoNarrow-Bold.ttf in Resources */,
+				1722905729AD074500415DBF /* Eczar-Bold.ttf in Resources */,
+				1722904029AD074500415DBF /* Poppins-Regular.ttf in Resources */,
+				1722901F29AD074500415DBF /* BowlbyOne-Regular.ttf in Resources */,
+				1722904529AD074500415DBF /* LoveYaLikeASister-Regular.ttf in Resources */,
+				1722902E29AD074500415DBF /* Bangers-Regular.ttf in Resources */,
+				1722900D29AD074500415DBF /* GeostarFill-Regular.ttf in Resources */,
+				1722900029AD074500415DBF /* Glegoo-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +820,7 @@
 				170871E529A527100078645B /* CategoryViewModel.swift in Sources */,
 				1714445129A3D81B00ADBA03 /* ContentView.swift in Sources */,
 				179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */,
+				174AADC829AA3D630008C287 /* GenralView.swift in Sources */,
 				17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */,
 				1714448B29A3E39E00ADBA03 /* xcode14Sync.swift in Sources */,
 				17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */,
@@ -544,6 +832,7 @@
 				170871DD29A4F1F60078645B /* DateExtension.swift in Sources */,
 				170871E329A5264D0078645B /* CategoryModel.swift in Sources */,
 				179D946529A771BB00AB6F10 /* DecimalExtension.swift in Sources */,
+				17228F9329ACF15900415DBF /* WQuote.pb.swift in Sources */,
 				1714449D29A3E48B00ADBA03 /* If.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
@@ -556,9 +845,12 @@
 				17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */,
 				1714444F29A3D81B00ADBA03 /* IffirmationsApp.swift in Sources */,
 				1714449129A3E42800ADBA03 /* SwiftuiViewSnapshot.swift in Sources */,
+				17228F9B29AD04AC00415DBF /* ThemeModel.swift in Sources */,
 				1714449929A3E46900ADBA03 /* introspect.swift in Sources */,
 				1714449B29A3E47A00ADBA03 /* viewSize.swift in Sources */,
 				170871D329A4C0040078645B /* UserConfigurationModel.swift in Sources */,
+				1722905A29AD08BB00415DBF /* ThemeViewModel.swift in Sources */,
+				174AADC629AA3AC80008C287 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +1057,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -776,6 +1076,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		17228F9529ACF1BA00415DBF /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
 		179D945F29A76A3B00AB6F10 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */;

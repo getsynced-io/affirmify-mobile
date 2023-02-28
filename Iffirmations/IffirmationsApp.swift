@@ -19,7 +19,7 @@ struct IffirmationsApp: App {
     @StateObject var wQuoteVM : WQuoteViewModel =  WQuoteViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(wQuoteVM: wQuoteVM)
                 .onAppear {
                     firstCall()
                 }
