@@ -31,6 +31,7 @@ struct ContentView: View {
                 HomeView(wQuoteVM: wQuoteVM)
             }
         }
+      
         .fullScreenCover(isPresented: $paymentVM.showPaymentView, content: {
             PaymentView(isPresented: $paymentVM.showPaymentView)
                 .onAppear {

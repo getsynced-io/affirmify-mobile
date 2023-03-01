@@ -21,13 +21,18 @@ struct HomeView: View {
             case .General:
                GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM)
             case .Categories:
-                Text("")
+                CategoriesView()
             case .Themes:
-                Text("")
+                ThemesView(themeVM: themeVM)
             }
             
             BottomSelectionView
+                .zIndex(999)
         }
+        .ignoresSafeArea(.keyboard , edges: .bottom)
+        .background(
+            Color._F6F5EC.ignoresSafeArea()
+        )
     }
     
     
@@ -40,8 +45,9 @@ struct HomeView: View {
         }
     }
     func  tabItemView(type : TabState )->  some View {
-        VStack(spacing: 0){
+        VStack(spacing: 8){
             Text("\(type.rawValue)")
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                 .frame(height: 24)
             
             if type == tabState {

@@ -143,6 +143,21 @@
 		1722905729AD074500415DBF /* Eczar-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF929AD074500415DBF /* Eczar-Bold.ttf */; };
 		1722905829AD074500415DBF /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */; };
 		1722905A29AD08BB00415DBF /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722905929AD08BB00415DBF /* ThemeViewModel.swift */; };
+		173DC37629AE10850061C6C0 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173DC37529AE10850061C6C0 /* CategoriesView.swift */; };
+		173DC37829AE16FB0061C6C0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173DC37729AE16FB0061C6C0 /* StringExtension.swift */; };
+		173DC37B29AE2EB00061C6C0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173DC37A29AE2EB00061C6C0 /* CustomTextField.swift */; };
+		173DC37D29AE6D7F0061C6C0 /* ThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173DC37C29AE6D7F0061C6C0 /* ThemesView.swift */; };
+		173DC38929AE8B950061C6C0 /* Gloock-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38829AE89AA0061C6C0 /* Gloock-Regular.ttf */; };
+		173DC38A29AE8BBB0061C6C0 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38229AE87EF0061C6C0 /* Inter-Bold.ttf */; };
+		173DC38B29AE8BBB0061C6C0 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC37F29AE87EF0061C6C0 /* Inter-Medium.ttf */; };
+		173DC38C29AE8BBB0061C6C0 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38629AE87F00061C6C0 /* Inter-Regular.ttf */; };
+		173DC38D29AE8BBB0061C6C0 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38129AE87EF0061C6C0 /* Inter-SemiBold.ttf */; };
+		173DC38E29AE8BBB0061C6C0 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38429AE87EF0061C6C0 /* Inter-Light.ttf */; };
+		173DC38F29AE8BBB0061C6C0 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38729AE87F00061C6C0 /* Inter-Black.ttf */; };
+		173DC39029AE8BBB0061C6C0 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38329AE87EF0061C6C0 /* Inter-Thin.ttf */; };
+		173DC39129AE8BBB0061C6C0 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38029AE87EF0061C6C0 /* Inter-ExtraBold.ttf */; };
+		173DC39229AE8BBB0061C6C0 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38529AE87EF0061C6C0 /* Inter-ExtraLight.ttf */; };
+		173DC39629AE8D5A0061C6C0 /* FjordOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC39529AE8D5A0061C6C0 /* FjordOne.ttf */; };
 		174AADC629AA3AC80008C287 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC529AA3AC80008C287 /* HomeView.swift */; };
 		174AADC829AA3D630008C287 /* GenralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC729AA3D630008C287 /* GenralView.swift */; };
 		1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753040B29A8F6B800B51629 /* WQuoteVM.swift */; };
@@ -295,6 +310,21 @@
 		17228FF929AD074500415DBF /* Eczar-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eczar-Bold.ttf"; sourceTree = "<group>"; };
 		17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
 		1722905929AD08BB00415DBF /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		173DC37529AE10850061C6C0 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		173DC37729AE16FB0061C6C0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		173DC37A29AE2EB00061C6C0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		173DC37C29AE6D7F0061C6C0 /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
+		173DC37F29AE87EF0061C6C0 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		173DC38029AE87EF0061C6C0 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		173DC38129AE87EF0061C6C0 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		173DC38229AE87EF0061C6C0 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		173DC38329AE87EF0061C6C0 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		173DC38429AE87EF0061C6C0 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		173DC38529AE87EF0061C6C0 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		173DC38629AE87F00061C6C0 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		173DC38729AE87F00061C6C0 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		173DC38829AE89AA0061C6C0 /* Gloock-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gloock-Regular.ttf"; sourceTree = "<group>"; };
+		173DC39529AE8D5A0061C6C0 /* FjordOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FjordOne.ttf; path = "../../../../../Downloads/Fjord_One 2/FjordOne.ttf"; sourceTree = "<group>"; };
 		174AADC529AA3AC80008C287 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		174AADC729AA3D630008C287 /* GenralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralView.swift; sourceTree = "<group>"; };
 		1753040B29A8F6B800B51629 /* WQuoteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuoteVM.swift; sourceTree = "<group>"; };
@@ -401,6 +431,7 @@
 		1714445C29A3D90A00ADBA03 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				173DC37929AE2E9E0061C6C0 /* Shared */,
 				17532BA629A9128A00B51629 /* Home */,
 				179D946129A76B7800AB6F10 /* Payment */,
 				170871D129A4B53B0078645B /* Onboarding */,
@@ -450,6 +481,7 @@
 				171444A729A3E59E00ADBA03 /* EnumExtension.swift */,
 				170871DC29A4F1F60078645B /* DateExtension.swift */,
 				179D946429A771BB00AB6F10 /* DecimalExtension.swift */,
+				173DC37729AE16FB0061C6C0 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -465,6 +497,7 @@
 		1714446129A3D93400ADBA03 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				173DC37E29AE87E10061C6C0 /* InterFonts */,
 				17228F9C29AD074500415DBF /* ThemeFonts */,
 				1714446229A3D9F400ADBA03 /* IBM_Plex_Serif */,
 			);
@@ -497,6 +530,8 @@
 		17228F9C29AD074500415DBF /* ThemeFonts */ = {
 			isa = PBXGroup;
 			children = (
+				173DC39529AE8D5A0061C6C0 /* FjordOne.ttf */,
+				173DC38829AE89AA0061C6C0 /* Gloock-Regular.ttf */,
 				17228F9D29AD074500415DBF /* WorkSans-Regular.ttf */,
 				17228F9E29AD074500415DBF /* McLaren-Regular.ttf */,
 				17228F9F29AD074500415DBF /* Lexend-Regular.ttf */,
@@ -595,12 +630,38 @@
 			path = ThemeFonts;
 			sourceTree = "<group>";
 		};
+		173DC37929AE2E9E0061C6C0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				173DC37A29AE2EB00061C6C0 /* CustomTextField.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		173DC37E29AE87E10061C6C0 /* InterFonts */ = {
+			isa = PBXGroup;
+			children = (
+				173DC38729AE87F00061C6C0 /* Inter-Black.ttf */,
+				173DC38229AE87EF0061C6C0 /* Inter-Bold.ttf */,
+				173DC38029AE87EF0061C6C0 /* Inter-ExtraBold.ttf */,
+				173DC38529AE87EF0061C6C0 /* Inter-ExtraLight.ttf */,
+				173DC38429AE87EF0061C6C0 /* Inter-Light.ttf */,
+				173DC37F29AE87EF0061C6C0 /* Inter-Medium.ttf */,
+				173DC38629AE87F00061C6C0 /* Inter-Regular.ttf */,
+				173DC38129AE87EF0061C6C0 /* Inter-SemiBold.ttf */,
+				173DC38329AE87EF0061C6C0 /* Inter-Thin.ttf */,
+			);
+			path = InterFonts;
+			sourceTree = "<group>";
+		};
 		17532BA629A9128A00B51629 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				17532BA729A9135100B51629 /* LazyPaginable.swift */,
 				174AADC529AA3AC80008C287 /* HomeView.swift */,
 				174AADC729AA3D630008C287 /* GenralView.swift */,
+				173DC37529AE10850061C6C0 /* CategoriesView.swift */,
+				173DC37C29AE6D7F0061C6C0 /* ThemesView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -699,6 +760,8 @@
 				1722901529AD074500415DBF /* PlayfairDisplay-Bold.ttf in Resources */,
 				17228FFF29AD074500415DBF /* Merriweather-Bold.ttf in Resources */,
 				1722902329AD074500415DBF /* OvertheRainbow-Regular.ttf in Resources */,
+				173DC39129AE8BBB0061C6C0 /* Inter-ExtraBold.ttf in Resources */,
+				173DC38C29AE8BBB0061C6C0 /* Inter-Regular.ttf in Resources */,
 				1722903729AD074500415DBF /* Taviraj-Regular.ttf in Resources */,
 				1722903F29AD074500415DBF /* Glegoo-Regular.ttf in Resources */,
 				1722901B29AD074500415DBF /* SpaceGrotesk-Regular.ttf in Resources */,
@@ -708,11 +771,15 @@
 				1722901D29AD074500415DBF /* LaBelleAurore-Regular.ttf in Resources */,
 				1722901E29AD074500415DBF /* PaletteMosaic-Regular.ttf in Resources */,
 				1722905029AD074500415DBF /* Manrope-Bold.ttf in Resources */,
+				173DC38929AE8B950061C6C0 /* Gloock-Regular.ttf in Resources */,
 				1722904629AD074500415DBF /* BethEllen-Regular.ttf in Resources */,
 				1722901A29AD074500415DBF /* AbrilFatface-Regular.ttf in Resources */,
 				1722903129AD074500415DBF /* Astloch-Bold.ttf in Resources */,
+				173DC38F29AE8BBB0061C6C0 /* Inter-Black.ttf in Resources */,
 				1722902029AD074500415DBF /* SyneMono-Regular.ttf in Resources */,
 				1722902B29AD074500415DBF /* Bonbon-Regular.ttf in Resources */,
+				173DC38E29AE8BBB0061C6C0 /* Inter-Light.ttf in Resources */,
+				173DC39629AE8D5A0061C6C0 /* FjordOne.ttf in Resources */,
 				1722900429AD074500415DBF /* IndieFlower-Regular.ttf in Resources */,
 				1722904929AD074500415DBF /* Rubik-Regular.ttf in Resources */,
 				1722902429AD074500415DBF /* Knewave-Regular.ttf in Resources */,
@@ -760,7 +827,9 @@
 				1722903E29AD074500415DBF /* FrederickatheGreat-Regular.ttf in Resources */,
 				1722900C29AD074500415DBF /* Koulen-Regular.ttf in Resources */,
 				1714448029A3D9F400ADBA03 /* IBMPlexSerif-Bold.ttf in Resources */,
+				173DC39029AE8BBB0061C6C0 /* Inter-Thin.ttf in Resources */,
 				1722904C29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf in Resources */,
+				173DC38A29AE8BBB0061C6C0 /* Inter-Bold.ttf in Resources */,
 				1722902A29AD074500415DBF /* Kavivanar-Regular.ttf in Resources */,
 				1722901C29AD074500415DBF /* Jaldi-Regular.ttf in Resources */,
 				1722905429AD074500415DBF /* HanaleiFill-Regular.ttf in Resources */,
@@ -777,7 +846,9 @@
 				1722901929AD074500415DBF /* Sora-Bold.ttf in Resources */,
 				1722903929AD074500415DBF /* NothingYouCouldDo-Regular.ttf in Resources */,
 				17228F9229ACF15900415DBF /* file.protobuf in Resources */,
+				173DC38D29AE8BBB0061C6C0 /* Inter-SemiBold.ttf in Resources */,
 				1722904729AD074500415DBF /* Lekton-Bold.ttf in Resources */,
+				173DC39229AE8BBB0061C6C0 /* Inter-ExtraLight.ttf in Resources */,
 				1722902F29AD074500415DBF /* FjordOne-Regular.ttf in Resources */,
 				1714447A29A3D9F400ADBA03 /* IBMPlexSerif-Medium.ttf in Resources */,
 				17228FFD29AD074500415DBF /* Lexend-Regular.ttf in Resources */,
@@ -794,6 +865,7 @@
 				1722903629AD074500415DBF /* ArchivoNarrow-Bold.ttf in Resources */,
 				1722905729AD074500415DBF /* Eczar-Bold.ttf in Resources */,
 				1722904029AD074500415DBF /* Poppins-Regular.ttf in Resources */,
+				173DC38B29AE8BBB0061C6C0 /* Inter-Medium.ttf in Resources */,
 				1722901F29AD074500415DBF /* BowlbyOne-Regular.ttf in Resources */,
 				1722904529AD074500415DBF /* LoveYaLikeASister-Regular.ttf in Resources */,
 				1722902E29AD074500415DBF /* Bangers-Regular.ttf in Resources */,
@@ -829,11 +901,13 @@
 				171444A429A3E49300ADBA03 /* HalfASheet.swift in Sources */,
 				1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */,
 				170871D829A4C67C0078645B /* HapticManager.swift in Sources */,
+				173DC37829AE16FB0061C6C0 /* StringExtension.swift in Sources */,
 				170871DD29A4F1F60078645B /* DateExtension.swift in Sources */,
 				170871E329A5264D0078645B /* CategoryModel.swift in Sources */,
 				179D946529A771BB00AB6F10 /* DecimalExtension.swift in Sources */,
 				17228F9329ACF15900415DBF /* WQuote.pb.swift in Sources */,
 				1714449D29A3E48B00ADBA03 /* If.swift in Sources */,
+				173DC37D29AE6D7F0061C6C0 /* ThemesView.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
 				170871E129A5225B0078645B /* WidgetDemoView.swift in Sources */,
@@ -843,6 +917,7 @@
 				1714449529A3E44F00ADBA03 /* arraySafeAcces.swift in Sources */,
 				171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */,
 				17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */,
+				173DC37629AE10850061C6C0 /* CategoriesView.swift in Sources */,
 				1714444F29A3D81B00ADBA03 /* IffirmationsApp.swift in Sources */,
 				1714449129A3E42800ADBA03 /* SwiftuiViewSnapshot.swift in Sources */,
 				17228F9B29AD04AC00415DBF /* ThemeModel.swift in Sources */,
@@ -851,6 +926,7 @@
 				170871D329A4C0040078645B /* UserConfigurationModel.swift in Sources */,
 				1722905A29AD08BB00415DBF /* ThemeViewModel.swift in Sources */,
 				174AADC629AA3AC80008C287 /* HomeView.swift in Sources */,
+				173DC37B29AE2EB00061C6C0 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

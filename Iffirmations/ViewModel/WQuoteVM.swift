@@ -9,7 +9,8 @@ import SwiftUI
 
 class WQuoteViewModel: ObservableObject{
     @Published var quotes : [WQuote] = []
-
+    @AppStorage("favorite") var favoriteQuotes  : [Int32] = []
+    
     init() {
         DispatchQueue.global().async {[weak self] in
             let info = ProcessInfo.processInfo

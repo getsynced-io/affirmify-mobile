@@ -32,9 +32,11 @@ struct GenralView: View {
                 .padding(.bottom , 32)
             
             paginationView
-        
+            
             
         }
+       
+        
     }
     
     
@@ -51,42 +53,51 @@ struct GenralView: View {
             ButtonImage24(title: "crown") {}
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
-       
+        
     }
     
+    
     var paginationView : some View {
-     
+        
         ScrollView(.horizontal,showsIndicators: false){
             LazyHStack(spacing: 0){
                 ForEach(wQuoteVM.quotes, id : \.placeID) { item in
-                    
-                    ZStack {
-                        Group{
-                            if let image = selectedTheme.backgroundImage {
-                                Image("\(image)")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(16)
+                    ZStack(alignment: .topTrailing){
+                        ZStack{
+                            Group{
+                                if let image = selectedTheme.backgroundImage {
+                                    Image("\(image)")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(16)
+                                }
+                                else if let color =   selectedTheme.backgroundColor{
+                                    color
+                                        .cornerRadius(16)
+                                }
                             }
-                            else if let color =   selectedTheme.backgroundColor{
-                                color
-                                    .cornerRadius(16)
-                            }
+                            .frame(width: UIScreen.main.bounds.width - 32)
+                            
+                            Text(item.text)
+                                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                                .padding(.horizontal, 16)
+                                .multilineTextAlignment(textAlignment)
+                                .opacity(selectedTheme.fontOpacity)
+                                .foregroundColor(selectedTheme.fontColor)
+                            
+                            
                         }
-                        .frame(width: UIScreen.main.bounds.width - 32)
+                        .frame(maxWidth: UIScreen.main.bounds.width - 32)
+                        .padding(.horizontal, 16)
+                        .tag(item.placeID)
                         
-                        Text(item.text)
-                            .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
-                            .padding(.horizontal, 16)
-                            .multilineTextAlignment(textAlignment)
-                            .opacity(selectedTheme.fontOpacity)
-                            .foregroundColor(selectedTheme.fontColor)
-                        
+                        Button {withAnimation {favoriteAction(placeID: item.placeID)}}
+                    label: {Image(wQuoteVM.favoriteQuotes.contains(item.placeID) ?    "heart-filled" : "heart")}
+                            .frame(width: 24,height: 24)
+                            .padding(16)
+                            .padding(.trailing,16)
                         
                     }
-                    .frame(maxWidth: UIScreen.main.bounds.width - 32)
-                    .padding(.horizontal, 16)
-                    .tag(item.placeID)
                     .padding(.bottom,32)
                     
                 }
@@ -95,10 +106,20 @@ struct GenralView: View {
         }
         .introspectScrollView(customize: { view in
             view.isPagingEnabled = true
-            //view.contentSize =  CGSize(width:  Int(UIScreen.main.bounds.width)  * wQuoteVM.quotes.count , height: 500)
-           
         })
- 
-    
+    }
+    func favoriteAction(placeID : Int32){
+        if wQuoteVM.favoriteQuotes.contains(placeID){
+            wQuoteVM.favoriteQuotes.removeAll { id in
+                placeID == id
+                
+            }
+            HapticManager.instance.impact(style: .light)
+        }
+        else {
+            wQuoteVM.favoriteQuotes.append(placeID)
+            HapticManager.instance.impact(style: .light)
+        }
+      
     }
 }
