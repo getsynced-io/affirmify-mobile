@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct CategoryModel : Identifiable,Codable  {
-    var id: UUID = UUID()
+struct CategoryModel : Codable  {
     var title : QuoteCategory
     var isPremium: Bool = false
     var isSelected: Bool = false

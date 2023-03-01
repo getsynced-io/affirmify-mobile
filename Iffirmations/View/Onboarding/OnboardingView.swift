@@ -214,7 +214,7 @@ struct DemoInfo: View {
 
 struct GreenButtonView: View {
     let buttonTitle : String
-    var width : CGFloat  {UIScreen.main.bounds.width - 32}
+    var width : CGFloat  = UIScreen.main.bounds.width - 32 
     let handler : ()->()
     var body: some View {
         Button {

@@ -11,6 +11,8 @@ struct CategoriesView: View {
     let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y", "Z"]
     @StateObject var categoryVM : CategoryViewModel = CategoryViewModel()
     @State var searchText : String = ""
+    @Binding var tabState  : TabState
+    @State var showPaymentView : Bool = false
     let columns = [
           GridItem(.flexible(), spacing: 16),
           GridItem(.flexible(), spacing: 16),
@@ -29,7 +31,7 @@ struct CategoriesView: View {
             headerView
                 .padding(.bottom,32)
             
-            ScrollView(.vertical,showsIndicators: false){
+            ScrollView(.vertical){
 
             searchTextField
                 .padding(.bottom,32)
@@ -48,10 +50,11 @@ struct CategoriesView: View {
                         searchedMenue
                     }
                 }
-                .padding(.bottom,16)
-                
                 
             }
+        }
+        .fullScreenCover(isPresented: $showPaymentView) {
+            PaymentView(isPresented: $showPaymentView)
         }
     }
     
@@ -66,7 +69,7 @@ struct CategoriesView: View {
             }
             
             LazyVGrid(columns: columns, spacing: 0) {
-                ForEach(matchedCategories, id: \.id) { category in
+                ForEach(matchedCategories, id: \.title.rawValue) { category in
                     categoryView(category: category)
                 }
             }
@@ -88,7 +91,7 @@ struct CategoriesView: View {
                     }
                     
                     LazyVGrid(columns: columns, spacing: 0) {
-                        ForEach(getCategories(character), id: \.id) { category in
+                        ForEach(getCategories(character), id: \.title.rawValue) { category in
                             categoryView(category: category)
                         }
                     }
@@ -114,24 +117,28 @@ struct CategoriesView: View {
         Group{
             VStack(alignment: .leading , spacing: 32) {
                 MenueHeaderLabel("Featured")
-                VStack(spacing: 16) {
-                ZStack(alignment: .topTrailing){
-                    Image(featuredCategory.title.rawValue)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width:  UIScreen.main.bounds.width - 32 ,height: columnWidth)
-                        .cornerRadius(16 )
-                    
-                    if featuredCategory.isPremium {
-                        Image("Lock")
-                            .frame(width: 16 ,height: 16)
-                            .padding(8)
+                Button {
+                    categoryAction(category: featuredCategory)
+                } label: {
+                    VStack(spacing: 16) {
+                        ZStack(alignment: .topTrailing){
+                            Image(featuredCategory.title.rawValue)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width:  UIScreen.main.bounds.width - 32 ,height: columnWidth)
+                                .cornerRadius(16 )
+                            
+                            if featuredCategory.isPremium {
+                                Image("Lock")
+                                    .frame(width: 16 ,height: 16)
+                                    .padding(8)
+                            }
+                        }
+                        
+                        Text(featuredCategory.title.rawValue)
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                     }
                 }
-                    Text(featuredCategory.title.rawValue)
-                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
-            }
-
                 
                 
             }
@@ -151,19 +158,19 @@ struct CategoriesView: View {
             CustomTextField(placeHolder: "Search...", font: UIFont(name: "IBMPlexSerif-Regular", size: 16)!, text: $searchText)
                 .frame(width: UIScreen.main.bounds.width - 32,height:  48)
                 .background(Capsule().frame(height: 48).foregroundColor(Color._EDEBDA))
-             
-            
-            Button {
-                withAnimation {
-                    searchText = ""
-                }
-            } label: {
+            if !searchText.isEmpty {
                 
-                Image("circle-x")
-                    .frame(width: 24,height: 24)
-                    .padding(12)
+                Button {
+                    withAnimation {
+                        searchText = ""
+                    }
+                } label: {
+                    
+                    Image("circle-x")
+                        .frame(width: 24,height: 24)
+                        .padding(12)
+                }
             }
-
         }
         .padding(.horizontal,16)
 
@@ -172,39 +179,58 @@ struct CategoriesView: View {
     
     var headerView : some View {
         ZStack{
-            ButtonImage24(title: "crown") {}
+            ButtonImage24(title: "crown") {withAnimation {showPaymentView = true}}
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         
     }
     
-    func categoryView(category : CategoryModel) -> some View {
-        VStack(spacing: 16){
-            ZStack(alignment: .topTrailing){
-                Image(category.title.rawValue)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: columnWidth,height: columnWidth)
-                    .cornerRadius(16)
-                if category.isPremium {
-                    Image("Lock")
-                        .frame(width: 16 ,height: 16)
-                        .padding(8)
+    func categoryAction(category : CategoryModel){
+        if StoreViewModel.shared.subscriptionActive || !category.isPremium {
+            withAnimation {
+                categoryVM.selectedID = category.title.rawValue
+            }
+            tabState = .General
+        }
+        else if category.isPremium {
+            withAnimation {
+                AdHub.shared.callSource = .category
+                AdHub.shared.requestAd {
+                    withAnimation {
+                        categoryVM.selectedID = category.title.rawValue
+                    }
                 }
+            }
+        }
+    }
+    
+    func categoryView(category : CategoryModel) -> some View {
+        Button {
+    
+            categoryAction(category: category)
+        } label: {
+            VStack(spacing: 16){
+                ZStack(alignment: .topTrailing){
+                    Image(category.title.rawValue)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: columnWidth,height: columnWidth)
+                        .cornerRadius(16)
+                    if category.isPremium {
+                        Image("Lock")
+                            .frame(width: 16 ,height: 16)
+                            .padding(8)
+                    }
+                    
+                }
+                Text(category.title.rawValue)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .frame(height: 24)
                 
             }
-            Text(category.title.rawValue)
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
-                .frame(height: 24)
-            
         }
         .frame(width: columnWidth,height: columnWidth + 24 + 16 )
         .padding([.vertical] ,16)
-      
-    
-        
-        
-        
     }
     
     

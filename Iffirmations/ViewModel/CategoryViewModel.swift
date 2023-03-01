@@ -9,9 +9,9 @@ import SwiftUI
 
 class CategoryViewModel: ObservableObject{
     static let shared :  CategoryViewModel =  CategoryViewModel()
+    @AppStorage("CategoryModelSelection") var selectedID: String = ""
     @AppStorage("CategoryModel") var categories: [CategoryModel]  =
     [
-      
         CategoryModel(title: .Alone,isPremium: true),
         CategoryModel(title: .Anxiety ,isPremium: true),
         CategoryModel(title: .Attitude ),

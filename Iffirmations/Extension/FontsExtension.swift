@@ -246,7 +246,7 @@ case GloockRegular
         case .FrukturRegular:
         return UIFont(name: "Fruktur-Regular", size: size)!
         case .FjordOneRegular:
-        return UIFont(name: "Fjord One", size: size)!
+        return UIFont(name: "Fjord-One", size: size)!
         case .KarlaRegular:
         return UIFont(name: "Karla-Regular", size: size)!
         case .BioRhymeRegular:
@@ -470,7 +470,7 @@ case GloockRegular
         case .FrukturRegular:
         return Font.custom("Fruktur-Regular", size: size)
         case .FjordOneRegular:
-        return Font.custom("Fjord One", size: size)
+        return Font.custom("Fjord-One", size: size)
         case .KarlaRegular:
         return Font.custom("Karla-Regular", size: size)
         case .BioRhymeRegular:

@@ -19,9 +19,20 @@ struct ThemesView: View {
     var body: some View {
         VStack(spacing: 0) {
             headerView
-            ScrollView{
-                themesMenue
-                    .padding(.bottom,16)
+            ZStack(alignment: .bottomTrailing){
+                ScrollView{
+                    themesMenue
+                        .padding(.bottom,32)
+                }
+                Button {
+                    
+                } label: {
+                    Image("CTA")
+                        .frame(width: 48,height: 48)
+                        .padding(16)
+                }
+
+
             }
         }
     }
@@ -29,8 +40,14 @@ struct ThemesView: View {
     var themesMenue : some View {
         LazyVGrid(columns: columns, spacing: 0) {
             ForEach(themeVM.themes, id: \.id) { theme in
-                themeCard(theme)
-                    .padding(.vertical,16)
+                Button {
+                    withAnimation {
+                        themeVM.ThemeiD = theme.id
+                    }
+                } label: {
+                    themeCard(theme)
+                }
+                    .padding(.top,16)
             }
         }
         .padding(.horizontal , 16 )

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>CTA</title>
+    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Screen-026" transform="translate(-311.000000, -666.000000)">
+            <g id="Content" transform="translate(0.000000, -4.000000)">
+                <g id="CTA" transform="translate(311.000000, 670.000000)">
+                    <rect id="Bg" fill="#3FBA73" x="0" y="0" width="48" height="48" rx="24"></rect>
+                    <g id="Icons-/-24x24-/-White-/-plus" transform="translate(12.000000, 12.000000)">
+                        <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                        <line x1="12" y1="5" x2="12" y2="19" id="Path" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <line x1="5" y1="12" x2="19" y2="12" id="Path" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

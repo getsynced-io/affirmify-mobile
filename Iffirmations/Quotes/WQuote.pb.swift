@@ -20,7 +20,42 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct WQuote {
+protocol WQuoteBase  {
+    var author: String { get set }
+
+    var categories: [String] { get set }
+
+    var placeID: Int32 { get set }
+
+    var text: String { get set }
+
+    var wordCount: Int32 { get set }
+}
+
+struct WQuoteFavorite : WQuoteBase  ,  Codable{
+    var author: String = String()
+
+    var categories: [String] = []
+
+    var placeID: Int32 = 0
+
+    var text: String = String()
+
+    var wordCount: Int32 = 0
+    init(){
+
+    }
+    init(quote : WQuote) {
+        self.author = quote.author
+        self.categories = quote.categories
+        self.placeID = quote.placeID
+        self.text = quote.text
+        self.wordCount = quote.wordCount
+    }
+
+}
+
+struct WQuote : WQuoteBase {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -36,9 +71,9 @@ struct WQuote {
   var wordCount: Int32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
+    
 }
+
 
 struct WQuotes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

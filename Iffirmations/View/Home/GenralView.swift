@@ -11,7 +11,8 @@ struct GenralView: View {
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @ObservedObject var themeVM : ThemeViewModel
     @State var index : Int  = 0
-    @AppStorage("CategoryModelSelection") var ThemeiD : String = "0"
+    @AppStorage("ThemeModelSelection") var ThemeiD : String = "0"
+    @Binding var settingsIsPresented: Bool
     var selectedTheme : ThemeModel {
         themeVM.themes.filter { theme in
             theme.id == ThemeiD
@@ -25,17 +26,21 @@ struct GenralView: View {
         case .right : return .trailing
         }
     }
+    @AppStorage("CategoryModelSelection") var selectedCategoryID: String = ""
+    @State var showPaymentView : Bool = false
     var body: some View {
-        VStack(spacing: 0){
-            headerView
-                .padding(.horizontal,16)
-                .padding(.bottom , 32)
-            
-            paginationView
-            
-            
+            VStack(spacing: 0){
+                headerView
+                    .padding(.horizontal,16)
+                    .padding(.bottom , 32)
+                
+                paginationView
+                
+                
+            }
+        .fullScreenCover(isPresented: $showPaymentView) {
+            PaymentView(isPresented: $showPaymentView)
         }
-       
         
     }
     
@@ -47,29 +52,75 @@ struct GenralView: View {
                 
                 Spacer(minLength: 0)
                 
-                ButtonImage24(title: "settings") {}
+                ButtonImage24(title: "settings") {withAnimation {settingsIsPresented = true}}
             }
-            
-            ButtonImage24(title: "crown") {}
+            HStack(spacing: 16){
+                
+                ButtonImage24(title: "crown") {withAnimation {showPaymentView = true}}
+                
+                if !selectedCategoryID.isEmpty{
+                    selectedCategoryTag
+                }
+            }
+           
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         
     }
     
-    
+    var selectedCategoryTag : some View {
+        let category  = CategoryViewModel.shared.categories.filter { category  in
+            category.title.rawValue == selectedCategoryID
+        }.first ??  CategoryViewModel.shared.categories[0]
+      return   HStack(spacing: 4){
+          Text("\(category.title.rawValue)")
+              .customFont(font: .IBMPlexSerifMedium, size: 12,lineHeight: 16, color: ._FFFFFF)
+          Button {
+              withAnimation {
+                  selectedCategoryID = ""
+              }
+          } label: {
+              Image("xWhite")
+                  .frame(width: 16,height: 16)
+                  .clipped()
+          }
+
+ 
+        }
+      .padding(.vertical,4)
+      .padding(.horizontal,8)
+      .background(
+        Capsule()
+            .frame(height: 24)
+            .foregroundColor(._000000)
+      
+      )
+    }
+    var filteredQuotes  : [WQuote] {
+        if selectedCategoryID.isEmpty{
+            return wQuoteVM.quotes
+        }
+        else {
+            return   wQuoteVM.quotes.filter { quote in
+                quote.categories.contains(selectedCategoryID.lowercased())
+              }
+        }
+    }
     var paginationView : some View {
         
         ScrollView(.horizontal,showsIndicators: false){
             LazyHStack(spacing: 0){
-                ForEach(wQuoteVM.quotes, id : \.placeID) { item in
+                ForEach(filteredQuotes, id : \.placeID) { item in
                     ZStack(alignment: .topTrailing){
                         ZStack{
                             Group{
                                 if let image = selectedTheme.backgroundImage {
                                     Image("\(image)")
                                         .resizable()
-                                        .scaledToFit()
+                                        .scaledToFill()
+                                        .frame(width: UIScreen.main.bounds.width - 32)
                                         .cornerRadius(16)
+                                      
                                 }
                                 else if let color =   selectedTheme.backgroundColor{
                                     color
@@ -77,9 +128,10 @@ struct GenralView: View {
                                 }
                             }
                             .frame(width: UIScreen.main.bounds.width - 32)
+                            .opacity(Double(selectedTheme.backgroundOpacity))
                             
                             Text(item.text)
-                                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: selectedTheme.fontColor)
                                 .padding(.horizontal, 16)
                                 .multilineTextAlignment(textAlignment)
                                 .opacity(selectedTheme.fontOpacity)
@@ -91,8 +143,17 @@ struct GenralView: View {
                         .padding(.horizontal, 16)
                         .tag(item.placeID)
                         
-                        Button {withAnimation {favoriteAction(placeID: item.placeID)}}
-                    label: {Image(wQuoteVM.favoriteQuotes.contains(item.placeID) ?    "heart-filled" : "heart")}
+                    Button {
+                        withAnimation {
+                            favoriteAction(quote: item )
+                            
+                        }
+                        
+                    }
+                    label: {
+                        Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
+                        
+                    }
                             .frame(width: 24,height: 24)
                             .padding(16)
                             .padding(.trailing,16)
@@ -108,18 +169,29 @@ struct GenralView: View {
             view.isPagingEnabled = true
         })
     }
-    func favoriteAction(placeID : Int32){
-        if wQuoteVM.favoriteQuotes.contains(placeID){
-            wQuoteVM.favoriteQuotes.removeAll { id in
-                placeID == id
+    
+    func isItFavorite(quote : WQuote)->Bool {
+        wQuoteVM.favoriteQuotes.contains(where: { innerQuote in
+            innerQuote.placeID == quote.placeID
+        })
+    }
+    
+    func favoriteAction(quote : WQuote ){
+        if wQuoteVM.favoriteQuotes.contains(where: { innerQuote in
+            innerQuote.placeID == quote.placeID
+        }){
+            wQuoteVM.favoriteQuotes.removeAll {  innerQuote in
+                quote.placeID ==  innerQuote.placeID
                 
             }
             HapticManager.instance.impact(style: .light)
         }
         else {
-            wQuoteVM.favoriteQuotes.append(placeID)
-            HapticManager.instance.impact(style: .light)
+                let quoteToADD: WQuoteFavorite = WQuoteFavorite(quote: quote)
+                wQuoteVM.favoriteQuotes.append(quoteToADD)
+                HapticManager.instance.impact(style: .light)
         }
       
     }
 }
+//correct miss use of map

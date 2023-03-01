@@ -15,27 +15,77 @@ struct HomeView: View {
     @State var tabState  : TabState = .General
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @StateObject var themeVM : ThemeViewModel = ThemeViewModel()
+    @AppStorage("FirstTime") var firstTime : Bool  = true
+    @State var settingsIsPresented: Bool = false
     var body: some View {
-        VStack(spacing: 0){
-            switch tabState {
-            case .General:
-               GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM)
-            case .Categories:
-                CategoriesView()
-            case .Themes:
-                ThemesView(themeVM: themeVM)
+        NavigationView {
+            ZStack {
+                VStack(spacing: 0){
+                    nextView
+                    
+                    switch tabState {
+                    case .General:
+                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
+                    case .Categories:
+                        CategoriesView(tabState: $tabState)
+                    case .Themes:
+                        ThemesView(themeVM: themeVM)
+                    }
+                    
+                    BottomSelectionView
+                        .zIndex(999)
+                }
+                .ignoresSafeArea(.keyboard , edges: .bottom)
+                .background(
+                    Color._F6F5EC.ignoresSafeArea()
+                )
+                if firstTime {
+                    Color._000000.opacity(0.32).ignoresSafeArea()
+                    firstTimeNotation
+                }
             }
-            
-            BottomSelectionView
-                .zIndex(999)
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
-        .ignoresSafeArea(.keyboard , edges: .bottom)
-        .background(
-            Color._F6F5EC.ignoresSafeArea()
-        )
+        .navigationViewStyle(.stack)
+   
     }
     
+    var nextView : some View {
+        CustomNavigationLink(isActive: $settingsIsPresented) {
+            GeneralSettingsView(isPresented: $settingsIsPresented,wQuoteVM: wQuoteVM )
+                .background(
+                    Color._F6F5EC.ignoresSafeArea()
+                )
+        }
+       
+    }
     
+    var firstTimeNotation : some View {
+        VStack(spacing: 32) {
+            Image("👆")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 96,height: 96)
+            Text("Swipe left or right to read more quotes")
+                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                .multilineTextAlignment(.center)
+            
+            GreenButtonView(buttonTitle: "Gotcha!",width:  UIScreen.main.bounds.width - 96) {
+                withAnimation {
+                    firstTime = false
+                }
+            }
+            
+        }
+        .padding(.vertical,32)
+        .padding(.horizontal,16)
+        .frame(width: UIScreen.main.bounds.width - 64,height: 336)
+        .background(Color._FFFFFF)
+        .cornerRadius(32)
+        .padding(.horizontal,32)
+    }
+
     
     var BottomSelectionView : some View {
         HStack(spacing : 0){
