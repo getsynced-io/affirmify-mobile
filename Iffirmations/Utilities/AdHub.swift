@@ -24,7 +24,8 @@ class AdHub : NSObject , GADFullScreenContentDelegate {
         }
     }
     var handler : (()->()) = {}
-    func requestAd(handler :@escaping ()->())  {
+    var dismissHandler : (()->()) = {}
+    func requestAd(handler :@escaping ()->(),dismissHandler :@escaping ()->() = {})  {
         if adCondition  {
             inProgress = true
             let request = GADRequest()
@@ -41,11 +42,12 @@ class AdHub : NSObject , GADFullScreenContentDelegate {
                     return
                 }
                 self?.handler = handler
+                self?.dismissHandler = dismissHandler
                 AdHub.ad = ad
                 AdHub.ad?.fullScreenContentDelegate = self
-                AdHub.ad?.present(fromRootViewController: root, userDidEarnRewardHandler: {
-                handler()
-                })
+             //   AdHub.ad?.present(fromRootViewController: root, userDidEarnRewardHandler: {
+               // handler()
+               // })
             }
         }
         else {
@@ -62,6 +64,7 @@ class AdHub : NSObject , GADFullScreenContentDelegate {
 
     }
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        dismissHandler()
         if callSource == .category {
             SharedCouter.shared.categoryAdCounter -= 1
         }

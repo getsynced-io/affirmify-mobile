@@ -10,16 +10,6 @@ import SwiftUI
 class WQuoteViewModel: ObservableObject{
     @Published var quotes : [WQuote] = []
     @AppStorage("favorite") var favoriteQuotes  : [ WQuoteFavorite] = []
-    
-//    var favoriteQuotesList : [WQuote] {
-//            print("filter")
-//            return quotes.filter { quote in
-//                favoriteQuotes.contains { id in
-//                    id == quote.placeID
-//                }
-//            }
-//        }
-    
     init() {
         DispatchQueue.global().async {[weak self] in
             let info = ProcessInfo.processInfo

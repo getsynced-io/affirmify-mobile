@@ -26,6 +26,9 @@ struct CategoriesView: View {
            category.title.rawValue.lowercased().contains(searchText.lowercased())
         }
     }
+    @Binding  var adsPopUpView : AnyView
+    @Binding var adsPopUpIsPresented : Bool
+    
     var body: some View {
         VStack(spacing:0){
             headerView
@@ -195,11 +198,35 @@ struct CategoriesView: View {
         else if category.isPremium {
             withAnimation {
                 AdHub.shared.callSource = .category
-                AdHub.shared.requestAd {
-                    withAnimation {
-                        categoryVM.selectedID = category.title.rawValue
+                if SharedCouter.shared.categoryAdCounter == 3 {
+                    adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
+                        withAnimation {
+                            showPaymentView = true
+                            adsPopUpIsPresented = false
+                        }
+                    }, secondHandler: {
+                        AdHub.shared.requestAd {
+                            withAnimation {
+                                categoryVM.selectedID = category.title.rawValue
+                                adsPopUpIsPresented = false
+                            }
+                        }
+                        dismissHandler : {
+                            withAnimation {
+                                adsPopUpIsPresented = false
+                            }
+                        }
+                    }))
+                    adsPopUpIsPresented = true
+                }
+                else{
+                    AdHub.shared.requestAd{
+                        withAnimation {
+                            categoryVM.selectedID = category.title.rawValue
+                        }
                     }
                 }
+              
             }
         }
     }

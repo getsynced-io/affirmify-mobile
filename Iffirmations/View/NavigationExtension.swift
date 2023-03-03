@@ -17,6 +17,8 @@ struct CustomNavigationLink<Content: View>: View {
     }
     var body: some View {
         NavigationLink(isActive: $isActive){if isActive{content .navigationTitle("").navigationBarHidden(true)}}label: {}
+      //  NavigationLink(isActive: $isActive) {content .navigationTitle("").navigationBarHidden(true)} label: {}
+
     }
 }
 

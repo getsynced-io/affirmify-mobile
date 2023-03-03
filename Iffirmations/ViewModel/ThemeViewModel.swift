@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+
+//class OldThemeViewModel : ObservedObject {
+//    @Published var oldThme  : ThemeModel = getDefaultTheme()
+//    func getDefaultTheme()->ThemeModel {
+//        return ThemeModel(id : "\(themes.count)",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: Color._000000, fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: Color._EDEBDA, backgroundOpacity: 1.0)
+//    }
+//}
+
 class ThemeViewModel: ObservableObject{
     static let shared :  ThemeViewModel =  ThemeViewModel()
     @AppStorage("ThemeModel") var themes: [ThemeModel]  = InitThemes.shared.initialThemes
@@ -14,6 +22,11 @@ class ThemeViewModel: ObservableObject{
     func reset(){
         self.themes = InitThemes.shared.initialThemes
     }
+
+    func getDefaultTheme()->ThemeModel {
+        return ThemeModel(id : "\(themes.count)",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: Color._000000, fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: Color._EDEBDA, backgroundOpacity: 1.0)
+    }
+    
 }
 
 
@@ -222,6 +235,102 @@ class InitThemes{
 
         ThemeModel(id : "100",fontName: "WorkSansRegular", fontAlignment: .middle, fontColor: Color._000000, fontOpacity: 1.0, textCase: .sentence, backgroundImage: "ThemeBg100", backgroundColor: nil, backgroundOpacity: 1.0)
 
+    ]
+ 
+    var fontNames  :  [String] = [
+        "IBMPlexSerifMedium",
+        "AbrilFatfaceRegular",
+        "JudsonRegular",
+        "JaldiRegular",
+        "IMFELLFrenchCanonSC",
+        "AlfaSlabOneRegular",
+        "BarrioRegular",
+        "McLarenRegular",
+        "Meddon",
+        "DotGothic16Regular",
+        "GlutenRegular",
+        "BangersRegular",
+        "PoppinsRegular",
+        "InikaBold",
+        "GlegooBold",
+        "IMFellDoublePicaSCRegular",
+        "DMSerifDisplayRegular",
+        "AstlochBold",
+        "ExoRegular",
+        "CreepsterRegular",
+        "BonbonRegular",
+        "TavirajRegular",
+        "KhandBold",
+        "ZenDotsRegular",
+        "ManropeBold",
+        "FingerPaintRegular",
+        "MonofettRegular",
+        "OvertheRainbowRegular",
+        "NothingYouCouldDoRegular",
+        "CabinSketchRegular",
+        "BarriecitoRegular",
+        "ChivoBold",
+        "BethEllenRegular",
+        "KiteOneRegular",
+        "KnewaveRegular",
+        "EpilogueBold",
+        "KavivanarRegular",
+        "JuliusSansOneRegular",
+        "MargarineRegular",
+        "BowlbyOneRegular",
+        "GloockRegular",
+        "RobotoCondensedRegular",
+        "InconsolataRegular",
+        "IndieFlowerRegular",
+        "IrishGroverRegular",
+        "FelipaRegular",
+        "HanaleiFillRegular",
+        "InterBold",
+        "SyneMonoRegular",
+        "SpecialEliteRegular",
+        "SpectralRegular",
+        "AbelRegular",
+        "CormorantBold",
+        "FjallaOneRegular",
+        "FrukturRegular",
+        "FjordOneRegular",
+        "KarlaRegular",
+        "BioRhymeRegular",
+        "SoraBold",
+        "ArchivoNarrowBold",
+        "PlayfairDisplayBold",
+        "LoraBold",
+        "FontdinerSwankyRegular",
+        "DMSansBold",
+        "IBMPlexMonoRegular",
+        "FrederickatheGreatRegular",
+        "MontserratBold",
+        "PermanentMarkerRegular",
+        "RubikRegular",
+        "GaeguRegular",
+        "FarroRegular",
+        "GiveYouGloryRegular",
+        "EczarBold",
+        "GeostarFillRegular",
+        "MerriweatherBold",
+        "MiniverRegular",
+        "LaBelleAuroreRegular",
+        "InknutAntiquaRegular",
+        "GeoRegular",
+        "SyneRegular",
+        "SpaceGroteskRegular",
+        "MarcellusRegular",
+        "BalsamiqSansBold",
+        "AntonRegular",
+        "PaletteMosaicRegular",
+        "HomemadeAppleRegular",
+        "IBMPlexSansBold",
+        "LoveYaLikeASisterRegular",
+        "LexendRegular",
+        "PasseroOneRegular",
+        "KoulenRegular",
+        "LektonBold",
+        "WorkSansRegular"
     ]
 }
 

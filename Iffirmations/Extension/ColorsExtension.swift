@@ -13,6 +13,7 @@ extension Color {
     static let _3FBA73 = Color("3FBA73")
     static let _000000 = Color("000000")
     static let _FFFFFF = Color("FFFFFF")
+    static let _F2F2F2 = Color("F2F2F2")
 }
 
 extension Color: Codable {

@@ -11,12 +11,17 @@ enum TabState : String {
     case General , Categories ,  Themes
 }
 
+
 struct HomeView: View {
     @State var tabState  : TabState = .General
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @StateObject var themeVM : ThemeViewModel = ThemeViewModel()
     @AppStorage("FirstTime") var firstTime : Bool  = true
     @State var settingsIsPresented: Bool = false
+    @State var showPaymentView : Bool = false
+    @State var adsPopUpView : AnyView = AnyView(EmptyView())
+    @State var adsPopUpIsPresented : Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,9 +32,9 @@ struct HomeView: View {
                     case .General:
                         GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
                     case .Categories:
-                        CategoriesView(tabState: $tabState)
+                        CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                     case .Themes:
-                        ThemesView(themeVM: themeVM)
+                        ThemesView(themeVM: themeVM,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                     }
                     
                     BottomSelectionView
@@ -42,10 +47,20 @@ struct HomeView: View {
                 if firstTime {
                     Color._000000.opacity(0.32).ignoresSafeArea()
                     firstTimeNotation
+                        .zIndex(999)
+                }
+                if  adsPopUpIsPresented  {
+                    Color._000000.opacity(0.32).ignoresSafeArea()
+                    
+                    adsPopUpView
+                        .zIndex(999)
                 }
             }
             .navigationTitle("")
             .navigationBarHidden(true)
+            .fullScreenCover(isPresented: $showPaymentView) {
+                PaymentView(isPresented: $showPaymentView)
+            }
         }
         .navigationViewStyle(.stack)
    
@@ -61,12 +76,17 @@ struct HomeView: View {
        
     }
     
+    
+
+    
     var firstTimeNotation : some View {
         VStack(spacing: 32) {
-            Image("👆")
-                .resizable()
-                .scaledToFit()
+            
+            Text("👆")
+                .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._000000)
                 .frame(width: 96,height: 96)
+                .clipped()
+            
             Text("Swipe left or right to read more quotes")
                 .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
                 .multilineTextAlignment(.center)
@@ -143,4 +163,74 @@ struct ButtonImage24: View {
         }
     }
 }
+
+
+
+struct GoPremiumPopUpView: View {
+    let emoji : String
+    let description : String
+    let mainButtonTitle : String
+    let secondButtonTitle : String
+    var showExitButton : Bool = true
+    @Binding var isPresented : Bool
+    let handler : ()->()
+    let secondHandler : ()->()
+    var body: some View {
+        ZStack(alignment: .topTrailing){
+            VStack(spacing: 32) {
+//                Image(emoji)
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 96,height: 96)
+                Text(emoji)
+                    .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._000000)
+                    .frame(width: 96,height: 96)
+                    .clipped()
+                
+                Text(description)
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                    .multilineTextAlignment(.center)
+                
+                VStack(spacing: 16){
+                    GreenButtonView(buttonTitle: mainButtonTitle,width:  UIScreen.main.bounds.width - 96) {
+                        handler()
+                    }
+                    
+                    Button {
+                        withAnimation {
+                            secondHandler()
+                        }
+                    } label: {
+                        Text(secondButtonTitle)
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    }
+                    .frame(height: 24)
+                    
+                    
+                }
+            }
+            .padding(.vertical,32)
+            .padding(.horizontal,16)
+            .frame(width: UIScreen.main.bounds.width - 64,height: 376)
+            .background(Color._FFFFFF)
+            .cornerRadius(32)
+            
+            if showExitButton {
+                Button {
+                    withAnimation {
+                        isPresented =  false
+                    }
+                } label: {
+                    Image("xBlack")
+                        .frame(width: 24,height: 24)
+                }
+                .padding(16)
+            }
+        }
+      
+       
+        .padding(.horizontal,32)
+    }
+}
+
 

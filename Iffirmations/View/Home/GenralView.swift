@@ -14,18 +14,12 @@ struct GenralView: View {
     @AppStorage("ThemeModelSelection") var ThemeiD : String = "0"
     @Binding var settingsIsPresented: Bool
     var selectedTheme : ThemeModel {
-        themeVM.themes.filter { theme in
+      return  themeVM.themes.filter { theme in
             theme.id == ThemeiD
         }.first ?? themeVM.themes[0]
     }
     
-    var textAlignment : SwiftUI.TextAlignment {
-        switch selectedTheme.fontAlignment {
-        case .left  : return .leading
-        case .middle : return .center
-        case .right : return .trailing
-        }
-    }
+
     @AppStorage("CategoryModelSelection") var selectedCategoryID: String = ""
     @State var showPaymentView : Bool = false
     var body: some View {
@@ -106,41 +100,18 @@ struct GenralView: View {
               }
         }
     }
+    
     var paginationView : some View {
         
         ScrollView(.horizontal,showsIndicators: false){
             LazyHStack(spacing: 0){
                 ForEach(filteredQuotes, id : \.placeID) { item in
                     ZStack(alignment: .topTrailing){
-                        ZStack{
-                            Group{
-                                if let image = selectedTheme.backgroundImage {
-                                    Image("\(image)")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: UIScreen.main.bounds.width - 32)
-                                        .cornerRadius(16)
-                                      
-                                }
-                                else if let color =   selectedTheme.backgroundColor{
-                                    color
-                                        .cornerRadius(16)
-                                }
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 32)
-                            .opacity(Double(selectedTheme.backgroundOpacity))
-                            
-                            Text(item.text)
-                                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: selectedTheme.fontColor)
-                                .padding(.horizontal, 16)
-                                .multilineTextAlignment(textAlignment)
-                                .opacity(selectedTheme.fontOpacity)
-                                .foregroundColor(selectedTheme.fontColor)
-                            
-                            
-                        }
-                        .frame(maxWidth: UIScreen.main.bounds.width - 32)
-                        .padding(.horizontal, 16)
+                    
+                        
+                        
+                        QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
+                        
                         .tag(item.placeID)
                         
                     Button {
@@ -195,3 +166,82 @@ struct GenralView: View {
     }
 }
 //correct miss use of map
+
+
+struct QuoteCardView: View {
+    enum SelectedItem {
+        case none , text , image
+    }
+    var selectedTheme : ThemeModel
+    var textAlignment : SwiftUI.TextAlignment {
+        switch selectedTheme.fontAlignment {
+        case .left  : return .leading
+        case .middle : return .center
+        case .right : return .trailing
+        }
+    }
+    var quote : String
+    var selectedItem : SelectedItem = .none
+    var body: some View {
+        ZStack{
+            Group{
+                if let image = selectedTheme.backgroundImage {
+                    Image("\(image)")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width - 32)
+                        .cornerRadius(16)
+                        .if(selectedItem == .image , transform: { view in
+                            view
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(lineWidth: 1, antialiased: true)
+                                        .foregroundColor(Color._000000)
+                                )
+                        })
+                      
+                }
+                else if let color =   selectedTheme.backgroundColor{
+                    color
+                        .cornerRadius(16)
+                        .if(selectedItem == .image , transform: { view in
+                            view
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(lineWidth: 1, antialiased: true)
+                                        .foregroundColor(Color._000000)
+                                )
+                        })
+                }
+            }
+            .frame(width: UIScreen.main.bounds.width - 32)
+            .opacity(Double(selectedTheme.backgroundOpacity))
+  
+           quoteView
+            
+            
+        }
+        .frame(maxWidth: UIScreen.main.bounds.width - 32)
+        .padding(.horizontal, 16)
+    }
+    
+    var quoteView : some View {
+            Text(quote)
+                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: selectedTheme.fontColor)
+                .padding(.horizontal, 16)
+                .multilineTextAlignment(textAlignment)
+                .opacity(selectedTheme.fontOpacity)
+                .foregroundColor(selectedTheme.fontColor)
+                .frame(width: UIScreen.main.bounds.width - 64)
+                .if(selectedItem == .text , transform: { view in
+                    view
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(lineWidth: 1, antialiased: true)
+                                .foregroundColor(Color._000000)
+                        )
+                })
+             
+    }
+}
+
