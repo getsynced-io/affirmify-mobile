@@ -28,7 +28,10 @@ struct ContentView: View {
                 NotificationTimeView(userConfigVM: userConfigVM)
                 
             case .main :
-                HomeView(wQuoteVM: wQuoteVM)
+                GeometryReader { geometry in
+                    HomeView(wQuoteVM: wQuoteVM)
+                        .environment(\.mainWindowSize, geometry.size)
+                }
             }
         }
       

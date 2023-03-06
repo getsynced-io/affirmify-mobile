@@ -11,25 +11,27 @@ import SwiftUI
 
 struct ThemeCustomisationTextView: View {
     @Binding var selectedTheme  : ThemeModel
-    let  oldTheme : ThemeModel
+    let stateUndoManager : StateUndoManager<ThemeModel>
     @State var pushView : Bool = false
     @State var viewToPush : AnyView  = AnyView(EmptyView())
     @Environment(\.presentationMode) var presentationMode
-    init(selectedTheme: Binding<ThemeModel>, oldTheme: ThemeModel) {
-        print("oldTheme \(oldTheme)")
+  
+    init(selectedTheme: Binding<ThemeModel>,stateUndoManager : StateUndoManager<ThemeModel>) {
         self._selectedTheme = selectedTheme
-        self.oldTheme = oldTheme
+        self.stateUndoManager = stateUndoManager
     }
     var body: some View {
         VStack(spacing: 0){
-            nextView
+
         
             
             ThemeCustomisationHeaderView(title: "Text"){
                 presentationMode.wrappedValue.dismiss()
             }
             cancel : {
-                selectedTheme  = oldTheme
+                stateUndoManager.undo()
+                selectedTheme = stateUndoManager.currentState
+                presentationMode.wrappedValue.dismiss()
             }
                 .padding(.bottom , 32)
             
@@ -42,7 +44,7 @@ struct ThemeCustomisationTextView: View {
                 .frame(height: 56)
                 .padding(.top , 32)
             
-            
+            nextView
         }
         .padding(.horizontal,16)
     }
@@ -60,21 +62,32 @@ struct ThemeCustomisationTextView: View {
         HStack(spacing: 0){
             TabItemView(imageTitle: "typography", title: "Font", count: 5){
                 withAnimation {
-                    viewToPush = AnyView( )
+                    viewToPush = AnyView(FontCustomisationView(selectedTheme: $selectedTheme, stateUndoManager: StateUndoManager(initialState: selectedTheme)) )
                     pushView = true
                 }
             }
             TabItemView(imageTitle: "align-center", title: "Align", count: 5){
-                
+                withAnimation {
+                    viewToPush = AnyView(AllignmentCustomisationView(selectedTheme: $selectedTheme, stateUndoManager: StateUndoManager(initialState: selectedTheme)) )
+                    pushView = true
+                }
             }
             TabItemView(imageTitle: "paint", title: "Color", count: 5){
-                
+                withAnimation {
+                    viewToPush = AnyView(ColorCustomisationView(selectedTheme: $selectedTheme, stateUndoManager: StateUndoManager(initialState: selectedTheme)) )
+                    pushView = true
+                }
             }
             TabItemView(imageTitle: "chart-circles", title: "Opacity", count: 5){
-                
+                withAnimation {
+                    viewToPush = AnyView(OpacityCustomisationView(selectedTheme: $selectedTheme, stateUndoManager: StateUndoManager(initialState: selectedTheme)) )
+                    pushView = true
+                }
             }
             TabItemView(imageTitle: "letter-case", title: "Text", count: 5){
-                
+                withAnimation {
+                    selectedTheme.textCase =    selectedTheme.textCase.next()
+                }
             }
         }
     }

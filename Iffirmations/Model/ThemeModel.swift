@@ -20,14 +20,14 @@ public enum TextCase: String , Codable , CaseIterable{
 }
 
 struct ThemeModel : Identifiable,Codable {
-    var id = UUID().uuidString
+    var id : String
     var fontName: String
     var fontAlignment: FontAlignment
-    var fontColor: Color
+    var fontColor: String
     var fontOpacity: Double 
     var textCase: TextCase
     var backgroundImage: String?
-    var backgroundColor: Color?
+    var backgroundColor: String?
     var backgroundOpacity: Float
 }
 

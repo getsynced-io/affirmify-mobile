@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FontCustomisationView: View {
     @Binding var selectedTheme  : ThemeModel
-    let oldTheme : ThemeModel
+    let stateUndoManager : StateUndoManager<ThemeModel>
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack(spacing: 0){
@@ -17,7 +17,9 @@ struct FontCustomisationView: View {
                 presentationMode.wrappedValue.dismiss()
             }
             cancel: {
-                selectedTheme.fontName = oldTheme.fontName
+                stateUndoManager.undo()
+                selectedTheme = stateUndoManager.currentState
+                presentationMode.wrappedValue.dismiss()
               }
                 .padding(.bottom , 32)
             
@@ -25,6 +27,9 @@ struct FontCustomisationView: View {
             
             
             Spacer(minLength: 0)
+            
+            
+            
             VStack(spacing: 0){
                 bottomView
                Spacer(minLength: 0)
@@ -36,9 +41,7 @@ struct FontCustomisationView: View {
             
         }
         .padding(.horizontal,16)
-    }
-    
-    
+    } 
     
     var bottomView : some View {
         ScrollViewReader { value in
@@ -74,8 +77,13 @@ struct FontCustomisationView: View {
             )
             .frame(width: 128, height: 56)
             .onTapGesture {
+                withAnimation {
                     selectedTheme.fontName = fontName
+                 //   stateUndoManager.updateState(selectedTheme)
+                }
+                   
             }
+        
     }
 }
 

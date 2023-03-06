@@ -21,6 +21,12 @@ struct ThemesView: View {
     @Binding var adsPopUpIsPresented : Bool
     @State var showPaymentView : Bool = false
     @State var showAddThemeView : Bool = false
+    @State var showEditThemeView : Bool = false
+    var selectedTheme : ThemeModel{
+        themeVM.themes.first { theme in
+            theme.id == themeVM.ThemeiD
+        } ??   themeVM.themes[0]
+    }
     var body: some View {
         VStack(spacing: 0) {
             nextView
@@ -83,7 +89,11 @@ struct ThemesView: View {
             showAddThemeView = true
         }
     }
-    
+    func editThemeAction(){
+        adsAction {
+            showEditThemeView = true
+        }
+    }
     
     
     func adsAction(action :@escaping ()->()){
@@ -126,7 +136,14 @@ struct ThemesView: View {
                         Color._F6F5EC.ignoresSafeArea()
                     )
             }
+            CustomNavigationLink(isActive: $showEditThemeView) {
+                ThemeCustomisationMainView(selectedTheme: selectedTheme, stateUndoManager: StateUndoManager(initialState: selectedTheme),index: selectedTheme.id)
+                    .background(
+                        Color._F6F5EC.ignoresSafeArea()
+                    )
+            }
         }
+        
     }
 
     
@@ -134,16 +151,17 @@ struct ThemesView: View {
         Group{
             ZStack{
                 ZStack(alignment: .topTrailing){
-                    if let color = theme.backgroundColor {
-                        color
+                   
+                  if let imageTitle = theme.backgroundImage , let image =  backGroundImage(imageTitle) {
+                      image
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: columnWidth,height: columnWidth)
                             .cornerRadius(16)
                         
                     }
-                    else if let imageTitle = theme.backgroundImage{
-                        Image(imageTitle)
-                            .resizable()
-                            .scaledToFill()
+                    else if  let color = theme.backgroundColor {
+                        Color(color)
                             .frame(width: columnWidth,height: columnWidth)
                             .cornerRadius(16)
                         
@@ -155,9 +173,26 @@ struct ThemesView: View {
                     
                 }
                 Text("Abcd")
-                    .customFont(font:FontsExtension(fromRawValue: theme.fontName) , size: 24 , color: theme.fontColor)
+                    .customFont(font:FontsExtension(fromRawValue: theme.fontName) , size: 24 , color: Color(theme.fontColor))
             }
         }
+    }
+    
+    
+    
+    func backGroundImage(_ path : String)-> Image?{
+        if path.contains("/var/mobile"){
+            if let image = UIImage(contentsOfFile: path) {
+                return Image(uiImage: image)
+            }
+            else{
+                return nil
+            }
+        }
+        else {
+            return Image(path)
+        }
+        
     }
     var headerView: some View {
         ZStack{
@@ -171,7 +206,9 @@ struct ThemesView: View {
                 
                 Spacer(minLength: 0)
                 Button {
-                    
+                    withAnimation {
+                        editThemeAction()
+                    }
                 } label: {
                     Text("Edit")
                          .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)

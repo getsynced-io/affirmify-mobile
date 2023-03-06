@@ -107,8 +107,6 @@ struct GenralView: View {
             LazyHStack(spacing: 0){
                 ForEach(filteredQuotes, id : \.placeID) { item in
                     ZStack(alignment: .topTrailing){
-                    
-                        
                         
                         QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
                         
@@ -182,14 +180,24 @@ struct QuoteCardView: View {
     }
     var quote : String
     var selectedItem : SelectedItem = .none
+    var finalQuote : String {
+        switch selectedTheme.textCase {
+        case .sentence : return quote
+        case .lowerCase : return quote.lowercased()
+        case .upperCase : return quote.uppercased()
+        }
+        
+    }
+    @Environment(\.mainWindowSize) var mainWindowSize
     var body: some View {
         ZStack{
             Group{
                 if let image = selectedTheme.backgroundImage {
-                    Image("\(image)")
+                    backGroundImage(image)
                         .resizable()
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width - 32)
+                        .frame(maxHeight:  mainWindowSize.height - 44 - 64 - 64)
                         .cornerRadius(16)
                         .if(selectedItem == .image , transform: { view in
                             view
@@ -199,10 +207,11 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
+                            .animation(nil)
                       
                 }
                 else if let color =   selectedTheme.backgroundColor{
-                    color
+                    Color(color)
                         .cornerRadius(16)
                         .if(selectedItem == .image , transform: { view in
                             view
@@ -224,14 +233,30 @@ struct QuoteCardView: View {
         .frame(maxWidth: UIScreen.main.bounds.width - 32)
         .padding(.horizontal, 16)
     }
+    func backGroundImage(_ path : String)->  Image {
+        if path.contains("/var/mobile") {
+            if let image =  UIImage(contentsOfFile: path) {
+                return   Image(uiImage: image)
+            }
+            else {
+                let randomNumber = "\(Int.random(in: 1...100))"
+                let randomBackgroundName = "ThemeBg\(randomNumber)"
+                return Image("\(randomBackgroundName)")
+            }
+         
+        }
+        else{
+            return Image(path)
+        }
+    }
     
     var quoteView : some View {
-            Text(quote)
-                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: selectedTheme.fontColor)
+            Text(finalQuote)
+                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: Color(selectedTheme.fontColor))
                 .padding(.horizontal, 16)
                 .multilineTextAlignment(textAlignment)
                 .opacity(selectedTheme.fontOpacity)
-                .foregroundColor(selectedTheme.fontColor)
+                .foregroundColor(Color(selectedTheme.fontColor))
                 .frame(width: UIScreen.main.bounds.width - 64)
                 .if(selectedItem == .text , transform: { view in
                     view

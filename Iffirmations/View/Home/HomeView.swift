@@ -15,7 +15,7 @@ enum TabState : String {
 struct HomeView: View {
     @State var tabState  : TabState = .General
     @ObservedObject var wQuoteVM : WQuoteViewModel
-    @StateObject var themeVM : ThemeViewModel = ThemeViewModel()
+    @StateObject var themeVM : ThemeViewModel = ThemeViewModel.shared
     @AppStorage("FirstTime") var firstTime : Bool  = true
     @State var settingsIsPresented: Bool = false
     @State var showPaymentView : Bool = false

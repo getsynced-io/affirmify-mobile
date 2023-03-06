@@ -175,6 +175,17 @@
 		179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 179D945F29A76A3B00AB6F10 /* RevenueCat */; };
 		179D946329A76BE700AB6F10 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D946229A76BE700AB6F10 /* PaymentView.swift */; };
 		179D946529A771BB00AB6F10 /* DecimalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D946429A771BB00AB6F10 /* DecimalExtension.swift */; };
+		17C1FDB429B66F10009079C7 /* ColorCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */; };
+		17C1FDB629B67BDA009079C7 /* OpacityCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */; };
+		17C1FDB829B68054009079C7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB729B68054009079C7 /* CustomSlider.swift */; };
+		17C1FDBB29B6898A009079C7 /* ThemeCustomisationImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDBA29B6898A009079C7 /* ThemeCustomisationImageView.swift */; };
+		17C1FDBD29B68C44009079C7 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDBC29B68C44009079C7 /* PhotoPicker.swift */; };
+		17C1FDBF29B68D65009079C7 /* NSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDBE29B68D65009079C7 /* NSItemProvider.swift */; };
+		17C1FDC129B68DDC009079C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC029B68DDC009079C7 /* UIImageExtension.swift */; };
+		17C1FDC329B68F76009079C7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC229B68F76009079C7 /* FilesManager.swift */; };
+		17C1FDC529B6A0A8009079C7 /* EnvironmentValuesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC429B6A0A8009079C7 /* EnvironmentValuesExtension.swift */; };
+		17DAA6CB29B248B9009BE5EA /* UndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAA6CA29B248B9009BE5EA /* UndoManager.swift */; };
+		17DAA6CD29B250F9009BE5EA /* AllignmentCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAA6CC29B250F9009BE5EA /* AllignmentCustomisationView.swift */; };
 		17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92329A61E12003DF105 /* CustomGridView.swift */; };
 		17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92529A621D1003DF105 /* CategorySelectionView.swift */; };
 /* End PBXBuildFile section */
@@ -348,6 +359,17 @@
 		179D945C29A769D800AB6F10 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		179D946229A76BE700AB6F10 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		179D946429A771BB00AB6F10 /* DecimalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtension.swift; sourceTree = "<group>"; };
+		17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCustomisationView.swift; sourceTree = "<group>"; };
+		17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityCustomisationView.swift; sourceTree = "<group>"; };
+		17C1FDB729B68054009079C7 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		17C1FDBA29B6898A009079C7 /* ThemeCustomisationImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCustomisationImageView.swift; sourceTree = "<group>"; };
+		17C1FDBC29B68C44009079C7 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		17C1FDBE29B68D65009079C7 /* NSItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSItemProvider.swift; sourceTree = "<group>"; };
+		17C1FDC029B68DDC009079C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		17C1FDC229B68F76009079C7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
+		17C1FDC429B6A0A8009079C7 /* EnvironmentValuesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValuesExtension.swift; sourceTree = "<group>"; };
+		17DAA6CA29B248B9009BE5EA /* UndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManager.swift; sourceTree = "<group>"; };
+		17DAA6CC29B250F9009BE5EA /* AllignmentCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllignmentCustomisationView.swift; sourceTree = "<group>"; };
 		17E9C92329A61E12003DF105 /* CustomGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGridView.swift; sourceTree = "<group>"; };
 		17E9C92529A621D1003DF105 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,8 +414,10 @@
 			isa = PBXGroup;
 			children = (
 				170871D729A4C67C0078645B /* HapticManager.swift */,
+				17DAA6CA29B248B9009BE5EA /* UndoManager.swift */,
 				1762DF1129AF8256007D0453 /* AdHub.swift */,
 				1762DF1329AF83BA007D0453 /* SharedTimer.swift */,
+				17C1FDC229B68F76009079C7 /* FilesManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -498,6 +522,9 @@
 				170871DC29A4F1F60078645B /* DateExtension.swift */,
 				179D946429A771BB00AB6F10 /* DecimalExtension.swift */,
 				173DC37729AE16FB0061C6C0 /* StringExtension.swift */,
+				17C1FDBE29B68D65009079C7 /* NSItemProvider.swift */,
+				17C1FDC029B68DDC009079C7 /* UIImageExtension.swift */,
+				17C1FDC429B6A0A8009079C7 /* EnvironmentValuesExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -649,7 +676,9 @@
 		173DC37929AE2E9E0061C6C0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				17C1FDB729B68054009079C7 /* CustomSlider.swift */,
 				173DC37A29AE2EB00061C6C0 /* CustomTextField.swift */,
+				17C1FDBC29B68C44009079C7 /* PhotoPicker.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -686,6 +715,7 @@
 		175E6E3329B0E07700E5B4B5 /* ThemeCustomisation */ = {
 			isa = PBXGroup;
 			children = (
+				17C1FDB929B68970009079C7 /* ThemeCustomisationImageView */,
 				175E6E3629B11F7000E5B4B5 /* ThemeCustomisationTextView */,
 				175E6E3429B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift */,
 			);
@@ -697,6 +727,9 @@
 			children = (
 				175E6E3729B1216900E5B4B5 /* ThemeCustomisationTextView.swift */,
 				175E6E3929B12B0200E5B4B5 /* FontCustomisationView.swift */,
+				17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */,
+				17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */,
+				17DAA6CC29B250F9009BE5EA /* AllignmentCustomisationView.swift */,
 			);
 			path = ThemeCustomisationTextView;
 			sourceTree = "<group>";
@@ -733,6 +766,14 @@
 				179D946229A76BE700AB6F10 /* PaymentView.swift */,
 			);
 			path = Payment;
+			sourceTree = "<group>";
+		};
+		17C1FDB929B68970009079C7 /* ThemeCustomisationImageView */ = {
+			isa = PBXGroup;
+			children = (
+				17C1FDBA29B6898A009079C7 /* ThemeCustomisationImageView.swift */,
+			);
+			path = ThemeCustomisationImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -933,15 +974,19 @@
 				1762DF1729AFA694007D0453 /* GeneralSettingsView.swift in Sources */,
 				1714449329A3E43200ADBA03 /* UIApplicationExtension.swift in Sources */,
 				170871DF29A5156E0078645B /* NotificationRequestView.swift in Sources */,
+				17C1FDBF29B68D65009079C7 /* NSItemProvider.swift in Sources */,
 				175E6E3A29B12B0200E5B4B5 /* FontCustomisationView.swift in Sources */,
 				1714448329A3DD2000ADBA03 /* OnboardingView.swift in Sources */,
 				171444AA29A3EA8500ADBA03 /* CornerRadiusStyle.swift in Sources */,
 				175E6E3829B1216900E5B4B5 /* ThemeCustomisationTextView.swift in Sources */,
 				170871E529A527100078645B /* CategoryViewModel.swift in Sources */,
+				17C1FDBB29B6898A009079C7 /* ThemeCustomisationImageView.swift in Sources */,
 				1714445129A3D81B00ADBA03 /* ContentView.swift in Sources */,
 				179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */,
 				174AADC829AA3D630008C287 /* GenralView.swift in Sources */,
 				175E6E3529B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift in Sources */,
+				17C1FDB629B67BDA009079C7 /* OpacityCustomisationView.swift in Sources */,
+				17C1FDC129B68DDC009079C7 /* UIImageExtension.swift in Sources */,
 				17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */,
 				1714448B29A3E39E00ADBA03 /* xcode14Sync.swift in Sources */,
 				17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */,
@@ -958,6 +1003,7 @@
 				17228F9329ACF15900415DBF /* WQuote.pb.swift in Sources */,
 				1714449D29A3E48B00ADBA03 /* If.swift in Sources */,
 				173DC37D29AE6D7F0061C6C0 /* ThemesView.swift in Sources */,
+				17DAA6CB29B248B9009BE5EA /* UndoManager.swift in Sources */,
 				1762DF1929AFB9C8007D0453 /* FavoriteScreen.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
@@ -965,11 +1011,16 @@
 				171444A529A3E49300ADBA03 /* HalfASheet+Modifiers.swift in Sources */,
 				1714449729A3E45600ADBA03 /* keyboardExtension.swift in Sources */,
 				170871D029A4B3EB0078645B /* NotificationTimeView.swift in Sources */,
+				17C1FDB829B68054009079C7 /* CustomSlider.swift in Sources */,
 				1714449529A3E44F00ADBA03 /* arraySafeAcces.swift in Sources */,
+				17C1FDC329B68F76009079C7 /* FilesManager.swift in Sources */,
+				17C1FDB429B66F10009079C7 /* ColorCustomisationView.swift in Sources */,
 				171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */,
 				1762DF1429AF83BA007D0453 /* SharedTimer.swift in Sources */,
 				17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */,
 				173DC37629AE10850061C6C0 /* CategoriesView.swift in Sources */,
+				17C1FDBD29B68C44009079C7 /* PhotoPicker.swift in Sources */,
+				17C1FDC529B6A0A8009079C7 /* EnvironmentValuesExtension.swift in Sources */,
 				1714444F29A3D81B00ADBA03 /* IffirmationsApp.swift in Sources */,
 				1714449129A3E42800ADBA03 /* SwiftuiViewSnapshot.swift in Sources */,
 				17228F9B29AD04AC00415DBF /* ThemeModel.swift in Sources */,
@@ -978,6 +1029,7 @@
 				170871D329A4C0040078645B /* UserConfigurationModel.swift in Sources */,
 				1722905A29AD08BB00415DBF /* ThemeViewModel.swift in Sources */,
 				174AADC629AA3AC80008C287 /* HomeView.swift in Sources */,
+				17DAA6CD29B250F9009BE5EA /* AllignmentCustomisationView.swift in Sources */,
 				173DC37B29AE2EB00061C6C0 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,8 +1167,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1125,6 +1177,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1147,8 +1202,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1157,6 +1212,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

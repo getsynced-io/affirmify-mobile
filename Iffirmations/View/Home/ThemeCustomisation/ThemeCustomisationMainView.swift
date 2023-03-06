@@ -9,17 +9,44 @@ import SwiftUI
 
 struct ThemeCustomisationMainView: View {
     @State var selectedTheme  : ThemeModel  = ThemeViewModel.shared.getDefaultTheme()
+    var stateUndoManager : StateUndoManager<ThemeModel> = StateUndoManager(initialState: ThemeViewModel.shared.getDefaultTheme())
     @State var showTextEdit : Bool = false
     @State var showImageEdit : Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    var index: String? = nil
     var body: some View {
         VStack(spacing: 0){
-            nextView
+          
             
-            ThemeCustomisationHeaderView(title: "Customize", saveAaction: {
+            ThemeCustomisationHeaderView(title: "Customize"){
+                
+                
+                if let index = index {
+                    withAnimation {
+                       //
+                        let intIndex = ThemeViewModel.shared.themes.firstIndex { theme in
+                            theme.id == index
+                        }
+                        if let intIndex = intIndex {
+                            ThemeViewModel.shared.themes[intIndex] = selectedTheme
+                        }
+                       
+                    }
+                }
+                else {
+                    withAnimation {
+                        ThemeViewModel.shared.themes.append(selectedTheme)
+                        ThemeViewModel.shared.ThemeiD = selectedTheme.id
+                    }
+                }
+                
+                presentationMode.wrappedValue.dismiss()
              
-            })
+            }
+            cancel : {
+                presentationMode.wrappedValue.dismiss()
+            }
                 .padding(.bottom , 32)
-            
                 QuoteCardView(selectedTheme: selectedTheme, quote: "If opportunity doesn't knock, build a door.")
             
             
@@ -29,6 +56,7 @@ struct ThemeCustomisationMainView: View {
                 .frame(height: 56)
                 .padding(.top , 32)
             
+            nextView
             
         }
         .padding(.horizontal,16)
@@ -37,7 +65,14 @@ struct ThemeCustomisationMainView: View {
     var nextView : some View {
         Group {
             CustomNavigationLink(isActive: $showTextEdit) {
-                ThemeCustomisationTextView(selectedTheme: $selectedTheme,oldTheme: selectedTheme)
+                ThemeCustomisationTextView(selectedTheme: $selectedTheme,stateUndoManager:  stateUndoManager)
+                    .background(
+                        Color._F6F5EC.ignoresSafeArea()
+                    )
+            }
+            
+            CustomNavigationLink(isActive: $showImageEdit) {
+                ThemeCustomisationImageView(selectedTheme: $selectedTheme,stateUndoManager:  stateUndoManager)
                     .background(
                         Color._F6F5EC.ignoresSafeArea()
                     )
@@ -48,12 +83,16 @@ struct ThemeCustomisationMainView: View {
     var bottomView : some View {
         HStack(spacing: 0){
             TabItemView(imageTitle: "cursor-text", title: "Text", count: 2){
+                stateUndoManager.reset(initialState: selectedTheme)
                 withAnimation {
                     showTextEdit = true
                 }
             }
             TabItemView(imageTitle: "photo", title: "Image", count: 2){
-                
+                stateUndoManager.reset(initialState: selectedTheme)
+                withAnimation {
+                    showImageEdit = true
+                }
             }
         }
     }
@@ -88,7 +127,6 @@ struct TabItemView: View {
 
 struct ThemeCustomisationHeaderView: View {
     let title : String
-    @Environment(\.presentationMode) var presentationMode
     var saveAaction : ()->()
     var cancel : ()->() = {}
     var body: some View {
@@ -96,7 +134,6 @@ struct ThemeCustomisationHeaderView: View {
                 HStack(spacing: 0){
                     ButtonImage24(title: "arrow-left") {
                         cancel()
-                        presentationMode.wrappedValue.dismiss()
                     }
                     
                     Spacer(minLength: 0)
@@ -111,17 +148,14 @@ struct ThemeCustomisationHeaderView: View {
           
                 }
                 
-                Button {
-                 saveAaction()
-                 presentationMode.wrappedValue.dismiss()
-                } label: {
+              
                     Text(title)
                           .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                           .frame(height: 24)
-                }
             
                
             }
+            .zIndex(999)
             .frame(width: UIScreen.main.bounds.width - 32,height: 44)
     }
 }
