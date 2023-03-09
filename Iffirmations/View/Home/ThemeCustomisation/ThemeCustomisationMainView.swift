@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ThemeCustomisationMainView: View {
     @State var selectedTheme  : ThemeModel  = ThemeViewModel.shared.getDefaultTheme()
@@ -23,21 +24,25 @@ struct ThemeCustomisationMainView: View {
                 
                 if let index = index {
                     withAnimation {
-                       //
                         let intIndex = ThemeViewModel.shared.themes.firstIndex { theme in
                             theme.id == index
                         }
                         if let intIndex = intIndex {
                             ThemeViewModel.shared.themes[intIndex] = selectedTheme
                         }
-                       
+
                     }
                 }
                 else {
                     withAnimation {
-                        ThemeViewModel.shared.themes.append(selectedTheme)
+                        ThemeViewModel.shared.themes.insert(selectedTheme, at: 0)
                         ThemeViewModel.shared.ThemeiD = selectedTheme.id
                     }
+                }
+                
+                DispatchQueue.main.async {
+                    print("update2 widgetKit \(ThemeViewModel.shared.ThemeiD)")
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
                 
                 presentationMode.wrappedValue.dismiss()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NotificationRequestView: View {
     @State var nextViewIsActive : Bool = false
+    @ObservedObject var userConfigVM : UserConfigurationVM
     @Environment(\.presentationMode) var presentation
     var body: some View {
         VStack(spacing: 0){
@@ -40,9 +41,16 @@ struct NotificationRequestView: View {
     
     var doItNowButton : some View {
         GreenButtonView(buttonTitle: "Let’s Do It!") {
-            withAnimation {
-                nextViewIsActive = true
-            }
+
+                LocalNotificationManager.shared.scheduleNotifications(from: userConfigVM.userConfig.from, to: userConfigVM.userConfig.to, quantity: userConfigVM.userConfig.quantity) {
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            nextViewIsActive = true
+                        }
+                    }
+                }
+              
+         
         }
     }
     
@@ -84,8 +92,3 @@ struct NotificationRequestView: View {
     
 }
 
-struct NotificationRequestView_Previews: PreviewProvider {
-    static var previews: some View {
-        NotificationRequestView()
-    }
-}

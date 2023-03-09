@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Intents
 enum TabState : String {
     case General , Categories ,  Themes
 }
@@ -16,7 +16,7 @@ struct HomeView: View {
     @State var tabState  : TabState = .General
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @StateObject var themeVM : ThemeViewModel = ThemeViewModel.shared
-    @AppStorage("FirstTime") var firstTime : Bool  = true
+    @AppStorage("FirstTime",store: store) var firstTime : Bool  = true
     @State var settingsIsPresented: Bool = false
     @State var showPaymentView : Bool = false
     @State var adsPopUpView : AnyView = AnyView(EmptyView())
@@ -28,17 +28,50 @@ struct HomeView: View {
                 VStack(spacing: 0){
                     nextView
                     
-                    switch tabState {
-                    case .General:
+//                    switch tabState {
+//                    case .General:
+//                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
+//                            .onAppear {
+//                                INPreferences.requestSiriAuthorization { status in
+//
+//                                }
+//                            }
+//                    case .Categories:
+//                        CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+//                    case .Themes:
+//                        ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+//                    }
+                    ZStack{
+                        //                    if tabState == .General {
                         GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
-                    case .Categories:
-                        CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
-                    case .Themes:
-                        ThemesView(themeVM: themeVM,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+                            .onAppear {
+                                INPreferences.requestSiriAuthorization { status in
+                                    
+                                }
+                            }
+                            .background(
+                                Color._F6F5EC.ignoresSafeArea()
+                            )
+                        //                    }
+                        
+                        if tabState == .Categories {
+                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+                                .background(
+                                    Color._F6F5EC.ignoresSafeArea()
+                                )
+                        }
+                        
+                        
+                        if tabState == .Themes {
+                            ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+                                .background(
+                                    Color._F6F5EC.ignoresSafeArea()
+                                )
+                        }
                     }
                     
                     BottomSelectionView
-                        .zIndex(999)
+                     
                 }
                 .ignoresSafeArea(.keyboard , edges: .bottom)
                 .background(
@@ -47,13 +80,13 @@ struct HomeView: View {
                 if firstTime {
                     Color._000000.opacity(0.32).ignoresSafeArea()
                     firstTimeNotation
-                        .zIndex(999)
+                     
                 }
                 if  adsPopUpIsPresented  {
                     Color._000000.opacity(0.32).ignoresSafeArea()
                     
                     adsPopUpView
-                        .zIndex(999)
+                      
                 }
             }
             .navigationTitle("")

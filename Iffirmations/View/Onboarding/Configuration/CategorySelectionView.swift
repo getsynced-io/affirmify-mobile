@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import FacebookCore
 
 struct CategorySelectionView: View {
-    @StateObject var categoryVM : CategoryViewModel = CategoryViewModel()
+    @StateObject var categoryVM : CategoryViewModel = CategoryViewModel.shared
     @Environment(\.presentationMode) var presentation
     @State var nextViewIsActive : Bool = false
     var selectedCategoriesCount : Int {
@@ -17,13 +18,14 @@ struct CategorySelectionView: View {
         }
         .count
     }
-    @AppStorage("AppState") var state  : OnboardingState = .demo
+    var calledFromConfiguration : Bool = false
+    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         VStack(spacing: 0){
-            
-            backButtom
+            SettingsHeaderView(title: calledFromConfiguration ? "Personal Preferences" : "", cancelHandler: {
+                self.presentation.wrappedValue.dismiss()
+            })
                 .padding(.bottom , 32)
-                .padding(.horizontal , 16)
             Text("Develop a higher level of self-esteem and positivity")
                 .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._000000)
                 .multilineTextAlignment(.center)
@@ -40,10 +42,22 @@ struct CategorySelectionView: View {
 
             Group{
                 if selectedCategoriesCount != 0 {
-                    GreenButtonView(buttonTitle: "Next(\(selectedCategoriesCount))") {
-                        withAnimation {
-                            StoreViewModel.shared.showPaymentView  = true
+                    GreenButtonView(buttonTitle:calledFromConfiguration ? "Save" :  "Next(\(selectedCategoriesCount))") {
+                        for category in categoryVM.categories {
+                            if category.isSelected {
+                                AppEvents.shared.logEvent(AppEvents.Name("\(category.title.rawValue)"))
+                            }
                         }
+                        
+                        if calledFromConfiguration {
+                            presentation.wrappedValue.dismiss()
+                        }
+                        else {
+                            withAnimation {
+                                StoreViewModel.shared.showPaymentView  = true
+                            }
+                        }
+                       
                     }
                 }
                 else{
@@ -59,19 +73,5 @@ struct CategorySelectionView: View {
         .background(Color._F6F5EC.ignoresSafeArea())
     }
     
-    var backButtom : some View{
-        
-        HStack(spacing: 0){
-            Button {
-                self.presentation.wrappedValue.dismiss()
-            } label: {
-                Image("arrow-left")
-                    .frame(width: 24,height: 24)
-            }
-
-            Spacer(minLength: 0)
-        }
-        .frame(height: 44)
-    }
 }
 

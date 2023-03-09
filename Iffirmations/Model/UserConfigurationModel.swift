@@ -12,11 +12,6 @@ struct UserConfiguration  : Codable{
     var quantity : Int
     var from : Date
     var to : Date
-    init(quantity: Int = 0 , from: Date = Date(), to: Date = Date()) {
-        self.quantity = quantity
-        self.from = from
-        self.to = to
-    }
     enum CodingKeys: String, CodingKey {
         case quantity, from, to
     }
@@ -45,15 +40,23 @@ extension UserConfiguration : RawRepresentable {
        }
     
     func encode(to encoder: Encoder) throws {
+//        print("start Encode")
+//        print("from \(from)")
+//        print("to \(to)")
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(quantity, forKey: .quantity)
-        try container.encode(from, forKey: .from)
-        try container.encode(to, forKey: .to)
+        try container.encode(from.timeIntervalSince1970, forKey: .from)
+        try container.encode(to.timeIntervalSince1970, forKey: .to)
     }
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         quantity = try container.decode(Int.self, forKey: .quantity)
-        from = try container.decode(Date.self, forKey: .from)
-        to = try container.decode(Date.self, forKey: .to)
+       let  fromTimeInterval  = try container.decode(Double.self, forKey: .from)
+       let  toTimeInterval = try container.decode(Double.self, forKey: .to)
+        from = Date(timeIntervalSince1970: fromTimeInterval)
+        to = Date(timeIntervalSince1970: toTimeInterval)
+//        print("devcoded")
+//        print("from \(from)")
+//        print("to \(to)")
     }
 }

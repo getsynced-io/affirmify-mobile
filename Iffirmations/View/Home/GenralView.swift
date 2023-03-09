@@ -7,11 +7,32 @@
 
 import SwiftUI
 
+struct PagginableScrollView<Content>: View where Content: View {
+    var views: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.views = content()
+    }
+
+    var body: some View {
+        ScrollView(.horizontal,showsIndicators: false){
+            views
+                .animation(nil)
+        }
+        .introspectScrollView { scrollView in
+            scrollView.isPagingEnabled = true
+        }
+       
+    }
+}
+
+
+
 struct GenralView: View {
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @ObservedObject var themeVM : ThemeViewModel
     @State var index : Int  = 0
-    @AppStorage("ThemeModelSelection") var ThemeiD : String = "0"
+    @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0"
     @Binding var settingsIsPresented: Bool
     var selectedTheme : ThemeModel {
       return  themeVM.themes.filter { theme in
@@ -20,7 +41,7 @@ struct GenralView: View {
     }
     
 
-    @AppStorage("CategoryModelSelection") var selectedCategoryID: String = ""
+    @AppStorage("CategoryModelSelection",store: store) var selectedCategoryID: String = ""
     @State var showPaymentView : Bool = false
     var body: some View {
             VStack(spacing: 0){
@@ -35,6 +56,19 @@ struct GenralView: View {
         .fullScreenCover(isPresented: $showPaymentView) {
             PaymentView(isPresented: $showPaymentView)
         }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.categoryIntent))
+              { obj in
+                 // Change key as per your "userInfo"
+                  if let userInfo = obj.userInfo, let info = userInfo["category"] as? String {
+                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
+                          withAnimation {
+                              selectedCategoryID = info
+                          }
+                      }
+                   
+                   
+                 }
+              }
         
     }
     
@@ -50,7 +84,14 @@ struct GenralView: View {
             }
             HStack(spacing: 16){
                 
-                ButtonImage24(title: "crown") {withAnimation {showPaymentView = true}}
+                ButtonImage24(title: "crown"){
+                    if !StoreViewModel.shared.subscriptionActive {
+                        withAnimation {showPaymentView = true}
+                        
+                        
+                    }
+                }
+                .disabled(StoreViewModel.shared.subscriptionActive )
                 
                 if !selectedCategoryID.isEmpty{
                     selectedCategoryTag
@@ -73,6 +114,7 @@ struct GenralView: View {
               withAnimation {
                   selectedCategoryID = ""
               }
+              wQuoteVM.updateFiltredQuotes()
           } label: {
               Image("xWhite")
                   .frame(width: 16,height: 16)
@@ -90,53 +132,50 @@ struct GenralView: View {
       
       )
     }
-    var filteredQuotes  : [WQuote] {
-        if selectedCategoryID.isEmpty{
-            return wQuoteVM.quotes
-        }
-        else {
-            return   wQuoteVM.quotes.filter { quote in
-                quote.categories.contains(selectedCategoryID.lowercased())
-              }
-        }
-    }
+
     
     var paginationView : some View {
-        
-        ScrollView(.horizontal,showsIndicators: false){
+        ScrollViewReader { proxy in
+       
+        PagginableScrollView{
+       
             LazyHStack(spacing: 0){
-                ForEach(filteredQuotes, id : \.placeID) { item in
+              
+                ForEach(wQuoteVM.filtredQuotes, id : \.placeID) { item in
+                   
                     ZStack(alignment: .topTrailing){
-                        
+
                         QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
-                        
-                        .tag(item.placeID)
+                        //.tag(item.placeID)
+                     
                         
                     Button {
                         withAnimation {
                             favoriteAction(quote: item )
-                            
+
                         }
-                        
+
                     }
                     label: {
                         Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
-                        
+
                     }
                             .frame(width: 24,height: 24)
                             .padding(16)
                             .padding(.trailing,16)
-                        
+
                     }
                     .padding(.bottom,32)
-                    
+                    .id(wQuoteVM.filtredQuotes.firstIndex(of: item) ?? 0 )
                 }
             }
+        }
+        .onChange(of: wQuoteVM.filtredQuotes) { newValue in
+            proxy.scrollTo(0,anchor: .top)
+        }
             
         }
-        .introspectScrollView(customize: { view in
-            view.isPagingEnabled = true
-        })
+
     }
     
     func isItFavorite(quote : WQuote)->Bool {
@@ -207,7 +246,7 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
-                            .animation(nil)
+                           
                       
                 }
                 else if let color =   selectedTheme.backgroundColor{
@@ -221,6 +260,7 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
+                     
                 }
             }
             .frame(width: UIScreen.main.bounds.width - 32)
@@ -234,8 +274,8 @@ struct QuoteCardView: View {
         .padding(.horizontal, 16)
     }
     func backGroundImage(_ path : String)->  Image {
-        if path.contains("/var/mobile") {
-            if let image =  UIImage(contentsOfFile: path) {
+        if path.contains("CustomImage") {
+            if let image =  LocalFileManager.instance.retrieveImageFromFile(filename: path) {
                 return   Image(uiImage: image)
             }
             else {
@@ -266,7 +306,7 @@ struct QuoteCardView: View {
                                 .foregroundColor(Color._000000)
                         )
                 })
-             
+                    .padding(.vertical , 16)
     }
 }
 

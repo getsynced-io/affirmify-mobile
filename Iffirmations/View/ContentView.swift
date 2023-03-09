@@ -15,8 +15,7 @@ enum OnboardingState: String, Codable, CaseIterable {
 
 
 struct ContentView: View {
-    @AppStorage("AppState") var state  : OnboardingState = .demo
-    @StateObject var userConfigVM : UserConfigurationVM = UserConfigurationVM()
+    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     @StateObject var paymentVM : StoreViewModel = StoreViewModel.shared
     @ObservedObject var wQuoteVM : WQuoteViewModel
     var body: some View {
@@ -25,7 +24,7 @@ struct ContentView: View {
             case .demo:
                 DemoView()
             case .configuration:
-                NotificationTimeView(userConfigVM: userConfigVM)
+                NotificationTimeView()
                 
             case .main :
                 GeometryReader { geometry in

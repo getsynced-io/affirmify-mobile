@@ -2,8 +2,41 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>to deliver more personalized ads to you</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb684554670031913</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>684554670031913</string>
+	<key>FacebookClientToken</key>
+	<string>3e52b103bf85f2171e4ea8e37bf0ba3d</string>
+	<key>FacebookDisplayName</key>
+	<string>Quottie</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
+	<key>NSUserActivityShortcuts</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>View Quotes</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.Quottie.Quotes.viewquotes</string>
+		</dict>
+	</array>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>GetQuoteIntentIntent</string>
+		<string>ViewQuotesIntentIntent</string>
+	</array>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

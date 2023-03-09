@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+let store =  UserDefaults(suiteName: "group.QuottieIfirmation")
 
 class ThemeViewModel: ObservableObject{
     static let shared :  ThemeViewModel =  ThemeViewModel()
-    @AppStorage("IFFirmationThemes") var themes: [ThemeModel]  = InitThemes.shared.initialThemes
-    @AppStorage("ThemeModelSelection") var ThemeiD : String = "0"
+    @AppStorage("IFFirmationThemes",store: store) var themes: [ThemeModel]  = InitThemes.shared.initialThemes
+    
+    @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0"
+  
     func reset(){
         self.themes = InitThemes.shared.initialThemes
     }
@@ -25,6 +28,7 @@ class ThemeViewModel: ObservableObject{
 
 class InitThemes{
     static let  shared :InitThemes = InitThemes()
+    let defaultTheme =        ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0)
     let initialThemes  =     [
         ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0),
         

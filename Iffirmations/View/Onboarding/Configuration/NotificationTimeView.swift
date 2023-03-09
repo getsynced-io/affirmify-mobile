@@ -6,24 +6,35 @@
 //
 
 import SwiftUI
-fileprivate
-enum DateType: String{
+
+
+enum DateType: String,CaseIterable{
     case From , To
 }
-struct NotificationTimeView: View {
-    @ObservedObject var userConfigVM : UserConfigurationVM
+struct NotificationTimeView: View , SettingsViewProtocol {
+    @StateObject var userConfigVM : UserConfigurationVM = UserConfigurationVM.shared
     @State var showTimeSheet : Bool = false
-    @State private var dateType: DateType = .From
+    @State var dateType: DateType = .From
     @State var nextViewIsActive : Bool = false
-
+    var calledFromConfiguration : Bool = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom){
                 VStack(spacing: 0){
                     nextView
                     
+                    if calledFromConfiguration {
+                        SettingsHeaderView(title: "Reminders", cancelHandler: {
+                            withAnimation {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        })
+                        
+                    }
                     header
                         .padding(.horizontal , 16)
+                        .padding(.top , 32 + (calledFromConfiguration ? 0  :  44))
                     
                     Spacer(minLength: 0)
                     
@@ -44,23 +55,35 @@ struct NotificationTimeView: View {
                         .padding(16)
                     
                     
-                    GreenButtonView(buttonTitle: "Next") {
-                        withAnimation {
-                            nextViewIsActive = true
+                    GreenButtonView(buttonTitle:calledFromConfiguration ? "Save" : "Next") {
+                        userConfigVM.userConfig.from  = Date()
+                        if calledFromConfiguration {
+                            
+                            LocalNotificationManager.shared.scheduleNotifications(from: userConfigVM.userConfig.from, to: userConfigVM.userConfig.to, quantity: userConfigVM.userConfig.quantity) {
+                                DispatchQueue.main.async {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                              
+                            }
                         }
+                        else {
+                            withAnimation {
+                                nextViewIsActive = true
+                            }
+                        }
+                      
                     }
                     .padding([.horizontal,.top] ,16)
                     .padding(.bottom ,32)
+                    .onChange(of: dateType) { newValue in
+                        print("newValue \(newValue)")
+                    }
                     
                     
                 }
                 .ignoresSafeArea(.keyboard,edges: .all)
               
                 .background(Color._F6F5EC.ignoresSafeArea())
-                .onAppear {
-                    userConfigVM.userConfig.from = Date()
-                    userConfigVM.userConfig.to =  Date().addHours(1)
-                }
                 
                 timeSheet(userConfigVM: userConfigVM, dateType: $dateType, showTimeSheet: $showTimeSheet)
      
@@ -76,22 +99,17 @@ struct NotificationTimeView: View {
     
     var nextView : some View {
         CustomNavigationLink(isActive: $nextViewIsActive) {
-            NotificationRequestView()
+            NotificationRequestView(userConfigVM: userConfigVM)
         }
     }
     
-    var seperator : some View {
-        Rectangle()
-            .frame(width: UIScreen.main.bounds.width - 32,height: 1)
-            .foregroundColor(Color._000000.opacity(0.16))
-        
-    }
+
     
     var header : some View {
         Text("Focus on what truly matters with reminders")
             .customFont(font: .IBMPlexSerifMedium, size: 24 , color: ._000000)
             .multilineTextAlignment(.center)
-            .padding(.top , 32 + 44)
+      
     }
     var Quantity : some View {
         HStack(spacing: 0){
@@ -140,31 +158,39 @@ struct timeSheet: View {
             HalfASheet(isPresented: $showTimeSheet,isDragable: false) {
               
                 Group {
-                    switch dateType {
-                    case .From:
-                        DatePicker("", selection: $userConfigVM.userConfig.from, displayedComponents: .hourAndMinute)
-                    case .To:
-                        DatePicker("", selection: $userConfigVM.userConfig.to, displayedComponents: .hourAndMinute)
-                    }
-                    
+                    datePicker
                 }
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                     .accentColor(Color._000000)
+   
             }
             .height(.fixed(162))
         
+        
+    }
+    
+    var datePicker : some View {
+      return   Group {
+            switch dateType {
+            case .From:
+                DatePicker("", selection: $userConfigVM.userConfig.from, displayedComponents: .hourAndMinute)
+              
+            case .To:
+                DatePicker("", selection: $userConfigVM.userConfig.to, displayedComponents: .hourAndMinute)
+                 
+            }
+        }
     }
 }
 
 
 
 
-fileprivate enum OperationType : String  {
+ enum OperationType : String  {
     case plus = "circle-plus" , minus = "circle-minus"
 }
 
-fileprivate
 struct IncrementalButton: View {
     var operation : OperationType
     @Binding var counter : Int
@@ -276,61 +302,9 @@ struct TimePicker: View {
             }
    
     }
-    
-//    var textField : some View {
-//        TextField("", text: .constant(title))
-//            .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._000000)
-//            .introspectTextField { uitextField in
-//                var fromHourPicker: UIDatePicker = {
-//                     let datePicker = UIDatePicker()
-//                     if #available(iOS 13.4, *) {
-//                         datePicker.preferredDatePickerStyle = .wheels
-//                     }
-//                     datePicker.datePickerMode = .time
-//                     datePicker.tag = 1
-//                     datePicker.timeZone = NSTimeZone.local
-//                     datePicker.addTarget(userConfigVM, action: #selector(userConfigVM.handleDatePicker(_:)), for: .valueChanged)
-//                     return datePicker
-//                 }()
-//
-//                let toolBar = UIToolbar()
-//                toolBar.barStyle = UIBarStyle.default
-//                let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//                let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: userConfigVM, action: #selector(userConfigVM.hideKeyb))
-//
-//                let items = [flexSpace, done]
-//                  toolBar.items = items
-//                  toolBar.sizeToFit()
-//                toolBar.backgroundColor = .red
-//                uitextField.inputAccessoryView = toolBar
-//                uitextField.inputView = fromHourPicker
-//                uitextField.translatesAutoresizingMaskIntoConstraints = false
-//                uitextField.backgroundColor = .clear
-//                uitextField.tintColor = .clear
-//
-//
-//            }}
-    
-    
 }
 
 
-extension UITextField {
-    func addDoneButtonOnKeyboard() {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        doneToolbar.barStyle = .default
-
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
-
-        let items = [flexSpace, done]
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-
-        self.inputAccessoryView = doneToolbar
-    }
-}
- 
 
 
 

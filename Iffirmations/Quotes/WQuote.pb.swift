@@ -20,31 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-protocol WQuoteBase  {
-    var author: String { get set }
+extension WQuoteFavorite {
 
-    var categories: [String] { get set }
-
-    var placeID: Int32 { get set }
-
-    var text: String { get set }
-
-    var wordCount: Int32 { get set }
-}
-
-struct WQuoteFavorite : WQuoteBase  ,  Codable{
-    var author: String = String()
-
-    var categories: [String] = []
-
-    var placeID: Int32 = 0
-
-    var text: String = String()
-
-    var wordCount: Int32 = 0
-    init(){
-
-    }
     init(quote : WQuote) {
         self.author = quote.author
         self.categories = quote.categories
@@ -54,6 +31,7 @@ struct WQuoteFavorite : WQuoteBase  ,  Codable{
     }
 
 }
+
 
 struct WQuote : WQuoteBase {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

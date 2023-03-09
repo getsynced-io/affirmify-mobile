@@ -157,6 +157,7 @@ struct PaymentView: View {
             withAnimation { paymentErrors.restoreSuccessfulAlert = true}
             if customerInfo?.entitlements[Constants.entitlementID]?.isActive == true {
                 StoreViewModel.shared.subscriptionActive = true
+             //   WQuoteViewModel.shared.updateFiltredQuotes()
                 withAnimation {
                     isPresented = false
                 }
@@ -184,6 +185,8 @@ struct PaymentView: View {
                     withAnimation {paymentBlur = false}
                     StoreViewModel.shared.customerInfo = customerInfo
                     if customerInfo?.entitlements[Constants.entitlementID]?.isActive == true {
+                        StoreViewModel.shared.subscriptionActive = true
+                    //    WQuoteViewModel.shared.updateFiltredQuotes()
                         withAnimation {
                             isPresented = false
                         }

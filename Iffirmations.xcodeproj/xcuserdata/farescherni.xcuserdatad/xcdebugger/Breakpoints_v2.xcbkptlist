@@ -14,8 +14,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "favoriteAction(quote:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Iffirmations/View/Home/ThemeCustomisation/ThemeCustomisationMainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -50,6 +50,230 @@
             endingLineNumber = "20"
             landmarkName = "init(selectedTheme:stateUndoManager:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D43E283-5F5E-47B0-9780-42C5E0F9989C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/ThemesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "themeAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86CC0799-C95D-4D77-9C6E-A7898916995A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/ThemesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "headerView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "86CC0799-C95D-4D77-9C6E-A7898916995A - ef7c94521cd3fea2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/ThemesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "86CC0799-C95D-4D77-9C6E-A7898916995A - e1db36f25be63b50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/ThemesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E6251D0-AA19-42F7-B50E-E940CDF027CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/ThemesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "headerView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "8E6251D0-AA19-42F7-B50E-E940CDF027CF - da548a9904db07fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/ThemesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "8E6251D0-AA19-42F7-B50E-E940CDF027CF - e1b3f88fe2a31166"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/ViewModel/ThemeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A3A1912-FB09-4DB1-93D3-DEB494EA734E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/ThemesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "headerView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "0A3A1912-FB09-4DB1-93D3-DEB494EA734E - da548a9904db07fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/ThemesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "0A3A1912-FB09-4DB1-93D3-DEB494EA734E - d660cdb216a0ada5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "partial apply forwarder for closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.customFont(font: Iffirmations.FontsExtension, size: CoreGraphics.CGFloat, lineHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, color: SwiftUI.Color) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;, Iffirmations.ButtonImage24)&gt; in Iffirmations.ThemesView.headerView.getter : some"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/ThemesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "226"
+                  endingLineNumber = "226"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "095D4D3A-CD7C-48AD-9675-F888DE290F7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/GenralView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "backGroundImage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46B37E00-0047-43DE-949F-2EB80F0B8697"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/GenralView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "backGroundImage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A744CB64-C78D-49AD-A79D-BCA9925C3519"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/CategoriesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "categoryAction(category:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38DFB10F-44A1-4BE9-B168-B8E6E8BF2C59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/GenralView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "paginationView"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

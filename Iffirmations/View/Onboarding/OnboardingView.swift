@@ -28,7 +28,7 @@ struct DemoView: View {
     @State var demoState : DemoState = .first
     @State var tabDemoState : DemoState = .first
     @State var startAnimation : Bool = false
-    @AppStorage("AppState") var state  : OnboardingState = .demo
+    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         VStack(spacing : 0){
            
@@ -96,7 +96,7 @@ fileprivate
 struct DemoViewHeaderView: View {
     @Binding var demoState : DemoState
     @State var show = false
-    @AppStorage("AppState") var state  : OnboardingState = .demo
+    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         ZStack{
         HStack(spacing : 0){

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons / 48x48 / Black / iffirmations</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#73DEAB" offset="0%"></stop>
+            <stop stop-color="#3FBA73" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#73DEAB" offset="0%"></stop>
+            <stop stop-color="#3FBA73" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#73DEAB" offset="0%"></stop>
+            <stop stop-color="#3FBA73" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#73DEAB" offset="0%"></stop>
+            <stop stop-color="#3FBA73" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Screen-01" transform="translate(-164.000000, -382.000000)">
+            <g id="spa-rocks" transform="translate(164.000000, 382.000000)">
+                <path d="M40.2,33.658 C36.6,36.156 29.924,38 18,38 C13.6447406,38.12814 9.29121903,37.6918467 5.048,36.702 C4.35044835,37.6586899 3.98264846,38.8161365 4,40 C4,47.17 15.414,48 24,48 C31.216,48 48,47.22 48,40 C48,36.752 44.6,34.816 40.2,33.658 Z" id="Path" fill="url(#linearGradient-1)"></path>
+                <path d="M26,26 C15.856,26 11.362,23.272 9.418,20.492 C4.296,21.214 0,22.946 0,27 C0,33.274 10.272,34 18,34 C31.776,34 40,31.384 40,27 C39.9855416,26.1186488 39.6482284,25.2732308 39.052,24.624 C34.778236,25.6398585 30.3916465,26.1023123 26,26 Z" id="Path" fill="url(#linearGradient-2)"></path>
+                <path d="M31.78,10.228 C28.8235155,12.8557236 24.9498286,14.2111547 21,14 C18.566051,14.0326042 16.1503244,13.576255 13.896,12.658 C12.7706502,13.4091043 12.0673999,14.6486943 12,16 C12,17.4 13,22 26,22 C37.272,22 44,19.756 44,16 C44,12.94 39.532,10.884 31.78,10.228 Z" id="Path" fill="url(#linearGradient-3)"></path>
+                <path d="M21,10 C15.954,10 12,7.8 12,5 C12,2.2 15.954,0 21,0 C26.046,0 30,2.2 30,5 C30,7.8 26.046,10 21,10 Z" id="Path" fill="url(#linearGradient-4)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

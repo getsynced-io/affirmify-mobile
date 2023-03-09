@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import WidgetKit
+import FacebookCore
 
 struct ThemesView: View {
-    @ObservedObject  var themeVM : ThemeViewModel
     let columns = [
           GridItem(.flexible(), spacing: 16),
           GridItem(.flexible(), spacing: 16)
@@ -23,9 +24,9 @@ struct ThemesView: View {
     @State var showAddThemeView : Bool = false
     @State var showEditThemeView : Bool = false
     var selectedTheme : ThemeModel{
-        themeVM.themes.first { theme in
-            theme.id == themeVM.ThemeiD
-        } ??   themeVM.themes[0]
+        ThemeViewModel.shared.themes.first { theme in
+            theme.id == ThemeViewModel.shared.ThemeiD
+        } ??   ThemeViewModel.shared.themes[0]
     }
     var body: some View {
         VStack(spacing: 0) {
@@ -56,7 +57,7 @@ struct ThemesView: View {
     
     var themesMenue : some View {
         LazyVGrid(columns: columns, spacing: 0) {
-            ForEach(themeVM.themes, id: \.id) { theme in
+            ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
                 Button {
                     withAnimation {
                         themeAction(theme.id)
@@ -70,19 +71,23 @@ struct ThemesView: View {
         .padding(.horizontal , 16 )
     }
     
+    
     func themeAction(_ id: String){
-        if StoreViewModel.shared.subscriptionActive {
-            withAnimation {
-                themeVM.ThemeiD = id
-            }
-        }
-        else {
-            withAnimation {
                 adsAction {
-                    themeVM.ThemeiD = id
+                    ThemeViewModel.shared.ThemeiD = id
+                    DispatchQueue.main.async {
+                        print("update widgetKit \(ThemeViewModel.shared.ThemeiD)")
+                        ThemeViewModel.shared.themes[0] =  ThemeViewModel.shared.themes[0]
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                    let theme =  ThemeViewModel.shared.themes.first { theme in
+                        theme.id == id
+                    }
+                    if let theme = theme {
+                        AppEvents.shared.logEvent(AppEvents.Name("\(theme.fontName)"))
+                    }
+                   
                 }
-            }
-        }
     }
     func addThemeAction(){
         adsAction {
@@ -96,36 +101,63 @@ struct ThemesView: View {
     }
     
     
+    
     func adsAction(action :@escaping ()->()){
-        AdHub.shared.callSource = .theme
-        if SharedCouter.shared.ThemeAddCounter  == 3 {
-            adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
-                withAnimation {
-                    showPaymentView = true
-                    adsPopUpIsPresented = false
-                }
-            }, secondHandler: {
+        if StoreViewModel.shared.subscriptionActive {
+            withAnimation {
+                action()
+            }
+        }
+        else {
+            AdHub.shared.callSource = .theme
+            if SharedCouter.shared.ThemeAddCounter  == 3 {
+                adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
+                    withAnimation {
+                        showPaymentView = true
+                        adsPopUpIsPresented = false
+                    }
+                }, secondHandler: {
+                    AdHub.shared.requestAd {
+                        withAnimation {
+                            action()
+                            adsPopUpIsPresented = false
+                        }
+                    }
+                    dismissHandler : {
+                        withAnimation {
+                            adsPopUpIsPresented = false
+                        }
+                    }
+                }))
+                
+                adsPopUpIsPresented = true
+            }
+            else{
                 AdHub.shared.requestAd {
                     withAnimation {
                         action()
-                        adsPopUpIsPresented = false
                     }
-                }
-                dismissHandler : {
-                    withAnimation {
-                        adsPopUpIsPresented = false
-                    }
-                }
-            }))
-            adsPopUpIsPresented = true
-        }
-        else{
-            AdHub.shared.requestAd {
-                withAnimation {
-                    action()
                 }
             }
         }
+    }
+    
+    
+    func resetPopUp(action :@escaping ()->()){
+        adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "👨‍🎨", description: "Do you want to reset all themes?", mainButtonTitle: "Yes, Reset All", secondButtonTitle: "No, Cancel",showExitButton: false, isPresented: $adsPopUpIsPresented) {
+            withAnimation {
+                action()
+                adsPopUpIsPresented = false
+            }
+        } secondHandler: {
+            withAnimation {
+                adsPopUpIsPresented = false
+            }
+        })
+        withAnimation {
+            adsPopUpIsPresented = true
+        }
+
     }
     
     var nextView : some View {
@@ -167,7 +199,7 @@ struct ThemesView: View {
                         
                     }
                     
-                    Image(theme.id == themeVM.ThemeiD ?  "circle-check" : "circle")
+                    Image(theme.id == ThemeViewModel.shared.ThemeiD ?  "circle-check" : "circle")
                         .frame(width: 24,height: 24)
                         .padding(8)
                     
@@ -181,8 +213,8 @@ struct ThemesView: View {
     
     
     func backGroundImage(_ path : String)-> Image?{
-        if path.contains("/var/mobile"){
-            if let image = UIImage(contentsOfFile: path) {
+        if path.contains("CustomImage"){
+            if let image = LocalFileManager.instance.retrieveImageFromFile(filename: path) {
                 return Image(uiImage: image)
             }
             else{
@@ -199,6 +231,18 @@ struct ThemesView: View {
             HStack(spacing: 0){
                 Button {
                     
+                    resetPopUp {
+                        
+                        withAnimation {
+                            ThemeViewModel.shared.ThemeiD =  "0"
+                            ThemeViewModel.shared.themes  =  InitThemes.shared.initialThemes
+                            DispatchQueue.main.async {
+                                ThemeViewModel.shared.themes[0] =  ThemeViewModel.shared.themes[0]
+                                WidgetCenter.shared.reloadAllTimelines()
+                            }
+                        }
+                       
+                    }
                 } label: {
                     Text("Reset")
                         .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
@@ -216,7 +260,15 @@ struct ThemesView: View {
 
             }
             
-            ButtonImage24(title: "crown") {}
+            ButtonImage24(title: "crown") {
+                if !StoreViewModel.shared.subscriptionActive {
+                    
+                        withAnimation {showPaymentView = true}
+                        
+                    }
+                
+            }
+            .disabled(StoreViewModel.shared.subscriptionActive )
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         

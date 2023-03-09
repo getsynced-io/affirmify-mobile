@@ -8,19 +8,41 @@
 import SwiftUI
 import RevenueCat
 import GoogleMobileAds
+import FacebookCore
 
 @main
 struct IffirmationsApp: App {
     @StateObject var paymentVM = StoreViewModel.shared
-    @StateObject var wQuoteVM : WQuoteViewModel =  WQuoteViewModel()
+    @StateObject var wQuoteVM : WQuoteViewModel =  WQuoteViewModel.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State var launchScreen: Bool = true
     var body: some Scene {
         WindowGroup {
-            ContentView(wQuoteVM: wQuoteVM)
-                .onAppear {
-                    firstCall()
+            Group{
+                switch launchScreen {
+                case true :  splashScreen.transition(.opacity)
+                case false :   ContentView(wQuoteVM: wQuoteVM)
                 }
+            }
+            .onAppear {
+                firstCall()
+            }
+           
+              
         }
+    }
+    
+    var splashScreen : some View {
+        LaunchScreen()
+            .preferredColorScheme( .light)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    withAnimation {
+                        launchScreen = false
+                    }
+                }
+            }
+
     }
     
     func firstCall() {
@@ -36,7 +58,7 @@ struct IffirmationsApp: App {
 
 
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -47,8 +69,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       //initialise admob
       GADMobileAds.sharedInstance().start(completionHandler: nil)
       GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "22025892c524aac5dab3377cc9efde0e" ]
+      UNUserNotificationCenter.current().delegate = self
+      
+      //facebook
+      ApplicationDelegate.shared.application(
+              application,
+              didFinishLaunchingWithOptions: launchOptions
+          )
 
+      
     return true
   }
+    
+    func application(
+          _ app: UIApplication,
+          open url: URL,
+          options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+      ) -> Bool {
+          ApplicationDelegate.shared.application(
+              app,
+              open: url,
+              sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+              annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+          )
+      }
+    
+    func application(
+      _ application: UIApplication,
+      configurationForConnecting connectingSceneSession: UISceneSession,
+      options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+      let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+      sceneConfig.delegateClass = SceneDelegate.self // 👈🏻
+      return sceneConfig
+    }
+    
+}
 
+
+
+
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if userActivity.activityType == "com.Quottie.Quotes.viewquotes" {
+            let category = userActivity.userInfo?["category"] as? String ?? ""
+            NotificationCenter.default.post(name:  NSNotification.categoryIntent , object: nil, userInfo: ["category":category])
+          }
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
+}
+//User Notification
+
+extension NSNotification {
+    static let categoryIntent = Notification.Name.init("categoryIntent")
+}
+
+extension AppDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("got notification")
+        completionHandler([[.alert ,.badge , .sound]])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("got notification  dc")
+        completionHandler()
+    }
+    
+    
 }

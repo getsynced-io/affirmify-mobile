@@ -15,8 +15,9 @@ extension  NSItemProvider  {
                 DispatchQueue.main.async {
                     if let image = image  as? UIImage {
                         let cpmressedImage = image.limitTo2k()
-                        let path = LocalFileManager.instance.saveImage(image: cpmressedImage, name: "\(UUID().uuidString)", folderName: "Iffirmation")
-                        completion(path)
+                        let fileName = "CustomImage-\(UUID().uuidString)"
+                        let path = LocalFileManager.instance.saveImageToFile(image: cpmressedImage, filename: fileName)
+                        completion(fileName)
                     }
                     else {
                         completion(nil)

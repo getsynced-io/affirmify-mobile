@@ -11,13 +11,7 @@ struct FavoriteScreen: View {
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @Binding var isPresented : Bool
 
-    var seperator : some View {
-    Rectangle()
-            .frame(width: UIScreen.main.bounds.width,height: 1)
-            .foregroundColor(Color._000000.opacity(0.16))
-            .clipped()
-    
-    }
+
     var body: some View {
         VStack(spacing: 0){
             headerView
@@ -78,11 +72,9 @@ struct FavoriteScreen: View {
           
                 
                 ButtonImage24(title: "heart-filled") {
-                    withAnimation {
                         wQuoteVM.favoriteQuotes.removeAll { innerQuote in
                             innerQuote.placeID == quote.placeID
                         }
-                    }
                 }
             }
             .frame(width: 64 , height: 24)

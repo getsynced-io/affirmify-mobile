@@ -23,3 +23,27 @@ extension String {
         }
     }
 }
+
+
+
+extension String {
+    
+    func shareAsUrl(){
+        
+        let appURL = URL(string: self)!
+        let activityVC = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
+
+        if let vc = UIApplication.shared.keyWindowPresentedController {
+            activityVC.popoverPresentationController?.sourceView = vc.view
+            activityVC.popoverPresentationController?.sourceRect = sourceRect
+            activityVC.popoverPresentationController?.permittedArrowDirections = []
+                   vc.present(activityVC, animated: true, completion: nil)
+               }
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+        }
+    
+    }
+    
+}
+
+let sourceRect =  CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2 , width: 0, height: 0)

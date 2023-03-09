@@ -107,7 +107,6 @@ struct ThemeCustomisationImageView: View {
                            }
                        },
                        .default(Text("Choose From Library")) {
-                           // handle action
                            withAnimation {
                                showingPhotoPicker = true
                            }

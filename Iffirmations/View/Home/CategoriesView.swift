@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import AppTrackingTransparency
+import FacebookCore
 struct CategoriesView: View {
     let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y", "Z"]
     @StateObject var categoryVM : CategoryViewModel = CategoryViewModel()
@@ -58,6 +59,22 @@ struct CategoriesView: View {
         }
         .fullScreenCover(isPresented: $showPaymentView) {
             PaymentView(isPresented: $showPaymentView)
+        }
+        .onAppear {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .authorized :
+                    Settings.shared.isAdvertiserIDCollectionEnabled = true
+                    Settings.shared.isAutoLogAppEventsEnabled = true
+                    Settings.shared.isAdvertiserTrackingEnabled = true
+                    break
+                default :
+                    Settings.shared.isAdvertiserIDCollectionEnabled = false
+                    Settings.shared.isAutoLogAppEventsEnabled = false
+                    Settings.shared.isAdvertiserTrackingEnabled = false
+                    break
+                }
+            }
         }
     }
     
@@ -182,7 +199,14 @@ struct CategoriesView: View {
     
     var headerView : some View {
         ZStack{
-            ButtonImage24(title: "crown") {withAnimation {showPaymentView = true}}
+            ButtonImage24(title: "crown") {
+                if !StoreViewModel.shared.subscriptionActive {
+                    withAnimation {showPaymentView = true}
+                        
+                    }
+                
+            }
+            .disabled(StoreViewModel.shared.subscriptionActive )
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         
@@ -193,6 +217,7 @@ struct CategoriesView: View {
             withAnimation {
                 categoryVM.selectedID = category.title.rawValue
             }
+            WQuoteViewModel.shared.updateFiltredQuotes()
             tabState = .General
         }
         else if category.isPremium {
@@ -204,10 +229,12 @@ struct CategoriesView: View {
                             showPaymentView = true
                             adsPopUpIsPresented = false
                         }
+                        tabState = .General
                     }, secondHandler: {
                         AdHub.shared.requestAd {
                             withAnimation {
                                 categoryVM.selectedID = category.title.rawValue
+                                WQuoteViewModel.shared.updateFiltredQuotes()
                                 adsPopUpIsPresented = false
                             }
                         }
@@ -215,6 +242,7 @@ struct CategoriesView: View {
                             withAnimation {
                                 adsPopUpIsPresented = false
                             }
+                            tabState = .General
                         }
                     }))
                     adsPopUpIsPresented = true
@@ -223,6 +251,8 @@ struct CategoriesView: View {
                     AdHub.shared.requestAd{
                         withAnimation {
                             categoryVM.selectedID = category.title.rawValue
+                            WQuoteViewModel.shared.updateFiltredQuotes()
+                            
                         }
                     }
                 }
@@ -243,7 +273,7 @@ struct CategoriesView: View {
                         .scaledToFill()
                         .frame(width: columnWidth,height: columnWidth)
                         .cornerRadius(16)
-                    if category.isPremium {
+                    if category.isPremium && !StoreViewModel.shared.subscriptionActive{
                         Image("Lock")
                             .frame(width: 16 ,height: 16)
                             .padding(8)
