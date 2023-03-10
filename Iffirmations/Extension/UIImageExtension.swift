@@ -52,3 +52,25 @@ public extension UIImage {
         }
     }
 }
+
+
+extension UIImage {
+    
+    func share(completion : @escaping ()->()){
+        
+        guard let data =  self.pngData() else {return}
+        let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+
+        if let vc = UIApplication.shared.keyWindowPresentedController {
+            activityVC.popoverPresentationController?.sourceView = vc.view
+            activityVC.popoverPresentationController?.sourceRect = sourceRect
+            activityVC.popoverPresentationController?.permittedArrowDirections = []
+                   vc.present(activityVC, animated: true, completion: nil)
+               }
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+            completion()
+        }
+    
+    }
+    
+}

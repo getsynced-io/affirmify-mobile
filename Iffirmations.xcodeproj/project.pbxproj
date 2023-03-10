@@ -311,6 +311,12 @@
 		17A981E529BA3317000A08BE /* LegalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A981E429BA3317000A08BE /* LegalScreen.swift */; };
 		17A981E729BA34A6000A08BE /* SocialMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A981E629BA34A6000A08BE /* SocialMediaScreen.swift */; };
 		17A981EA29BA368B000A08BE /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 17A981E929BA368B000A08BE /* FacebookCore */; };
+		17A981F329BA4780000A08BE /* WatchOSIffirmationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A981F229BA4780000A08BE /* WatchOSIffirmationApp.swift */; };
+		17A981F529BA4780000A08BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A981F429BA4780000A08BE /* ContentView.swift */; };
+		17A981F729BA4782000A08BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A981F629BA4782000A08BE /* Assets.xcassets */; };
+		17A981FA29BA4782000A08BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A981F929BA4782000A08BE /* Preview Assets.xcassets */; };
+		17A981FD29BA4782000A08BE /* WatchOSIffirmation Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17A9820329BA4A2B000A08BE /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 17A9820229BA4A2B000A08BE /* SwiftProtobuf */; };
 		17C1FDB429B66F10009079C7 /* ColorCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */; };
 		17C1FDB629B67BDA009079C7 /* OpacityCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */; };
 		17C1FDB829B68054009079C7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB729B68054009079C7 /* CustomSlider.swift */; };
@@ -328,6 +334,125 @@
 		17E30EF529B7B241008E3E88 /* SiriShortCutsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E30EF429B7B241008E3E88 /* SiriShortCutsScreen.swift */; };
 		17E9C92429A61E12003DF105 /* CustomGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92329A61E12003DF105 /* CustomGridView.swift */; };
 		17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9C92529A621D1003DF105 /* CategorySelectionView.swift */; };
+		17F343C029BA4AFD0059DF8A /* file.protobuf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9029ACF15900415DBF /* file.protobuf */; };
+		17F343C129BA4B010059DF8A /* WQuote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17228F9129ACF15900415DBF /* WQuote.pb.swift */; };
+		17F343C229BA4B040059DF8A /* WQuoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F2FDB29B8C2E100F01960 /* WQuoteExtension.swift */; };
+		17F343C329BA4B200059DF8A /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E229A5264D0078645B /* CategoryModel.swift */; };
+		17F343C629BA4B510059DF8A /* WQuoteVMWHO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F343C529BA4B510059DF8A /* WQuoteVMWHO.swift */; };
+		17F343C729BA4BBF0059DF8A /* arraySafeAcces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714449429A3E44F00ADBA03 /* arraySafeAcces.swift */; };
+		17F343C929BA4DE40059DF8A /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC37F29AE87EF0061C6C0 /* Inter-Medium.ttf */; };
+		17F343CA29BA4DE40059DF8A /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38729AE87F00061C6C0 /* Inter-Black.ttf */; };
+		17F343CB29BA4DE40059DF8A /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38529AE87EF0061C6C0 /* Inter-ExtraLight.ttf */; };
+		17F343CC29BA4DE40059DF8A /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38629AE87F00061C6C0 /* Inter-Regular.ttf */; };
+		17F343CD29BA4DE40059DF8A /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38129AE87EF0061C6C0 /* Inter-SemiBold.ttf */; };
+		17F343CE29BA4DE40059DF8A /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38329AE87EF0061C6C0 /* Inter-Thin.ttf */; };
+		17F343CF29BA4DE40059DF8A /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38029AE87EF0061C6C0 /* Inter-ExtraBold.ttf */; };
+		17F343D029BA4DE40059DF8A /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38429AE87EF0061C6C0 /* Inter-Light.ttf */; };
+		17F343D129BA4DE40059DF8A /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38229AE87EF0061C6C0 /* Inter-Bold.ttf */; };
+		17F343D229BA4DEB0059DF8A /* Monofett-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD729AD074500415DBF /* Monofett-Regular.ttf */; };
+		17F343D329BA4DEB0059DF8A /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC929AD074500415DBF /* IBMPlexMono-Regular.ttf */; };
+		17F343D429BA4DEB0059DF8A /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE329AD074500415DBF /* FingerPaint-Regular.ttf */; };
+		17F343D529BA4DEB0059DF8A /* Astloch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD329AD074500415DBF /* Astloch-Bold.ttf */; };
+		17F343D629BA4DEB0059DF8A /* Lexend-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9F29AD074500415DBF /* Lexend-Regular.ttf */; };
+		17F343D729BA4DEB0059DF8A /* Barrio-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDA29AD074500415DBF /* Barrio-Regular.ttf */; };
+		17F343D829BA4DEB0059DF8A /* Jaldi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBE29AD074500415DBF /* Jaldi-Regular.ttf */; };
+		17F343D929BA4DEB0059DF8A /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCA29AD074500415DBF /* AlfaSlabOne-Regular.ttf */; };
+		17F343DA29BA4DEB0059DF8A /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEB29AD074500415DBF /* Rubik-Regular.ttf */; };
+		17F343DB29BA4DEB0059DF8A /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC829AD074500415DBF /* Montserrat-Bold.ttf */; };
+		17F343DC29BA4DEB0059DF8A /* SyneMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC229AD074500415DBF /* SyneMono-Regular.ttf */; };
+		17F343DD29BA4DEB0059DF8A /* OvertheRainbow-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC529AD074500415DBF /* OvertheRainbow-Regular.ttf */; };
+		17F343DE29BA4DEB0059DF8A /* Creepster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCB29AD074500415DBF /* Creepster-Regular.ttf */; };
+		17F343DF29BA4DEB0059DF8A /* Taviraj-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD929AD074500415DBF /* Taviraj-Regular.ttf */; };
+		17F343E029BA4DEB0059DF8A /* JuliusSansOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE529AD074500415DBF /* JuliusSansOne-Regular.ttf */; };
+		17F343E129BA4DEB0059DF8A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE229AD074500415DBF /* Poppins-Regular.ttf */; };
+		17F343E229BA4DEB0059DF8A /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA329AD074500415DBF /* Exo-Regular.ttf */; };
+		17F343E329BA4DEB0059DF8A /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA629AD074500415DBF /* IndieFlower-Regular.ttf */; };
+		17F343E429BA4DEB0059DF8A /* Geo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB129AD074500415DBF /* Geo-Regular.ttf */; };
+		17F343E529BA4DEB0059DF8A /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC329AD074500415DBF /* Anton-Regular.ttf */; };
+		17F343E629BA4DEB0059DF8A /* Felipa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA029AD074500415DBF /* Felipa-Regular.ttf */; };
+		17F343E729BA4DEB0059DF8A /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBA29AD074500415DBF /* Spectral-Regular.ttf */; };
+		17F343E829BA4DEB0059DF8A /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC629AD074500415DBF /* Knewave-Regular.ttf */; };
+		17F343E929BA4DEB0059DF8A /* InknutAntiqua-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC729AD074500415DBF /* InknutAntiqua-Regular.ttf */; };
+		17F343EA29BA4DEB0059DF8A /* Inika-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA429AD074500415DBF /* Inika-Bold.ttf */; };
+		17F343EB29BA4DEB0059DF8A /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD229AD074500415DBF /* PermanentMarker-Regular.ttf */; };
+		17F343EC29BA4DEB0059DF8A /* GiveYouGlory-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCF29AD074500415DBF /* GiveYouGlory-Regular.ttf */; };
+		17F343ED29BA4DEB0059DF8A /* CabinSketch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD529AD074500415DBF /* CabinSketch-Regular.ttf */; };
+		17F343EE29BA4DEB0059DF8A /* Barriecito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE429AD074500415DBF /* Barriecito-Regular.ttf */; };
+		17F343EF29BA4DEB0059DF8A /* FjallaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB629AD074500415DBF /* FjallaOne-Regular.ttf */; };
+		17F343F029BA4DEB0059DF8A /* ArchivoNarrow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD829AD074500415DBF /* ArchivoNarrow-Bold.ttf */; };
+		17F343F129BA4DEB0059DF8A /* LoveYaLikeASister-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE729AD074500415DBF /* LoveYaLikeASister-Regular.ttf */; };
+		17F343F229BA4DEB0059DF8A /* Miniver-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEF29AD074500415DBF /* Miniver-Regular.ttf */; };
+		17F343F329BA4DEB0059DF8A /* BioRhyme-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF429AD074500415DBF /* BioRhyme-Regular.ttf */; };
+		17F343F429BA4DEB0059DF8A /* Eczar-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF929AD074500415DBF /* Eczar-Bold.ttf */; };
+		17F343F529BA4DEB0059DF8A /* IMFellFrenchCanonSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCE29AD074500415DBF /* IMFellFrenchCanonSC-Regular.ttf */; };
+		17F343F629BA4DEB0059DF8A /* FrederickatheGreat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE029AD074500415DBF /* FrederickatheGreat-Regular.ttf */; };
+		17F343F729BA4DEB0059DF8A /* BethEllen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE829AD074500415DBF /* BethEllen-Regular.ttf */; };
+		17F343F829BA4DEB0059DF8A /* Gaegu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAC29AD074500415DBF /* Gaegu-Regular.ttf */; };
+		17F343F929BA4DEB0059DF8A /* Bangers-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD029AD074500415DBF /* Bangers-Regular.ttf */; };
+		17F343FA29BA4DEB0059DF8A /* Gluten-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA529AD074500415DBF /* Gluten-Regular.ttf */; };
+		17F343FB29BA4DEB0059DF8A /* NanumMyeongjo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAB29AD074500415DBF /* NanumMyeongjo-Regular.ttf */; };
+		17F343FC29BA4DEB0059DF8A /* McLaren-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9E29AD074500415DBF /* McLaren-Regular.ttf */; };
+		17F343FD29BA4DEB0059DF8A /* BalsamiqSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA829AD074500415DBF /* BalsamiqSans-Bold.ttf */; };
+		17F343FE29BA4DEB0059DF8A /* Syne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB529AD074500415DBF /* Syne-Regular.ttf */; };
+		17F343FF29BA4DEB0059DF8A /* LaBelleAurore-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBF29AD074500415DBF /* LaBelleAurore-Regular.ttf */; };
+		17F3440029BA4DEB0059DF8A /* FontdinerSwanky-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF029AD074500415DBF /* FontdinerSwanky-Regular.ttf */; };
+		17F3440129BA4DEB0059DF8A /* Epilogue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF729AD074500415DBF /* Epilogue-Bold.ttf */; };
+		17F3440229BA4DEB0059DF8A /* FjordOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC39529AE8D5A0061C6C0 /* FjordOne.ttf */; };
+		17F3440329BA4DEB0059DF8A /* Glegoo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA229AD074500415DBF /* Glegoo-Bold.ttf */; };
+		17F3440429BA4DEB0059DF8A /* Meddon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF829AD074500415DBF /* Meddon.ttf */; };
+		17F3440529BA4DEB0059DF8A /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD429AD074500415DBF /* DMSerifDisplay-Regular.ttf */; };
+		17F3440629BA4DEB0059DF8A /* ZenDots-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB229AD074500415DBF /* ZenDots-Regular.ttf */; };
+		17F3440729BA4DEB0059DF8A /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB929AD074500415DBF /* Lora-Bold.ttf */; };
+		17F3440829BA4DEB0059DF8A /* Kavivanar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCC29AD074500415DBF /* Kavivanar-Regular.ttf */; };
+		17F3440929BA4DEB0059DF8A /* Inconsolata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF129AD074500415DBF /* Inconsolata-Regular.ttf */; };
+		17F3440A29BA4DEB0059DF8A /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA129AD074500415DBF /* Merriweather-Bold.ttf */; };
+		17F3440B29BA4DEB0059DF8A /* Margarine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB329AD074500415DBF /* Margarine-Regular.ttf */; };
+		17F3440C29BA4DEB0059DF8A /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB729AD074500415DBF /* PlayfairDisplay-Bold.ttf */; };
+		17F3440D29BA4DEB0059DF8A /* Chivo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAA29AD074500415DBF /* Chivo-Bold.ttf */; };
+		17F3440E29BA4DEB0059DF8A /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBD29AD074500415DBF /* SpaceGrotesk-Regular.ttf */; };
+		17F3440F29BA4DEB0059DF8A /* Bonbon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FCD29AD074500415DBF /* Bonbon-Regular.ttf */; };
+		17F3441029BA4DEB0059DF8A /* HomemadeApple-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEC29AD074500415DBF /* HomemadeApple-Regular.ttf */; };
+		17F3441129BA4DEB0059DF8A /* GeostarFill-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAF29AD074500415DBF /* GeostarFill-Regular.ttf */; };
+		17F3441229BA4DEB0059DF8A /* PaletteMosaic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC029AD074500415DBF /* PaletteMosaic-Regular.ttf */; };
+		17F3441329BA4DEB0059DF8A /* Gloock-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 173DC38829AE89AA0061C6C0 /* Gloock-Regular.ttf */; };
+		17F3441429BA4DEB0059DF8A /* HanaleiFill-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF629AD074500415DBF /* HanaleiFill-Regular.ttf */; };
+		17F3441529BA4DEB0059DF8A /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAD29AD074500415DBF /* DotGothic16-Regular.ttf */; };
+		17F3441629BA4DEB0059DF8A /* Khand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDE29AD074500415DBF /* Khand-Bold.ttf */; };
+		17F3441729BA4DEB0059DF8A /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA729AD074500415DBF /* DMSans-Bold.ttf */; };
+		17F3441829BA4DEB0059DF8A /* PasseroOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF529AD074500415DBF /* PasseroOne-Regular.ttf */; };
+		17F3441929BA4DEB0059DF8A /* KiteOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD629AD074500415DBF /* KiteOne-Regular.ttf */; };
+		17F3441A29BA4DEB0059DF8A /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBB29AD074500415DBF /* Sora-Bold.ttf */; };
+		17F3441B29BA4DEB0059DF8A /* Koulen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FAE29AD074500415DBF /* Koulen-Regular.ttf */; };
+		17F3441C29BA4DEB0059DF8A /* IMFellFrenchCanon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC429AD074500415DBF /* IMFellFrenchCanon-Regular.ttf */; };
+		17F3441D29BA4DEB0059DF8A /* Glegoo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE129AD074500415DBF /* Glegoo-Regular.ttf */; };
+		17F3441E29BA4DEB0059DF8A /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDF29AD074500415DBF /* RobotoCondensed-Regular.ttf */; };
+		17F3441F29BA4DEB0059DF8A /* IMFellDoublePicaSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEE29AD074500415DBF /* IMFellDoublePicaSC-Regular.ttf */; };
+		17F3442029BA4DEB0059DF8A /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FBC29AD074500415DBF /* AbrilFatface-Regular.ttf */; };
+		17F3442129BA4DEB0059DF8A /* IrishGrover-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FA929AD074500415DBF /* IrishGrover-Regular.ttf */; };
+		17F3442229BA4DEB0059DF8A /* Cormorant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDD29AD074500415DBF /* Cormorant-Bold.ttf */; };
+		17F3442329BA4DEB0059DF8A /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE929AD074500415DBF /* Lekton-Bold.ttf */; };
+		17F3442429BA4DEB0059DF8A /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FEA29AD074500415DBF /* Abel-Regular.ttf */; };
+		17F3442529BA4DEB0059DF8A /* Fruktur-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB429AD074500415DBF /* Fruktur-Regular.ttf */; };
+		17F3442629BA4DEB0059DF8A /* BowlbyOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FC129AD074500415DBF /* BowlbyOne-Regular.ttf */; };
+		17F3442729BA4DEB0059DF8A /* FjordOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FD129AD074500415DBF /* FjordOne-Regular.ttf */; };
+		17F3442829BA4DEB0059DF8A /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228F9D29AD074500415DBF /* WorkSans-Regular.ttf */; };
+		17F3442929BA4DEB0059DF8A /* Judson-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FE629AD074500415DBF /* Judson-Regular.ttf */; };
+		17F3442A29BA4DEB0059DF8A /* NothingYouCouldDo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDB29AD074500415DBF /* NothingYouCouldDo-Regular.ttf */; };
+		17F3442B29BA4DEB0059DF8A /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FED29AD074500415DBF /* Karla-Regular.ttf */; };
+		17F3442C29BA4DEB0059DF8A /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF229AD074500415DBF /* Manrope-Bold.ttf */; };
+		17F3442D29BA4DEB0059DF8A /* Marcellus-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB029AD074500415DBF /* Marcellus-Regular.ttf */; };
+		17F3442E29BA4DEB0059DF8A /* Bungee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FB829AD074500415DBF /* Bungee-Regular.ttf */; };
+		17F3442F29BA4DEB0059DF8A /* SpecialElite-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FDC29AD074500415DBF /* SpecialElite-Regular.ttf */; };
+		17F3443029BA4DEB0059DF8A /* Farro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FF329AD074500415DBF /* Farro-Regular.ttf */; };
+		17F3443129BA4DEB0059DF8A /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17228FFA29AD074500415DBF /* IBMPlexSans-Bold.ttf */; };
+		17F3443229BA4DEF0059DF8A /* IBMPlexSerif-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714446D29A3D9F400ADBA03 /* IBMPlexSerif-Thin.ttf */; };
+		17F3443329BA4DEF0059DF8A /* IBMPlexSerif-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714446C29A3D9F400ADBA03 /* IBMPlexSerif-Light.ttf */; };
+		17F3443429BA4DEF0059DF8A /* IBMPlexSerif-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714446B29A3D9F400ADBA03 /* IBMPlexSerif-Medium.ttf */; };
+		17F3443529BA4DEF0059DF8A /* IBMPlexSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714447129A3D9F400ADBA03 /* IBMPlexSerif-Bold.ttf */; };
+		17F3443629BA4DEF0059DF8A /* IBMPlexSerif-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714446829A3D9F400ADBA03 /* IBMPlexSerif-SemiBold.ttf */; };
+		17F3443729BA4DEF0059DF8A /* IBMPlexSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714446429A3D9F400ADBA03 /* IBMPlexSerif-Regular.ttf */; };
+		17F3443829BA4E010059DF8A /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714448429A3DD4600ADBA03 /* FontsExtension.swift */; };
+		17F3443929BA4E5C0059DF8A /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170871E429A527100078645B /* CategoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,9 +463,27 @@
 			remoteGlobalIDString = 179F2FB629B8BF7900F01960;
 			remoteInfo = QuottieWidgetExtension;
 		};
+		17A981FB29BA4782000A08BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1714444329A3D81B00ADBA03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17A981EF29BA4780000A08BE;
+			remoteInfo = "WatchOSIffirmation Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		17A9820129BA4783000A08BE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				17A981FD29BA4782000A08BE /* WatchOSIffirmation Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17E30F1B29B7D202008E3E88 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -537,6 +680,12 @@
 		17A981E229BA2C09000A08BE /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		17A981E429BA3317000A08BE /* LegalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalScreen.swift; sourceTree = "<group>"; };
 		17A981E629BA34A6000A08BE /* SocialMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaScreen.swift; sourceTree = "<group>"; };
+		17A981EB29BA41D0000A08BE /* IffirmationsRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IffirmationsRelease.entitlements; sourceTree = "<group>"; };
+		17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchOSIffirmation Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A981F229BA4780000A08BE /* WatchOSIffirmationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchOSIffirmationApp.swift; sourceTree = "<group>"; };
+		17A981F429BA4780000A08BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		17A981F629BA4782000A08BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17A981F929BA4782000A08BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCustomisationView.swift; sourceTree = "<group>"; };
 		17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityCustomisationView.swift; sourceTree = "<group>"; };
 		17C1FDB729B68054009079C7 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
@@ -556,6 +705,8 @@
 		17E30F0629B7D202008E3E88 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		17E9C92329A61E12003DF105 /* CustomGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGridView.swift; sourceTree = "<group>"; };
 		17E9C92529A621D1003DF105 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
+		17F343C529BA4B510059DF8A /* WQuoteVMWHO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuoteVMWHO.swift; sourceTree = "<group>"; };
+		17F343C829BA4D770059DF8A /* WatchOSIffirmation-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchOSIffirmation-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +728,14 @@
 			files = (
 				179F2FBB29B8BF7900F01960 /* SwiftUI.framework in Frameworks */,
 				179F2FB929B8BF7900F01960 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17A981ED29BA4780000A08BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A9820329BA4A2B000A08BE /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +782,7 @@
 				179F2FDE29B8CBD500F01960 /* QuottieWidgetExtension.entitlements */,
 				1714444D29A3D81B00ADBA03 /* Iffirmations */,
 				179F2FBC29B8BF7900F01960 /* QuottieWidget */,
+				17A981F129BA4780000A08BE /* WatchOSIffirmation Watch App */,
 				1714444C29A3D81B00ADBA03 /* Products */,
 				179D945829A768BA00AB6F10 /* Frameworks */,
 			);
@@ -633,6 +793,7 @@
 			children = (
 				1714444B29A3D81B00ADBA03 /* Iffirmations.app */,
 				179F2FB729B8BF7900F01960 /* QuottieWidgetExtension.appex */,
+				17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -640,6 +801,7 @@
 		1714444D29A3D81B00ADBA03 /* Iffirmations */ = {
 			isa = PBXGroup;
 			children = (
+				17A981EB29BA41D0000A08BE /* IffirmationsRelease.entitlements */,
 				1762C66F29A8B92500577FA0 /* Quotes */,
 				179D945B29A768D900AB6F10 /* Iffirmations.entitlements */,
 				1714448129A3DA8C00ADBA03 /* Info.plist */,
@@ -998,12 +1160,41 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		17A981F129BA4780000A08BE /* WatchOSIffirmation Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				17F343C829BA4D770059DF8A /* WatchOSIffirmation-Watch-App-Info.plist */,
+				17A981F229BA4780000A08BE /* WatchOSIffirmationApp.swift */,
+				17A981F429BA4780000A08BE /* ContentView.swift */,
+				17F343C429BA4B340059DF8A /* ViewModel */,
+				17A981F629BA4782000A08BE /* Assets.xcassets */,
+				17A981F829BA4782000A08BE /* Preview Content */,
+			);
+			path = "WatchOSIffirmation Watch App";
+			sourceTree = "<group>";
+		};
+		17A981F829BA4782000A08BE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				17A981F929BA4782000A08BE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		17C1FDB929B68970009079C7 /* ThemeCustomisationImageView */ = {
 			isa = PBXGroup;
 			children = (
 				17C1FDBA29B6898A009079C7 /* ThemeCustomisationImageView.swift */,
 			);
 			path = ThemeCustomisationImageView;
+			sourceTree = "<group>";
+		};
+		17F343C429BA4B340059DF8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				17F343C529BA4B510059DF8A /* WQuoteVMWHO.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1017,11 +1208,13 @@
 				1714444829A3D81B00ADBA03 /* Frameworks */,
 				1714444929A3D81B00ADBA03 /* Resources */,
 				17E30F1B29B7D202008E3E88 /* Embed Foundation Extensions */,
+				17A9820129BA4783000A08BE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				179F2FC729B8BF7A00F01960 /* PBXTargetDependency */,
+				17A981FC29BA4782000A08BE /* PBXTargetDependency */,
 			);
 			name = Iffirmations;
 			packageProductDependencies = (
@@ -1053,6 +1246,26 @@
 			productReference = 179F2FB729B8BF7900F01960 /* QuottieWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		17A981EF29BA4780000A08BE /* WatchOSIffirmation Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17A981FE29BA4783000A08BE /* Build configuration list for PBXNativeTarget "WatchOSIffirmation Watch App" */;
+			buildPhases = (
+				17A981EC29BA4780000A08BE /* Sources */,
+				17A981ED29BA4780000A08BE /* Frameworks */,
+				17A981EE29BA4780000A08BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchOSIffirmation Watch App";
+			packageProductDependencies = (
+				17A9820229BA4A2B000A08BE /* SwiftProtobuf */,
+			);
+			productName = "WatchOSIffirmation Watch App";
+			productReference = 17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1067,6 +1280,9 @@
 						CreatedOnToolsVersion = 14.1;
 					};
 					179F2FB629B8BF7900F01960 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					17A981EF29BA4780000A08BE = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -1092,6 +1308,7 @@
 			targets = (
 				1714444A29A3D81B00ADBA03 /* Iffirmations */,
 				179F2FB629B8BF7900F01960 /* QuottieWidgetExtension */,
+				17A981EF29BA4780000A08BE /* WatchOSIffirmation Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -1337,6 +1554,127 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17A981EE29BA4780000A08BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17F343D429BA4DEB0059DF8A /* FingerPaint-Regular.ttf in Resources */,
+				17F3442629BA4DEB0059DF8A /* BowlbyOne-Regular.ttf in Resources */,
+				17F343FE29BA4DEB0059DF8A /* Syne-Regular.ttf in Resources */,
+				17F343E429BA4DEB0059DF8A /* Geo-Regular.ttf in Resources */,
+				17F343EA29BA4DEB0059DF8A /* Inika-Bold.ttf in Resources */,
+				17F343E829BA4DEB0059DF8A /* Knewave-Regular.ttf in Resources */,
+				17F343F129BA4DEB0059DF8A /* LoveYaLikeASister-Regular.ttf in Resources */,
+				17F3442129BA4DEB0059DF8A /* IrishGrover-Regular.ttf in Resources */,
+				17F343DA29BA4DEB0059DF8A /* Rubik-Regular.ttf in Resources */,
+				17F3441729BA4DEB0059DF8A /* DMSans-Bold.ttf in Resources */,
+				17F343C929BA4DE40059DF8A /* Inter-Medium.ttf in Resources */,
+				17F343CB29BA4DE40059DF8A /* Inter-ExtraLight.ttf in Resources */,
+				17F343F329BA4DEB0059DF8A /* BioRhyme-Regular.ttf in Resources */,
+				17F343D329BA4DEB0059DF8A /* IBMPlexMono-Regular.ttf in Resources */,
+				17F343D729BA4DEB0059DF8A /* Barrio-Regular.ttf in Resources */,
+				17F3440429BA4DEB0059DF8A /* Meddon.ttf in Resources */,
+				17F343E729BA4DEB0059DF8A /* Spectral-Regular.ttf in Resources */,
+				17F3441629BA4DEB0059DF8A /* Khand-Bold.ttf in Resources */,
+				17F3442E29BA4DEB0059DF8A /* Bungee-Regular.ttf in Resources */,
+				17F343EE29BA4DEB0059DF8A /* Barriecito-Regular.ttf in Resources */,
+				17F343CE29BA4DE40059DF8A /* Inter-Thin.ttf in Resources */,
+				17F343FD29BA4DEB0059DF8A /* BalsamiqSans-Bold.ttf in Resources */,
+				17F3442229BA4DEB0059DF8A /* Cormorant-Bold.ttf in Resources */,
+				17F343FC29BA4DEB0059DF8A /* McLaren-Regular.ttf in Resources */,
+				17F3440129BA4DEB0059DF8A /* Epilogue-Bold.ttf in Resources */,
+				17F343F529BA4DEB0059DF8A /* IMFellFrenchCanonSC-Regular.ttf in Resources */,
+				17F343C029BA4AFD0059DF8A /* file.protobuf in Resources */,
+				17F3442429BA4DEB0059DF8A /* Abel-Regular.ttf in Resources */,
+				17F343F929BA4DEB0059DF8A /* Bangers-Regular.ttf in Resources */,
+				17F343D229BA4DEB0059DF8A /* Monofett-Regular.ttf in Resources */,
+				17F343F229BA4DEB0059DF8A /* Miniver-Regular.ttf in Resources */,
+				17F3440629BA4DEB0059DF8A /* ZenDots-Regular.ttf in Resources */,
+				17F343CA29BA4DE40059DF8A /* Inter-Black.ttf in Resources */,
+				17F343D529BA4DEB0059DF8A /* Astloch-Bold.ttf in Resources */,
+				17F3440A29BA4DEB0059DF8A /* Merriweather-Bold.ttf in Resources */,
+				17F3442529BA4DEB0059DF8A /* Fruktur-Regular.ttf in Resources */,
+				17F343E529BA4DEB0059DF8A /* Anton-Regular.ttf in Resources */,
+				17F3440029BA4DEB0059DF8A /* FontdinerSwanky-Regular.ttf in Resources */,
+				17F343CF29BA4DE40059DF8A /* Inter-ExtraBold.ttf in Resources */,
+				17F343ED29BA4DEB0059DF8A /* CabinSketch-Regular.ttf in Resources */,
+				17F3441D29BA4DEB0059DF8A /* Glegoo-Regular.ttf in Resources */,
+				17F3440829BA4DEB0059DF8A /* Kavivanar-Regular.ttf in Resources */,
+				17F343E629BA4DEB0059DF8A /* Felipa-Regular.ttf in Resources */,
+				17F3443329BA4DEF0059DF8A /* IBMPlexSerif-Light.ttf in Resources */,
+				17F3442C29BA4DEB0059DF8A /* Manrope-Bold.ttf in Resources */,
+				17F3443129BA4DEB0059DF8A /* IBMPlexSans-Bold.ttf in Resources */,
+				17F3440329BA4DEB0059DF8A /* Glegoo-Bold.ttf in Resources */,
+				17F3441F29BA4DEB0059DF8A /* IMFellDoublePicaSC-Regular.ttf in Resources */,
+				17F3442729BA4DEB0059DF8A /* FjordOne-Regular.ttf in Resources */,
+				17F3442F29BA4DEB0059DF8A /* SpecialElite-Regular.ttf in Resources */,
+				17F3440E29BA4DEB0059DF8A /* SpaceGrotesk-Regular.ttf in Resources */,
+				17F343E229BA4DEB0059DF8A /* Exo-Regular.ttf in Resources */,
+				17F343DE29BA4DEB0059DF8A /* Creepster-Regular.ttf in Resources */,
+				17F3442929BA4DEB0059DF8A /* Judson-Regular.ttf in Resources */,
+				17F3441329BA4DEB0059DF8A /* Gloock-Regular.ttf in Resources */,
+				17F343DD29BA4DEB0059DF8A /* OvertheRainbow-Regular.ttf in Resources */,
+				17F343E029BA4DEB0059DF8A /* JuliusSansOne-Regular.ttf in Resources */,
+				17F3443529BA4DEF0059DF8A /* IBMPlexSerif-Bold.ttf in Resources */,
+				17F343D129BA4DE40059DF8A /* Inter-Bold.ttf in Resources */,
+				17F3443729BA4DEF0059DF8A /* IBMPlexSerif-Regular.ttf in Resources */,
+				17F3441E29BA4DEB0059DF8A /* RobotoCondensed-Regular.ttf in Resources */,
+				17F3443229BA4DEF0059DF8A /* IBMPlexSerif-Thin.ttf in Resources */,
+				17F3440C29BA4DEB0059DF8A /* PlayfairDisplay-Bold.ttf in Resources */,
+				17F3442D29BA4DEB0059DF8A /* Marcellus-Regular.ttf in Resources */,
+				17F3442329BA4DEB0059DF8A /* Lekton-Bold.ttf in Resources */,
+				17F3440D29BA4DEB0059DF8A /* Chivo-Bold.ttf in Resources */,
+				17F3441029BA4DEB0059DF8A /* HomemadeApple-Regular.ttf in Resources */,
+				17F3440F29BA4DEB0059DF8A /* Bonbon-Regular.ttf in Resources */,
+				17F343D629BA4DEB0059DF8A /* Lexend-Regular.ttf in Resources */,
+				17F3440229BA4DEB0059DF8A /* FjordOne.ttf in Resources */,
+				17F343CD29BA4DE40059DF8A /* Inter-SemiBold.ttf in Resources */,
+				17F3441B29BA4DEB0059DF8A /* Koulen-Regular.ttf in Resources */,
+				17F3443029BA4DEB0059DF8A /* Farro-Regular.ttf in Resources */,
+				17F343F629BA4DEB0059DF8A /* FrederickatheGreat-Regular.ttf in Resources */,
+				17F3442829BA4DEB0059DF8A /* WorkSans-Regular.ttf in Resources */,
+				17F3440B29BA4DEB0059DF8A /* Margarine-Regular.ttf in Resources */,
+				17F343DF29BA4DEB0059DF8A /* Taviraj-Regular.ttf in Resources */,
+				17F343D929BA4DEB0059DF8A /* AlfaSlabOne-Regular.ttf in Resources */,
+				17F343F829BA4DEB0059DF8A /* Gaegu-Regular.ttf in Resources */,
+				17A981FA29BA4782000A08BE /* Preview Assets.xcassets in Resources */,
+				17F3441929BA4DEB0059DF8A /* KiteOne-Regular.ttf in Resources */,
+				17F343EB29BA4DEB0059DF8A /* PermanentMarker-Regular.ttf in Resources */,
+				17F3441429BA4DEB0059DF8A /* HanaleiFill-Regular.ttf in Resources */,
+				17F343F429BA4DEB0059DF8A /* Eczar-Bold.ttf in Resources */,
+				17F343F029BA4DEB0059DF8A /* ArchivoNarrow-Bold.ttf in Resources */,
+				17F343D829BA4DEB0059DF8A /* Jaldi-Regular.ttf in Resources */,
+				17F3441229BA4DEB0059DF8A /* PaletteMosaic-Regular.ttf in Resources */,
+				17F3441129BA4DEB0059DF8A /* GeostarFill-Regular.ttf in Resources */,
+				17F3441529BA4DEB0059DF8A /* DotGothic16-Regular.ttf in Resources */,
+				17F343EF29BA4DEB0059DF8A /* FjallaOne-Regular.ttf in Resources */,
+				17F343E929BA4DEB0059DF8A /* InknutAntiqua-Regular.ttf in Resources */,
+				17F343FB29BA4DEB0059DF8A /* NanumMyeongjo-Regular.ttf in Resources */,
+				17F343F729BA4DEB0059DF8A /* BethEllen-Regular.ttf in Resources */,
+				17F3440529BA4DEB0059DF8A /* DMSerifDisplay-Regular.ttf in Resources */,
+				17F343D029BA4DE40059DF8A /* Inter-Light.ttf in Resources */,
+				17F3440929BA4DEB0059DF8A /* Inconsolata-Regular.ttf in Resources */,
+				17F3441A29BA4DEB0059DF8A /* Sora-Bold.ttf in Resources */,
+				17F343FF29BA4DEB0059DF8A /* LaBelleAurore-Regular.ttf in Resources */,
+				17F3441C29BA4DEB0059DF8A /* IMFellFrenchCanon-Regular.ttf in Resources */,
+				17F3442B29BA4DEB0059DF8A /* Karla-Regular.ttf in Resources */,
+				17F3440729BA4DEB0059DF8A /* Lora-Bold.ttf in Resources */,
+				17F343E329BA4DEB0059DF8A /* IndieFlower-Regular.ttf in Resources */,
+				17F343E129BA4DEB0059DF8A /* Poppins-Regular.ttf in Resources */,
+				17F3442A29BA4DEB0059DF8A /* NothingYouCouldDo-Regular.ttf in Resources */,
+				17A981F729BA4782000A08BE /* Assets.xcassets in Resources */,
+				17F3442029BA4DEB0059DF8A /* AbrilFatface-Regular.ttf in Resources */,
+				17F343FA29BA4DEB0059DF8A /* Gluten-Regular.ttf in Resources */,
+				17F3443629BA4DEF0059DF8A /* IBMPlexSerif-SemiBold.ttf in Resources */,
+				17F3441829BA4DEB0059DF8A /* PasseroOne-Regular.ttf in Resources */,
+				17F3443429BA4DEF0059DF8A /* IBMPlexSerif-Medium.ttf in Resources */,
+				17F343EC29BA4DEB0059DF8A /* GiveYouGlory-Regular.ttf in Resources */,
+				17F343DB29BA4DEB0059DF8A /* Montserrat-Bold.ttf in Resources */,
+				17F343DC29BA4DEB0059DF8A /* SyneMono-Regular.ttf in Resources */,
+				17F343CC29BA4DE40059DF8A /* Inter-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1441,6 +1779,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17A981EC29BA4780000A08BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A981F529BA4780000A08BE /* ContentView.swift in Sources */,
+				17F343C129BA4B010059DF8A /* WQuote.pb.swift in Sources */,
+				17F343C729BA4BBF0059DF8A /* arraySafeAcces.swift in Sources */,
+				17F343C229BA4B040059DF8A /* WQuoteExtension.swift in Sources */,
+				17F343C329BA4B200059DF8A /* CategoryModel.swift in Sources */,
+				17F343C629BA4B510059DF8A /* WQuoteVMWHO.swift in Sources */,
+				17F3443829BA4E010059DF8A /* FontsExtension.swift in Sources */,
+				17F3443929BA4E5C0059DF8A /* CategoryViewModel.swift in Sources */,
+				17A981F329BA4780000A08BE /* WatchOSIffirmationApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1448,6 +1802,11 @@
 			isa = PBXTargetDependency;
 			target = 179F2FB629B8BF7900F01960 /* QuottieWidgetExtension */;
 			targetProxy = 179F2FC629B8BF7A00F01960 /* PBXContainerItemProxy */;
+		};
+		17A981FC29BA4782000A08BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17A981EF29BA4780000A08BE /* WatchOSIffirmation Watch App */;
+			targetProxy = 17A981FB29BA4782000A08BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1609,7 +1968,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Iffirmations/Iffirmations.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Iffirmations/IffirmationsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Iffirmations/Preview Content\"";
@@ -1699,6 +2058,68 @@
 			};
 			name = Release;
 		};
+		17A981FF29BA4783000A08BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchOSIffirmation Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = RQCTJKZJWB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchOSIffirmation-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = WatchOSIffirmation;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.oz.Quottie;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		17A9820029BA4783000A08BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchOSIffirmation Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = RQCTJKZJWB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchOSIffirmation-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = WatchOSIffirmation;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.oz.Quottie;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1725,6 +2146,15 @@
 			buildConfigurations = (
 				179F2FCA29B8BF7A00F01960 /* Debug */,
 				179F2FCB29B8BF7A00F01960 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17A981FE29BA4783000A08BE /* Build configuration list for PBXNativeTarget "WatchOSIffirmation Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17A981FF29BA4783000A08BE /* Debug */,
+				17A9820029BA4783000A08BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1786,6 +2216,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17A981E829BA368B000A08BE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		17A9820229BA4A2B000A08BE /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

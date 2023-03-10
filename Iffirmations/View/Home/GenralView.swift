@@ -43,7 +43,10 @@ struct GenralView: View {
 
     @AppStorage("CategoryModelSelection",store: store) var selectedCategoryID: String = ""
     @State var showPaymentView : Bool = false
+    @State var sendImage : Bool = false
+    @Binding  var loader : Bool 
     var body: some View {
+        ZStack{
             VStack(spacing: 0){
                 headerView
                     .padding(.horizontal,16)
@@ -53,6 +56,8 @@ struct GenralView: View {
                 
                 
             }
+       
+        }
         .fullScreenCover(isPresented: $showPaymentView) {
             PaymentView(isPresented: $showPaymentView)
         }
@@ -72,11 +77,27 @@ struct GenralView: View {
         
     }
     
+   
     
     var headerView : some View {
         ZStack{
             HStack(spacing: 0){
-                ButtonImage24(title: "upload") {}
+                ButtonImage24(title: "upload") {
+                    withAnimation {
+                        loader = true
+                    }
+                    
+                    if let item = curentItem {
+                        let image = QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForSnapshot: true).frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height).snapshot()
+                        
+                        image.share {
+                            withAnimation {
+                                loader = false
+                            }
+                        }
+                    }
+                   
+                }
                 
                 Spacer(minLength: 0)
                 
@@ -132,7 +153,7 @@ struct GenralView: View {
       
       )
     }
-
+    @State var curentItem : WQuote?
     
     var paginationView : some View {
         ScrollViewReader { proxy in
@@ -146,8 +167,10 @@ struct GenralView: View {
                     ZStack(alignment: .topTrailing){
 
                         QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
-                        //.tag(item.placeID)
-                     
+                            .onAppear(perform: {
+                                curentItem  = item
+                            })
+                        
                         
                     Button {
                         withAnimation {
@@ -228,6 +251,7 @@ struct QuoteCardView: View {
         
     }
     @Environment(\.mainWindowSize) var mainWindowSize
+    var isForSnapshot : Bool = false
     var body: some View {
         ZStack{
             Group{
@@ -235,9 +259,13 @@ struct QuoteCardView: View {
                     backGroundImage(image)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width - 32)
-                        .frame(maxHeight:  mainWindowSize.height - 44 - 64 - 64)
-                        .cornerRadius(16)
+                        .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
+                        .if(!isForSnapshot) {view in
+                            view
+                            .frame(maxHeight:  mainWindowSize.height - 44 - 64 - 64)
+                            
+                        }
+                        .cornerRadius(isForSnapshot ?  0 : 16)
                         .if(selectedItem == .image , transform: { view in
                             view
                                 .overlay(
@@ -246,12 +274,16 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
-                           
+                            .if(isForSnapshot){view in
+                            view
+                                .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height)
+                            
+                        }
                       
                 }
                 else if let color =   selectedTheme.backgroundColor{
                     Color(color)
-                        .cornerRadius(16)
+                        .cornerRadius(isForSnapshot ?  0 : 16)
                         .if(selectedItem == .image , transform: { view in
                             view
                                 .overlay(
@@ -263,15 +295,15 @@ struct QuoteCardView: View {
                      
                 }
             }
-            .frame(width: UIScreen.main.bounds.width - 32)
+            .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
             .opacity(Double(selectedTheme.backgroundOpacity))
   
            quoteView
             
             
         }
-        .frame(maxWidth: UIScreen.main.bounds.width - 32)
-        .padding(.horizontal, 16)
+        .frame(maxWidth: UIScreen.main.bounds.width - (isForSnapshot ?  0 : 32))
+        .padding(.horizontal, isForSnapshot ?  0 : 16)
     }
     func backGroundImage(_ path : String)->  Image {
         if path.contains("CustomImage") {

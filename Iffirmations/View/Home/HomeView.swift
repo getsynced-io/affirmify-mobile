@@ -21,29 +21,16 @@ struct HomeView: View {
     @State var showPaymentView : Bool = false
     @State var adsPopUpView : AnyView = AnyView(EmptyView())
     @State var adsPopUpIsPresented : Bool = false
-    
+    @State var loader : Bool = false
     var body: some View {
         NavigationView {
             ZStack {
                 VStack(spacing: 0){
                     nextView
                     
-//                    switch tabState {
-//                    case .General:
-//                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
-//                            .onAppear {
-//                                INPreferences.requestSiriAuthorization { status in
-//
-//                                }
-//                            }
-//                    case .Categories:
-//                        CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
-//                    case .Themes:
-//                        ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
-//                    }
                     ZStack{
                         //                    if tabState == .General {
-                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented)
+                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader)
                             .onAppear {
                                 INPreferences.requestSiriAuthorization { status in
                                     
@@ -87,6 +74,13 @@ struct HomeView: View {
                     
                     adsPopUpView
                       
+                }
+                
+                if loader {
+                    Color._000000.opacity(0.16).ignoresSafeArea()
+                        .zIndex(99)
+                    ProgressView()
+                        .zIndex(99)
                 }
             }
             .navigationTitle("")

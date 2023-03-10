@@ -14,8 +14,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "favoriteAction(quote:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
             landmarkName = "backGroundImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "backGroundImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "paginationView"
             landmarkType = "24">
          </BreakpointContent>

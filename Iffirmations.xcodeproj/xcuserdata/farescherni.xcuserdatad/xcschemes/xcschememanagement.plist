@@ -14,26 +14,26 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Promises (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>7</integer>
 		</dict>
 		<key>Promises (Playground).xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>5</integer>
 		</dict>
 		<key>QuottieWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SiriShortcuts.xcscheme_^#shared#^_</key>
 		<dict>
@@ -45,10 +45,30 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>WatchOSIffirmation Watch App (Notification).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>WatchOSIffirmation Watch App.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1714444A29A3D81B00ADBA03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>179F2FB629B8BF7900F01960</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17A981EF29BA4780000A08BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
