@@ -160,13 +160,31 @@ struct QuottieWidgetEntryView : View {
 }
 struct QuottieWidget: Widget {
     let kind: String = "QuottieWidget"
-
+    private var supportedFamilies: [WidgetFamily] {
+        if #available(iOSApplicationExtension 16.0, *) {
+            return [
+                .systemSmall,
+                .systemMedium,
+                .systemLarge,
+              //  .accessoryCircular,
+                .accessoryRectangular,
+                .accessoryInline
+            ]
+        } else {
+            return [
+                .systemSmall,
+                .systemMedium,
+                .systemLarge
+            ]
+        }
+    }
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             QuottieWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Quottie")
+        .description("Get motivational quotes on your home screen")
+        .supportedFamilies(supportedFamilies)
     }
 }
 

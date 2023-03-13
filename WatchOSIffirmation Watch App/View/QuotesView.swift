@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct QuotesView: View {
     @AppStorage("favorite") var favoriteQuotes  : [ WQuoteFavorite] = []
     var isFavorite : Bool {
@@ -65,9 +66,15 @@ struct QuotesView: View {
                     }
                     .buttonStyle(.plain)
 
-    
-                    Image("copy")
-                        .frame(width: 24 ,height: 24)
+//                    Button {
+//                       let textToCopy = wQuoteVM.currentQuote?.text ?? ""
+//                        WKInterfaceDevice.current().addCachedImage(nil, name: textToCopy)
+//                    } label: {
+//                        Image("copy")
+//                            .frame(width: 24 ,height: 24)
+//                    }
+
+                 
                     Spacer(minLength: 0)
                 }
             }

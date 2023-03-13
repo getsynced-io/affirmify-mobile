@@ -21,7 +21,10 @@ struct ContentView: View,ListRowExtension {
                 VStack(spacing: 8) {
               
                     tabSelectionView(type: "Favorites") {
-                       
+                        withAnimation {
+                            viewToPush = AnyView(FavoriteQuotesView())
+                            pushView = true
+                        }
                     }
                     
                     tabSelectionView(type: "Categories") {
@@ -48,7 +51,7 @@ struct ContentView: View,ListRowExtension {
                     .background(
                         Color("000000").ignoresSafeArea()
                     )
-                    .navigationTitle(Text("Back"))
+                 //   .navigationTitle(Text("Back"))
             } label: {
 
             }

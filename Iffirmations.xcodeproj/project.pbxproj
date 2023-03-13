@@ -175,6 +175,7 @@
 		1774710F29BB71080005DC60 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714448E29A3E3FC00ADBA03 /* NavigationExtension.swift */; };
 		1774711229BB714E0005DC60 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711129BB714E0005DC60 /* CategoriesView.swift */; };
 		1774711429BB77E30005DC60 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711329BB77E30005DC60 /* QuotesView.swift */; };
+		1774711629BFA2960005DC60 /* FavoriteQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711529BFA2960005DC60 /* FavoriteQuotesView.swift */; };
 		179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D945929A768BA00AB6F10 /* StoreKit.framework */; };
 		179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D945C29A769D800AB6F10 /* StoreViewModel.swift */; };
 		179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 179D945F29A76A3B00AB6F10 /* RevenueCat */; };
@@ -667,6 +668,7 @@
 		1762DF1829AFB9C8007D0453 /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
 		1774711129BB714E0005DC60 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		1774711329BB77E30005DC60 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
+		1774711529BFA2960005DC60 /* FavoriteQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteQuotesView.swift; sourceTree = "<group>"; };
 		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		179D945B29A768D900AB6F10 /* Iffirmations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Iffirmations.entitlements; sourceTree = "<group>"; };
 		179D945C29A769D800AB6F10 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
@@ -1132,6 +1134,7 @@
 				17A981F429BA4780000A08BE /* ContentView.swift */,
 				1774711129BB714E0005DC60 /* CategoriesView.swift */,
 				1774711329BB77E30005DC60 /* QuotesView.swift */,
+				1774711529BFA2960005DC60 /* FavoriteQuotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1809,6 +1812,7 @@
 				17F3443829BA4E010059DF8A /* FontsExtension.swift in Sources */,
 				17F3443929BA4E5C0059DF8A /* CategoryViewModel.swift in Sources */,
 				17A981F329BA4780000A08BE /* WatchOSIffirmationApp.swift in Sources */,
+				1774711629BFA2960005DC60 /* FavoriteQuotesView.swift in Sources */,
 				1774711429BB77E30005DC60 /* QuotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
