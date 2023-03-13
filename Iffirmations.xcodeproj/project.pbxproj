@@ -172,6 +172,9 @@
 		1762DF1429AF83BA007D0453 /* SharedTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762DF1329AF83BA007D0453 /* SharedTimer.swift */; };
 		1762DF1729AFA694007D0453 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762DF1629AFA694007D0453 /* GeneralSettingsView.swift */; };
 		1762DF1929AFB9C8007D0453 /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762DF1829AFB9C8007D0453 /* FavoriteScreen.swift */; };
+		1774710F29BB71080005DC60 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714448E29A3E3FC00ADBA03 /* NavigationExtension.swift */; };
+		1774711229BB714E0005DC60 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711129BB714E0005DC60 /* CategoriesView.swift */; };
+		1774711429BB77E30005DC60 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711329BB77E30005DC60 /* QuotesView.swift */; };
 		179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D945929A768BA00AB6F10 /* StoreKit.framework */; };
 		179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D945C29A769D800AB6F10 /* StoreViewModel.swift */; };
 		179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 179D945F29A76A3B00AB6F10 /* RevenueCat */; };
@@ -662,6 +665,8 @@
 		1762DF1329AF83BA007D0453 /* SharedTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTimer.swift; sourceTree = "<group>"; };
 		1762DF1629AFA694007D0453 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		1762DF1829AFB9C8007D0453 /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
+		1774711129BB714E0005DC60 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		1774711329BB77E30005DC60 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		179D945B29A768D900AB6F10 /* Iffirmations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Iffirmations.entitlements; sourceTree = "<group>"; };
 		179D945C29A769D800AB6F10 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
@@ -1121,6 +1126,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		1774711029BB71330005DC60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17A981F429BA4780000A08BE /* ContentView.swift */,
+				1774711129BB714E0005DC60 /* CategoriesView.swift */,
+				1774711329BB77E30005DC60 /* QuotesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		179D945829A768BA00AB6F10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,9 +1178,9 @@
 		17A981F129BA4780000A08BE /* WatchOSIffirmation Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				1774711029BB71330005DC60 /* View */,
 				17F343C829BA4D770059DF8A /* WatchOSIffirmation-Watch-App-Info.plist */,
 				17A981F229BA4780000A08BE /* WatchOSIffirmationApp.swift */,
-				17A981F429BA4780000A08BE /* ContentView.swift */,
 				17F343C429BA4B340059DF8A /* ViewModel */,
 				17A981F629BA4782000A08BE /* Assets.xcassets */,
 				17A981F829BA4782000A08BE /* Preview Content */,
@@ -1788,10 +1803,13 @@
 				17F343C729BA4BBF0059DF8A /* arraySafeAcces.swift in Sources */,
 				17F343C229BA4B040059DF8A /* WQuoteExtension.swift in Sources */,
 				17F343C329BA4B200059DF8A /* CategoryModel.swift in Sources */,
+				1774711229BB714E0005DC60 /* CategoriesView.swift in Sources */,
 				17F343C629BA4B510059DF8A /* WQuoteVMWHO.swift in Sources */,
+				1774710F29BB71080005DC60 /* NavigationExtension.swift in Sources */,
 				17F3443829BA4E010059DF8A /* FontsExtension.swift in Sources */,
 				17F3443929BA4E5C0059DF8A /* CategoryViewModel.swift in Sources */,
 				17A981F329BA4780000A08BE /* WatchOSIffirmationApp.swift in Sources */,
+				1774711429BB77E30005DC60 /* QuotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1940,10 +1958,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1978,10 +1998,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

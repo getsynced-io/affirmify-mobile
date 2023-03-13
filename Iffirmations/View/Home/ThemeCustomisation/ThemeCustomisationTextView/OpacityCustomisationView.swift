@@ -14,7 +14,7 @@ struct OpacityCustomisationView: View {
     var isBackGroundImage : Bool = false
     var body: some View {
         VStack(spacing: 0){
-            ThemeCustomisationHeaderView(title: "Align"){
+            ThemeCustomisationHeaderView(title: "Opacity"){
                 presentationMode.wrappedValue.dismiss()
             }
         cancel: {
@@ -32,7 +32,7 @@ struct OpacityCustomisationView: View {
                 bottomView
                Spacer(minLength: 0)
               }
-            .frame(height: 56)
+            .frame(height: 64)
             .padding(.top , 32)
             
             

@@ -262,12 +262,14 @@ struct QuoteCardView: View {
                         .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
                         .if(!isForSnapshot) {view in
                             view
-                            .frame(maxHeight:  mainWindowSize.height - 44 - 64 - 64)
-                            
+                            .frame(height:  mainWindowSize.height - 44 - 64 - 64)
+
                         }
                         .cornerRadius(isForSnapshot ?  0 : 16)
+                        .opacity(Double(selectedTheme.backgroundOpacity))
                         .if(selectedItem == .image , transform: { view in
                             view
+                               
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 16)
                                         .strokeBorder(lineWidth: 1, antialiased: true)
@@ -284,6 +286,7 @@ struct QuoteCardView: View {
                 else if let color =   selectedTheme.backgroundColor{
                     Color(color)
                         .cornerRadius(isForSnapshot ?  0 : 16)
+                        .opacity(Double(selectedTheme.backgroundOpacity))
                         .if(selectedItem == .image , transform: { view in
                             view
                                 .overlay(
@@ -296,7 +299,7 @@ struct QuoteCardView: View {
                 }
             }
             .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
-            .opacity(Double(selectedTheme.backgroundOpacity))
+         
   
            quoteView
             

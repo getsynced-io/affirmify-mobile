@@ -24,6 +24,7 @@ struct IffirmationsApp: App {
                 case false :   ContentView(wQuoteVM: wQuoteVM)
                 }
             }
+            .preferredColorScheme( .light)
             .onAppear {
                 firstCall()
             }

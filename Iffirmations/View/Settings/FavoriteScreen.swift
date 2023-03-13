@@ -20,12 +20,14 @@ struct FavoriteScreen: View {
                 ForEach(wQuoteVM.favoriteQuotes, id: \.placeID){item in
                     VStack(spacing: 0){
                         quoteListRow(item)
+                        
                         if item.placeID != wQuoteVM.favoriteQuotes.last?.placeID {
                             seperator
                         }
                     }
                 }
             }
+            .padding(.bottom,16)
             
             Spacer(minLength: 0 )
         }
@@ -58,7 +60,7 @@ struct FavoriteScreen: View {
     
     
     func  quoteListRow(_ quote : any WQuoteBase)-> some View{
-        HStack(spacing: 0) {
+        HStack(alignment: .top,spacing: 0) {
             Text(quote.text)
                 .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                 .multilineTextAlignment(.leading)

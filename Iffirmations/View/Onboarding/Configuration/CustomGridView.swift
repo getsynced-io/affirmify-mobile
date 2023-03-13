@@ -13,6 +13,12 @@ struct CustomGridView: View {
     let n : Int = 11
     @State private var relativePosition: CGFloat = 0.5
     @State var blocker : Bool = false
+    var selectedCount : Int {
+    
+return categories.filter { category in
+            category.isSelected
+        }.count
+    }
     var body: some View {
 
         ScrollView(.horizontal,showsIndicators: false){
@@ -24,7 +30,17 @@ struct CustomGridView: View {
                                 categoryCard(categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)])
                                     .onTapGesture {
                                         withAnimation {
-                                            categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)].isSelected.toggle()
+                                            if selectedCount < 10 {
+                                                    categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)].isSelected.toggle()
+                                            }
+                                            else {
+                                                if  categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)].isSelected {
+                                                    categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)].isSelected.toggle()
+                                                }
+                                                else {
+                                                    HapticManager.instance.notification(type: .warning)
+                                                }
+                                            }
                                         }
                                     }
                             } else {

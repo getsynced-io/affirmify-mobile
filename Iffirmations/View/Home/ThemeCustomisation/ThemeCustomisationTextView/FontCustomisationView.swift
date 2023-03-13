@@ -34,7 +34,7 @@ struct FontCustomisationView: View {
                 bottomView
                Spacer(minLength: 0)
               }
-            .frame(height: 56)
+            .frame(height: 64)
             .padding(.top , 32)
       
             
@@ -77,10 +77,10 @@ struct FontCustomisationView: View {
             )
             .frame(width: 128, height: 56)
             .onTapGesture {
-                withAnimation {
+//                withAnimation {
                     selectedTheme.fontName = fontName
                  //   stateUndoManager.updateState(selectedTheme)
-                }
+//                }
                    
             }
         

@@ -130,7 +130,7 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
                 .padding(.bottom , 16)
                 .padding(.horizontal, 16)
             scrollableSelection
-                .padding(.bottom , 32)
+                .padding(.bottom , 16)
              
             
         }
@@ -147,7 +147,6 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
                     }
                                   
                 }
-                .padding(.horizontal, 16)
                 seperator
                 
                 ForEach(CategoryViewModel.shared.categories , id: \.title){item in
@@ -161,8 +160,9 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
                         }
                                       
                     }
-                    .padding(.horizontal, 16)
-                    seperator
+                    if CategoryViewModel.shared.categories.last?.title != item.title {
+                        seperator
+                    }
                     
                 }
                 

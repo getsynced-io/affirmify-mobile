@@ -21,8 +21,10 @@ struct WidgetDemoView: View {
                 .multilineTextAlignment(.center)
             
             Spacer(minLength: 0)
-            
-            Text("Touch and hold the Home Screen background until the apps begin to jiggle, then drag apps and widgets to rearrange them.\nYou can also drag widgets on top of each other to create a stack you can scroll through.")
+            VStack(spacing: 32){
+                Text("Touch and hold the Home Screen background until the apps begin to jiggle, then drag apps and widgets to rearrange them.")
+                Text("You can also drag widgets on top of each other to create a stack you can scroll through.")
+            }
                 .customFont(font: .IBMPlexSerifRegular, size: 16, color: Color._000000)
                 .multilineTextAlignment(.center)
                 .padding(.bottom,56)

@@ -12,7 +12,6 @@ class WQuoteVMWHO: ObservableObject{
     @Published var quoteToUse  : [WQuote] = []
     @Published var currentQuote  : WQuote?
     @AppStorage("favorite") var favoriteQuotes  : [ WQuoteFavorite] = []
-    @AppStorage("CategoryModelSelection") var selectedID: String = ""
     static let shared : WQuoteVMWHO =  WQuoteVMWHO()
     
     init() {
@@ -36,7 +35,7 @@ class WQuoteVMWHO: ObservableObject{
                 DispatchQueue.main.async {[weak self] in
                     withAnimation {
                         self?.quotes =  totalQuotes
-                        self?.quoteToUse = self?.quoteToUseComputedValue ?? []
+                        self?.quoteToUse = self?.quoteToUseComputedValue(selectedID: "") ?? []
                         self?.randomQuote()
                 }
             }
@@ -45,7 +44,7 @@ class WQuoteVMWHO: ObservableObject{
         }
         }
     }
-    var quoteToUseComputedValue : [WQuote] {
+    func quoteToUseComputedValue(selectedID : String) -> [WQuote] {
         let categories =    CategoryViewModel.shared.categories
         let quotesToUse: [WQuote]
         if selectedID == "" {
@@ -61,7 +60,7 @@ class WQuoteVMWHO: ObservableObject{
         }
         else {
             quotesToUse = WQuoteVMWHO.shared.quotes.filter { quote in
-                quote.categories.contains { cat  in
+               return quote.categories.contains { cat  in
                  return  selectedID.lowercased() ==  cat
                 }
             }

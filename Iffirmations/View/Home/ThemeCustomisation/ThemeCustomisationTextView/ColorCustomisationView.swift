@@ -40,7 +40,7 @@ struct ColorCustomisationView: View {
                 bottomView
                Spacer(minLength: 0)
               }
-            .frame(height: 56)
+            .frame(height: 64)
             .padding(.top , 32)
             
             

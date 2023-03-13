@@ -41,7 +41,7 @@ struct ThemeCustomisationImageView: View {
             Spacer(minLength: 0)
             
             bottomView
-                .frame(height: 56)
+                .frame(height: 64)
                 .padding(.top , 32)
             
             

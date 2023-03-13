@@ -31,7 +31,7 @@ struct AllignmentCustomisationView: View {
                 bottomView
                Spacer(minLength: 0)
               }
-            .frame(height: 56)
+            .frame(height: 64)
             .padding(.top , 32)
             
             
@@ -45,19 +45,19 @@ struct AllignmentCustomisationView: View {
         HStack(spacing: 0){
  
             TabItemView(imageTitle: "align-left", title: "Left", count: 3){
-                withAnimation {
+//                withAnimation {
                     selectedTheme.fontAlignment = .left
-                }
+//                }
             }
             TabItemView(imageTitle: "align-center", title: "Center", count: 3){
-                withAnimation {
+//                withAnimation {
                     selectedTheme.fontAlignment = .middle
-                }
+//                }
             }
             TabItemView(imageTitle: "align-right", title: "Right", count: 3){
-                withAnimation {
+//                withAnimation {
                     selectedTheme.fontAlignment = .right
-                }
+//                }
             }
            
         }
