@@ -12,6 +12,5 @@ import SwiftUI
 struct QuottieWidgetBundle: WidgetBundle {
     var body: some Widget {
         QuottieWidget()
-        QuottieWidgetLiveActivity()
     }
 }

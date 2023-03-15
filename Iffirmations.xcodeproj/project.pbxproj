@@ -330,6 +330,7 @@
 		17C1FDC129B68DDC009079C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC029B68DDC009079C7 /* UIImageExtension.swift */; };
 		17C1FDC329B68F76009079C7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC229B68F76009079C7 /* FilesManager.swift */; };
 		17C1FDC529B6A0A8009079C7 /* EnvironmentValuesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDC429B6A0A8009079C7 /* EnvironmentValuesExtension.swift */; };
+		17D97D0C29BFBA9400A5840D /* FeaturedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D97D0B29BFBA9400A5840D /* FeaturedApi.swift */; };
 		17DAA6CB29B248B9009BE5EA /* UndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAA6CA29B248B9009BE5EA /* UndoManager.swift */; };
 		17DAA6CD29B250F9009BE5EA /* AllignmentCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAA6CC29B250F9009BE5EA /* AllignmentCustomisationView.swift */; };
 		17E30EEF29B765AE008E3E88 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E30EEE29B765AE008E3E88 /* SettingsScreen.swift */; };
@@ -702,6 +703,7 @@
 		17C1FDC029B68DDC009079C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		17C1FDC229B68F76009079C7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		17C1FDC429B6A0A8009079C7 /* EnvironmentValuesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValuesExtension.swift; sourceTree = "<group>"; };
+		17D97D0B29BFBA9400A5840D /* FeaturedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedApi.swift; sourceTree = "<group>"; };
 		17DAA6CA29B248B9009BE5EA /* UndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManager.swift; sourceTree = "<group>"; };
 		17DAA6CC29B250F9009BE5EA /* AllignmentCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllignmentCustomisationView.swift; sourceTree = "<group>"; };
 		17E30EEE29B765AE008E3E88 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				1762DF1129AF8256007D0453 /* AdHub.swift */,
 				1762DF1329AF83BA007D0453 /* SharedTimer.swift */,
 				17C1FDC229B68F76009079C7 /* FilesManager.swift */,
+				17D97D0B29BFBA9400A5840D /* FeaturedApi.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1718,6 +1721,7 @@
 				179D945D29A769D800AB6F10 /* StoreViewModel.swift in Sources */,
 				174AADC829AA3D630008C287 /* GenralView.swift in Sources */,
 				175E6E3529B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift in Sources */,
+				17D97D0C29BFBA9400A5840D /* FeaturedApi.swift in Sources */,
 				17C1FDB629B67BDA009079C7 /* OpacityCustomisationView.swift in Sources */,
 				17C1FDC129B68DDC009079C7 /* UIImageExtension.swift in Sources */,
 				17E9C92629A621D1003DF105 /* CategorySelectionView.swift in Sources */,
@@ -2039,7 +2043,7 @@
 				INFOPLIST_FILE = QuottieWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuottieWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2068,7 +2072,7 @@
 				INFOPLIST_FILE = QuottieWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuottieWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2111,7 +2115,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -2142,7 +2146,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};

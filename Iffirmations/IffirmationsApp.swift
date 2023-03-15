@@ -16,6 +16,7 @@ struct IffirmationsApp: App {
     @StateObject var wQuoteVM : WQuoteViewModel =  WQuoteViewModel.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var launchScreen: Bool = true
+    @AppStorage("FeaturedCategory") var featuredCategory : String = ""
     var body: some Scene {
         WindowGroup {
             Group{
@@ -51,6 +52,15 @@ struct IffirmationsApp: App {
             do {
                 paymentVM.offerings = try await Purchases.shared.offerings()
                 paymentVM.refreshSubscription()
+                APIManager.shared.getBiggestCategory { result in
+                    switch result{
+                    case .success(let category) :
+                        featuredCategory = category.category
+                        print("category \(category)")
+                    case .failure(let error):
+                        print("FeaturedFlaskApi Error \(error)")
+                    }
+                }
             } catch{
             }
         }

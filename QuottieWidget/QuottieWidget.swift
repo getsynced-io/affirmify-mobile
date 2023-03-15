@@ -70,10 +70,12 @@ struct QuottieWidgetEntryView : View {
     }
     var accessoryRectangularView : some View {
         ZStack{
-            Text(entry.quote.text)
-                .font(.custom("Inter-Medium", size: 12))
-                .multilineTextAlignment(.leading)
-                .lineLimit(3)
+            VStack(spacing: 0){
+                Text(entry.quote.text)
+                    .font(.custom("Inter-Medium", size: 12))
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(3)
+            }
         }
     }
     
@@ -159,14 +161,13 @@ struct QuottieWidgetEntryView : View {
     
 }
 struct QuottieWidget: Widget {
-    let kind: String = "QuottieWidget"
+    let kind: String = "QuottieWidgetIffirmation"
     private var supportedFamilies: [WidgetFamily] {
         if #available(iOSApplicationExtension 16.0, *) {
             return [
                 .systemSmall,
                 .systemMedium,
                 .systemLarge,
-              //  .accessoryCircular,
                 .accessoryRectangular,
                 .accessoryInline
             ]

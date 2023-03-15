@@ -130,9 +130,12 @@ struct CategoriesView: View {
         .padding(.horizontal)
       
     }
-    
+    @AppStorage("FeaturedCategory") var savedFeaturedCategory : String = ""
     var featureCategory : some View{
-        let featuredCategory : CategoryModel  = categoryVM.categories.randomElement() ??    categoryVM.categories[0]
+        let featuredCategory : CategoryModel  = categoryVM.categories.first { category in
+           let title  =  category.title.rawValue
+           return (title == savedFeaturedCategory)
+        } ?? categoryVM.categories[0]
         return
         Group{
             VStack(alignment: .leading , spacing: 32) {
