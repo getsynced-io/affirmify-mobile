@@ -17,11 +17,13 @@ struct HomeView: View {
     @ObservedObject var wQuoteVM : WQuoteViewModel
     @StateObject var themeVM : ThemeViewModel = ThemeViewModel.shared
     @AppStorage("FirstTime",store: store) var firstTime : Bool  = true
+   // @AppStorage("widgetSelectedUrlQuote",store: store) var widgetSelectedId :Int? = nil
     @State var settingsIsPresented: Bool = false
     @State var showPaymentView : Bool = false
     @State var adsPopUpView : AnyView = AnyView(EmptyView())
     @State var adsPopUpIsPresented : Bool = false
     @State var loader : Bool = false
+    @State var widgetSelectedQuote: WQuote? = nil
     var body: some View {
         NavigationView {
             ZStack {
@@ -30,7 +32,7 @@ struct HomeView: View {
                     
                     ZStack{
                         //                    if tabState == .General {
-                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader)
+                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader, widgetSelectedQuote: $widgetSelectedQuote)
                             .onAppear {
                                 INPreferences.requestSiriAuthorization { status in
                                     
@@ -42,7 +44,7 @@ struct HomeView: View {
                         //                    }
                         
                         if tabState == .Categories {
-                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
@@ -58,7 +60,7 @@ struct HomeView: View {
                     }
                     
                     BottomSelectionView
-                     
+                    
                 }
                 .ignoresSafeArea(.keyboard , edges: .bottom)
                 .background(
@@ -67,13 +69,13 @@ struct HomeView: View {
                 if firstTime {
                     Color._000000.opacity(0.32).ignoresSafeArea()
                     firstTimeNotation
-                     
+                    
                 }
                 if  adsPopUpIsPresented  {
                     Color._000000.opacity(0.32).ignoresSafeArea()
                     
                     adsPopUpView
-                      
+                    
                 }
                 
                 if loader {
@@ -90,7 +92,24 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(.stack)
-   
+        .onOpenURL { url in
+            if url.absoluteString.contains("Iffirmation://openQuote?quoteId="){
+                if  let quoteId = url.queryParameters["quoteId"] {
+                    if   let quote = wQuoteVM.quotes.first(where: { innerQuote in
+                        innerQuote.placeID ==  Int32(quoteId)
+                    }) {
+                            wQuoteVM.filtredQuotes.removeAll { innerQuote in
+                                innerQuote.placeID == quote.placeID
+                            }
+                        
+                        widgetSelectedQuote = quote
+                        tabState = .General
+                    }
+                }
+            }
+            
+        }
+        
     }
     
     var nextView : some View {
@@ -261,3 +280,17 @@ struct GoPremiumPopUpView: View {
 }
 
 
+
+
+
+extension URL {
+    var queryParameters: [String: String] {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+              let queryItems = components.queryItems else {
+            return [:]
+        }
+        return queryItems.reduce(into: [:]) { result, queryItem in
+            result[queryItem.name] = queryItem.value
+        }
+    }
+}

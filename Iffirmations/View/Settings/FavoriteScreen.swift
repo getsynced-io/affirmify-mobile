@@ -17,12 +17,15 @@ struct FavoriteScreen: View {
             headerView
                 .padding(.bottom , 16)
             ScrollView{
-                ForEach(wQuoteVM.favoriteQuotes, id: \.placeID){item in
-                    VStack(spacing: 0){
-                        quoteListRow(item)
-                        
-                        if item.placeID != wQuoteVM.favoriteQuotes.last?.placeID {
-                            seperator
+                VStack(spacing: 0){
+                    ForEach(wQuoteVM.favoriteQuotes, id: \.placeID){item in
+                        VStack(spacing: 0){
+                            quoteListRow(item)
+                                .padding(.vertical ,16)
+                            if item.placeID != wQuoteVM.favoriteQuotes.last?.placeID {
+                                seperator
+                                
+                            }
                         }
                     }
                 }
@@ -80,9 +83,8 @@ struct FavoriteScreen: View {
                 }
             }
             .frame(width: 64 , height: 24)
-            .padding(.leading , 16)
         }
-        .padding(16)
+        .padding(.horizontal, 16)
     }
     
 }

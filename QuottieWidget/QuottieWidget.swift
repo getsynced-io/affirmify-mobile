@@ -67,6 +67,7 @@ struct QuottieWidgetEntryView : View {
                 
             }
         }
+               .widgetURL(URL(string: "Iffirmation://openQuote?quoteId=\(entry.quote.placeID)"))
     }
     var accessoryRectangularView : some View {
         ZStack{
@@ -93,7 +94,7 @@ struct QuottieWidgetEntryView : View {
                 }
                 
             }
-            
+            .opacity(Double(theme.backgroundOpacity))
             VStack(spacing: 0) {
                 
                 

@@ -14,8 +14,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "favoriteAction(quote:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Iffirmations/View/Home/ThemesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "themeAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Iffirmations/View/Home/ThemesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "headerView"
             landmarkType = "24">
             <Locations>
@@ -126,8 +126,8 @@
             filePath = "Iffirmations/View/Home/ThemesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "headerView"
             landmarkType = "24">
             <Locations>
@@ -174,8 +174,8 @@
             filePath = "Iffirmations/View/Home/ThemesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "headerView"
             landmarkType = "24">
             <Locations>
@@ -222,8 +222,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "backGroundImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "backGroundImage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "Iffirmations/View/Home/CategoriesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "categoryAction(category:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "Iffirmations/View/Home/GenralView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "paginationView"
             landmarkType = "24">
          </BreakpointContent>
@@ -306,6 +306,102 @@
             endingLineNumber = "58"
             landmarkName = "firstCall()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23552BE1-285D-4B47-B4BE-2D5B9E1E67F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "queryParameters"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6FACA0D-C151-4A0B-BB34-1C7CC5709718"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "queryParameters"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76330F44-0183-4BD8-A8E3-D726EC4F4520"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - 4e473b6f2fd73de7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = [Closure Propagated : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; (), Argument Types : []&gt; of Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/Utilities/FeaturedApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "932">
+               </Location>
+               <Location
+                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - a658a056ea3c97ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[3] = [Constant Propagated Function : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; ()]&gt; of closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Iffirmations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/Utilities/FeaturedApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "316">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

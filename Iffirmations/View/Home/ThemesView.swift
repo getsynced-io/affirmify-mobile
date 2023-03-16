@@ -33,11 +33,14 @@ struct ThemesView: View {
             nextView
             
             headerView
+                .padding(.bottom,16)
             
             ZStack(alignment: .bottomTrailing){
                 ScrollView{
-                    themesMenue
-                        .padding(.bottom,32)
+                    VStack(spacing:0){
+                        themesMenue
+                            .padding(.bottom,32)
+                    }
                 }
                 Button {
                    addThemeAction()

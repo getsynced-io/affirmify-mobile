@@ -29,32 +29,34 @@ struct CategoriesView: View {
     }
     @Binding  var adsPopUpView : AnyView
     @Binding var adsPopUpIsPresented : Bool
-    
+    @Binding  var widgetSelectedQuote: WQuote?
     var body: some View {
         VStack(spacing:0){
             headerView
-                .padding(.bottom,32)
+                .padding(.bottom,16)
             
+          
             ScrollView(.vertical){
-
-            searchTextField
-                .padding(.bottom,32)
-            
-            featureCategory
-                .padding(.bottom,32)
-            
-            categoriesLabel
-                .padding(.bottom,32)
-            
-                Group{
-                    if searchText.isEmpty {
-                        alphabeticalMenue
-                    }
-                    else {
-                        searchedMenue
+                VStack(spacing:0){
+                    searchTextField
+                        .padding(.bottom,32)
+                    
+                    featureCategory
+                        .padding(.bottom,32)
+                    
+                    categoriesLabel
+                        .padding(.bottom,32)
+                    
+                    Group{
+                        if searchText.isEmpty {
+                            alphabeticalMenue
+                        }
+                        else {
+                            searchedMenue
+                        }
                     }
                 }
-                
+                .padding(.top,16)
             }
         }
         .fullScreenCover(isPresented: $showPaymentView) {
@@ -181,6 +183,8 @@ struct CategoriesView: View {
             CustomTextField(placeHolder: "Search...", font: UIFont(name: "IBMPlexSerif-Regular", size: 16)!, text: $searchText)
                 .frame(width: UIScreen.main.bounds.width - 32,height:  48)
                 .background(Capsule().frame(height: 48).foregroundColor(Color._EDEBDA))
+             
+            
             if !searchText.isEmpty {
                 
                 Button {
@@ -195,8 +199,9 @@ struct CategoriesView: View {
                 }
             }
         }
+        .frame(width: UIScreen.main.bounds.width - 32,height:  48)
         .padding(.horizontal,16)
-
+        .zIndex(10)
          
     }
     
@@ -221,46 +226,57 @@ struct CategoriesView: View {
                 categoryVM.selectedID = category.title.rawValue
             }
             WQuoteViewModel.shared.updateFiltredQuotes()
+            widgetSelectedQuote = nil
+            DispatchQueue.global().async {
+                APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in
+                }
+            }
             tabState = .General
+            
+          
         }
         else if category.isPremium {
             withAnimation {
-                AdHub.shared.callSource = .category
-                if SharedCouter.shared.categoryAdCounter == 3 {
-                    adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
-                        withAnimation {
-                            showPaymentView = true
-                            adsPopUpIsPresented = false
-                        }
-                        tabState = .General
-                    }, secondHandler: {
-                        AdHub.shared.requestAd {
-                            withAnimation {
-                                categoryVM.selectedID = category.title.rawValue
-                                WQuoteViewModel.shared.updateFiltredQuotes()
-                                adsPopUpIsPresented = false
-                            }
-                        }
-                        dismissHandler : {
-                            withAnimation {
-                                adsPopUpIsPresented = false
-                            }
-                            tabState = .General
-                        }
-                    }))
-                    adsPopUpIsPresented = true
-                }
-                else{
-                    AdHub.shared.requestAd{
-                        withAnimation {
-                            categoryVM.selectedID = category.title.rawValue
-                            WQuoteViewModel.shared.updateFiltredQuotes()
-                            
-                        }
-                    }
-                }
-              
+        showPaymentView = true
+                
             }
+//            withAnimation {
+//                AdHub.shared.callSource = .category
+//                if SharedCouter.shared.categoryAdCounter == 3 {
+//                    adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
+//                        withAnimation {
+//                            showPaymentView = true
+//                            adsPopUpIsPresented = false
+//                        }
+//                        tabState = .General
+//                    }, secondHandler: {
+//                        AdHub.shared.requestAd {
+//                            withAnimation {
+//                                categoryVM.selectedID = category.title.rawValue
+//                                WQuoteViewModel.shared.updateFiltredQuotes()
+//                                adsPopUpIsPresented = false
+//                            }
+//                        }
+//                        dismissHandler : {
+//                            withAnimation {
+//                                adsPopUpIsPresented = false
+//                            }
+//                            tabState = .General
+//                        }
+//                    }))
+//                    adsPopUpIsPresented = true
+//                }
+//                else{
+//                    AdHub.shared.requestAd{
+//                        withAnimation {
+//                            categoryVM.selectedID = category.title.rawValue
+//                            WQuoteViewModel.shared.updateFiltredQuotes()
+//
+//                        }
+//                    }
+//                }
+//
+//            }
         }
     }
     

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct PagginableScrollView<Content>: View where Content: View {
     var views: Content
 
@@ -21,6 +23,8 @@ struct PagginableScrollView<Content>: View where Content: View {
         }
         .introspectScrollView { scrollView in
             scrollView.isPagingEnabled = true
+            scrollView.setContentOffset(.zero, animated: false)
+            
         }
        
     }
@@ -44,16 +48,15 @@ struct GenralView: View {
     @AppStorage("CategoryModelSelection",store: store) var selectedCategoryID: String = ""
     @State var showPaymentView : Bool = false
     @State var sendImage : Bool = false
-    @Binding  var loader : Bool 
+    @Binding  var loader : Bool
+    @Binding  var widgetSelectedQuote: WQuote?
     var body: some View {
         ZStack{
             VStack(spacing: 0){
                 headerView
                     .padding(.horizontal,16)
-                    .padding(.bottom , 32)
                 
                 paginationView
-                
                 
             }
        
@@ -154,52 +157,76 @@ struct GenralView: View {
       )
     }
     @State var curentItem : WQuote?
-    
+    @State var toogle : Bool = false
     var paginationView : some View {
-        ScrollViewReader { proxy in
-       
-        PagginableScrollView{
-       
-            LazyHStack(spacing: 0){
-              
-                ForEach(wQuoteVM.filtredQuotes, id : \.placeID) { item in
-                   
-                    ZStack(alignment: .topTrailing){
 
-                        QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
-                            .onAppear(perform: {
-                                curentItem  = item
-                            })
-                        
-                        
-                    Button {
-                        withAnimation {
-                            favoriteAction(quote: item )
-
-                        }
-
-                    }
-                    label: {
-                        Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
-
-                    }
-                            .frame(width: 24,height: 24)
-                            .padding(16)
-                            .padding(.trailing,16)
-
-                    }
-                    .padding(.bottom,32)
-                    .id(wQuoteVM.filtredQuotes.firstIndex(of: item) ?? 0 )
-                }
+        Group{
+            if toogle{
+                pagginationContentView
             }
+            else{
+                pagginationContentView
+            }
+       
         }
         .onChange(of: wQuoteVM.filtredQuotes) { newValue in
-            proxy.scrollTo(0,anchor: .top)
+            toogle.toggle()
         }
-            
+        .onChange(of: widgetSelectedQuote) { newValue in
+            toogle.toggle()
         }
 
     }
+    
+    
+    var pagginationContentView : some View {
+        PagginableScrollView{
+            
+            
+            LazyHStack(spacing: 0){
+                
+                if let item = widgetSelectedQuote {
+                    quoteFullCard(item: item)
+                        .padding(.vertical, 32)
+                }
+                
+                ForEach(wQuoteVM.filtredQuotes, id : \.placeID) { item in
+                    quoteFullCard(item: item)
+                        .padding(.vertical, 32)
+                    
+                }
+            }
+        }
+    }
+    
+    func quoteFullCard(item : WQuote) -> some View  {
+        ZStack(alignment: .topTrailing){
+
+            QuoteCardView(selectedTheme: selectedTheme, quote: item.text)
+                .onAppear(perform: {
+                    curentItem  = item
+                })
+            
+            
+        Button {
+            withAnimation {
+                favoriteAction(quote: item )
+
+            }
+
+        }
+        label: {
+            Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
+
+        }
+                .frame(width: 24,height: 24)
+                .padding(16)
+                .padding(.trailing,16)
+                .zIndex(999)
+
+        }
+    }
+    
     
     func isItFavorite(quote : WQuote)->Bool {
         wQuoteVM.favoriteQuotes.contains(where: { innerQuote in
@@ -240,6 +267,13 @@ struct QuoteCardView: View {
         case .right : return .trailing
         }
     }
+    var textAlignmentPadding : CGFloat {
+        switch selectedTheme.fontAlignment {
+        case .left  : return 0
+        case .middle : return  16.0
+        case .right : return 0
+        }
+    }
     var quote : String
     var selectedItem : SelectedItem = .none
     var finalQuote : String {
@@ -260,11 +294,11 @@ struct QuoteCardView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
-                        .if(!isForSnapshot) {view in
-                            view
-                            .frame(height:  mainWindowSize.height - 44 - 64 - 64)
-
-                        }
+//                        .if(!isForSnapshot) {view in
+//                            view
+//                           // .frame(height:  mainWindowSize.height - 44 - 64 - 64)
+//
+//                        }
                         .cornerRadius(isForSnapshot ?  0 : 16)
                         .opacity(Double(selectedTheme.backgroundOpacity))
                         .if(selectedItem == .image , transform: { view in
@@ -326,22 +360,47 @@ struct QuoteCardView: View {
     }
     
     var quoteView : some View {
+        VStack(spacing: 0){
             Text(finalQuote)
                 .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: Color(selectedTheme.fontColor))
-                .padding(.horizontal, 16)
+                .padding(.horizontal, textAlignmentPadding)
                 .multilineTextAlignment(textAlignment)
                 .opacity(selectedTheme.fontOpacity)
                 .foregroundColor(Color(selectedTheme.fontColor))
-                .frame(width: UIScreen.main.bounds.width - 64)
+                .frame(width: UIScreen.main.bounds.width - 64,alignment: textAlignment.alinment)
+            // .background(Color.red)
                 .if(selectedItem == .text , transform: { view in
                     view
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
                                 .strokeBorder(lineWidth: 1, antialiased: true)
                                 .foregroundColor(Color._000000)
+                               
                         )
                 })
                     .padding(.vertical , 16)
+                    
+                    
+                    if !StoreViewModel.shared.subscriptionActive && isForSnapshot {
+                    Text("Iffirmation.app")
+                        .customFont(font: .InterMedium, size: 16, color:Color(selectedTheme.fontColor).opacity(0.64))
+                        .padding(.bottom , 16)
+                }
+            
+        }
     }
 }
 
+extension TextAlignment {
+    
+    var alinment : Alignment {
+        switch self {
+        case .leading:
+            return .leading
+        case .center:
+            return .center
+        case .trailing:
+            return .trailing
+        }
+    }
+}

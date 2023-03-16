@@ -48,21 +48,27 @@ struct FontCustomisationView: View {
             ScrollView(.horizontal, showsIndicators : false ) {
                 HStack(spacing:16){
                     ForEach(InitThemes.shared.fontNames , id: \.self) {item in
-                        fontCard(item)
+                        fontCard(item){
+                            withAnimation {
+                                value.scrollTo(selectedTheme.fontName,anchor: .center)
+                            }
+                             
+                        }
                             .id(item)
                     }
                 }
             }
             .onAppear {
-                value.scrollTo(selectedTheme.fontName)
+                value.scrollTo(selectedTheme.fontName,anchor: .center)
             }
+           
         }
     }
     
     
-    func fontCard(_ fontName : String) ->  some View {
+    func fontCard(_ fontName : String,handler : @escaping ()->()) ->  some View {
         Text("Abcd")
-            .customFont(font: FontsExtension(fromRawValue: fontName), size: 16, color: fontName == selectedTheme.fontName  ?  ._FFFFFF : ._000000)
+            .customFont(font: FontsExtension(fromRawValue: fontName), size: 24, color: fontName == selectedTheme.fontName  ?  ._FFFFFF : ._000000)
             .background(
                 Group{
                         Capsule()
@@ -70,7 +76,7 @@ struct FontCustomisationView: View {
                                 view
                                     .strokeBorder(lineWidth: 1)
                             })
-                            .foregroundColor(fontName == selectedTheme.fontName ? ._000000 : ._F2F2F2)
+                            .foregroundColor(fontName == selectedTheme.fontName ? ._000000 : ._000000.opacity(0.16))
                             .frame(width: 128, height: 48)
 
                 }
@@ -79,6 +85,7 @@ struct FontCustomisationView: View {
             .onTapGesture {
 //                withAnimation {
                     selectedTheme.fontName = fontName
+                    handler()
                  //   stateUndoManager.updateState(selectedTheme)
 //                }
                    

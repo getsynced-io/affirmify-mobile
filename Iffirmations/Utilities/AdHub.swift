@@ -45,9 +45,9 @@ class AdHub : NSObject , GADFullScreenContentDelegate {
                 self?.dismissHandler = dismissHandler
                 AdHub.ad = ad
                 AdHub.ad?.fullScreenContentDelegate = self
-             //   AdHub.ad?.present(fromRootViewController: root, userDidEarnRewardHandler: {
-               // handler()
-               // })
+                AdHub.ad?.present(fromRootViewController: root, userDidEarnRewardHandler: {
+                handler()
+                })
             }
         }
         else {

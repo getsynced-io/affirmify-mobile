@@ -27,7 +27,7 @@ struct WidgetDemoView: View {
             }
                 .customFont(font: .IBMPlexSerifRegular, size: 16, color: Color._000000)
                 .multilineTextAlignment(.center)
-                .padding(.bottom,56)
+                .padding(.bottom,32)
             
             GreenButtonView(buttonTitle: "Next") {
                 withAnimation {

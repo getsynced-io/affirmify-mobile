@@ -16,14 +16,15 @@ struct TextFieldTyped: UIViewRepresentable {
     let becomeFirstResponder : Bool
     @Binding var text: String
     func makeUIView(context: Context) -> UITextField {
-        let textField = UITextField(frame: .zero)
+        let textField = UITextField(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width - 32, height: 48)))
         textField.keyboardType = self.keyboardType
         textField.textColor = UIColor(named : "000000")
         textField.font = font
         textField.textAlignment = textAlignment
         textField.text = text
         textField.contentMode = .scaleAspectFit
-      
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.clipsToBounds = true
         
         textField.attributedPlaceholder = NSAttributedString(string: placeHolder , attributes: [NSAttributedString.Key.foregroundColor : UIColor(named : "000000")! , NSAttributedString.Key.font : attributedPlaceholder != nil ? attributedPlaceholder! : font ])
         
@@ -44,7 +45,7 @@ struct TextFieldTyped: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-    class Coordinator: NSObject, UITextFieldDelegate {
+    class Coordinator: NSObject, UITextFieldDelegate, UIGestureRecognizerDelegate {
         var parent: TextFieldTyped
         init(_ textField: TextFieldTyped) {
             self.parent = textField
@@ -63,6 +64,12 @@ struct TextFieldTyped: UIViewRepresentable {
             textField.placeholder = self.parent.placeHolder
         }
         
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+             if gestureRecognizer is UIPanGestureRecognizer {
+                 return false
+             }
+             return true
+         }
     }
 }
 
