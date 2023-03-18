@@ -61,17 +61,36 @@ struct PaymentView: View {
                 processPayment()
             })
                 .padding(.bottom,16)
-            
-            Text("Already a Member?")
-                .customFont(font: .IBMPlexSerifMedium, size: 12, color: ._000000)
-                .padding(.bottom,32)
+            Button {
+                restore()
+            } label: {
+                Text("Already a Member?")
+                    .customFont(font: .IBMPlexSerifMedium, size: 12, color: ._000000)
+                    .padding(.bottom,32)
+            }
+
+
         }
         .overlay (
             progressView
         )
+        .overlay( EmptyView().alert(isPresented: $paymentErrors.purchaseFailedAlert){Alert(title: Text(PaymentErrorHandler.purchaseFailed.tittle), message: Text(PaymentErrorHandler.purchaseFailed.description), dismissButton: .default(Text("Close")))})
+        
+        
         .overlay( EmptyView().alert(isPresented: $paymentErrors.restoreFailedAlert){Alert(title: Text(PaymentErrorHandler.restoreFailed.tittle), message: Text(PaymentErrorHandler.restoreFailed.description), dismissButton: .default(Text("Close")))})
         
-        .overlay( EmptyView().alert(isPresented: $paymentErrors.purchaseFailedAlert){Alert(title: Text(PaymentErrorHandler.purchaseFailed.tittle), message: Text(PaymentErrorHandler.purchaseFailed.description), dismissButton: .default(Text("Close")))})
+
+        
+        .overlay( EmptyView().alert(isPresented: $paymentErrors.restoreSuccessfulAlert){Alert(title: Text(PaymentErrorHandler.restoreSuccessful.tittle), message: Text(PaymentErrorHandler.restoreSuccessful.description), dismissButton: .default(Text("OK"),action: {
+            withAnimation {
+                isPresented = false
+            }
+        }))})
+        
+        
+        .overlay( EmptyView().alert(isPresented: $paymentErrors.restoreSuccessfulAlertNoSubscription){Alert(title: Text(PaymentErrorHandler.restoreSuccessfulNoSubscription.tittle), message: Text(PaymentErrorHandler.restoreSuccessfulNoSubscription.description), dismissButton: .default(Text("OK"),action: {
+        }))})
+        
     }
     var exitButton : some View {
         
@@ -146,22 +165,27 @@ struct PaymentView: View {
     
     
     func restore(){
+        withAnimation {
+            paymentBlur = true
+        }
+        
         Purchases.shared.restorePurchases { customerInfo, error in
-     
-                
+
             if let _ = error {
                 withAnimation {paymentBlur = false};
                 withAnimation{paymentErrors.restoreFailedAlert = true}
+                
                 return}
+            
             withAnimation { paymentBlur = false}
-            withAnimation { paymentErrors.restoreSuccessfulAlert = true}
+
             if customerInfo?.entitlements[Constants.entitlementID]?.isActive == true {
                 StoreViewModel.shared.subscriptionActive = true
-             //   WQuoteViewModel.shared.updateFiltredQuotes()
-                withAnimation {
-                    isPresented = false
-                }
+                withAnimation { paymentErrors.restoreSuccessfulAlert = true}
              }
+            else {
+                withAnimation { paymentErrors.restoreSuccessfulAlertNoSubscription = true}
+            }
             
         }
 

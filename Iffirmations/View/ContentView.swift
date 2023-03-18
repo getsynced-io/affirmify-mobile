@@ -9,7 +9,7 @@ import SwiftUI
 
 
 enum OnboardingState: String, Codable, CaseIterable {
-    case demo ,  configuration , main
+    case demo  , main
     
 }
 
@@ -19,20 +19,24 @@ struct ContentView: View {
     @StateObject var paymentVM : StoreViewModel = StoreViewModel.shared
     @ObservedObject var wQuoteVM : WQuoteViewModel
     var body: some View {
-        Group{
-            switch state {
-            case .demo:
-                DemoView()
-            case .configuration:
-                NotificationTimeView()
-                
-            case .main :
-                GeometryReader { geometry in
-                    HomeView(wQuoteVM: wQuoteVM)
-                        .environment(\.mainWindowSize, geometry.size)
-                }
-            }
+      NavigationView{
+          Group{
+              switch state {
+              case .demo:
+                  DemoView()
+                  
+              case .main :
+                  GeometryReader { geometry in
+                      HomeView(wQuoteVM: wQuoteVM)
+                          .environment(\.mainWindowSize, geometry.size)
+                  }
+              }
+          }
+          .navigationTitle("")
+          .navigationBarHidden(true)
+          
         }
+      .navigationViewStyle(.stack)
       
         .fullScreenCover(isPresented: $paymentVM.showPaymentView, content: {
             PaymentView(isPresented: $paymentVM.showPaymentView)

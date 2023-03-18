@@ -122,10 +122,15 @@ struct ErrorConstants {
 class PaymentErrorHandler: ObservableObject {
     @Published var restoreFailedAlert : Bool = false
     @Published var restoreSuccessfulAlert : Bool = false
+    @Published var restoreSuccessfulAlertNoSubscription : Bool = false
     @Published var purchaseFailedAlert : Bool = false
     @Published var purchaseSuccessfulAlert : Bool = false
     static let purchaseFailed = ErrorConstants(tittle: "Purchase failed", description: "Something went wrong. Please try again!")
     static let purchaseSuccessful = ErrorConstants(tittle: "You're all set", description: "Your purchase was successful.")
+    
     static let restoreFailed = ErrorConstants(tittle: "Purchase Error!", description: "Please check your network connection and try again")
-    static let restoreSuccessful = ErrorConstants(tittle: "Success", description: "Your subscription was restored.")
+    static  let restoreSuccessful = ErrorConstants(tittle: "Success", description: "Your subscription was restored.")
+    static   let restoreSuccessfulNoSubscription = ErrorConstants(tittle: "Restore error", description: "No active subscription found.")
+    
+    
 }

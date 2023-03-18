@@ -82,8 +82,59 @@ struct QuottieWidgetEntryView : View {
     
     var mainView : some View {
         
-        ZStack{
-            VStack(spacing: 0){
+//        ZStack{
+         
+            
+            VStack(spacing: 0) {
+                Spacer(minLength: 16)
+                    .frame(height: 16)
+                HStack(spacing: 0){
+                    Spacer(minLength: 16)
+                        .frame(width: 16)
+                    if family == .systemExtraLarge || family == .systemLarge {
+                        Text(entry.quote.text)
+                            .foregroundColor(Color(theme.fontColor))
+                            .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
+                            .lineLimit(8)
+                            .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 24))
+                            .lineSpacing(2)
+                            .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
+                            .opacity(theme.fontOpacity)
+            
+                    }
+                    else if family == .systemMedium {
+                        Text(entry.quote.text)
+                            .foregroundColor(Color(theme.fontColor))
+                            .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
+                            .lineLimit(5)
+                            .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 20))
+                            .lineSpacing(1)
+                            .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
+                            .opacity(theme.fontOpacity)
+          
+                        
+                    }
+                    else if family == .systemSmall {
+                        Text(entry.quote.text)
+                            .foregroundColor(Color(theme.fontColor))
+                            .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
+                            .lineLimit(5)
+                            .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 16))
+                            .lineSpacing(1)
+                            .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
+                            .opacity(theme.fontOpacity)
+                    
+                        
+                    }
+                    Spacer(minLength: 16)
+                        .frame(width: 16)
+                }
+                Spacer(minLength: 16)
+                    .frame(height: 16)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(   VStack(spacing: 0){
+                
                 if let imagePath = theme.backgroundImage {
                     backGroundImage(imagePath)
                         .resizable()
@@ -95,48 +146,8 @@ struct QuottieWidgetEntryView : View {
                 
             }
             .opacity(Double(theme.backgroundOpacity))
-            VStack(spacing: 0) {
-                
-                
-                if family == .systemExtraLarge || family == .systemLarge {
-                    Text(entry.quote.text)
-                        .foregroundColor(Color(theme.fontColor))
-                        .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
-                        .lineLimit(8)
-                        .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 24))
-                        .lineSpacing(2)
-                        .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
-                        .opacity(theme.fontOpacity)
-                    
-                }
-                else if family == .systemMedium {
-                    Text(entry.quote.text)
-                        .foregroundColor(Color(theme.fontColor))
-                        .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
-                        .lineLimit(5)
-                        .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 20))
-                        .lineSpacing(1)
-                        .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
-                        .opacity(theme.fontOpacity)
-                    
-                    
-                }
-                else if family == .systemSmall {
-                    Text(entry.quote.text)
-                        .foregroundColor(Color(theme.fontColor))
-                        .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
-                        .lineLimit(5)
-                        .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 16))
-                        .lineSpacing(1)
-                        .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
-                        .opacity(theme.fontOpacity)
-                    
-                }
-                
-            }
-            .padding(16)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
+            )
+//        }
         
         
         

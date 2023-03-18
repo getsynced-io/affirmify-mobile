@@ -27,28 +27,25 @@ let titles : [String]  = [
 struct DemoView: View {
     @State var demoState : DemoState = .first
     @State var tabDemoState : DemoState = .first
-    @State var startAnimation : Bool = false
-    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
+    @State var pushNextView : Bool = false
+   // @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         VStack(spacing : 0){
-           
-            DemoViewHeaderView(demoState: $demoState)
+            nextView
+            
+            DemoViewHeaderView(demoState: $demoState,pushNextView: $pushNextView)
                     .frame( height: 44)
-                   
-            
-            
-            
+                   // .background(Color.green)
             DemoInfo(title: titles[demoState.rawValue], demoState: $demoState)
                 .padding(.vertical ,32)
-                    
-            Spacer(minLength: 0)
-            
-
-         
+               // .background(Color.blue)
             VStack(spacing : 0){
                 TabView(selection: $tabDemoState) {
                     ForEach(DemoState.allCases ,id : \.self){ item in
-                        DemoImage(imageTitle:  "Ill\(item.rawValue)" )
+                        Image("Ill\(item.rawValue)" )
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:  UIScreen.main.bounds.width - 64)
                             .tag(item)
                             .animation(.easeOut, value: demoState)
                     }
@@ -57,46 +54,54 @@ struct DemoView: View {
                 .clipped()
             }
             .sync($tabDemoState, with: $demoState)
-
-          
             
-            
-            Spacer(minLength: 0)
-            
-            
-             
+            Group{
                 
-            GreenButtonView(buttonTitle:  demoState == .eighth ? "Go to Configuration" :   "Next") {
-        
-                    if demoState == .eighth
-                    {
-                            state = .configuration
+                if tabDemoState == .eighth {
+                    GreenButtonView(buttonTitle: "Go to Configuration" ) {
+                        pushNextView = true
                     }
-                    else {
+                    .transaction { transaction in
+                        transaction.animation = nil
+                    }
+                    
+                    
+                }
+           else {
+                    GreenButtonView(buttonTitle: "Next") {
                         withAnimation {
                             demoState = demoState.next()
                         }
                     }
-                  
-                
+                    .transaction { transaction in
+                        transaction.animation = nil
+                    }
+                    
+                }
             }
             .padding(.horizontal, 16)
             .frame( height: 48)
             .padding(.vertical ,32)
 
-            
-            
-            
         }
         .background(Color._F6F5EC.ignoresSafeArea())
+    }
+    
+    
+    var nextView : some View {
+        CustomNavigationLink(isActive: $pushNextView) {
+            NotificationTimeView()
+        }
     }
 }
 
 fileprivate
 struct DemoViewHeaderView: View {
     @Binding var demoState : DemoState
+    @Binding var pushNextView : Bool
     @State var show = false
-    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
+   
+//    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         ZStack{
         HStack(spacing : 0){
@@ -122,7 +127,8 @@ struct DemoViewHeaderView: View {
             
             Spacer()
             Button {
-                    state = .configuration
+                   // state = .configuration
+                pushNextView = true
             } label: {
                 Text("Skip")
                     .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
@@ -176,7 +182,7 @@ struct DemoImage: View {
             Image(imageTitle)
                 .resizable()
                 .scaledToFit()
-            
+                .frame(width:  UIScreen.main.bounds.width - 64)
     }
 }
 
@@ -193,18 +199,13 @@ struct DemoInfo: View {
         Text("\(demoState.rawValue + 1) of \(DemoState.allCases.count)")
                 .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                 .frame(height: 24)
-        VStack(spacing: 0){
+            VStack(spacing: 0){
         Text(title)
         .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
         .animation(nil)
-         .fixedSize(horizontal: false, vertical: true)
         .lineLimit(3)
         .multilineTextAlignment(.center)
-        Spacer(minLength: 0)
         }
-        .frame(height: 96)
-       
-        
         }
         .frame(width: UIScreen.main.bounds.width - 32)
         .padding(.horizontal, 16)

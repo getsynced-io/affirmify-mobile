@@ -65,8 +65,9 @@ struct CategorySelectionView: View {
                 }
             }
             .frame(height: 48)
-            .padding(.vertical,16)
             .padding(.horizontal , 16)
+            .padding(.bottom, 32)
+            .padding(.top,16)
         }
  
       

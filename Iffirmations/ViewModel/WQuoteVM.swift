@@ -106,9 +106,10 @@ class WQuoteViewModel: ObservableObject{
     }
     
     func updateFiltredQuotes(){
+        let quotes = self.filteredQuotesComputedValue
         DispatchQueue.main.async {[weak self] in
             withAnimation {
-                self?.filtredQuotes = self?.filteredQuotesComputedValue ?? []
+                self?.filtredQuotes = quotes
         }
     }
     }

@@ -224,18 +224,16 @@ struct GoPremiumPopUpView: View {
     var body: some View {
         ZStack(alignment: .topTrailing){
             VStack(spacing: 32) {
-//                Image(emoji)
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 96,height: 96)
                 Text(emoji)
                     .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._000000)
                     .frame(width: 96,height: 96)
                     .clipped()
+                   
                 
                 Text(description)
                     .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
                     .multilineTextAlignment(.center)
+                   
                 
                 VStack(spacing: 16){
                     GreenButtonView(buttonTitle: mainButtonTitle,width:  UIScreen.main.bounds.width - 96) {
@@ -257,7 +255,7 @@ struct GoPremiumPopUpView: View {
             }
             .padding(.vertical,32)
             .padding(.horizontal,16)
-            .frame(width: UIScreen.main.bounds.width - 64,height: 376)
+            .frame(width: UIScreen.main.bounds.width - 64,height: UIDevice.current.userInterfaceIdiom == .phone ?  376 : 344)
             .background(Color._FFFFFF)
             .cornerRadius(32)
             

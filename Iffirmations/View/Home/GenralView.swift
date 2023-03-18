@@ -81,7 +81,7 @@ struct GenralView: View {
     }
     
    
-    
+    @Environment(\.mainWindowSize) var mainWindowSize
     var headerView : some View {
         ZStack{
             HStack(spacing: 0){
@@ -91,7 +91,7 @@ struct GenralView: View {
                     }
                     
                     if let item = curentItem {
-                        let image = QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForSnapshot: true).frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height).snapshot()
+                        let image = QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForSnapshot: true).frame(width: UIScreen.main.bounds.width,height: mainWindowSize.height).snapshot()
                         
                         image.share {
                             withAnimation {
@@ -111,8 +111,6 @@ struct GenralView: View {
                 ButtonImage24(title: "crown"){
                     if !StoreViewModel.shared.subscriptionActive {
                         withAnimation {showPaymentView = true}
-                        
-                        
                     }
                 }
                 .disabled(StoreViewModel.shared.subscriptionActive )
@@ -135,10 +133,10 @@ struct GenralView: View {
           Text("\(category.title.rawValue)")
               .customFont(font: .IBMPlexSerifMedium, size: 12,lineHeight: 16, color: ._FFFFFF)
           Button {
-              withAnimation {
-                  selectedCategoryID = ""
+              selectedCategoryID = ""
+              DispatchQueue.global().async {
+                  wQuoteVM.updateFiltredQuotes()
               }
-              wQuoteVM.updateFiltredQuotes()
           } label: {
               Image("xWhite")
                   .frame(width: 16,height: 16)
@@ -294,13 +292,9 @@ struct QuoteCardView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
-//                        .if(!isForSnapshot) {view in
-//                            view
-//                           // .frame(height:  mainWindowSize.height - 44 - 64 - 64)
-//
-//                        }
                         .cornerRadius(isForSnapshot ?  0 : 16)
                         .opacity(Double(selectedTheme.backgroundOpacity))
+                        .animation(nil)
                         .if(selectedItem == .image , transform: { view in
                             view
                                

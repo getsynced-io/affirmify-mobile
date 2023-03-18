@@ -222,9 +222,9 @@ struct CategoriesView: View {
     
     func categoryAction(category : CategoryModel){
         if StoreViewModel.shared.subscriptionActive || !category.isPremium {
-            withAnimation {
+//            withAnimation {
                 categoryVM.selectedID = category.title.rawValue
-            }
+//            }
             WQuoteViewModel.shared.updateFiltredQuotes()
             widgetSelectedQuote = nil
             DispatchQueue.global().async {

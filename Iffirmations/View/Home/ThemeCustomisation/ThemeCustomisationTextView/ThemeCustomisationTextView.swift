@@ -85,9 +85,9 @@ struct ThemeCustomisationTextView: View {
                 }
             }
             TabItemView(imageTitle: "letter-case", title: "Text", count: 5){
-                withAnimation {
+      
                     selectedTheme.textCase =    selectedTheme.textCase.next()
-                }
+                
             }
         }
     }
