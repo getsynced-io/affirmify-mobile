@@ -58,14 +58,17 @@ struct DemoView: View {
             Group{
                 
                 if tabDemoState == .eighth {
-                    GreenButtonView(buttonTitle: "Go to Configuration" ) {
-                        pushNextView = true
-                    }
-                    .transaction { transaction in
-                        transaction.animation = nil
-                    }
-                    
-                    
+                        ZStack {
+                            Color._3FBA73.frame(width: UIScreen.main.bounds.width - 32 , height: 48)
+                                .cornerRadius(24)
+                            Text("Go to Configuration")
+                                .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._F6F5EC)
+                        }
+                        .animation(nil)
+                        .transition(.identity)
+                        .onTapGesture {
+                            pushNextView = true
+                        }
                 }
            else {
                     GreenButtonView(buttonTitle: "Next") {
@@ -76,6 +79,7 @@ struct DemoView: View {
                     .transaction { transaction in
                         transaction.animation = nil
                     }
+                    .animation(nil)
                     
                 }
             }

@@ -207,14 +207,16 @@ struct CategoriesView: View {
     
     var headerView : some View {
         ZStack{
-            ButtonImage24(title: "crown") {
-                if !StoreViewModel.shared.subscriptionActive {
-                    withAnimation {showPaymentView = true}
+            if !StoreViewModel.shared.subscriptionActive {
+                ButtonImage24(title: "crown") {
+                    if !StoreViewModel.shared.subscriptionActive {
+                        withAnimation {showPaymentView = true}
                         
                     }
-                
+                    
+                }
+                .disabled(StoreViewModel.shared.subscriptionActive )
             }
-            .disabled(StoreViewModel.shared.subscriptionActive )
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         

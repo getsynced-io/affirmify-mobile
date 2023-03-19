@@ -107,14 +107,14 @@ struct GenralView: View {
                 ButtonImage24(title: "settings") {withAnimation {settingsIsPresented = true}}
             }
             HStack(spacing: 16){
-                
-                ButtonImage24(title: "crown"){
-                    if !StoreViewModel.shared.subscriptionActive {
-                        withAnimation {showPaymentView = true}
+                if !StoreViewModel.shared.subscriptionActive {
+                    ButtonImage24(title: "crown"){
+                        if !StoreViewModel.shared.subscriptionActive {
+                            withAnimation {showPaymentView = true}
+                        }
                     }
+                    .disabled(StoreViewModel.shared.subscriptionActive )
                 }
-                .disabled(StoreViewModel.shared.subscriptionActive )
-                
                 if !selectedCategoryID.isEmpty{
                     selectedCategoryTag
                 }

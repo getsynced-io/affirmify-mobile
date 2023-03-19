@@ -262,16 +262,17 @@ struct ThemesView: View {
                 }
 
             }
-            
-            ButtonImage24(title: "crown") {
-                if !StoreViewModel.shared.subscriptionActive {
-                    
+            if !StoreViewModel.shared.subscriptionActive {
+                ButtonImage24(title: "crown") {
+                    if !StoreViewModel.shared.subscriptionActive {
+                        
                         withAnimation {showPaymentView = true}
                         
                     }
-                
+                    
+                }
+                .disabled(StoreViewModel.shared.subscriptionActive )
             }
-            .disabled(StoreViewModel.shared.subscriptionActive )
         }
         .frame(width: UIScreen.main.bounds.width - 32,height: 44)
         
