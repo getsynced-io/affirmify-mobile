@@ -146,6 +146,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 extension NSNotification {
     static let categoryIntent = Notification.Name.init("categoryIntent")
     static let snapshot = Notification.Name.init("Snapshot")
+    static let scrollToTheme = Notification.Name.init("scrollToThemt")
 }
 
 extension AppDelegate {

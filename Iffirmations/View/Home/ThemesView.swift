@@ -36,12 +36,11 @@ struct ThemesView: View {
                 .padding(.bottom,16)
             
             ZStack(alignment: .bottomTrailing){
-                ScrollView{
-                    VStack(spacing:0){
+//                ScrollView{
+                   
                         themesMenue
-                            .padding(.bottom,32)
-                    }
-                }
+                
+//                }
                 Button {
                    addThemeAction()
                 } label: {
@@ -59,16 +58,34 @@ struct ThemesView: View {
     }
     
     var themesMenue : some View {
-        LazyVGrid(columns: columns, spacing: 0) {
-            ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
-                Button {
-                    withAnimation {
-                        themeAction(theme.id)
+        ScrollView {
+            ScrollViewReader { scroller in
+                VStack(spacing:0){
+                LazyVGrid(columns: columns, spacing: 0) {
+                    ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
+                        Button {
+                            withAnimation {
+                               themeAction(theme.id)
+                                withAnimation(){
+                                    scroller.scrollTo(theme.id,anchor: .top)
+                                }
+                            }
+                        } label: {
+                            themeCard(theme)
+                        }
+                        .padding(.top,16)
+                        .id(theme.id)
+                        
                     }
-                } label: {
-                    themeCard(theme)
+                    .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToTheme)) { obj in
+                        withAnimation(){
+                            scroller.scrollTo(selectedTheme.id,anchor: .top)
+                        }
+                    }
+
                 }
-                    .padding(.top,16)
+                .padding(.bottom,32)
+        }
             }
         }
         .padding(.horizontal , 16 )
@@ -77,8 +94,9 @@ struct ThemesView: View {
     
     func themeAction(_ id: String){
                 adsAction {
-                    ThemeViewModel.shared.ThemeiD = id
+               
                     DispatchQueue.main.async {
+                        ThemeViewModel.shared.ThemeiD = id
                         print("update widgetKit \(ThemeViewModel.shared.ThemeiD)")
                         ThemeViewModel.shared.themes[0] =  ThemeViewModel.shared.themes[0]
                         WidgetCenter.shared.reloadAllTimelines()
@@ -193,12 +211,14 @@ struct ThemesView: View {
                             .scaledToFill()
                             .frame(width: columnWidth,height: columnWidth)
                             .cornerRadius(16)
+                            .opacity(Double(theme.backgroundOpacity))
                         
                     }
                     else if  let color = theme.backgroundColor {
                         Color(color)
                             .frame(width: columnWidth,height: columnWidth)
                             .cornerRadius(16)
+                            .opacity(Double(theme.backgroundOpacity))
                         
                     }
                     
@@ -207,9 +227,46 @@ struct ThemesView: View {
                         .padding(8)
                     
                 }
-                Text("Abcd")
-                    .customFont(font:FontsExtension(fromRawValue: theme.fontName) , size: 24 , color: Color(theme.fontColor))
+                quoteView(theme)
             }
+        }
+    }
+    
+    
+    func  quoteView(_ theme : ThemeModel ) -> some View {
+        
+        var textAlignment : SwiftUI.TextAlignment  = {
+            switch theme.fontAlignment {
+            case .left  : return .leading
+            case .middle : return .center
+            case .right : return .trailing
+            }
+        }()
+        var textAlignmentPadding : CGFloat =  {
+            switch theme.fontAlignment {
+            case .left  : return 0
+            case .middle : return  16.0
+            case .right : return 0
+            }
+        }()
+        var finalQuote : String =  {
+            switch theme.textCase {
+            case .sentence : return "Abcd"
+            case .lowerCase : return "Abcd".lowercased()
+            case .upperCase : return "Abcd".uppercased()
+            }
+            
+        }( )
+        
+       return VStack(spacing: 0){
+            Text(finalQuote)
+                .customFont(font: FontsExtension(fromRawValue: theme.fontName), size: 24, color: Color(theme.fontColor))
+                .padding(.horizontal, textAlignmentPadding)
+                .multilineTextAlignment(textAlignment)
+                .opacity(theme.fontOpacity)
+                .foregroundColor(Color(theme.fontColor))
+                .frame(width:  columnWidth - 32,alignment: textAlignment.alinment)
+            
         }
     }
     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Intents
+import SwiftUIPager 
 enum TabState : String {
     case General , Categories ,  Themes
 }
@@ -24,6 +25,7 @@ struct HomeView: View {
     @State var adsPopUpIsPresented : Bool = false
     @State var loader : Bool = false
     @State var widgetSelectedQuote: WQuote? = nil
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -41,22 +43,25 @@ struct HomeView: View {
                             .background(
                                 Color._F6F5EC.ignoresSafeArea()
                             )
+                            .zIndex(tabState == .General ? 1 : -1)
                         //                    }
                         
-                        if tabState == .Categories {
+                       // if tabState == .Categories {
                             CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
-                        }
+                                .zIndex(tabState == .Categories ? 2 : -2)
+                      //  }
                         
                         
-                        if tabState == .Themes {
+//                        if tabState == .Themes {
                             ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
-                        }
+                                .zIndex(tabState == .Themes ? 3 : -3)
+//                        }
                     }
                     
                     BottomSelectionView
@@ -176,6 +181,10 @@ struct HomeView: View {
         .frame(width: UIScreen.main.bounds.width / 3.0,height: 48)
         .onTapGesture {
             tabState = type
+            if tabState == .Themes {
+                NotificationCenter.default.post(name: NSNotification.scrollToTheme,
+                                                               object: nil, userInfo: nil)
+            }
         }
         
     }

@@ -163,7 +163,6 @@
 		174AADC629AA3AC80008C287 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC529AA3AC80008C287 /* HomeView.swift */; };
 		174AADC829AA3D630008C287 /* GenralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174AADC729AA3D630008C287 /* GenralView.swift */; };
 		1753040C29A8F6B800B51629 /* WQuoteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753040B29A8F6B800B51629 /* WQuoteVM.swift */; };
-		17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17532BA729A9135100B51629 /* LazyPaginable.swift */; };
 		175E6E3529B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E6E3429B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift */; };
 		175E6E3829B1216900E5B4B5 /* ThemeCustomisationTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E6E3729B1216900E5B4B5 /* ThemeCustomisationTextView.swift */; };
 		175E6E3A29B12B0200E5B4B5 /* FontCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E6E3929B12B0200E5B4B5 /* FontCustomisationView.swift */; };
@@ -321,6 +320,7 @@
 		17A981FA29BA4782000A08BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A981F929BA4782000A08BE /* Preview Assets.xcassets */; };
 		17A981FD29BA4782000A08BE /* WatchOSIffirmation Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17A9820329BA4A2B000A08BE /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 17A9820229BA4A2B000A08BE /* SwiftProtobuf */; };
+		17B5C3FC29C8B78B0036A663 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 17B5C3FB29C8B78B0036A663 /* SwiftUIPager */; };
 		17C1FDB429B66F10009079C7 /* ColorCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB329B66F10009079C7 /* ColorCustomisationView.swift */; };
 		17C1FDB629B67BDA009079C7 /* OpacityCustomisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB529B67BDA009079C7 /* OpacityCustomisationView.swift */; };
 		17C1FDB829B68054009079C7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1FDB729B68054009079C7 /* CustomSlider.swift */; };
@@ -659,7 +659,6 @@
 		174AADC529AA3AC80008C287 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		174AADC729AA3D630008C287 /* GenralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralView.swift; sourceTree = "<group>"; };
 		1753040B29A8F6B800B51629 /* WQuoteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WQuoteVM.swift; sourceTree = "<group>"; };
-		17532BA729A9135100B51629 /* LazyPaginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPaginable.swift; sourceTree = "<group>"; };
 		175E6E3429B0E0FF00E5B4B5 /* ThemeCustomisationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCustomisationMainView.swift; sourceTree = "<group>"; };
 		175E6E3729B1216900E5B4B5 /* ThemeCustomisationTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCustomisationTextView.swift; sourceTree = "<group>"; };
 		175E6E3929B12B0200E5B4B5 /* FontCustomisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCustomisationView.swift; sourceTree = "<group>"; };
@@ -725,6 +724,7 @@
 			files = (
 				1762DF1029AF816B007D0453 /* GoogleMobileAds in Frameworks */,
 				17A981EA29BA368B000A08BE /* FacebookCore in Frameworks */,
+				17B5C3FC29C8B78B0036A663 /* SwiftUIPager in Frameworks */,
 				179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */,
 				179D945A29A768BA00AB6F10 /* StoreKit.framework in Frameworks */,
 				17228F9629ACF1BA00415DBF /* SwiftProtobuf in Frameworks */,
@@ -1076,7 +1076,6 @@
 			isa = PBXGroup;
 			children = (
 				175E6E3329B0E07700E5B4B5 /* ThemeCustomisation */,
-				17532BA729A9135100B51629 /* LazyPaginable.swift */,
 				174AADC529AA3AC80008C287 /* HomeView.swift */,
 				174AADC729AA3D630008C287 /* GenralView.swift */,
 				173DC37529AE10850061C6C0 /* CategoriesView.swift */,
@@ -1243,6 +1242,7 @@
 				17228F9529ACF1BA00415DBF /* SwiftProtobuf */,
 				1762DF0F29AF816B007D0453 /* GoogleMobileAds */,
 				17A981E929BA368B000A08BE /* FacebookCore */,
+				17B5C3FB29C8B78B0036A663 /* SwiftUIPager */,
 			);
 			productName = Iffirmations;
 			productReference = 1714444B29A3D81B00ADBA03 /* Iffirmations.app */;
@@ -1322,6 +1322,7 @@
 				17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				1762DF0E29AF816B007D0453 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				17A981E829BA368B000A08BE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				17B5C3FA29C8B78A0036A663 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = 1714444C29A3D81B00ADBA03 /* Products */;
 			projectDirPath = "";
@@ -1758,7 +1759,6 @@
 				17C1FDB429B66F10009079C7 /* ColorCustomisationView.swift in Sources */,
 				171444A629A3E49300ADBA03 /* VerticalSlideTransition.swift in Sources */,
 				1762DF1429AF83BA007D0453 /* SharedTimer.swift in Sources */,
-				17532BA829A9135100B51629 /* LazyPaginable.swift in Sources */,
 				173DC37629AE10850061C6C0 /* CategoriesView.swift in Sources */,
 				17C1FDBD29B68C44009079C7 /* PhotoPicker.swift in Sources */,
 				17A981E529BA3317000A08BE /* LegalScreen.swift in Sources */,
@@ -2224,6 +2224,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		17B5C3FA29C8B78A0036A663 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2251,6 +2259,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17228F9429ACF1BA00415DBF /* XCRemoteSwiftPackageReference "swift-protobuf" */;
 			productName = SwiftProtobuf;
+		};
+		17B5C3FB29C8B78B0036A663 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17B5C3FA29C8B78A0036A663 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

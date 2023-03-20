@@ -23,7 +23,7 @@ struct ThemeCustomisationMainView: View {
                 
                 
                 if let index = index {
-                    withAnimation {
+//                    withAnimation {
                         let intIndex = ThemeViewModel.shared.themes.firstIndex { theme in
                             theme.id == index
                         }
@@ -31,13 +31,13 @@ struct ThemeCustomisationMainView: View {
                             ThemeViewModel.shared.themes[intIndex] = selectedTheme
                         }
 
-                    }
+//                    }
                 }
                 else {
-                    withAnimation {
+//                    withAnimation {
                         ThemeViewModel.shared.themes.insert(selectedTheme, at: 0)
                         ThemeViewModel.shared.ThemeiD = selectedTheme.id
-                    }
+//                    }
                 }
                 
                 DispatchQueue.main.async {

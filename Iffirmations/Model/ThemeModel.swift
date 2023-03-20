@@ -19,7 +19,7 @@ public enum TextCase: String , Codable , CaseIterable{
     case lowerCase = "lowerCase"
 }
 
-struct ThemeModel : Identifiable,Codable {
+struct ThemeModel : Identifiable,Codable, Equatable {
     var id : String
     var fontName: String
     var fontAlignment: FontAlignment

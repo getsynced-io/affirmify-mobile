@@ -78,7 +78,7 @@ struct ColorCustomisationView: View {
             
             if selectedTheme.fontColor ==  color {
                 Circle()
-                    .foregroundColor(Color._F6F5EC)
+                    .foregroundColor(color  == "000000" ? Color("FFFFFF")  : Color("000000"))
                     .frame(width: 8,height: 8)
             }
       
