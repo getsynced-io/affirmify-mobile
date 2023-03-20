@@ -257,6 +257,7 @@ struct GenralView: View {
                 .onAppear(perform: {
                     curentItem  = item
                 })
+                .frame(width: UIScreen.main.bounds.width -   32)
             
             
         Button {
@@ -275,7 +276,6 @@ struct GenralView: View {
                   
 
         }
-        .zIndex(999)
 
         }
         
@@ -350,9 +350,9 @@ struct QuoteCardView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
-                        .if(!isForSnapshot){view in
+                        .if(!isForSnapshot && isForEdit ){view in
                             view
-                                .frame(maxHeight : mainWindowSize.height - 44  - 64 - ( isForEdit ? 64 : 48))
+                                .frame(maxHeight : mainWindowSize.height - 44  - 64 - 64)
                         }
                         .cornerRadius(isForSnapshot ?  0 : 16)
                         .opacity(Double(selectedTheme.backgroundOpacity))

@@ -37,7 +37,7 @@ class WQuoteViewModel: ObservableObject{
                     withAnimation {
                         self?.quotes =  totalQuotes
                         self?.sharedQuotes = self?.sharedQuotesComputedValue ?? []
-                        self?.filtredQuotes = self?.filteredQuotesComputedValue ?? []
+                        self?.filtredQuotes = self?.filteredQuotesComputedValue( ) ?? []
                 }
             }
         } catch {
@@ -88,7 +88,7 @@ class WQuoteViewModel: ObservableObject{
     }
     
     
-    var filteredQuotesComputedValue  : [WQuote] {
+func  filteredQuotesComputedValue()  -> [WQuote] {
 
         let categories = CategoryViewModel.shared.categories.filter { innercat in
              return StoreViewModel.shared.subscriptionActive || !innercat.isPremium
@@ -106,10 +106,10 @@ class WQuoteViewModel: ObservableObject{
     }
     
     func updateFiltredQuotes(){
-        let quotes = self.filteredQuotesComputedValue
+       
         DispatchQueue.main.async {[weak self] in
             withAnimation {
-                self?.filtredQuotes = quotes
+                self?.filtredQuotes = self?.filteredQuotesComputedValue( ) ?? []
         }
     }
     }

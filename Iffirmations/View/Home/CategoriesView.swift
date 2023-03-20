@@ -10,7 +10,7 @@ import AppTrackingTransparency
 import FacebookCore
 struct CategoriesView: View {
     let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y", "Z"]
-    @StateObject var categoryVM : CategoryViewModel = CategoryViewModel()
+    @StateObject var categoryVM : CategoryViewModel = CategoryViewModel.shared
     @State var searchText : String = ""
     @Binding var tabState  : TabState
     @State var showPaymentView : Bool = false
@@ -223,64 +223,30 @@ struct CategoriesView: View {
     }
     
     func categoryAction(category : CategoryModel){
-        if StoreViewModel.shared.subscriptionActive || !category.isPremium {
-//            withAnimation {
-                categoryVM.selectedID = category.title.rawValue
-//            }
-            WQuoteViewModel.shared.updateFiltredQuotes()
-            widgetSelectedQuote = nil
-            DispatchQueue.global().async {
-                APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in
-                }
-            }
-            tabState = .General
+        DispatchQueue.global().async {
             
+    
+        if StoreViewModel.shared.subscriptionActive || !category.isPremium {
+            DispatchQueue.main.async {
+                CategoryViewModel.shared.selectedID = category.title.rawValue
+                
+            }
+            WQuoteViewModel.shared.updateFiltredQuotes()
+            DispatchQueue.main.async {
+                widgetSelectedQuote = nil
+            }
+
+            APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in }
+            DispatchQueue.main.async {
+                tabState = .General
+            }
           
         }
         else if category.isPremium {
-            withAnimation {
-        showPaymentView = true
-                
-            }
-//            withAnimation {
-//                AdHub.shared.callSource = .category
-//                if SharedCouter.shared.categoryAdCounter == 3 {
-//                    adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
-//                        withAnimation {
-//                            showPaymentView = true
-//                            adsPopUpIsPresented = false
-//                        }
-//                        tabState = .General
-//                    }, secondHandler: {
-//                        AdHub.shared.requestAd {
-//                            withAnimation {
-//                                categoryVM.selectedID = category.title.rawValue
-//                                WQuoteViewModel.shared.updateFiltredQuotes()
-//                                adsPopUpIsPresented = false
-//                            }
-//                        }
-//                        dismissHandler : {
-//                            withAnimation {
-//                                adsPopUpIsPresented = false
-//                            }
-//                            tabState = .General
-//                        }
-//                    }))
-//                    adsPopUpIsPresented = true
-//                }
-//                else{
-//                    AdHub.shared.requestAd{
-//                        withAnimation {
-//                            categoryVM.selectedID = category.title.rawValue
-//                            WQuoteViewModel.shared.updateFiltredQuotes()
-//
-//                        }
-//                    }
-//                }
-//
-//            }
+            DispatchQueue.main.async { withAnimation {showPaymentView = true} }
         }
     }
+}
     
     func categoryView(category : CategoryModel) -> some View {
         Button {
