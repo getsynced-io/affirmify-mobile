@@ -435,6 +435,7 @@ struct QuoteCardView: View {
                 .opacity(selectedTheme.fontOpacity)
                 .foregroundColor(Color(selectedTheme.fontColor))
                 .frame(width: UIScreen.main.bounds.width - 64,alignment: textAlignment.alinment)
+                .fixedSize(horizontal: false , vertical: true)
                 .if(selectedItem == .text , transform: { view in
                     view
                         .overlay(

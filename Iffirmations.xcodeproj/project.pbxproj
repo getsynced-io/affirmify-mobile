@@ -1959,12 +1959,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Iffirmations/Iffirmations.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Iffirmations/Preview Content\"";
 				DEVELOPMENT_TEAM = RQCTJKZJWB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1977,7 +1978,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 11;
+				MARKETING_VERSION = 12;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1998,13 +1999,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Iffirmations/IffirmationsRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Iffirmations/Preview Content\"";
 				DEVELOPMENT_TEAM = RQCTJKZJWB;
 				ENABLE_PREVIEWS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -2017,7 +2019,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 11;
+				MARKETING_VERSION = 12;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oz.Quottie;
 				PRODUCT_NAME = "$(TARGET_NAME)";

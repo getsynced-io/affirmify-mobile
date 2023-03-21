@@ -356,11 +356,11 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - 4e473b6f2fd73de7"
+                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - dd1804162215446c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[1] = [Closure Propagated : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; (), Argument Types : []&gt; of Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "function signature specialization &lt;Arg[1] = [Closure Propagated : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; (), Argument Types : []&gt; of Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Iffirmations"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/Utilities/FeaturedApi.swift"
@@ -371,11 +371,11 @@
                   offsetFromSymbolStart = "932">
                </Location>
                <Location
-                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - a658a056ea3c97ea"
+                  uuid = "B6357FBB-2C6D-4ECF-892D-CDBD404AFE7E - b22749befd5aef88"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[3] = [Constant Propagated Function : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; ()]&gt; of closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "function signature specialization &lt;Arg[3] = [Constant Propagated Function : closure #1 (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; () in closure #2 () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Iffirmations.CategoriesView.categoryAction(category: Iffirmations.CategoryModel) -&gt; ()]&gt; of closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Iffirmations.APIManager.incrementCategoryList(categories: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Iffirmations.Category&gt;, Iffirmations.APIError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Iffirmations"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/Utilities/FeaturedApi.swift"
@@ -482,6 +482,86 @@
             endingLineNumber = "352"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43C7B0C3-0235-4F7F-AC99-749B4A51C774"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43279742-1C1F-4A25-AF5D-C3D7AB6178BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FB17705-4656-42E6-A94E-17AA8B19071F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96C086CE-C654-4FD7-9A25-88B22F404112"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98A3B93C-74F4-4468-B82D-9F2FF1D37DA1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/Utilities/FeaturedApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "incrementCategoryList(categories:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

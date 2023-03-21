@@ -102,7 +102,7 @@ struct FavoriteScreen: View {
                    
                 }
 
-                ButtonImage24(title: "heart-filled") {
+                ButtonImage24(title: "heart-filled",animated: false) {
                         wQuoteVM.favoriteQuotes.removeAll { innerQuote in
                             innerQuote.placeID == quote.placeID
                         }

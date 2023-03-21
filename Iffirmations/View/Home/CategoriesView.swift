@@ -245,7 +245,17 @@ struct CategoriesView: View {
                 
                 
                 DispatchQueue.global().async {
-                    APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in }
+                    APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { result in
+                        
+                        switch result {
+                        case .success(let success):
+                            print("result \(success)")
+                        case .failure(let failure):
+                            print("result \(failure)")
+                        }
+                        
+                        
+                    }
                 }
                 
               
@@ -258,10 +268,10 @@ struct CategoriesView: View {
     }
     
     func categoryView(category : CategoryModel) -> some View {
-        Button {
+//        Button {
     
-            categoryAction(category: category)
-        } label: {
+          
+//        } label: {
             VStack(spacing: 16){
                 ZStack(alignment: .topTrailing){
                     Image(category.title.rawValue)
@@ -281,7 +291,10 @@ struct CategoriesView: View {
                     .frame(height: 24)
                 
             }
-        }
+            .onTapGesture {
+                categoryAction(category: category)
+            }
+//        }
         .frame(width: columnWidth,height: columnWidth + 24 + 16 )
         .padding([.vertical] ,16)
     }

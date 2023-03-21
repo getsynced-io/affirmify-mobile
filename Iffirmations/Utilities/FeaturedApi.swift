@@ -113,7 +113,7 @@ enum APIError: Error {
 }
 
 class APIManager {
-    private let baseURLString = "https://iffirmations.herokuapp.com"
+    private let baseURLString = "https://iffirmations-backend-production.up.railway.app"
     private let token = "22f3db9538e03113707feceb8854f3514fe5729fd005fcf1abe408c0e13f18a4"
     static let shared : APIManager  = APIManager()
     func getBiggestCategory(completion: @escaping (Result<Category, APIError>) -> Void) {
@@ -159,7 +159,7 @@ class APIManager {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let requestBody = IncrementCategoryRequest(categories: categories)
         do {

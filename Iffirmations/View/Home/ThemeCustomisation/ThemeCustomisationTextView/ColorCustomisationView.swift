@@ -75,12 +75,21 @@ struct ColorCustomisationView: View {
                 .strokeBorder(Color("000000"), lineWidth: 1)
                 .frame(width: 28,height: 28)
                 .opacity(0.16)
-            
-            if selectedTheme.fontColor ==  color {
-                Circle()
-                    .foregroundColor(color  == "000000" ? Color("FFFFFF")  : Color("000000"))
-                    .frame(width: 8,height: 8)
+            if isBackGroundImage {
+                if selectedTheme.backgroundColor == color {
+                    Circle()
+                        .foregroundColor(color  == "000000" ? Color("FFFFFF")  : Color("000000"))
+                        .frame(width: 8,height: 8)
+                }
             }
+            else {
+                if selectedTheme.fontColor ==  color {
+                    Circle()
+                        .foregroundColor(color  == "000000" ? Color("FFFFFF")  : Color("000000"))
+                        .frame(width: 8,height: 8)
+                }
+            }
+       
       
         }
         .onTapGesture {
