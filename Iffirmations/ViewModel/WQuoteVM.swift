@@ -13,7 +13,6 @@ class WQuoteViewModel: ObservableObject{
     @AppStorage("favorite",store: store) var favoriteQuotes  : [ WQuoteFavorite] = []
     @AppStorage("sharedQuotes",store: store) var sharedQuotes  : [ WQuoteFavorite] = []
     @AppStorage("WidgetCategory",store: store) var category: String = ""
-    @AppStorage("CategoryModelSelection",store: store) var selectedCategoryID: String = ""
     static let shared :  WQuoteViewModel =  WQuoteViewModel()
     init() {
         DispatchQueue.global().async {[weak self] in
@@ -59,7 +58,6 @@ class WQuoteViewModel: ObservableObject{
 
                }
 
-
             let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
                 quote.categories.contains { cat in
                 return categories.contains { innercat in
@@ -88,30 +86,55 @@ class WQuoteViewModel: ObservableObject{
     }
     
     
-func  filteredQuotesComputedValue()  -> [WQuote] {
+    func  filteredQuotesComputedValue(categoryId : String = CategoryViewModel.shared.selectedID)  -> [WQuote] {
 
         let categories = CategoryViewModel.shared.categories.filter { innercat in
              return StoreViewModel.shared.subscriptionActive || !innercat.isPremium
          }
+        .map { $0.title.rawValue.lowercased() }
 
-         let selectedCategories = selectedCategoryID.lowercased().isEmpty ? Set() : [selectedCategoryID.lowercased()]
+         let selectedCategories =  categoryId.lowercased().isEmpty ? Set() : [ categoryId.lowercased()]
 
-         let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
-             !Set(quote.categories).isDisjoint(with: categories.map { $0.title.rawValue.lowercased() }) &&
-             (selectedCategories.isEmpty || !Set(quote.categories).isDisjoint(with: selectedCategories))
-         }
 
-         return Array(quotesToUse.prefix(1000))
-        
+  return  Array<WQuote>(
+        unsafeUninitializedCapacity: 800,
+      initializingWith: { buffer, initializedCount in
+
+        var index = 0
+
+          for element in  WQuoteViewModel.shared.quotes {
+              if filterLight(element){
+                buffer[index] = element
+                index += 1
+                  if index ==  400{
+                      break
+                  }
+              }
+          }
+
+        initializedCount = index
+      }
+    )
+
+    func filterLight(_ quote : WQuote) -> Bool {
+        !Set(quote.categories).isDisjoint(with: categories) && (selectedCategories.isEmpty || !Set(quote.categories).isDisjoint(with: selectedCategories))
+    }
+
     }
     
-    func updateFiltredQuotes(){
-       
+    func updateFiltredQuotes(categoryId : String = CategoryViewModel.shared.selectedID,handler : @escaping ()->()){
+        DispatchQueue.global().async {[weak self] in
+            let info = ProcessInfo.processInfo
+            let begin = info.systemUptime
+            let quotes =  self?.filteredQuotesComputedValue(categoryId: categoryId) ?? []
+            let diff = (info.systemUptime - begin)
+            print("Filterdiff \(diff)s")
         DispatchQueue.main.async {[weak self] in
-            withAnimation {
-                self?.filtredQuotes = self?.filteredQuotesComputedValue( ) ?? []
+            self?.filtredQuotes = quotes
+            handler( )
         }
-    }
+        }
+     
     }
 
 }

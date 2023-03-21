@@ -8,7 +8,14 @@
 import SwiftUI
 import SwiftUIPager
 
-
+extension UIView {
+   var safeAreaHeight: CGFloat {
+       if #available(iOS 11, *) {
+        return safeAreaLayoutGuide.layoutFrame.size.height
+       }
+       return bounds.height
+  }
+}
 //struct PagginableScrollView<Content>: View where Content: View {
 //    var views: Content
 //
@@ -75,7 +82,7 @@ struct GenralView: View {
     }
     
 
-    @AppStorage("CategoryModelSelection",store: store) var selectedCategoryID: String = ""
+  
     @State var showPaymentView : Bool = false
     @State var sendImage : Bool = false
     @Binding  var loader : Bool
@@ -100,7 +107,7 @@ struct GenralView: View {
                   if let userInfo = obj.userInfo, let info = userInfo["category"] as? String {
                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
                           withAnimation {
-                              selectedCategoryID = info
+                              CategoryViewModel.shared.selectedID = info
                           }
                       }
                    
@@ -145,8 +152,9 @@ struct GenralView: View {
                     }
                     .disabled(StoreViewModel.shared.subscriptionActive )
                 }
-                if !selectedCategoryID.isEmpty{
+                if !CategoryViewModel.shared.selectedID.isEmpty{
                     selectedCategoryTag
+                     
                 }
             }
            
@@ -157,15 +165,17 @@ struct GenralView: View {
     
     var selectedCategoryTag : some View {
         let category  = CategoryViewModel.shared.categories.filter { category  in
-            category.title.rawValue == selectedCategoryID
+            category.title.rawValue ==  CategoryViewModel.shared.selectedID
         }.first ??  CategoryViewModel.shared.categories[0]
       return   HStack(spacing: 4){
           Text("\(category.title.rawValue)")
               .customFont(font: .IBMPlexSerifMedium, size: 12,lineHeight: 16, color: ._FFFFFF)
           Button {
-              selectedCategoryID = ""
+              CategoryViewModel.shared.selectedID = ""
               DispatchQueue.global().async {
-                  wQuoteVM.updateFiltredQuotes()
+                  wQuoteVM.updateFiltredQuotes(categoryId : "" ){
+                      
+                  }
               }
           } label: {
               Image("xWhite")
@@ -207,46 +217,18 @@ struct GenralView: View {
         }
 
     }
-    
- //   @StateObject var page: Page = .first()
     @StateObject var page: Page = .first()
     var pagginationContentView : some View {
-//        PagginableScrollView{
-            
-            
-//            LazyHStack(spacing: 0){
-//
-//                if let item = widgetSelectedQuote {
-//                    quoteFullCard(item: item)
-//                        .padding(.vertical, 32)
-//                }
-//
-//                ForEach(wQuoteVM.filtredQuotes, id : \.placeID) { item in
-//                    quoteFullCard(item: item)
-//                        .padding(.vertical, 32)
 
-//                }
-//            }
-            
-            
-            
-//        }
-     
             Pager(page: page , data: wQuoteVM.filtredQuotes, id: \.placeID) { item in
                 LazyHStack(spacing: 0){
                 quoteFullCard(item: item)
                     .padding(.vertical, 32)
                 }
             }
-            .sensitivity(.medium)
+            .sensitivity(.high)
             .draggingAnimation(.custom(animation: .spring()))
             .contentLoadingPolicy(.lazy(recyclingRatio: 10))
-//            .onAppear {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
-//                    page.update(.moveToFirst)
-//                }
-//            }
-//        
         
     }
     
@@ -257,29 +239,38 @@ struct GenralView: View {
                 .onAppear(perform: {
                     curentItem  = item
                 })
-                .frame(width: UIScreen.main.bounds.width -   32)
-            
-            
-        Button {
-            withAnimation {
-                favoriteAction(quote: item )
-
-            }
-
-        }
-        label: {
-            Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
-            
-                    .frame(width: 24,height: 24)
-                    .padding(16)
-                    .padding(.trailing,16)
-                  
-
-        }
+                .frame(width: UIScreen.main.bounds.width -   32, height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
+                .clipped()
+                
+          
+                          
+            likeButton(quote: item)
+                .frame(width: 24,height: 24)
+                .clipped()
+                .offset(x : -16,y: 16)
+             
+           
+           
+     
+               
 
         }
         
        
+    }
+    
+    func  likeButton(quote item : WQuote)-> some View  {
+        VStack(spacing:0){
+            Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
+                .frame(width: 24,height: 24)
+                .onTapGesture {
+                    withAnimation {
+                        favoriteAction(quote: item )
+
+                    }
+                }
+              
+        }
     }
     
     
@@ -309,6 +300,8 @@ struct GenralView: View {
 }
 //correct miss use of map
 
+let top    = UIApplication.shared.windows[0].safeAreaInsets.top
+let bottom = UIApplication.shared.windows[0].safeAreaInsets.bottom
 
 struct QuoteCardView: View {
     enum SelectedItem {
@@ -342,6 +335,7 @@ struct QuoteCardView: View {
     @Environment(\.mainWindowSize) var mainWindowSize
     var isForSnapshot : Bool = false
     var isForEdit : Bool = true
+
     var body: some View {
         ZStack{
             Group{
@@ -354,10 +348,17 @@ struct QuoteCardView: View {
                             view
                                 .frame(maxHeight : mainWindowSize.height - 44  - 64 - 64)
                         }
+                        .if(!isForSnapshot && !isForEdit ){view in
+                            view
+                                .frame(height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
+                              
+                        }
+                      
                         .cornerRadius(isForSnapshot ?  0 : 16)
                         .opacity(Double(selectedTheme.backgroundOpacity))
                         .animation(nil)
-                   
+                        .contentShape(Rectangle())
+                        .clipped()
                         .if(selectedItem == .image , transform: { view in
                             view
                                
@@ -367,11 +368,12 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
-                            .if(isForSnapshot){view in
+                        .if(isForSnapshot){view in
                             view
                                 .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height)
                             
                         }
+                 
                       
                 }
                 else if let color =   selectedTheme.backgroundColor{
@@ -386,14 +388,22 @@ struct QuoteCardView: View {
                                         .foregroundColor(Color._000000)
                                 )
                         })
+                            .if(isForSnapshot){view in
+                                view
+                                    .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height)
+                                
+                            }
                      
                 }
+                
+                
+  
             }
             .frame(width: UIScreen.main.bounds.width -  (isForSnapshot ?  0 : 32))
          
   
            quoteView
-            
+          
             
         }
         .frame(maxWidth: UIScreen.main.bounds.width - (isForSnapshot ?  0 : 32))
@@ -425,7 +435,6 @@ struct QuoteCardView: View {
                 .opacity(selectedTheme.fontOpacity)
                 .foregroundColor(Color(selectedTheme.fontColor))
                 .frame(width: UIScreen.main.bounds.width - 64,alignment: textAlignment.alinment)
-            // .background(Color.red)
                 .if(selectedItem == .text , transform: { view in
                     view
                         .overlay(

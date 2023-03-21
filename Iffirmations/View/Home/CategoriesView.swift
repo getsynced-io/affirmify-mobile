@@ -223,30 +223,39 @@ struct CategoriesView: View {
     }
     
     func categoryAction(category : CategoryModel){
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             
-    
-        if StoreViewModel.shared.subscriptionActive || !category.isPremium {
-            DispatchQueue.main.async {
-                CategoryViewModel.shared.selectedID = category.title.rawValue
+            
+            if StoreViewModel.shared.subscriptionActive || !category.isPremium {
                 
-            }
-            WQuoteViewModel.shared.updateFiltredQuotes()
-            DispatchQueue.main.async {
+             
+                
+                if  CategoryViewModel.shared.selectedID != category.title.rawValue {
+                    CategoryViewModel.shared.selectedID = category.title.rawValue
+                    WQuoteViewModel.shared.updateFiltredQuotes(categoryId: category.title.rawValue) {
+                        tabState = .General
+                    }
+                }
+                else {
+                    tabState = .General
+                }
+            
+                
                 widgetSelectedQuote = nil
+                
+                
+                DispatchQueue.global().async {
+                    APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in }
+                }
+                
+              
             }
-
-            APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { _ in }
-            DispatchQueue.main.async {
-                tabState = .General
+            
+            else if category.isPremium {
+                withAnimation {showPaymentView = true}
             }
-          
-        }
-        else if category.isPremium {
-            DispatchQueue.main.async { withAnimation {showPaymentView = true} }
         }
     }
-}
     
     func categoryView(category : CategoryModel) -> some View {
         Button {

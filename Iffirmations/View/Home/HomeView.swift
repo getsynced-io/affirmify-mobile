@@ -33,7 +33,6 @@ struct HomeView: View {
                     nextView
                     
                     ZStack{
-                        //                    if tabState == .General {
                         GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader, widgetSelectedQuote: $widgetSelectedQuote)
                             .onAppear {
                                 INPreferences.requestSiriAuthorization { status in
@@ -44,32 +43,37 @@ struct HomeView: View {
                                 Color._F6F5EC.ignoresSafeArea()
                             )
                             .zIndex(tabState == .General ? 1 : -1)
-                        //                    }
+                            .ignoresSafeArea(.keyboard , edges: .bottom)
                         
-                       // if tabState == .Categories {
                             CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
                                 .zIndex(tabState == .Categories ? 2 : -2)
-                      //  }
+                                .ignoresSafeArea(.keyboard , edges: .bottom)
                         
-                        
-//                        if tabState == .Themes {
                             ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
                                 .zIndex(tabState == .Themes ? 3 : -3)
-//                        }
+                                .ignoresSafeArea(.keyboard , edges: .bottom)
                     }
                     
                     BottomSelectionView
+                        .zIndex(999)
+                        .ignoresSafeArea(.keyboard , edges: .bottom)
+                        .background(
+                            Color._F6F5EC
+                                .ignoresSafeArea()
+                        )
                     
                 }
                 .ignoresSafeArea(.keyboard , edges: .bottom)
                 .background(
-                    Color._F6F5EC.ignoresSafeArea()
+                    Color._F6F5EC
+                        .ignoresSafeArea()
+                        .ignoresSafeArea(.keyboard , edges: .bottom)
                 )
                 if firstTime {
                     Color._000000.opacity(0.32).ignoresSafeArea()
