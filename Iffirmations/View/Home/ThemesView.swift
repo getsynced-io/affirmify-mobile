@@ -36,11 +36,9 @@ struct ThemesView: View {
                 .padding(.bottom,16)
             
             ZStack(alignment: .bottomTrailing){
-//                ScrollView{
-                   
-                        themesMenue
                 
-//                }
+               themesMenue
+                
                 Button {
                    addThemeAction()
                 } label: {
@@ -305,7 +303,7 @@ struct ThemesView: View {
                     }
                 } label: {
                     Text("Reset")
-                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 }
                 
                 Spacer(minLength: 0)
@@ -315,7 +313,7 @@ struct ThemesView: View {
                     }
                 } label: {
                     Text("Edit")
-                         .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                         .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 }
 
             }

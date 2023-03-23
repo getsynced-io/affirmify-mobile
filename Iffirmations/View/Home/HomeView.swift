@@ -29,8 +29,9 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                nextView
                 VStack(spacing: 0){
-                    nextView
+                   
                     
                     ZStack{
                         GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader, widgetSelectedQuote: $widgetSelectedQuote)
@@ -40,21 +41,21 @@ struct HomeView: View {
                                 }
                             }
                             .background(
-                                Color._F6F5EC.ignoresSafeArea()
+                                Color._000000.ignoresSafeArea()
                             )
                             .zIndex(tabState == .General ? 1 : -1)
                             .ignoresSafeArea(.keyboard , edges: .bottom)
                         
                             CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
                                 .background(
-                                    Color._F6F5EC.ignoresSafeArea()
+                                    Color._000000.ignoresSafeArea()
                                 )
                                 .zIndex(tabState == .Categories ? 2 : -2)
                                 .ignoresSafeArea(.keyboard , edges: .bottom)
                         
                             ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
-                                    Color._F6F5EC.ignoresSafeArea()
+                                    Color._000000.ignoresSafeArea()
                                 )
                                 .zIndex(tabState == .Themes ? 3 : -3)
                                 .ignoresSafeArea(.keyboard , edges: .bottom)
@@ -64,43 +65,43 @@ struct HomeView: View {
                         .zIndex(999)
                         .ignoresSafeArea(.keyboard , edges: .bottom)
                         .background(
-                            Color._F6F5EC
+                            Color._000000
                                 .ignoresSafeArea()
                         )
                     
                 }
                 .ignoresSafeArea(.keyboard , edges: .bottom)
                 .background(
-                    Color._F6F5EC
+                    Color._000000
                         .ignoresSafeArea()
                         .ignoresSafeArea(.keyboard , edges: .bottom)
                 )
                 if firstTime {
-                    Color._000000.opacity(0.32).ignoresSafeArea()
+                    Color._FFFFFF.opacity(0.16).ignoresSafeArea()
                     firstTimeNotation
                     
                 }
                 if  adsPopUpIsPresented  {
-                    Color._000000.opacity(0.32).ignoresSafeArea()
+                    Color._FFFFFF.opacity(0.16).ignoresSafeArea()
                     
                     adsPopUpView
                     
                 }
                 
                 if loader {
-                    Color._000000.opacity(0.16).ignoresSafeArea()
+                    Color._FFFFFF.opacity(0.16).ignoresSafeArea()
                         .zIndex(99)
                     ProgressView()
                         .zIndex(99)
                 }
             }
-            .navigationTitle("")
-            .navigationBarHidden(true)
             .fullScreenCover(isPresented: $showPaymentView) {
                 PaymentView(isPresented: $showPaymentView)
             }
-        }
-        .navigationViewStyle(.stack)
+            .navigationTitle("")
+            .navigationBarHidden(true)
+            
+          }
         .onOpenURL { url in
             if url.absoluteString.contains("Iffirmation://openQuote?quoteId="){
                 if  let quoteId = url.queryParameters["quoteId"] {
@@ -137,13 +138,11 @@ struct HomeView: View {
     var firstTimeNotation : some View {
         VStack(spacing: 32) {
             
-            Text("👆")
-                .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._000000)
-                .frame(width: 96,height: 96)
-                .clipped()
+           Image("🌎")
+                .frame(width: 77,height: 96)
             
             Text("Swipe left or right to read more quotes")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
                 .multilineTextAlignment(.center)
             
             GreenButtonView(buttonTitle: "Gotcha!",width:  UIScreen.main.bounds.width - 96) {
@@ -156,7 +155,7 @@ struct HomeView: View {
         .padding(.vertical,32)
         .padding(.horizontal,16)
         .frame(width: UIScreen.main.bounds.width - 64,height: 336)
-        .background(Color._FFFFFF)
+        .background(Color._000000)
         .cornerRadius(32)
         .padding(.horizontal,32)
     }
@@ -172,13 +171,14 @@ struct HomeView: View {
     func  tabItemView(type : TabState )->  some View {
         VStack(spacing: 8){
             Text("\(type.rawValue)")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .opacity(type == tabState ? 1 : 0.64)
                 .frame(height: 24)
             
             if type == tabState {
                 Circle()
                     .frame(width: 8,height: 8)
-                    .foregroundColor(._000000)
+                    .foregroundColor(._FFFFFF)
             }
             Spacer(minLength: 0)
         }
@@ -203,6 +203,7 @@ struct HomeView: View {
 struct ButtonImage24: View {
     let title : String
     var animated : Bool = true
+   
     let action : ()->()
     var body: some View {
         Button {
@@ -238,13 +239,13 @@ struct GoPremiumPopUpView: View {
         ZStack(alignment: .topTrailing){
             VStack(spacing: 32) {
                 Text(emoji)
-                    .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._000000)
+                    .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._FFFFFF)
                     .frame(width: 96,height: 96)
                     .clipped()
                    
                 
                 Text(description)
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
                     .multilineTextAlignment(.center)
                    
                 
@@ -259,7 +260,7 @@ struct GoPremiumPopUpView: View {
                         }
                     } label: {
                         Text(secondButtonTitle)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     }
                     .frame(height: 24)
                     
@@ -269,7 +270,7 @@ struct GoPremiumPopUpView: View {
             .padding(.vertical,32)
             .padding(.horizontal,16)
             .frame(width: UIScreen.main.bounds.width - 64,height: UIDevice.current.userInterfaceIdiom == .phone ?  376 : 344)
-            .background(Color._FFFFFF)
+            .background(Color._000000)
             .cornerRadius(32)
             
             if showExitButton {

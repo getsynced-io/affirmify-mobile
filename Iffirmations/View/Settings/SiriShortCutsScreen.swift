@@ -14,23 +14,28 @@ struct SiriShortCutsScreen: View , SettingsViewProtocol {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var siriVM : SiriContentViewModel = SiriContentViewModel()
     var body: some View {
-        VStack(spacing: 0) {
-            SettingsHeaderView(title: "Siri Shortcuts", cancelHandler: {
-                withAnimation {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            })
-            .padding(.bottom , 32)
-            
-            Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
-                .multilineTextAlignment(.center)
-                .padding(.bottom , 16)
-                .padding(.horizontal, 16)
-            scrollableSelection
-                .padding(.bottom , 16)
-             
-            
+        
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            VStack(spacing: 0) {
+                SettingsHeaderView(title: "Siri Shortcuts", cancelHandler: {
+                    withAnimation {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+                .padding(.bottom , 32)
+                
+                Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom , 16)
+                    .padding(.horizontal, 16)
+                scrollableSelection
+                    .padding(.bottom , 16)
+                
+                
+            }
+            .background(Color._000000.ignoresSafeArea())
         }
     }
     

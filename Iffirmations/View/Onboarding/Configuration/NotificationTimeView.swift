@@ -19,7 +19,8 @@ struct NotificationTimeView: View , SettingsViewProtocol {
     var calledFromConfiguration : Bool = false
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        NavigationView {
+        ZStack{
+            Color._000000.ignoresSafeArea()
             ZStack(alignment: .bottom){
                 VStack(spacing: 0){
                     nextView
@@ -63,7 +64,7 @@ struct NotificationTimeView: View , SettingsViewProtocol {
                                 DispatchQueue.main.async {
                                     presentationMode.wrappedValue.dismiss()
                                 }
-                              
+                                
                             }
                         }
                         else {
@@ -71,7 +72,7 @@ struct NotificationTimeView: View , SettingsViewProtocol {
                                 nextViewIsActive = true
                             }
                         }
-                      
+                        
                     }
                     .padding([.horizontal,.top] ,16)
                     .padding(.bottom ,32)
@@ -82,24 +83,21 @@ struct NotificationTimeView: View , SettingsViewProtocol {
                     
                 }
                 .ignoresSafeArea(.keyboard,edges: .all)
-              
+                
                 .background(Color._F6F5EC.ignoresSafeArea())
                 
                 timeSheet(userConfigVM: userConfigVM, dateType: $dateType, showTimeSheet: $showTimeSheet)
-     
-                  
+                
+                
             }
-            .navigationTitle("")
-            .navigationBarHidden(true)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-
     }
     
     
     var nextView : some View {
         CustomNavigationLink(isActive: $nextViewIsActive) {
             NotificationRequestView(userConfigVM: userConfigVM)
+                .background(Color._000000.ignoresSafeArea())
         }
     }
     
@@ -107,20 +105,20 @@ struct NotificationTimeView: View , SettingsViewProtocol {
     
     var header : some View {
         Text("Focus on what truly matters with reminders")
-            .customFont(font: .IBMPlexSerifMedium, size: 24 , color: ._000000)
+            .customFont(font: .IBMPlexSerifMedium, size: 24 , color: ._FFFFFF)
             .multilineTextAlignment(.center)
       
     }
     var Quantity : some View {
         HStack(spacing: 0){
             Text("Quantity")
-                .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._000000)
+                .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
             Spacer(minLength: 0)
             
             HStack(spacing: 8) {
                 IncrementalButton(operation: .minus, counter: $userConfigVM.userConfig.quantity, counterLimit: 0)
                 Text("\(userConfigVM.userConfig.quantity)x")
-                    .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._000000)
+                    .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
                     .frame(width: 32)
                 IncrementalButton(operation: .plus, counter: $userConfigVM.userConfig.quantity, counterLimit: 10)
             }
@@ -162,7 +160,7 @@ struct timeSheet: View {
                 }
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
-                    .accentColor(Color._000000)
+                    .accentColor(Color._FFFFFF)
    
             }
             .height(.fixed(162))
@@ -234,18 +232,18 @@ struct TimePicker: View {
     var body: some View {
         HStack(spacing: 0) {
             Text(title.rawValue)
-            .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._000000)
+            .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
             
             Spacer(minLength: 0)
             HStack(spacing: 16){
                 Text("\(date.display("hh:mm"))")
                     .frame(width: 64)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
                     .padding(.vertical ,4)
                     .background(
-                    Capsule()
+                        RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(lineWidth: 1)
-                        .foregroundColor(._000000)
+                        .foregroundColor(._FFFFFF.opacity(0.16))
                     )
                     .onTapGesture {
                         withAnimation {
@@ -269,14 +267,14 @@ struct TimePicker: View {
     
     func  amPmPicker(_ amPm: Date.TimeConvention,dateFormat : Date.TimeConvention ) -> some View {
         Text(amPm.rawValue)
-            .customFont(font: .IBMPlexSerifMedium, size: 16 , color: dateFormat == amPm ? Color._FFFFFF : Color._000000)
+            .customFont(font: .IBMPlexSerifMedium, size: 16 , color: dateFormat == amPm ? Color._FFFFFF : Color._FFFFFF)
             .frame(width: 48)
             .padding(.vertical ,4)
             .if(dateFormat == amPm, transform: { view in
                 view
                     .background(
-                    Capsule()
-                        .foregroundColor(._000000)
+                   RoundedRectangle(cornerRadius: 8)
+                        .foregroundColor(._5138EE)
                         .frame(width: 48)
                     )
             })
@@ -332,7 +330,7 @@ struct CustomDatePicker: View {
                 .datePickerStyle(.wheel)
                 .frame(width: 200, height: 100)
                 .clipped()
-                .background(Color.gray.cornerRadius(10))
+                .background(Color.gray.cornerRadius(8))
                 .opacity(showPicker ? 1 : 0 )
                 .offset(x: 50, y: 90)
         ).onChange(of: date) { newValue in

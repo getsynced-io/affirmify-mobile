@@ -188,9 +188,9 @@ struct GenralView: View {
       .padding(.vertical,4)
       .padding(.horizontal,8)
       .background(
-        Capsule()
+        RoundedRectangle(cornerRadius: 8)
             .frame(height: 24)
-            .foregroundColor(._000000)
+            .foregroundColor(._5138EE)
       
       )
     }
@@ -354,7 +354,7 @@ struct QuoteCardView: View {
                               
                         }
                       
-                        .cornerRadius(isForSnapshot ?  0 : 16)
+                        .cornerRadius(isForSnapshot ?  0 : 8)
                         .opacity(Double(selectedTheme.backgroundOpacity))
                         .animation(nil)
                         .contentShape(Rectangle())
@@ -363,9 +363,9 @@ struct QuoteCardView: View {
                             view
                                
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 16)
+                                    RoundedRectangle(cornerRadius: 8)
                                         .strokeBorder(lineWidth: 1, antialiased: true)
-                                        .foregroundColor(Color._000000)
+                                        .foregroundColor(Color._FFFFFF)
                                 )
                         })
                         .if(isForSnapshot){view in
@@ -378,14 +378,14 @@ struct QuoteCardView: View {
                 }
                 else if let color =   selectedTheme.backgroundColor{
                     Color(color)
-                        .cornerRadius(isForSnapshot ?  0 : 16)
+                        .cornerRadius(isForSnapshot ?  0 : 8)
                         .opacity(Double(selectedTheme.backgroundOpacity))
                         .if(selectedItem == .image , transform: { view in
                             view
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 16)
+                                    RoundedRectangle(cornerRadius: 8)
                                         .strokeBorder(lineWidth: 1, antialiased: true)
-                                        .foregroundColor(Color._000000)
+                                        .foregroundColor(Color._FFFFFF)
                                 )
                         })
                             .if(isForSnapshot){view in
@@ -439,9 +439,9 @@ struct QuoteCardView: View {
                 .if(selectedItem == .text , transform: { view in
                     view
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
+                            RoundedRectangle(cornerRadius: 8)
                                 .strokeBorder(lineWidth: 1, antialiased: true)
-                                .foregroundColor(Color._000000)
+                                .foregroundColor(Color._FFFFFF)
                                
                         )
                 })

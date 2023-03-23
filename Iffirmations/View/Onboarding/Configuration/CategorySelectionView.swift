@@ -21,57 +21,58 @@ struct CategorySelectionView: View {
     var calledFromConfiguration : Bool = false
     @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
-        VStack(spacing: 0){
-            SettingsHeaderView(title: calledFromConfiguration ? "Personal Preferences" : "", cancelHandler: {
-                self.presentation.wrappedValue.dismiss()
-            })
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            VStack(spacing: 0){
+                SettingsHeaderView(title: calledFromConfiguration ? "Personal Preferences" : "", cancelHandler: {
+                    self.presentation.wrappedValue.dismiss()
+                })
                 .padding(.bottom , 32)
-            Text("Develop a higher level of self-esteem and positivity")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._000000)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal , 16)
-            Spacer(minLength: 0)
-            
-            Text("Choose up to 10 categories")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._000000)
-                .multilineTextAlignment(.center)
-                .padding(.bottom,16)
-                .padding(.horizontal , 16)
-            
-            CustomGridView(categories:$categoryVM.categories )
-
-            Group{
-                if selectedCategoriesCount != 0 {
-                    GreenButtonView(buttonTitle:calledFromConfiguration ? "Save" :  "Next(\(selectedCategoriesCount))") {
-                        for category in categoryVM.categories {
-                            if category.isSelected {
-                                AppEvents.shared.logEvent(AppEvents.Name("\(category.title.rawValue)"))
+                Text("Develop a higher level of self-esteem and positivity")
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._FFFFFF)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal , 16)
+                Spacer(minLength: 0)
+                
+                Text("Choose up to 10 categories")
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._FFFFFF)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom,16)
+                    .padding(.horizontal , 16)
+                
+                CustomGridView(categories:$categoryVM.categories )
+                
+                Group{
+                    if selectedCategoriesCount != 0 {
+                        GreenButtonView(buttonTitle:calledFromConfiguration ? "Save" :  "Next(\(selectedCategoriesCount))") {
+                            for category in categoryVM.categories {
+                                if category.isSelected {
+                                    AppEvents.shared.logEvent(AppEvents.Name("\(category.title.rawValue)"))
+                                }
                             }
-                        }
-                        
-                        if calledFromConfiguration {
-                            presentation.wrappedValue.dismiss()
-                        }
-                        else {
-                            withAnimation {
-                                StoreViewModel.shared.showPaymentView  = true
+                            
+                            if calledFromConfiguration {
+                                presentation.wrappedValue.dismiss()
                             }
+                            else {
+                                withAnimation {
+                                    StoreViewModel.shared.showPaymentView  = true
+                                }
+                            }
+                            
                         }
-                       
+                    }
+                    else{
+                        Text("")
                     }
                 }
-                else{
-                    Text("")
-                }
+                .frame(height: 48)
+                .padding(.horizontal , 16)
+                .padding(.bottom, 32)
+                .padding(.top,16)
             }
-            .frame(height: 48)
-            .padding(.horizontal , 16)
-            .padding(.bottom, 32)
-            .padding(.top,16)
+            .background(Color._F6F5EC.ignoresSafeArea())
         }
- 
-      
-        .background(Color._F6F5EC.ignoresSafeArea())
     }
     
 }

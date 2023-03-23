@@ -12,8 +12,8 @@ struct ColorCustomisationView: View {
     let stateUndoManager : StateUndoManager<ThemeModel>
     @Environment(\.presentationMode) var presentationMode
     var isBackGroundImage : Bool = false
-    let colors : [String] = ["000000","E4F2FD","8ECAF9","44A5F5","1F87E5","1266C0","82B2FF","2A79FF","F1F8E9","C6E1A6","9CCC64","7AB441","548B2F","CDFF91","76FF02"
-        ,"FFFFFF","90C9F9","64B5F6","2196F3","1876D1","0D47A1","448AFF","2A62FD","DBEDC8","AED581","8CC14B","679F37","33691C","B2FF59","65DC19"
+    let colors : [String] = ["FFFFFF","E4F2FD","8ECAF9","44A5F5","1F87E5","1266C0","82B2FF","2A79FF","F1F8E9","C6E1A6","9CCC64","7AB441","548B2F","CDFF91","76FF02"
+        ,"000000","90C9F9","64B5F6","2196F3","1876D1","0D47A1","448AFF","2A62FD","DBEDC8","AED581","8CC14B","679F37","33691C","B2FF59","65DC19"
     ]
     var columns: [GridItem] {
           Array(repeating: .init(.fixed(28),spacing: 0), count: 15)
@@ -72,9 +72,9 @@ struct ColorCustomisationView: View {
             .frame(width: 28,height: 28)
             
             Circle()
-                .strokeBorder(Color("000000"), lineWidth: 1)
+                .strokeBorder(Color._FFFFFF.opacity(0.16), lineWidth: 1)
                 .frame(width: 28,height: 28)
-                .opacity(0.16)
+            
             if isBackGroundImage {
                 if selectedTheme.backgroundColor == color {
                     Circle()

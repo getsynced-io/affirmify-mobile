@@ -12,24 +12,27 @@ struct NotificationRequestView: View {
     @ObservedObject var userConfigVM : UserConfigurationVM
     @Environment(\.presentationMode) var presentation
     var body: some View {
-        VStack(spacing: 0){
-            nextView
-            
-            backButtom
-                .padding(.bottom , 32)
-            
-            description
-            
-            Spacer(minLength: 0)
-            
-            VStack(spacing: 16){
-                doItNowButton
-                doItLaterButton
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            VStack(spacing: 0){
+                nextView
+                
+                backButtom
+                    .padding(.bottom , 32)
+                
+                description
+                
+                Spacer(minLength: 0)
+                
+                VStack(spacing: 16){
+                    doItNowButton
+                    doItLaterButton
+                }
+                .padding(.bottom,32)
             }
-            .padding(.bottom,32)
+            .padding(.horizontal , 16)
+            .background(Color._F6F5EC.ignoresSafeArea())
         }
-        .padding(.horizontal , 16)
-        .background(Color._F6F5EC.ignoresSafeArea())
 
     }
     
@@ -61,7 +64,7 @@ struct NotificationRequestView: View {
             }
         } label: {
             Text("I'll Do It Later")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
             
         }
@@ -71,7 +74,7 @@ struct NotificationRequestView: View {
     
     var description : some View {
         Text("Turn on notifications to make it a habit to review quotes every day")
-            .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._000000)
+            .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._FFFFFF)
             .multilineTextAlignment(.center)
     }
     

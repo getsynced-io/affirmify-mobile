@@ -68,27 +68,23 @@ struct FontCustomisationView: View {
     
     func fontCard(_ fontName : String,handler : @escaping ()->()) ->  some View {
         Text("Abcd")
-            .customFont(font: FontsExtension(fromRawValue: fontName), size: 24, color: fontName == selectedTheme.fontName  ?  ._FFFFFF : ._000000)
+            .customFont(font: FontsExtension(fromRawValue: fontName), size: 24, color: ._FFFFFF )
             .background(
                 Group{
-                        Capsule()
+                       RoundedRectangle(cornerRadius: 8)
                         .if(fontName != selectedTheme.fontName, transform: { view in
                                 view
                                     .strokeBorder(lineWidth: 1)
                             })
-                            .foregroundColor(fontName == selectedTheme.fontName ? ._000000 : ._000000.opacity(0.16))
+                            .foregroundColor(fontName == selectedTheme.fontName ? ._5138EE : ._FFFFFF.opacity(0.16))
                             .frame(width: 128, height: 48)
 
                 }
             )
             .frame(width: 128, height: 56)
             .onTapGesture {
-//                withAnimation {
                     selectedTheme.fontName = fontName
                     handler()
-                 //   stateUndoManager.updateState(selectedTheme)
-//                }
-                   
             }
         
     }

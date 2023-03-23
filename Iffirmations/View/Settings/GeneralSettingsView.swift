@@ -19,7 +19,7 @@ extension SettingsViewProtocol {
         } label: {
             HStack(spacing: 0){
                Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 Spacer(minLength: 0)
                 Image("chevron-right")
@@ -37,7 +37,7 @@ extension SettingsViewProtocol {
         } label: {
             HStack(spacing: 0){
                Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 Spacer(minLength: 0)
                 
@@ -62,87 +62,91 @@ struct GeneralSettingsView: View  , SettingsViewProtocol{
     @State var showPaymentView : Bool = false
  
     var body: some View {
+        ZStack{
+            Color._000000.ignoresSafeArea()
         VStack(spacing: 0){
-            nextView
+              nextView
             
-            SettingsHeaderView(title: "Settings", cancelHandler: {
-                withAnimation {
-                    isPresented = false
-                }
-            })
-                .padding(.bottom , 16)
-            Group{
-                listRow(title: "Favorites (\(favoriteQuotes.count))") {
-                    withAnimation {
-                        viewToPush = AnyView(FavoriteScreen(wQuoteVM: wQuoteVM, isPresented: $pushView))
-                        pushView = true
-                    }
-                }
-                seperator
-                
-                listRow(title: "Settings") {
-                    withAnimation {
-                        viewToPush = AnyView(SettingsScreen())
-                        pushView = true
-                    }
-                }
-                seperator
-            }
-            Group{
-                listRow(title: "Share App") {
-                    "https://apps.apple.com/us/app/quottie/id1603440570".shareAsUrl()
-                }
-                seperator
-                
-                listRow(title: "Rate Us") {
-                    SKStoreReviewController.requestReview()
-                }
-                seperator
-            }
-                
-                listRow(title: "Restore") {
-                    withAnimation {
-                        showPaymentView = true
-                    }
-                }
-                seperator
-                
-            Group{
-                listRow(title: "Contact") {
-                    "support@quottie.app".mailTo()
-                }
-                seperator
-                
-                listRow(title: "Legal") {
-                    withAnimation {
-                        viewToPush = AnyView(LegalScreen())
-                        pushView = true
-                    }
-                }
-                seperator
-            }
-                
-                listRow(title: "Social Media") {
-                    withAnimation {
-                        viewToPush = AnyView( SocialMediaScreen())
-                        pushView = true
-                    }
-                }
-         
-            HStack(spacing: 0) {
-                Text("v1.0")
-                    .customFont(font: .IBMPlexSerifRegular, size: 12,lineHeight: 16 , color: ._000000.opacity(0.64))
-                    .padding(16)
-                Spacer(minLength: 0)
-            }
+                        SettingsHeaderView(title: "Settings", cancelHandler: {
+                            withAnimation {
+                                isPresented = false
+                            }
+                        })
+                            .padding(.bottom , 16)
+                        Group{
+                            listRow(title: "Favorites (\(favoriteQuotes.count))") {
+                                withAnimation {
+                                    viewToPush = AnyView(FavoriteScreen(wQuoteVM: wQuoteVM, isPresented: $pushView))
+                                    pushView = true
+                                }
+                            }
+                           seperator
+            
+                            listRow(title: "Settings") {
+                                withAnimation {
+                                    viewToPush = AnyView(SettingsScreen())
+                                    pushView = true
+                                }
+                            }
+                        seperator
+                        }
+                        Group{
+                            listRow(title: "Share App") {
+                                "https://apps.apple.com/us/app/quottie/id1603440570".shareAsUrl()
+                            }
+                           seperator
+            
+                            listRow(title: "Rate Us") {
+                                SKStoreReviewController.requestReview()
+                            }
+                           seperator
+                        }
+            
+                            listRow(title: "Restore") {
+                                withAnimation {
+                                    showPaymentView = true
+                                }
+                            }
+                           seperator
+            
+                        Group{
+                            listRow(title: "Contact") {
+                                "support@quottie.app".mailTo()
+                            }
+                            seperator
+            
+                            listRow(title: "Legal") {
+                                withAnimation {
+                                    viewToPush = AnyView(LegalScreen())
+                                    pushView = true
+                                }
+                            }
+                            seperator
+                        }
+            
+                            listRow(title: "Social Media") {
+                                withAnimation {
+                                    viewToPush = AnyView( SocialMediaScreen())
+                                    pushView = true
+                                }
+                            }
+            
+                        HStack(spacing: 0) {
+                            Text("v1.0")
+                                .customFont(font: .IBMPlexSerifRegular, size: 12,lineHeight: 16 , color: ._FFFFFF.opacity(0.64))
+                                .padding(16)
+                            Spacer(minLength: 0)
+                        }
             
             
-            Spacer(minLength: 0)
+                        Spacer(minLength: 0)
             
-           
-      
+            
+            
             
         }
+        .background(Color._000000.ignoresSafeArea())
+    }
         .fullScreenCover(isPresented: $showPaymentView) {
             PaymentView(isPresented: $showPaymentView)
         }
@@ -180,7 +184,7 @@ struct SettingsHeaderView: View {
                 }
                 
                 Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
             }
             .frame(height: 44)

@@ -20,7 +20,7 @@ class ThemeViewModel: ObservableObject{
     }
 
     func getDefaultTheme()->ThemeModel {
-        return ThemeModel(id : "\(themes.count)",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0)
+        return ThemeModel(id : "\(themes.count)",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "FFFFFF", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "1A1A1A", backgroundOpacity: 1.0)
     }
     
 }
@@ -28,9 +28,9 @@ class ThemeViewModel: ObservableObject{
 
 class InitThemes{
     static let  shared :InitThemes = InitThemes()
-    let defaultTheme =        ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0)
+    let defaultTheme =        ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "FFFFFF", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "1A1A1A", backgroundOpacity: 1.0)
     let initialThemes  =     [
-        ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0),
+        ThemeModel(id : "0",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "FFFFFF", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "1A1A1A", backgroundOpacity: 1.0),
         
         ThemeModel(id : "1",fontName: "AbrilFatfaceRegular", fontAlignment: .middle, fontColor: "FFFFFF", fontOpacity: 1.0, textCase: .sentence, backgroundImage: "ThemeBg1", backgroundColor: nil, backgroundOpacity: 1.0),
 

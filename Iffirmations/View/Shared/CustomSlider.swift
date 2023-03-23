@@ -28,8 +28,8 @@ struct SwiftUISlider<T: Comparable & BinaryFloatingPoint>: UIViewRepresentable {
       slider.setThumbImage(UIImage(named: "BgCircle"), for: .focused)
       slider.setThumbImage(UIImage(named: "BgCircle"), for: .highlighted)
       slider.setThumbImage(UIImage(named: "BgCircle"), for: .reserved)
-      slider.minimumTrackTintColor = UIColor(named: "000000")
-      slider.maximumTrackTintColor = UIColor(named: "000000")?.withAlphaComponent(0.16)
+      slider.minimumTrackTintColor = thumbColor
+      slider.maximumTrackTintColor = thumbColor.withAlphaComponent(0.16)
     slider.addTarget(
       context.coordinator,
       action: #selector(Coordinator.valueChanged(_:)),

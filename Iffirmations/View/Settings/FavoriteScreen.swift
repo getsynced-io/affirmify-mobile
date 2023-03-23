@@ -13,7 +13,9 @@ struct FavoriteScreen: View {
     @State  var loader : Bool = false
     @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0"
     var body: some View {
-        ZStack{
+            ZStack{
+                Color._000000.ignoresSafeArea()
+            
             VStack(spacing: 0){
                 headerView
                     .padding(.bottom , 16)
@@ -35,7 +37,7 @@ struct FavoriteScreen: View {
                 
                 Spacer(minLength: 0 )
             }
-            
+            .background(Color._000000.ignoresSafeArea())
             if loader {
                 Color._000000.opacity(0.16).ignoresSafeArea()
                     .zIndex(99)
@@ -61,7 +63,7 @@ struct FavoriteScreen: View {
             }
             
             Text("Favorites (\(wQuoteVM.favoriteQuotes.count))")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
         }
         .frame(height: 44)
@@ -79,7 +81,7 @@ struct FavoriteScreen: View {
     func  quoteListRow(_ quote : any WQuoteBase)-> some View{
         HStack(alignment: .top,spacing: 0) {
             Text(quote.text)
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 .multilineTextAlignment(.leading)
             
            Spacer(minLength: 0)

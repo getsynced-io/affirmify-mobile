@@ -78,15 +78,16 @@ return categories.filter { category in
     }
     func categoryCard(_ card : CategoryModel) ->  some View {
         Text("\(card.title.rawValue)")
-            .customFont(font: .IBMPlexSerifRegular, size: 16, color: card.isSelected ?  ._FFFFFF : ._000000)
+            .customFont(font: .IBMPlexSerifRegular, size: 16, color: ._FFFFFF )
             .background(
                 Group{
-                        Capsule()
+                       RoundedRectangle(cornerRadius: 8)
                             .if(!card.isSelected, transform: { view in
                                 view
                                     .strokeBorder(lineWidth: 1)
+                                    .foregroundColor(Color._FFFFFF.opacity(0.16))
                             })
-                            .foregroundColor(._000000)
+                            .foregroundColor(._5138EE)
                             .frame(width: 128, height: 48)
 
                 }

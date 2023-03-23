@@ -18,15 +18,18 @@ struct TextFieldTyped: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width - 32, height: 48)))
         textField.keyboardType = self.keyboardType
-        textField.textColor = UIColor(named : "000000")
+        textField.textColor = UIColor(named : "FFFFFF")
         textField.font = font
         textField.textAlignment = textAlignment
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.leftView = paddingView
         textField.text = text
         textField.contentMode = .scaleAspectFit
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.clipsToBounds = true
         
-        textField.attributedPlaceholder = NSAttributedString(string: placeHolder , attributes: [NSAttributedString.Key.foregroundColor : UIColor(named : "000000")! , NSAttributedString.Key.font : attributedPlaceholder != nil ? attributedPlaceholder! : font ])
+        textField.attributedPlaceholder = NSAttributedString(string: placeHolder , attributes: [NSAttributedString.Key.foregroundColor : UIColor(named : "FFFFFF")! , NSAttributedString.Key.font : attributedPlaceholder != nil ? attributedPlaceholder! : font ])
         
         textField.delegate = context.coordinator
         
@@ -79,7 +82,7 @@ struct CustomTextField: View {
     let placeHolder: String
     let font : UIFont
     var attributedPlaceholder : UIFont? = nil
-    var textAlignment: NSTextAlignment = .center
+    var textAlignment: NSTextAlignment = .left
     var becomeFirstResponder : Bool = true
     @Binding var text : String
     var body: some View {

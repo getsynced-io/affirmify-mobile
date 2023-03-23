@@ -120,7 +120,7 @@ struct TabItemView: View {
                 Image(imageTitle)
                     .frame(width: 24,height: 24)
                 Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
                 
             }
         }
@@ -146,7 +146,7 @@ struct ThemeCustomisationHeaderView: View {
                         saveAaction()
                     } label: {
                         Text("Save")
-                              .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                              .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                               .frame(width: 36,height: 24)
                     }
 
@@ -155,7 +155,7 @@ struct ThemeCustomisationHeaderView: View {
                 
               
                     Text(title)
-                          .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                          .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                           .frame(height: 24)
             
                

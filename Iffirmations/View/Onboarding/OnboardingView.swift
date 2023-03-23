@@ -30,6 +30,7 @@ struct DemoView: View {
     @State var pushNextView : Bool = false
    // @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
+        NavigationView{
         VStack(spacing : 0){
             nextView
             
@@ -89,12 +90,17 @@ struct DemoView: View {
 
         }
         .background(Color._F6F5EC.ignoresSafeArea())
+        .navigationTitle("")
+        .navigationBarHidden(true)
+        
+      }
     }
     
     
     var nextView : some View {
         CustomNavigationLink(isActive: $pushNextView) {
             NotificationTimeView()
+                .background(Color._000000.ignoresSafeArea())
         }
     }
 }
@@ -135,7 +141,7 @@ struct DemoViewHeaderView: View {
                 pushNextView = true
             } label: {
                 Text("Skip")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .opacity(demoState == .eighth ? 0 : 1)
                 
             }
@@ -201,11 +207,11 @@ struct DemoInfo: View {
     var body: some View {
         VStack(spacing: 32){
         Text("\(demoState.rawValue + 1) of \(DemoState.allCases.count)")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
             VStack(spacing: 0){
         Text(title)
-        .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+        .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
         .animation(nil)
         .lineLimit(3)
         .multilineTextAlignment(.center)
@@ -227,7 +233,7 @@ struct GreenButtonView: View {
         } label: {
             ZStack {
                 Color._3FBA73.frame(width: width, height: 48)
-                    .cornerRadius(24)
+                    .cornerRadius(8)
                 Text(buttonTitle)
                     .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._F6F5EC)
             }

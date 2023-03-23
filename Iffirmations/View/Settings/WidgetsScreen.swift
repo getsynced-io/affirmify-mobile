@@ -15,46 +15,50 @@ struct WidgetsScreen: View {
     @AppStorage("sharedQuotes",store: store) var sharedQuotes  : [ WQuoteFavorite] = []
     let stateUndoManager : StateUndoManager<String>
     var body: some View {
-        VStack(spacing: 0) {
-            SettingsHeaderView(title: "Widgets", cancelHandler: {
-               
-                withAnimation {
-                    stateUndoManager.undo()
-                    category = stateUndoManager.currentState
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            VStack(spacing: 0) {
+                SettingsHeaderView(title: "Widgets", cancelHandler: {
+                    
+                    withAnimation {
+                        stateUndoManager.undo()
+                        category = stateUndoManager.currentState
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+                .padding(.bottom , 32)
+                
+                Text("Customize multiple widgets to fit your home screen")
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom , 16)
+                    .padding(.horizontal, 16)
+                
+                
+                Spacer(minLength: 0)
+                
+                Quantity
+                    .frame(height: 24)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom , 16)
+                seperator
+                
+                
+                categorySelection
+                
+                GreenButtonView(buttonTitle: "Save") {
+                    DispatchQueue.main.async {
+                        sharedQuotes = WQuoteViewModel.shared.sharedQuotesComputedValue
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                     presentationMode.wrappedValue.dismiss()
+                    
                 }
-            })
-            .padding(.bottom , 32)
-            
-            Text("Customize multiple widgets to fit your home screen")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
-                .multilineTextAlignment(.center)
-                .padding(.bottom , 16)
                 .padding(.horizontal, 16)
-            
-            
-            Spacer(minLength: 0)
-            
-            Quantity
-                .frame(height: 24)
-                .padding(.horizontal, 16)
+                .padding(.vertical , 16)
                 .padding(.bottom , 16)
-            seperator
-            
-        
-            categorySelection
-            
-            GreenButtonView(buttonTitle: "Save") {
-                DispatchQueue.main.async {
-                    sharedQuotes = WQuoteViewModel.shared.sharedQuotesComputedValue
-                    WidgetCenter.shared.reloadAllTimelines()
-                }
-                presentationMode.wrappedValue.dismiss()
-  
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical , 16)
-            .padding(.bottom , 16)
+            .background(Color._000000.ignoresSafeArea())
         }
        
     }
@@ -63,13 +67,13 @@ struct WidgetsScreen: View {
     var Quantity : some View {
         HStack(spacing: 0){
             Text("Quantity Per Day")
-                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
             Spacer(minLength: 0)
             
             HStack(spacing: 8) {
                 IncrementalButton(operation: .minus, counter: $widgetQuantity, counterLimit: 0)
                 Text("\(widgetQuantity)x")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
                     .frame(width: 32)
                 IncrementalButton(operation: .plus, counter: $widgetQuantity, counterLimit: 24)
             }
@@ -80,7 +84,7 @@ struct WidgetsScreen: View {
     var categorySelection : some View {
         HStack(spacing: 0){
            Text("Type of Quotes")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
             
             Spacer(minLength: 0)
             NavigationLink {
@@ -93,7 +97,7 @@ struct WidgetsScreen: View {
             } label: {
                 HStack(spacing: 16){
                     Text(category.isEmpty ? "General" : "\(category)")
-                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     Image("chevron-right")
                         .frame(width: 24,height: 24)
                 }
@@ -116,23 +120,27 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
     @Environment(\.presentationMode) var presentationMode
     @Binding  var category : String
     var body: some View {
-        VStack(spacing: 0) {
-            SettingsHeaderView(title: "Type of Quotes", cancelHandler: {
-                withAnimation {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            })
-            .padding(.bottom , 32)
-            
-            Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
-                .multilineTextAlignment(.center)
-                .padding(.bottom , 16)
-                .padding(.horizontal, 16)
-            scrollableSelection
-                .padding(.bottom , 16)
-             
-            
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            VStack(spacing: 0) {
+                SettingsHeaderView(title: "Type of Quotes", cancelHandler: {
+                    withAnimation {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+                .padding(.bottom , 32)
+                
+                Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
+                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom , 16)
+                    .padding(.horizontal, 16)
+                scrollableSelection
+                    .padding(.bottom , 16)
+                
+                
+            }
+            .background(Color._000000.ignoresSafeArea())
         }
     }
     

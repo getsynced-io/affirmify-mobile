@@ -84,7 +84,7 @@ struct CategoriesView: View {
       return   VStack(spacing: 0){
             HStack(spacing: 0) {
                 Text("Results(\(matchedCategories.count))")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .padding(.horizontal , 16 )
                 
                 Spacer(minLength: 0)
@@ -106,7 +106,7 @@ struct CategoriesView: View {
                 VStack(spacing: 0){
                     HStack(spacing: 0) {
                         Text(character)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                             .padding(.horizontal , 16 )
                         
                         Spacer(minLength: 0)
@@ -161,7 +161,7 @@ struct CategoriesView: View {
                         }
                         
                         Text(featuredCategory.title.rawValue)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     }
                 }
                 
@@ -173,7 +173,7 @@ struct CategoriesView: View {
     
     func MenueHeaderLabel(_ text : String)->some View {
         Text(text)
-            .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+            .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
     }
     
     var searchTextField : some View{
@@ -182,7 +182,7 @@ struct CategoriesView: View {
           
             CustomTextField(placeHolder: "Search...", font: UIFont(name: "IBMPlexSerif-Regular", size: 16)!, text: $searchText)
                 .frame(width: UIScreen.main.bounds.width - 32,height:  48)
-                .background(Capsule().frame(height: 48).foregroundColor(Color._EDEBDA))
+                .background(RoundedRectangle(cornerRadius: 8).frame(height: 48).foregroundColor(Color("1A1A1A")))
              
             
             if !searchText.isEmpty {
@@ -287,7 +287,7 @@ struct CategoriesView: View {
                     
                 }
                 Text(category.title.rawValue)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 
             }

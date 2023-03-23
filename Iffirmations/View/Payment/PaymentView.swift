@@ -20,16 +20,20 @@ struct PaymentView: View {
     @State var paymentErrors : PaymentErrorHandler = PaymentErrorHandler()
     @State var paymentBlur : Bool = false
     var body: some View {
-        Group{
-            if annually != nil {
-                mainView
+        
+        ZStack{
+            Color._000000.ignoresSafeArea()
+            Group{
+                if annually != nil {
+                    mainView
+                }
+                else {
+                    ProgressView()
+                    
+                }
             }
-            else {
-                ProgressView()
-                
-            }
+            .background(Color._F6F5EC.ignoresSafeArea())
         }
-        .background(Color._F6F5EC.ignoresSafeArea())
     }
     
     
@@ -38,14 +42,14 @@ struct PaymentView: View {
         VStack(spacing:0){
             exitButton
                 .padding(.bottom ,32)
-            Image("🎨")
+            Image("🔒")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 96,height: 96)
+                .frame(width: 65,height: 96)
                 .padding(.horizontal , 16)
                 .padding(.bottom,32)
             Text("Unlock Everything!")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
                 .padding(.horizontal , 16)
                 .padding(.bottom,32)
             
@@ -65,7 +69,7 @@ struct PaymentView: View {
                 restore()
             } label: {
                 Text("Already a Member?")
-                    .customFont(font: .IBMPlexSerifMedium, size: 12, color: ._000000)
+                    .customFont(font: .IBMPlexSerifMedium, size: 12, color: ._FFFFFF)
                     .padding(.bottom,32)
             }
 
@@ -142,7 +146,7 @@ struct PaymentView: View {
             +
             Text(" \(price(.Annually))/year")
         }
-        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
         .frame(height: 24)
       
     
@@ -242,7 +246,7 @@ struct PymentDescriptionRowView: View {
                 .frame(width: 24, height: 24)
                 .clipped()
             Text(description)
-                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._000000)
+                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
             
             
         }

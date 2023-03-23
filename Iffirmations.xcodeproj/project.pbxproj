@@ -1965,6 +1965,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quottie;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
@@ -2006,6 +2007,7 @@
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quottie;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";

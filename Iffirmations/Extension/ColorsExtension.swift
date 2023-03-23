@@ -8,12 +8,13 @@
 import SwiftUI
 
 extension Color {
-    static let _F6F5EC = Color("F6F5EC")
+    static let _F6F5EC = Color("000000")
     static let _EDEBDA = Color("EDEBDA")
-    static let _3FBA73 = Color("3FBA73")
+    static let _3FBA73 = Color("FED778") //Color("3FBA73")
     static let _000000 = Color("000000")
     static let _FFFFFF = Color("FFFFFF")
     static let _F2F2F2 = Color("F2F2F2")
+    static let _5138EE = Color("5138EE")
 }
 
 extension Color: Codable {

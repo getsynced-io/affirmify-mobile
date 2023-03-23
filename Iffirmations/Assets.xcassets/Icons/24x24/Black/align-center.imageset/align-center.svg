@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icons / 24x24 / Black / align-center</title>
-    <g id="Icons-/-24x24-/-Black-/-align-center" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-        <line x1="4" y1="6" x2="20" y2="6" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
-        <line x1="8" y1="12" x2="16" y2="12" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
-        <line x1="6" y1="18" x2="18" y2="18" id="Path" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></line>
+    <title>Icons / 24x24 / Light / align-center</title>
+    <g id="iPhone-X" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Screen-034" transform="translate(-176.000000, -714.000000)">
+            <g id="CTA-Area" transform="translate(0.000000, 714.000000)">
+                <g id="Card" transform="translate(125.000000, 0.000000)">
+                    <g id="Icons-/-24x24-/-Light-/-align-center" transform="translate(51.000000, 0.000000)">
+                        <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                        <line x1="4" y1="6" x2="20" y2="6" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <line x1="8" y1="12" x2="16" y2="12" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <line x1="6" y1="18" x2="18" y2="18" id="Path" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
     </g>
 </svg>
