@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Emoji 2.svg",
+      "filename" : "Tick.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Tick@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Tick@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

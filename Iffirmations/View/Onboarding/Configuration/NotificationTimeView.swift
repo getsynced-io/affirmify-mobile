@@ -105,20 +105,20 @@ struct NotificationTimeView: View , SettingsViewProtocol {
     
     var header : some View {
         Text("Focus on what truly matters with reminders")
-            .customFont(font: .IBMPlexSerifMedium, size: 24 , color: ._FFFFFF)
+            .customFont(font: .InterMedium , size: 24 , color: ._FFFFFF)
             .multilineTextAlignment(.center)
       
     }
     var Quantity : some View {
         HStack(spacing: 0){
             Text("Quantity")
-                .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
+                .customFont(font: .InterRegular, size: 16 , color: ._FFFFFF)
             Spacer(minLength: 0)
             
             HStack(spacing: 8) {
                 IncrementalButton(operation: .minus, counter: $userConfigVM.userConfig.quantity, counterLimit: 0)
                 Text("\(userConfigVM.userConfig.quantity)x")
-                    .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
+                    .customFont(font: .InterRegular, size: 16 , color: ._FFFFFF)
                     .frame(width: 32)
                 IncrementalButton(operation: .plus, counter: $userConfigVM.userConfig.quantity, counterLimit: 10)
             }
@@ -232,13 +232,13 @@ struct TimePicker: View {
     var body: some View {
         HStack(spacing: 0) {
             Text(title.rawValue)
-            .customFont(font: .IBMPlexSerifRegular, size: 16 , color: ._FFFFFF)
+            .customFont(font: .InterRegular, size: 16 , color: ._FFFFFF)
             
             Spacer(minLength: 0)
             HStack(spacing: 16){
                 Text("\(date.display("hh:mm"))")
                     .frame(width: 64)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16 , color: ._FFFFFF)
                     .padding(.vertical ,4)
                     .background(
                         RoundedRectangle(cornerRadius: 8)
@@ -267,7 +267,7 @@ struct TimePicker: View {
     
     func  amPmPicker(_ amPm: Date.TimeConvention,dateFormat : Date.TimeConvention ) -> some View {
         Text(amPm.rawValue)
-            .customFont(font: .IBMPlexSerifMedium, size: 16 , color: dateFormat == amPm ? Color._FFFFFF : Color._FFFFFF)
+            .customFont(font: .InterMedium, size: 16 , color: dateFormat == amPm ? Color._FFFFFF : Color._FFFFFF)
             .frame(width: 48)
             .padding(.vertical ,4)
             .if(dateFormat == amPm, transform: { view in

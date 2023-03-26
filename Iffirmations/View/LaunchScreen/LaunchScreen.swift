@@ -12,16 +12,23 @@ struct LaunchScreen: View {
     @State var imageScale = 0.6
     var body: some View {
         ZStack{
-            Color._F6F5EC
-                .ignoresSafeArea()
+            Color._000000.ignoresSafeArea()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Image("iffirmations")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 64, height: 64)
-                .offset(y: imageYOffset)
-                .scaleEffect(imageScale)
+            VStack(spacing: 0){
+                Image("iffirmations")
+                    .frame(width: 48, height: 48)
+                    .offset(y: imageYOffset)
+                    .scaleEffect(imageScale)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color._000000.ignoresSafeArea()
+                .frame(maxWidth: .infinity, maxHeight: .infinity))
+         
         }
+        .withHostingWindow { window in
+                   window?.rootViewController?.view.backgroundColor = UIColor.black
+               }
         .onAppear {
             withAnimation {
                 imageYOffset = 0
@@ -32,5 +39,28 @@ struct LaunchScreen: View {
                 }
             }
         }
+    }
+}
+
+
+
+extension View {
+    func withHostingWindow(_ callback: @escaping (UIWindow?) -> Void) -> some View {
+        self.background(HostingWindowFinder(callback: callback))
+    }
+}
+
+struct HostingWindowFinder: UIViewRepresentable {
+    var callback: (UIWindow?) -> ()
+
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async { [weak view] in
+            self.callback(view?.window)
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
     }
 }

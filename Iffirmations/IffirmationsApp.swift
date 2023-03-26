@@ -125,6 +125,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         if userActivity.activityType == "com.Quottie.Quotes.viewquotes" {
             let category = userActivity.userInfo?["category"] as? String ?? ""
             NotificationCenter.default.post(name:  NSNotification.categoryIntent , object: nil, userInfo: ["category":category])
+            NavigationUtil.popToRootView() 
           }
     }
     
@@ -147,6 +148,7 @@ extension NSNotification {
     static let categoryIntent = Notification.Name.init("categoryIntent")
     static let snapshot = Notification.Name.init("Snapshot")
     static let scrollToTheme = Notification.Name.init("scrollToThemt")
+    static let scrollToFirst  = Notification.Name.init("scrollToFirst")
 }
 
 extension AppDelegate {

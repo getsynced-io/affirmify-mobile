@@ -78,7 +78,7 @@ return categories.filter { category in
     }
     func categoryCard(_ card : CategoryModel) ->  some View {
         Text("\(card.title.rawValue)")
-            .customFont(font: .IBMPlexSerifRegular, size: 16, color: ._FFFFFF )
+            .customFont(font: .InterRegular, size: 16, color: ._FFFFFF )
             .background(
                 Group{
                        RoundedRectangle(cornerRadius: 8)

@@ -9,6 +9,9 @@ import SwiftUI
 import WidgetKit
 import FacebookCore
 
+
+
+
 struct ThemesView: View {
     let columns = [
           GridItem(.flexible(), spacing: 16),
@@ -42,7 +45,7 @@ struct ThemesView: View {
                 Button {
                    addThemeAction()
                 } label: {
-                    Image("CTA")
+                    customImageView(size: CGSize(width: 48, height: 48), color: UIColor(named: "FED778")!, alpha: 0.16, x: 0, y: 16, blur: 16, image: UIImage(named: "CTA")!)
                         .frame(width: 48,height: 48)
                         .padding(16)
                 }
@@ -130,7 +133,7 @@ struct ThemesView: View {
         else {
             AdHub.shared.callSource = .theme
             if SharedCouter.shared.ThemeAddCounter  == 3 {
-                adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "❤️‍🔥", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
+                adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "✅", description: "Unlock access to all the features", mainButtonTitle: "Go Premium!", secondButtonTitle: "Watch an Ad",isPresented: $adsPopUpIsPresented, handler: {
                     withAnimation {
                         showPaymentView = true
                         adsPopUpIsPresented = false
@@ -163,7 +166,7 @@ struct ThemesView: View {
     
     
     func resetPopUp(action :@escaping ()->()){
-        adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "👨‍🎨", description: "Do you want to reset all themes?", mainButtonTitle: "Yes, Reset All", secondButtonTitle: "No, Cancel",showExitButton: false, isPresented: $adsPopUpIsPresented) {
+        adsPopUpView = AnyView(GoPremiumPopUpView(emoji: "📣", description: "Do you want to reset all themes?", mainButtonTitle: "Yes, Reset All", secondButtonTitle: "No, Cancel",showExitButton: false, isPresented: $adsPopUpIsPresented) {
             withAnimation {
                 action()
                 adsPopUpIsPresented = false
@@ -208,19 +211,26 @@ struct ThemesView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: columnWidth,height: columnWidth)
-                            .cornerRadius(16)
+                            .cornerRadius(8)
                             .opacity(Double(theme.backgroundOpacity))
                         
                     }
                     else if  let color = theme.backgroundColor {
                         Color(color)
                             .frame(width: columnWidth,height: columnWidth)
-                            .cornerRadius(16)
+                            .cornerRadius(8)
                             .opacity(Double(theme.backgroundOpacity))
                         
                     }
-                    
-                    Image(theme.id == ThemeViewModel.shared.ThemeiD ?  "circle-check" : "circle")
+                    Group{
+                        if theme.id == ThemeViewModel.shared.ThemeiD  {
+                            customImageView(size: CGSize(width: 24, height: 24), color: UIColor(named: "000000")!, alpha: 1, x: 0, y: 0, blur: 8, image:    UIImage(named:"circle-check")!)
+                        }
+                        else {
+                            customImageView(size: CGSize(width: 24, height: 24), color: UIColor(named: "000000")!, alpha: 1, x: 0, y: 0, blur: 8, image:  UIImage(named: "circle")!)
+                        }
+                    }
+                 
                         .frame(width: 24,height: 24)
                         .padding(8)
                     
@@ -303,7 +313,7 @@ struct ThemesView: View {
                     }
                 } label: {
                     Text("Reset")
-                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                        .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 }
                 
                 Spacer(minLength: 0)
@@ -313,7 +323,7 @@ struct ThemesView: View {
                     }
                 } label: {
                     Text("Edit")
-                         .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                         .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 }
 
             }

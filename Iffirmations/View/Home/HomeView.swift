@@ -24,7 +24,7 @@ struct HomeView: View {
     @State var adsPopUpView : AnyView = AnyView(EmptyView())
     @State var adsPopUpIsPresented : Bool = false
     @State var loader : Bool = false
-    @State var widgetSelectedQuote: WQuote? = nil
+ 
 
     var body: some View {
         NavigationView {
@@ -34,7 +34,7 @@ struct HomeView: View {
                    
                     
                     ZStack{
-                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader, widgetSelectedQuote: $widgetSelectedQuote)
+                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader,tabState: $tabState)
                             .onAppear {
                                 INPreferences.requestSiriAuthorization { status in
                                     
@@ -46,7 +46,7 @@ struct HomeView: View {
                             .zIndex(tabState == .General ? 1 : -1)
                             .ignoresSafeArea(.keyboard , edges: .bottom)
                         
-                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
+                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
                                     Color._000000.ignoresSafeArea()
                                 )
@@ -111,9 +111,11 @@ struct HomeView: View {
                             wQuoteVM.filtredQuotes.removeAll { innerQuote in
                                 innerQuote.placeID == quote.placeID
                             }
-                        
-                        widgetSelectedQuote = quote
+                        NavigationUtil.popToRootView() 
+                        wQuoteVM.filtredQuotes.insert(quote, at: 0)
                         tabState = .General
+                        NotificationCenter.default.post(name:  NSNotification.scrollToFirst , object: nil, userInfo: nil)
+                        
                     }
                 }
             }
@@ -142,7 +144,7 @@ struct HomeView: View {
                 .frame(width: 77,height: 96)
             
             Text("Swipe left or right to read more quotes")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                 .multilineTextAlignment(.center)
             
             GreenButtonView(buttonTitle: "Gotcha!",width:  UIScreen.main.bounds.width - 96) {
@@ -171,7 +173,7 @@ struct HomeView: View {
     func  tabItemView(type : TabState )->  some View {
         VStack(spacing: 8){
             Text("\(type.rawValue)")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 .opacity(type == tabState ? 1 : 0.64)
                 .frame(height: 24)
             
@@ -238,14 +240,13 @@ struct GoPremiumPopUpView: View {
     var body: some View {
         ZStack(alignment: .topTrailing){
             VStack(spacing: 32) {
-                Text(emoji)
-                    .customFont(font: .IBMPlexSerifRegular, size: 96,lineHeight: 96, color: ._FFFFFF)
+              Image("\(emoji)")
                     .frame(width: 96,height: 96)
                     .clipped()
                    
                 
                 Text(description)
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                     .multilineTextAlignment(.center)
                    
                 
@@ -260,7 +261,7 @@ struct GoPremiumPopUpView: View {
                         }
                     } label: {
                         Text(secondButtonTitle)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                            .customFont(font: .InterMedium , size: 16, color: ._FFFFFF)
                     }
                     .frame(height: 24)
                     

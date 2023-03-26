@@ -38,6 +38,12 @@ struct FavoriteScreen: View {
                 Spacer(minLength: 0 )
             }
             .background(Color._000000.ignoresSafeArea())
+                if wQuoteVM.favoriteQuotes.isEmpty {
+                    Text("The list is empty")
+                        .customFont(font: .InterMedium, size: 16, color: Color._FFFFFF)
+                        .animation(nil)
+                }
+                
             if loader {
                 Color._000000.opacity(0.16).ignoresSafeArea()
                     .zIndex(99)
@@ -63,7 +69,7 @@ struct FavoriteScreen: View {
             }
             
             Text("Favorites (\(wQuoteVM.favoriteQuotes.count))")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
         }
         .frame(height: 44)
@@ -81,7 +87,7 @@ struct FavoriteScreen: View {
     func  quoteListRow(_ quote : any WQuoteBase)-> some View{
         HStack(alignment: .top,spacing: 0) {
             Text(quote.text)
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 .multilineTextAlignment(.leading)
             
            Spacer(minLength: 0)

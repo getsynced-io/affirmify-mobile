@@ -19,7 +19,7 @@ extension SettingsViewProtocol {
         } label: {
             HStack(spacing: 0){
                Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 Spacer(minLength: 0)
                 Image("chevron-right")
@@ -37,11 +37,13 @@ extension SettingsViewProtocol {
         } label: {
             HStack(spacing: 0){
                Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 Spacer(minLength: 0)
                 
                 Image(isLocked ?  "lock" : "chevron-right")
+                    .renderingMode(.template)
+                    .foregroundColor(Color._FFFFFF)
                     .frame(width: 24,height: 24)
                 
             }
@@ -133,7 +135,7 @@ struct GeneralSettingsView: View  , SettingsViewProtocol{
             
                         HStack(spacing: 0) {
                             Text("v1.0")
-                                .customFont(font: .IBMPlexSerifRegular, size: 12,lineHeight: 16 , color: ._FFFFFF.opacity(0.64))
+                                .customFont(font: .InterRegular, size: 12,lineHeight: 16 , color: ._FFFFFF.opacity(0.64))
                                 .padding(16)
                             Spacer(minLength: 0)
                         }
@@ -184,7 +186,7 @@ struct SettingsHeaderView: View {
                 }
                 
                 Text(title)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
             }
             .frame(height: 44)

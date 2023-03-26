@@ -20,7 +20,7 @@ struct WidgetDemoView: View {
                     .padding(.bottom , 32)
                 
                 Text("How to add widget to the Home Screen on your iPhone?")
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._FFFFFF)
+                    .customFont(font: .InterMedium, size: 24, color: Color._FFFFFF)
                     .multilineTextAlignment(.center)
                 
                 Spacer(minLength: 0)
@@ -28,7 +28,7 @@ struct WidgetDemoView: View {
                     Text("Touch and hold the Home Screen background until the apps begin to jiggle, then drag apps and widgets to rearrange them.")
                     Text("You can also drag widgets on top of each other to create a stack you can scroll through.")
                 }
-                .customFont(font: .IBMPlexSerifRegular, size: 16, color: Color._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: Color._FFFFFF)
                 .multilineTextAlignment(.center)
                 .padding(.bottom,32)
                 

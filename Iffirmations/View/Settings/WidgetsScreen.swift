@@ -29,7 +29,7 @@ struct WidgetsScreen: View {
                 .padding(.bottom , 32)
                 
                 Text("Customize multiple widgets to fit your home screen")
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                     .multilineTextAlignment(.center)
                     .padding(.bottom , 16)
                     .padding(.horizontal, 16)
@@ -67,13 +67,13 @@ struct WidgetsScreen: View {
     var Quantity : some View {
         HStack(spacing: 0){
             Text("Quantity Per Day")
-                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16 , color: ._FFFFFF)
             Spacer(minLength: 0)
             
             HStack(spacing: 8) {
                 IncrementalButton(operation: .minus, counter: $widgetQuantity, counterLimit: 0)
                 Text("\(widgetQuantity)x")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16 , color: ._FFFFFF)
                     .frame(width: 32)
                 IncrementalButton(operation: .plus, counter: $widgetQuantity, counterLimit: 24)
             }
@@ -84,7 +84,7 @@ struct WidgetsScreen: View {
     var categorySelection : some View {
         HStack(spacing: 0){
            Text("Type of Quotes")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
             
             Spacer(minLength: 0)
             NavigationLink {
@@ -97,7 +97,7 @@ struct WidgetsScreen: View {
             } label: {
                 HStack(spacing: 16){
                     Text(category.isEmpty ? "General" : "\(category)")
-                        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                        .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     Image("chevron-right")
                         .frame(width: 24,height: 24)
                 }
@@ -131,7 +131,7 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
                 .padding(.bottom , 32)
                 
                 Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._000000)
+                    .customFont(font: .InterMedium, size: 24, color: ._000000)
                     .multilineTextAlignment(.center)
                     .padding(.bottom , 16)
                     .padding(.horizontal, 16)

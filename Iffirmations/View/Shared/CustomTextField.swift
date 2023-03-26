@@ -15,6 +15,7 @@ struct TextFieldTyped: UIViewRepresentable {
     var textAlignment: NSTextAlignment
     let becomeFirstResponder : Bool
     @Binding var text: String
+    @Binding var isKeyboardVisible: Bool
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width - 32, height: 48)))
         textField.keyboardType = self.keyboardType
@@ -54,7 +55,10 @@ struct TextFieldTyped: UIViewRepresentable {
             self.parent = textField
         }
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
+            self.parent.isKeyboardVisible = false
+          return  textField.resignFirstResponder()
+         
+            
         }
         
         @objc func textFieldTextChanged(_ textField: UITextField) {
@@ -62,10 +66,12 @@ struct TextFieldTyped: UIViewRepresentable {
         }
         func textFieldDidBeginEditing(_ textField: UITextField) {
             textField.placeholder = ""
+            self.parent.isKeyboardVisible = true
         }
         func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
             textField.placeholder = self.parent.placeHolder
         }
+    
         
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
              if gestureRecognizer is UIPanGestureRecognizer {
@@ -85,7 +91,8 @@ struct CustomTextField: View {
     var textAlignment: NSTextAlignment = .left
     var becomeFirstResponder : Bool = true
     @Binding var text : String
+    @Binding var isKeyboardVisible: Bool
     var body: some View {
-        TextFieldTyped(keyboardType: .default,placeHolder: placeHolder, font: font, attributedPlaceholder: attributedPlaceholder, textAlignment: textAlignment, becomeFirstResponder: becomeFirstResponder, text: $text)
+        TextFieldTyped(keyboardType: .default,placeHolder: placeHolder, font: font, attributedPlaceholder: attributedPlaceholder, textAlignment: textAlignment, becomeFirstResponder: becomeFirstResponder, text: $text,isKeyboardVisible: $isKeyboardVisible)
     }
 }

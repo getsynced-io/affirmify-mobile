@@ -29,7 +29,7 @@ struct CategoriesView: View {
     }
     @Binding  var adsPopUpView : AnyView
     @Binding var adsPopUpIsPresented : Bool
-    @Binding  var widgetSelectedQuote: WQuote?
+    @State private var isKeyboardVisible = false
     var body: some View {
         VStack(spacing:0){
             headerView
@@ -58,7 +58,12 @@ struct CategoriesView: View {
                 }
                 .padding(.top,16)
             }
+            .onTapGesture {
+                hideKeyboard()
+                isKeyboardVisible = false
+            }
         }
+        
         .fullScreenCover(isPresented: $showPaymentView) {
             PaymentView(isPresented: $showPaymentView)
         }
@@ -84,7 +89,7 @@ struct CategoriesView: View {
       return   VStack(spacing: 0){
             HStack(spacing: 0) {
                 Text("Results(\(matchedCategories.count))")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .padding(.horizontal , 16 )
                 
                 Spacer(minLength: 0)
@@ -106,7 +111,7 @@ struct CategoriesView: View {
                 VStack(spacing: 0){
                     HStack(spacing: 0) {
                         Text(character)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                            .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                             .padding(.horizontal , 16 )
                         
                         Spacer(minLength: 0)
@@ -142,26 +147,20 @@ struct CategoriesView: View {
         Group{
             VStack(alignment: .leading , spacing: 32) {
                 MenueHeaderLabel("Featured")
-                Button {
-                    categoryAction(category: featuredCategory)
-                } label: {
-                    VStack(spacing: 16) {
-                        ZStack(alignment: .topTrailing){
-                            Image(featuredCategory.title.rawValue)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width:  UIScreen.main.bounds.width - 32 ,height: columnWidth)
-                                .cornerRadius(16 )
-                            
-                            if featuredCategory.isPremium {
-                                Image("Lock")
-                                    .frame(width: 16 ,height: 16)
-                                    .padding(8)
-                            }
+              
+                
+                if isKeyboardVisible {
+                    featuredCardView(featuredCategory)
+                        .onTapGesture {
+                            hideKeyboard()
+                            isKeyboardVisible = false
                         }
-                        
-                        Text(featuredCategory.title.rawValue)
-                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                }
+                else {
+                    Button {
+                      categoryAction(category: featuredCategory)
+                    } label: {
+                        featuredCardView(featuredCategory)
                     }
                 }
                 
@@ -171,16 +170,37 @@ struct CategoriesView: View {
         }
     }
     
+ func featuredCardView( _ featuredCategory: CategoryModel) -> some View {
+        VStack(spacing: 16) {
+            ZStack(alignment: .topTrailing){
+                Image(featuredCategory.title.rawValue)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width:  UIScreen.main.bounds.width - 32 ,height: columnWidth)
+                    .cornerRadius(8)
+                
+                if featuredCategory.isPremium {
+                    Image("Lock")
+                        .frame(width: 16 ,height: 16)
+                        .padding(8)
+                }
+            }
+            
+            Text(featuredCategory.title.rawValue)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
+        }
+    }
+    
     func MenueHeaderLabel(_ text : String)->some View {
         Text(text)
-            .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+            .customFont(font: .InterMedium , size: 24, color: ._FFFFFF)
     }
     
     var searchTextField : some View{
         
         ZStack(alignment: .topTrailing){
           
-            CustomTextField(placeHolder: "Search...", font: UIFont(name: "IBMPlexSerif-Regular", size: 16)!, text: $searchText)
+            CustomTextField(placeHolder: "Search...", font: UIFont(name: "Inter-Regular", size: 16)!, text: $searchText,isKeyboardVisible: $isKeyboardVisible)
                 .frame(width: UIScreen.main.bounds.width - 32,height:  48)
                 .background(RoundedRectangle(cornerRadius: 8).frame(height: 48).foregroundColor(Color("1A1A1A")))
              
@@ -240,9 +260,7 @@ struct CategoriesView: View {
                     tabState = .General
                 }
             
-                
-                widgetSelectedQuote = nil
-                
+         
                 
                 DispatchQueue.global().async {
                     APIManager.shared.incrementCategoryList(categories: [category.title.rawValue]) { result in
@@ -268,33 +286,36 @@ struct CategoriesView: View {
     }
     
     func categoryView(category : CategoryModel) -> some View {
-//        Button {
-    
-          
-//        } label: {
             VStack(spacing: 16){
                 ZStack(alignment: .topTrailing){
                     Image(category.title.rawValue)
                         .resizable()
                         .scaledToFill()
                         .frame(width: columnWidth,height: columnWidth)
-                        .cornerRadius(16)
+                        .cornerRadius(8)
                     if category.isPremium && !StoreViewModel.shared.subscriptionActive{
-                        Image("Lock")
+                        customImageView(size: CGSize(width: 16 ,height: 16), color: UIColor(named: "000000")!, alpha: 1, x: 0, y: 0, blur: 8, image: UIImage(named: "Lock")!)
                             .frame(width: 16 ,height: 16)
                             .padding(8)
+                        
                     }
                     
                 }
                 Text(category.title.rawValue)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .frame(height: 24)
                 
             }
             .onTapGesture {
-                categoryAction(category: category)
+                if isKeyboardVisible {
+                   hideKeyboard()
+                    isKeyboardVisible = false
+                }
+                else {
+                    categoryAction(category: category)
+                }
+              
             }
-//        }
         .frame(width: columnWidth,height: columnWidth + 24 + 16 )
         .padding([.vertical] ,16)
     }

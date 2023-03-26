@@ -26,7 +26,7 @@ struct SiriShortCutsScreen: View , SettingsViewProtocol {
                 .padding(.bottom , 32)
                 
                 Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
-                    .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                     .multilineTextAlignment(.center)
                     .padding(.bottom , 16)
                     .padding(.horizontal, 16)
@@ -48,10 +48,10 @@ struct SiriShortCutsScreen: View , SettingsViewProtocol {
             
                       
                         let activity = NSUserActivity(activityType: "com.Quottie.Quotes.viewquotes")
-                        activity.title = "Show \(item.title.rawValue) quotes"
+                        activity.title = "Quottie Show \(item.title.rawValue) quotes"
                         activity.isEligibleForSearch = true
                         activity.isEligibleForPrediction = true
-                        activity.suggestedInvocationPhrase = "\(item.title.rawValue) quote"
+                        activity.suggestedInvocationPhrase = "Quottie \(item.title.rawValue) quotes"
                         activity.userInfo = ["category" : (item.title.rawValue)]
                
                         activity.becomeCurrent()

@@ -16,58 +16,7 @@ extension UIView {
        return bounds.height
   }
 }
-//struct PagginableScrollView<Content>: View where Content: View {
-//    var views: Content
-//
-//    init(@ViewBuilder content: () -> Content) {
-//        self.views = content()
-//    }
-//
-//    var body: some View {
-//        ScrollView(.horizontal,showsIndicators: false){
-//            views
-//                .animation(nil)
-//        }
-//        .introspectScrollView { scrollView in
-//            scrollView.isPagingEnabled = true
-//            scrollView.setContentOffset(.zero, animated: false)
-//
-//        }
-//
-//    }
-//}
 
-struct PagginableScrollView<Content>: View where Content: View {
-   
-    let pageSize : CGFloat = 10000
-    var views: Content
-    @State private var offset : CGFloat = 0
-    
-    init(@ViewBuilder content: () -> Content) {
-        self.views = content()
-    }
-    var body: some View {
-      
-            ScrollView(.horizontal, showsIndicators: false) {
-                    self.views
-                    .animation(nil)
-            }
-         //   .content.offset(x: self.offset)
-          //  .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
-           // .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .gesture(DragGesture().onChanged { value in
-                let offsetX = value.translation.width + self.offset
-
-                if (-pageSize...pageSize).contains(offsetX) {
-                    self.offset = offsetX
-                }
-            }
-            .onEnded { value in
-                self.offset = round(self.offset / self.pageSize) * self.pageSize
-            })
-        
-    }
-}
 
 struct GenralView: View {
     @ObservedObject var wQuoteVM : WQuoteViewModel
@@ -85,8 +34,9 @@ struct GenralView: View {
   
     @State var showPaymentView : Bool = false
     @State var sendImage : Bool = false
-    @Binding  var loader : Bool
-    @Binding  var widgetSelectedQuote: WQuote?
+    @Binding var loader : Bool
+    @Binding var tabState  : TabState
+  
     var body: some View {
         ZStack{
             VStack(spacing: 0){
@@ -105,11 +55,15 @@ struct GenralView: View {
               { obj in
                  // Change key as per your "userInfo"
                   if let userInfo = obj.userInfo, let info = userInfo["category"] as? String {
-                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
+//                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
                           withAnimation {
                               CategoryViewModel.shared.selectedID = info
+                              WQuoteViewModel.shared.updateFiltredQuotes(categoryId: info) {
+                                  tabState = .General
+                              }
+                              
                           }
-                      }
+//                      }
                    
                    
                  }
@@ -169,7 +123,7 @@ struct GenralView: View {
         }.first ??  CategoryViewModel.shared.categories[0]
       return   HStack(spacing: 4){
           Text("\(category.title.rawValue)")
-              .customFont(font: .IBMPlexSerifMedium, size: 12,lineHeight: 16, color: ._FFFFFF)
+              .customFont(font: .InterMedium, size: 12,lineHeight: 16, color: ._FFFFFF)
           Button {
               CategoryViewModel.shared.selectedID = ""
               DispatchQueue.global().async {
@@ -195,26 +149,25 @@ struct GenralView: View {
       )
     }
     @State var curentItem : WQuote?
-    @State var toogle : Bool = false
+
     var paginationView : some View {
 
         Group{
-            if toogle{
+           
                 pagginationContentView
-            }
-            else{
-                pagginationContentView
-            }
+            
+         
        
         }
         .onChange(of: wQuoteVM.filtredQuotes) { newValue in
             page.update(.moveToFirst)
-            toogle.toggle()
         }
-        .onChange(of: widgetSelectedQuote) { newValue in
-            page.update(.moveToFirst)
-            toogle.toggle()
-        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToFirst))
+              { _ in
+                  page.update(.moveToFirst)
+              }
+        
+    
 
     }
     @StateObject var page: Page = .first()
@@ -245,8 +198,6 @@ struct GenralView: View {
           
                           
             likeButton(quote: item)
-                .frame(width: 24,height: 24)
-                .clipped()
                 .offset(x : -16,y: 16)
              
            
@@ -261,8 +212,17 @@ struct GenralView: View {
     
     func  likeButton(quote item : WQuote)-> some View  {
         VStack(spacing:0){
-            Image(isItFavorite(quote: item) ?  "heart-filled" : "heart")
-                .frame(width: 24,height: 24)
+            Group{
+                if isItFavorite(quote: item){
+                    customImageView(size: CGSize(width: 24,height: 24), color: UIColor(named: "000000")!, alpha: 1, x: 0, y: 0, blur: 8, image: UIImage(named: "heart-filled")!)
+                }
+                else {
+                    customImageView(size: CGSize(width: 24,height: 24), color: UIColor(named: "000000")!, alpha: 1, x: 0, y: 0, blur: 8, image: UIImage(named: "heart")!)
+                      
+                }
+            }
+            .frame(width: 24 ,height: 24)
+          
                 .onTapGesture {
                     withAnimation {
                         favoriteAction(quote: item )
@@ -449,7 +409,7 @@ struct QuoteCardView: View {
                     
                     
                     if !StoreViewModel.shared.subscriptionActive && isForSnapshot {
-                    Text("Iffirmation.app")
+                    Text("Quottie.app")
                         .customFont(font: .InterMedium, size: 16, color:Color(selectedTheme.fontColor).opacity(0.64))
                         .padding(.bottom , 16)
                 }

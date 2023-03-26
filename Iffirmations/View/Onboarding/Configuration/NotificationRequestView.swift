@@ -64,7 +64,7 @@ struct NotificationRequestView: View {
             }
         } label: {
             Text("I'll Do It Later")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
             
         }
@@ -74,7 +74,7 @@ struct NotificationRequestView: View {
     
     var description : some View {
         Text("Turn on notifications to make it a habit to review quotes every day")
-            .customFont(font: .IBMPlexSerifMedium, size: 24, color: Color._FFFFFF)
+            .customFont(font: .InterMedium, size: 24, color: Color._FFFFFF)
             .multilineTextAlignment(.center)
     }
     

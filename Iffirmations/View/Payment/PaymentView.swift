@@ -49,7 +49,7 @@ struct PaymentView: View {
                 .padding(.horizontal , 16)
                 .padding(.bottom,32)
             Text("Unlock Everything!")
-                .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                 .padding(.horizontal , 16)
                 .padding(.bottom,32)
             
@@ -69,7 +69,7 @@ struct PaymentView: View {
                 restore()
             } label: {
                 Text("Already a Member?")
-                    .customFont(font: .IBMPlexSerifMedium, size: 12, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 12, color: ._FFFFFF)
                     .padding(.bottom,32)
             }
 
@@ -146,7 +146,7 @@ struct PaymentView: View {
             +
             Text(" \(price(.Annually))/year")
         }
-        .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+        .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
         .frame(height: 24)
       
     
@@ -246,7 +246,7 @@ struct PymentDescriptionRowView: View {
                 .frame(width: 24, height: 24)
                 .clipped()
             Text(description)
-                .customFont(font: .IBMPlexSerifMedium, size: 16 , color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16 , color: ._FFFFFF)
             
             
         }

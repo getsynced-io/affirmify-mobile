@@ -36,10 +36,10 @@ struct DemoView: View {
             
             DemoViewHeaderView(demoState: $demoState,pushNextView: $pushNextView)
                     .frame( height: 44)
-                   // .background(Color.green)
+            
             DemoInfo(title: titles[demoState.rawValue], demoState: $demoState)
                 .padding(.vertical ,32)
-               // .background(Color.blue)
+   
             VStack(spacing : 0){
                 TabView(selection: $tabDemoState) {
                     ForEach(DemoState.allCases ,id : \.self){ item in
@@ -61,9 +61,9 @@ struct DemoView: View {
                 if tabDemoState == .eighth {
                         ZStack {
                             Color._3FBA73.frame(width: UIScreen.main.bounds.width - 32 , height: 48)
-                                .cornerRadius(24)
+                                .cornerRadius(8)
                             Text("Go to Configuration")
-                                .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._F6F5EC)
+                                .customFont(font: .InterMedium, size: 16, color: Color._F6F5EC)
                         }
                         .animation(nil)
                         .transition(.identity)
@@ -111,7 +111,6 @@ struct DemoViewHeaderView: View {
     @Binding var pushNextView : Bool
     @State var show = false
    
-//    @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
         ZStack{
         HStack(spacing : 0){
@@ -137,11 +136,10 @@ struct DemoViewHeaderView: View {
             
             Spacer()
             Button {
-                   // state = .configuration
                 pushNextView = true
             } label: {
                 Text("Skip")
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                    .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                     .opacity(demoState == .eighth ? 0 : 1)
                 
             }
@@ -207,11 +205,11 @@ struct DemoInfo: View {
     var body: some View {
         VStack(spacing: 32){
         Text("\(demoState.rawValue + 1) of \(DemoState.allCases.count)")
-                .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._FFFFFF)
+                .customFont(font: .InterMedium, size: 16, color: ._FFFFFF)
                 .frame(height: 24)
             VStack(spacing: 0){
         Text(title)
-        .customFont(font: .IBMPlexSerifMedium, size: 24, color: ._FFFFFF)
+        .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
         .animation(nil)
         .lineLimit(3)
         .multilineTextAlignment(.center)
@@ -235,7 +233,7 @@ struct GreenButtonView: View {
                 Color._3FBA73.frame(width: width, height: 48)
                     .cornerRadius(8)
                 Text(buttonTitle)
-                    .customFont(font: .IBMPlexSerifMedium, size: 16, color: Color._F6F5EC)
+                    .customFont(font: .InterMedium , size: 16, color: Color._F6F5EC)
             }
         }
         .buttonStyle(.plain)
