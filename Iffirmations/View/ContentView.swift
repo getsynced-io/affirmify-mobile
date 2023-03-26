@@ -19,7 +19,7 @@ struct ContentView: View {
     @StateObject var paymentVM : StoreViewModel = StoreViewModel.shared
     @ObservedObject var wQuoteVM : WQuoteViewModel
     var body: some View {
-      NavigationView{
+
           Group{
               switch state {
               case .demo:
@@ -32,10 +32,9 @@ struct ContentView: View {
                   }
               }
           }
-          .navigationTitle("")
-          .navigationBarHidden(true)
+     
           
-        }
+        
       .navigationViewStyle(.stack)
       
         .fullScreenCover(isPresented: $paymentVM.showPaymentView, content: {

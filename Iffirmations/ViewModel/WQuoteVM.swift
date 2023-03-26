@@ -35,6 +35,7 @@ class WQuoteViewModel: ObservableObject{
                 DispatchQueue.main.async {[weak self] in
                     withAnimation {
                         self?.quotes =  totalQuotes
+                        print("totalQuotes \(totalQuotes.count)")
                         self?.sharedQuotes = self?.sharedQuotesComputedValue ?? []
                         self?.filtredQuotes = self?.filteredQuotesComputedValue( ) ?? []
                 }
@@ -57,15 +58,12 @@ class WQuoteViewModel: ObservableObject{
                    }
 
                }
+                .map { category in
+                    category.title.rawValue.lowercased()
+                }
 
             let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
-                quote.categories.contains { cat in
-                return categories.contains { innercat in
-                    return  innercat.title.rawValue.lowercased() == cat
-
-                    }
-
-                }
+                categories.contains(quote.genre)
             }.prefix(1000).map { wQuote in
                 WQuoteFavorite(quote: wQuote)
             }
@@ -75,7 +73,8 @@ class WQuoteViewModel: ObservableObject{
         else {
 
             let quotesToUse  =    WQuoteViewModel.shared.quotes.filter { quote in
-                 quote.categories.contains(category.lowercased())
+                 //quote.categories.contains(category.lowercased())
+                quote.genre == category
              }.prefix(1000).map { wquote in
                  WQuoteFavorite(quote: wquote)
              }
@@ -93,7 +92,7 @@ class WQuoteViewModel: ObservableObject{
          }
         .map { $0.title.rawValue.lowercased() }
 
-         let selectedCategories =  categoryId.lowercased().isEmpty ? Set() : [ categoryId.lowercased()]
+        let selectedCat =  categoryId.lowercased()
 
 
   return  Array<WQuote>(
@@ -116,8 +115,14 @@ class WQuoteViewModel: ObservableObject{
       }
     )
 
-    func filterLight(_ quote : WQuote) -> Bool {
-        !Set(quote.categories).isDisjoint(with: categories) && (selectedCategories.isEmpty || !Set(quote.categories).isDisjoint(with: selectedCategories))
+    func filterLight(_ quote: WQuote) -> Bool {
+           /// quote.genre == category && (selectedCategories.isEmpty || selectedCategories.contains(quote.genre))
+        if selectedCat.isEmpty {
+            return categories.contains(quote.genre)
+        }
+        else {
+            return quote.genre == selectedCat
+        }
     }
 
     }

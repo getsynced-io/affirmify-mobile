@@ -86,7 +86,7 @@ struct GenralView: View {
     @State var showPaymentView : Bool = false
     @State var sendImage : Bool = false
     @Binding  var loader : Bool
-    @Binding  var widgetSelectedQuote: WQuote?
+  
     var body: some View {
         ZStack{
             VStack(spacing: 0){
@@ -105,11 +105,11 @@ struct GenralView: View {
               { obj in
                  // Change key as per your "userInfo"
                   if let userInfo = obj.userInfo, let info = userInfo["category"] as? String {
-                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
+//                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
                           withAnimation {
                               CategoryViewModel.shared.selectedID = info
                           }
-                      }
+//                      }
                    
                    
                  }
@@ -195,26 +195,19 @@ struct GenralView: View {
       )
     }
     @State var curentItem : WQuote?
-    @State var toogle : Bool = false
     var paginationView : some View {
 
         Group{
-            if toogle{
                 pagginationContentView
-            }
-            else{
-                pagginationContentView
-            }
-       
         }
         .onChange(of: wQuoteVM.filtredQuotes) { newValue in
             page.update(.moveToFirst)
-            toogle.toggle()
         }
-        .onChange(of: widgetSelectedQuote) { newValue in
-            page.update(.moveToFirst)
-            toogle.toggle()
-        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToFirst))
+              { _ in
+                  page.update(.moveToFirst)
+              }
+     
 
     }
     @StateObject var page: Page = .first()
@@ -416,7 +409,7 @@ struct QuoteCardView: View {
             }
             else {
                 let randomNumber = "\(Int.random(in: 1...100))"
-                let randomBackgroundName = "ThemeBg\(randomNumber)"
+                let randomBackgroundName = "\(randomNumber)"
                 return Image("\(randomBackgroundName)")
             }
          

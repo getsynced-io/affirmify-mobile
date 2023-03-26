@@ -36,6 +36,11 @@ struct FavoriteScreen: View {
                 Spacer(minLength: 0 )
             }
             
+            if wQuoteVM.favoriteQuotes.isEmpty {
+                Text("The list is empty")
+                    .customFont(font: .IBMPlexSerifMedium, size: 16 , color: Color._000000)
+            }
+            
             if loader {
                 Color._000000.opacity(0.16).ignoresSafeArea()
                     .zIndex(99)

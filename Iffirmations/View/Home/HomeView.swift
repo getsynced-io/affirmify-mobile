@@ -24,7 +24,7 @@ struct HomeView: View {
     @State var adsPopUpView : AnyView = AnyView(EmptyView())
     @State var adsPopUpIsPresented : Bool = false
     @State var loader : Bool = false
-    @State var widgetSelectedQuote: WQuote? = nil
+  
 
     var body: some View {
         NavigationView {
@@ -33,7 +33,7 @@ struct HomeView: View {
                     nextView
                     
                     ZStack{
-                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader, widgetSelectedQuote: $widgetSelectedQuote)
+                        GenralView(wQuoteVM: wQuoteVM,themeVM: themeVM,settingsIsPresented: $settingsIsPresented, loader: $loader)
                             .onAppear {
                                 INPreferences.requestSiriAuthorization { status in
                                     
@@ -45,7 +45,7 @@ struct HomeView: View {
                             .zIndex(tabState == .General ? 1 : -1)
                             .ignoresSafeArea(.keyboard , edges: .bottom)
                         
-                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented, widgetSelectedQuote: $widgetSelectedQuote)
+                            CategoriesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
@@ -105,14 +105,16 @@ struct HomeView: View {
             if url.absoluteString.contains("Iffirmation://openQuote?quoteId="){
                 if  let quoteId = url.queryParameters["quoteId"] {
                     if   let quote = wQuoteVM.quotes.first(where: { innerQuote in
-                        innerQuote.placeID ==  Int32(quoteId)
+                        innerQuote.placeID ==  quoteId
                     }) {
-                            wQuoteVM.filtredQuotes.removeAll { innerQuote in
+                        wQuoteVM.filtredQuotes.removeAll { innerQuote in
                                 innerQuote.placeID == quote.placeID
                             }
-                        
-                        widgetSelectedQuote = quote
+                        NavigationUtil.popToRootView() 
+                        wQuoteVM.filtredQuotes.insert(quote, at: 0)
                         tabState = .General
+                        NotificationCenter.default.post(name:  NSNotification.categoryIntent , object: nil, userInfo: nil)
+                     
                     }
                 }
             }

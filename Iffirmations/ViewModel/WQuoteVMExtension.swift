@@ -18,14 +18,12 @@ extension WQuoteViewModel {
                }
                
            }
-        let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
-            quote.categories.contains { cat in
-            return categories.contains { innercat in
-                return  innercat.title.rawValue.lowercased() == cat
-          
-                }
-                
+            .map { category in
+                category.title.rawValue.lowercased()
             }
+
+        let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
+            categories.contains(quote.genre)
         }
         return quotesToUse
     }

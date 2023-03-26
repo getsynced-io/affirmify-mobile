@@ -48,21 +48,11 @@ class WQuoteVMWHO: ObservableObject{
         let categories =    CategoryViewModel.shared.categories
         let quotesToUse: [WQuote]
         if selectedID == "" {
-            quotesToUse = WQuoteVMWHO.shared.quotes.filter { quote in
-               quote.categories.contains { cat in
-               return categories.contains { innercat in
-                   return  innercat.title.rawValue.lowercased() == cat
-             
-                   }
-                   
-               }
-           }
+            quotesToUse = WQuoteVMWHO.shared.quotes
         }
         else {
             quotesToUse = WQuoteVMWHO.shared.quotes.filter { quote in
-               return quote.categories.contains { cat  in
-                 return  selectedID.lowercased() ==  cat
-                }
+                return  quote.genre.lowercased() == selectedID
             }
         }
         

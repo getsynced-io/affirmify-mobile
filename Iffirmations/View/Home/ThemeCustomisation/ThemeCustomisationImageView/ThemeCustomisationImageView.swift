@@ -121,7 +121,7 @@ struct ThemeCustomisationImageView: View {
     
     func changeBackgroundImage() {
         let randomNumber = "\(Int.random(in: 1...100))"
-        let randomBackgroundName = "ThemeBg\(randomNumber)"
+        let randomBackgroundName = "\(randomNumber)"
         selectedTheme.backgroundImage = randomBackgroundName
     }
     

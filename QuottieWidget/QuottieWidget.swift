@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    let staticQuote = WQuoteFavorite(author: "Erno Rubik", categories: ["life","problems","very"], placeID: 30785, text: "The problems of puzzles are very near the problems of life.", wordCount: 11)
+    let staticQuote = WQuoteFavorite(author: "Erno Rubik", genre: "life", placeID: "30785", text: "The problems of puzzles are very near the problems of life.")
     let staticTheme = InitThemes.shared.defaultTheme
     
     @AppStorage("sharedQuotes",store: store) var sharedQuotes  : [ WQuoteFavorite] = []
@@ -160,7 +160,7 @@ struct QuottieWidgetEntryView : View {
             }
             else {
                 let randomNumber = "\(Int.random(in: 1...100))"
-                let randomBackgroundName = "ThemeBg\(randomNumber)"
+                let randomBackgroundName = "\(randomNumber)"
                 return Image("\(randomBackgroundName)")
             }
          

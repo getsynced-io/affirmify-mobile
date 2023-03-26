@@ -13,14 +13,14 @@ enum DemoState : Int, Hashable, CaseIterable {
 
 
 let titles : [String]  = [
-    "Unleash the power of widgets on your phone",
-    "Adjust your daily notifications to meet your needs",
-    "Search for quotes with the flick of a finger",
-    "Cozy categories always correspond to your mood",
-    "Tired of simplicity? We have a lot of themes",
-    "Simpliy redesign and create your own templates",
-    "Find a shortcut you want to add a voice trigger to",
-    "Create a custom notification layout settings"
+    "Discover the full capabilities of widgets",
+    "Set up your notifications to fit your daily schedule",
+    "Finger-flick through quotes for quick inspiration",
+    "Stay cozy with categories that match your mood",
+    "Ditch simplicity with our vast collection of themes",
+    "Create your own unique templates in a snap",
+    "Simplify your life with voice-activated shortcuts",
+    "Design your own notification layout settings"
 
 ]
 
@@ -30,6 +30,7 @@ struct DemoView: View {
     @State var pushNextView : Bool = false
    // @AppStorage("AppState",store: store) var state  : OnboardingState = .demo
     var body: some View {
+        NavigationView{
         VStack(spacing : 0){
             nextView
             
@@ -89,6 +90,10 @@ struct DemoView: View {
 
         }
         .background(Color._F6F5EC.ignoresSafeArea())
+        .navigationTitle("")
+        .navigationBarHidden(true)
+        
+      }
     }
     
     

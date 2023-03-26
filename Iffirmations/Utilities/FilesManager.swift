@@ -18,7 +18,7 @@ class LocalFileManager {
         }
 
         let fileManager = FileManager.default
-        guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.QuottieIfirmation") else {
+        guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.IffirmationsMobileQuotes") else {
             return false
         }
 
@@ -36,7 +36,7 @@ class LocalFileManager {
 
     func retrieveImageFromFile(filename: String) -> UIImage? {
         let fileManager = FileManager.default
-        guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.QuottieIfirmation") else {
+        guard let containerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.IffirmationsMobileQuotes") else {
             return nil
         }
 

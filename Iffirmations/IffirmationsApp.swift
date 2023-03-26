@@ -122,9 +122,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 class SceneDelegate: NSObject, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        if userActivity.activityType == "com.Quottie.Quotes.viewquotes" {
+        if userActivity.activityType == "com.Iffirmations.Quotes.viewquotes" {
             let category = userActivity.userInfo?["category"] as? String ?? ""
             NotificationCenter.default.post(name:  NSNotification.categoryIntent , object: nil, userInfo: ["category":category])
+            NavigationUtil.popToRootView() 
           }
     }
     
@@ -147,6 +148,7 @@ extension NSNotification {
     static let categoryIntent = Notification.Name.init("categoryIntent")
     static let snapshot = Notification.Name.init("Snapshot")
     static let scrollToTheme = Notification.Name.init("scrollToThemt")
+    static let scrollToFirst  = Notification.Name.init("scrollToFirst")
 }
 
 extension AppDelegate {

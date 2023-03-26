@@ -42,11 +42,11 @@ struct SiriShortCutsScreen: View , SettingsViewProtocol {
                     listRowLocker(title: "\(item.title.rawValue)",isLocked: (item.isPremium && !StoreViewModel.shared.subscriptionActive)  ) {
             
                       
-                        let activity = NSUserActivity(activityType: "com.Quottie.Quotes.viewquotes")
-                        activity.title = "Show \(item.title.rawValue) quotes"
+                        let activity = NSUserActivity(activityType: "com.Iffirmations.Quotes.viewquotes")
+                        activity.title = "Iffirmations Show \(item.title.rawValue) quotes"
                         activity.isEligibleForSearch = true
                         activity.isEligibleForPrediction = true
-                        activity.suggestedInvocationPhrase = "\(item.title.rawValue) quote"
+                        activity.suggestedInvocationPhrase = "Iffirmations \(item.title.rawValue) quotes"
                         activity.userInfo = ["category" : (item.title.rawValue)]
                
                         activity.becomeCurrent()

@@ -8,7 +8,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.QuottieIfirmation</string>
+		<string>group.IffirmationsMobileQuotes</string>
 	</array>
 </dict>
 </plist>

@@ -19,7 +19,7 @@ struct NotificationTimeView: View , SettingsViewProtocol {
     var calledFromConfiguration : Bool = false
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        NavigationView {
+     
             ZStack(alignment: .bottom){
                 VStack(spacing: 0){
                     nextView
@@ -89,10 +89,7 @@ struct NotificationTimeView: View , SettingsViewProtocol {
      
                   
             }
-            .navigationTitle("")
-            .navigationBarHidden(true)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+ 
 
     }
     
