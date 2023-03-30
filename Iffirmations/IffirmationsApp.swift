@@ -25,7 +25,7 @@ struct IffirmationsApp: App {
                 case false :   ContentView(wQuoteVM: wQuoteVM)
                 }
             }
-            .preferredColorScheme( .light)
+            .preferredColorScheme( .dark)
             .onAppear {
                 firstCall()
             }
@@ -36,7 +36,7 @@ struct IffirmationsApp: App {
     
     var splashScreen : some View {
         LaunchScreen()
-            .preferredColorScheme( .light)
+           // .preferredColorScheme( .light)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                     withAnimation {

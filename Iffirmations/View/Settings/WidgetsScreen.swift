@@ -131,7 +131,7 @@ struct TypeOfQuotesScreen: View , SettingsViewProtocol {
                 .padding(.bottom , 32)
                 
                 Text("Add a custom phrase Siri can use to tell Quottie to run this shortcut")
-                    .customFont(font: .InterMedium, size: 24, color: ._000000)
+                    .customFont(font: .InterMedium, size: 24, color: ._FFFFFF)
                     .multilineTextAlignment(.center)
                     .padding(.bottom , 16)
                     .padding(.horizontal, 16)

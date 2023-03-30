@@ -48,6 +48,7 @@ class WQuoteViewModel: ObservableObject{
     
     var sharedQuotesComputedValue : [WQuoteFavorite] {
         if category.isEmpty {
+            
             let categories =    CategoryViewModel.shared.categories.filter { innercat in
                    if StoreViewModel.shared.subscriptionActive {
                     return  true
@@ -57,8 +58,7 @@ class WQuoteViewModel: ObservableObject{
                    }
 
                }
-
-            let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
+            func filterLight(_ quote : WQuote) -> Bool {
                 quote.categories.contains { cat in
                 return categories.contains { innercat in
                     return  innercat.title.rawValue.lowercased() == cat
@@ -66,6 +66,9 @@ class WQuoteViewModel: ObservableObject{
                     }
 
                 }
+            }
+            let quotesToUse = WQuoteViewModel.shared.quotes.filter { quote in
+                filterLight(quote)
             }.prefix(1000).map { wQuote in
                 WQuoteFavorite(quote: wQuote)
             }
@@ -74,14 +77,22 @@ class WQuoteViewModel: ObservableObject{
         }
         else {
 
+            
+            func filterLight(_ quote : WQuote) -> Bool {
+                quote.categories.contains(category.lowercased())
+            }
             let quotesToUse  =    WQuoteViewModel.shared.quotes.filter { quote in
-                 quote.categories.contains(category.lowercased())
+                filterLight(quote)
              }.prefix(1000).map { wquote in
                  WQuoteFavorite(quote: wquote)
              }
             return Array(quotesToUse)
 
         }
+        
+        
+        
+     
 
     }
     
@@ -94,27 +105,25 @@ class WQuoteViewModel: ObservableObject{
         .map { $0.title.rawValue.lowercased() }
 
          let selectedCategories =  categoryId.lowercased().isEmpty ? Set() : [ categoryId.lowercased()]
+            
+            return    {
+                var array : [WQuote] = []
+                var index = 0
+                for element in  WQuoteViewModel.shared.quotes {
+                    if filterLight(element){
+                        array.append(element)
+                      index += 1
+                        if index ==  400{
+                            break
+                        }
+                    }
+                }
+                return array
+            }()
+        
 
 
-  return  Array<WQuote>(
-        unsafeUninitializedCapacity: 800,
-      initializingWith: { buffer, initializedCount in
 
-        var index = 0
-
-          for element in  WQuoteViewModel.shared.quotes {
-              if filterLight(element){
-                buffer[index] = element
-                index += 1
-                  if index ==  400{
-                      break
-                  }
-              }
-          }
-
-        initializedCount = index
-      }
-    )
 
     func filterLight(_ quote : WQuote) -> Bool {
         !Set(quote.categories).isDisjoint(with: categories) && (selectedCategories.isEmpty || !Set(quote.categories).isDisjoint(with: selectedCategories))

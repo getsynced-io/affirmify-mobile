@@ -251,7 +251,7 @@ struct GenralView: View {
             HapticManager.instance.impact(style: .light)
         }
         else {
-                let quoteToADD: WQuoteFavorite = WQuoteFavorite(quote: quote)
+            let quoteToADD: WQuoteFavorite =  WQuoteFavorite(quote:quote)
                 wQuoteVM.favoriteQuotes.append(quoteToADD)
                 HapticManager.instance.impact(style: .light)
         }

@@ -81,7 +81,7 @@ extension PurchasesDelegateHandler: PurchasesDelegate {
 class StoreViewModel: ObservableObject {
     
     static let shared = StoreViewModel()
-    let logger = Logger(subsystem: "com.Scanzi.logger.shared", category: "UserViewModel")
+    let logger = Logger(subsystem: "com.Iffirmations.logger.shared", category: "StoreViewModel")
     /* The latest CustomerInfo from RevenueCat. Updated by PurchasesDelegate whenever the Purchases SDK updates the cache */
     @Published var customerInfo: CustomerInfo? {
         didSet {

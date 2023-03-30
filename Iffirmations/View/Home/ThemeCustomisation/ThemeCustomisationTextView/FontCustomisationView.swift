@@ -50,7 +50,7 @@ struct FontCustomisationView: View {
                     ForEach(InitThemes.shared.fontNames , id: \.self) {item in
                         fontCard(item){
                             withAnimation {
-                                value.scrollTo(selectedTheme.fontName,anchor: .center)
+                                value.scrollTo(selectedTheme.fontName,anchor: scrollViewAllignment(item: item))
                             }
                              
                         }
@@ -59,10 +59,23 @@ struct FontCustomisationView: View {
                 }
             }
             .onAppear {
-                value.scrollTo(selectedTheme.fontName,anchor: .center)
+                value.scrollTo(selectedTheme.fontName,anchor:  scrollViewAllignment(item: selectedTheme.fontName))
             }
            
         }
+    }
+    
+    func scrollViewAllignment(item : String )->  UnitPoint{
+        if InitThemes.shared.fontNames.first == item {
+            return .leading
+        }
+        else if InitThemes.shared.fontNames.last == item {
+            return .trailing
+        }
+        else {
+            return .center
+        }
+        
     }
     
     

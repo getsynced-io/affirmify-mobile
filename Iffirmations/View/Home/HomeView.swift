@@ -112,7 +112,7 @@ struct HomeView: View {
                                 innerQuote.placeID == quote.placeID
                             }
                         NavigationUtil.popToRootView() 
-                        wQuoteVM.filtredQuotes.insert(quote, at: 0)
+                        wQuoteVM.filtredQuotes.insert( quote, at: 0)
                         tabState = .General
                         NotificationCenter.default.post(name:  NSNotification.scrollToFirst , object: nil, userInfo: nil)
                         

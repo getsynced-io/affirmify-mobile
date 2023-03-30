@@ -173,9 +173,11 @@ struct timeSheet: View {
             switch dateType {
             case .From:
                 DatePicker("", selection: $userConfigVM.userConfig.from, displayedComponents: .hourAndMinute)
+                    .colorScheme(.light)
               
             case .To:
                 DatePicker("", selection: $userConfigVM.userConfig.to, displayedComponents: .hourAndMinute)
+                    .colorScheme(.light)
                  
             }
         }

@@ -58,6 +58,7 @@ struct QuottieWidgetEntryView : View {
     }
     var entry: Provider.Entry
     @SwiftUI.Environment(\.widgetFamily) var family
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         Group{
             switch family {
@@ -94,36 +95,40 @@ struct QuottieWidgetEntryView : View {
                     if family == .systemExtraLarge || family == .systemLarge {
                         Text(entry.quote.text)
                             .foregroundColor(Color(theme.fontColor))
+                            .shadow(color: colorScheme == .dark ? .white : .black ,radius:theme.backgroundOpacity == 1 ? 0 : 3)
                             .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
                             .lineLimit(8)
                             .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 24))
                             .lineSpacing(2)
                             .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
                             .opacity(theme.fontOpacity)
+                           
             
                     }
                     else if family == .systemMedium {
                         Text(entry.quote.text)
                             .foregroundColor(Color(theme.fontColor))
+                            .shadow(color: colorScheme == .dark ? .white : .black ,radius:theme.backgroundOpacity == 1 ? 0 : 3)
                             .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
                             .lineLimit(5)
                             .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 20))
                             .lineSpacing(1)
                             .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
                             .opacity(theme.fontOpacity)
-          
+                           
                         
                     }
                     else if family == .systemSmall {
                         Text(entry.quote.text)
                             .foregroundColor(Color(theme.fontColor))
+                            .shadow(color: colorScheme == .dark ? .white : .black ,radius:theme.backgroundOpacity == 1 ? 0 : 3)
                             .multilineTextAlignment(theme.fontAlignment.rawValue == "middle" ? .center : theme.fontAlignment.rawValue == "left" ? .leading : .trailing )
                             .lineLimit(5)
                             .font(FontsExtension(rawValue: theme.fontName)?.getFont(size: 16))
                             .lineSpacing(1)
                             .textCase(theme.textCase.rawValue == "upperCase" ? .uppercase : theme.textCase.rawValue == "lowerCase" ? .lowercase : .none)
                             .opacity(theme.fontOpacity)
-                    
+                         
                         
                     }
                     Spacer(minLength: 16)
@@ -133,24 +138,39 @@ struct QuottieWidgetEntryView : View {
                     .frame(height: 16)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(   VStack(spacing: 0){
+            .background(background)
+        
+    }
+    
+    
+    var background: some View {
+        Group{
+            if let imagePath = theme.backgroundImage {
                 
-                if let imagePath = theme.backgroundImage {
-                    backGroundImage(imagePath)
+                ZStack {
+                    Color.black
+                    AnyView(backGroundImage(imagePath)
                         .resizable()
                         .scaledToFill()
-                }
-                else if let color =  theme.backgroundColor {
-                    Color(color)
+                    )
+                    
                 }
                 
+                
+                
             }
-            .opacity(Double(theme.backgroundOpacity))
-            )
-//        }
-        
-        
-        
+            else if let color =  theme.backgroundColor  {
+              ZStack {
+                    Color.black
+                    AnyView(  Color(color)
+                    )
+                    
+                }
+            }
+            
+            
+        }
+        .opacity(Double(theme.backgroundOpacity))
     }
     
     func backGroundImage(_ path : String)->  Image {

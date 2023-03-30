@@ -20,7 +20,7 @@ protocol WQuoteBase  {
     var wordCount: Int32 { get set }
 }
 
-struct WQuoteFavorite : WQuoteBase  ,  Codable{
+struct WQuoteFavorite : WQuoteBase  ,  Codable , Equatable{
     var author: String = String()
 
     var categories: [String] = []
