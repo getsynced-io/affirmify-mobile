@@ -25,6 +25,7 @@ return categories.filter { category in
             VStack(spacing: 16){
                 ForEach(0..<calculateNumberOfRows(items: categories.count), id: \.self) { rowIndex in
                     HStack(spacing: 16){
+                        Spacer(minLength: 0)
                         ForEach(0..<getColomunIndex(rowIndex: rowIndex), id: \.self) { columnIndex in
                             if (getIndex(rowIndex: rowIndex, columnIndex: columnIndex)) < categories.count {
                                 categoryCard(categories[getIndex(rowIndex: rowIndex, columnIndex: columnIndex)])
@@ -43,10 +44,12 @@ return categories.filter { category in
                                             }
                                         }
                                     }
-                            } else {
-                                Spacer(minLength: 0)
                             }
+//                            else {
+//                                Spacer(minLength: 0)
+//                            }
                         }
+                        Spacer(minLength: 0)
                     }
                     .padding(.horizontal, 16)
                 }

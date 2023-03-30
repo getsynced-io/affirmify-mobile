@@ -94,26 +94,21 @@ class WQuoteViewModel: ObservableObject{
 
         let selectedCat =  categoryId.lowercased()
 
-
-  return  Array<WQuote>(
-        unsafeUninitializedCapacity: 800,
-      initializingWith: { buffer, initializedCount in
-
-        var index = 0
-
-          for element in  WQuoteViewModel.shared.quotes {
-              if filterLight(element){
-                buffer[index] = element
-                index += 1
-                  if index ==  400{
-                      break
-                  }
-              }
-          }
-
-        initializedCount = index
-      }
-    )
+        return    {
+            var array : [WQuote] = []
+            var index = 0
+            for element in  WQuoteViewModel.shared.quotes {
+                if filterLight(element){
+                    array.append(element)
+                  index += 1
+                    if index ==  400{
+                        break
+                    }
+                }
+            }
+            return array
+        }()
+    
 
     func filterLight(_ quote: WQuote) -> Bool {
            /// quote.genre == category && (selectedCategories.isEmpty || selectedCategories.contains(quote.genre))

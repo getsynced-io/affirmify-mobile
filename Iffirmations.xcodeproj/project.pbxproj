@@ -515,7 +515,7 @@
 		170871E429A527100078645B /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		170E15BA29D0E75200E5AC65 /* NavigationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		17143D8029B929D500EF7E3D /* WidgetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsScreen.swift; sourceTree = "<group>"; };
-		1714444B29A3D81B00ADBA03 /* Iffirmations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iffirmations.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1714444B29A3D81B00ADBA03 /* Affirmify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Affirmify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714444E29A3D81B00ADBA03 /* IffirmationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IffirmationsApp.swift; sourceTree = "<group>"; };
 		1714445029A3D81B00ADBA03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1714445229A3D81D00ADBA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -803,7 +803,7 @@
 		1714444C29A3D81B00ADBA03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1714444B29A3D81B00ADBA03 /* Iffirmations.app */,
+				1714444B29A3D81B00ADBA03 /* Affirmify.app */,
 				179F2FB729B8BF7900F01960 /* QuottieWidgetExtension.appex */,
 				17A981F029BA4780000A08BE /* WatchOSIffirmation Watch App.app */,
 			);
@@ -1223,9 +1223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1714444A29A3D81B00ADBA03 /* Iffirmations */ = {
+		1714444A29A3D81B00ADBA03 /* Affirmify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1714445929A3D81D00ADBA03 /* Build configuration list for PBXNativeTarget "Iffirmations" */;
+			buildConfigurationList = 1714445929A3D81D00ADBA03 /* Build configuration list for PBXNativeTarget "Affirmify" */;
 			buildPhases = (
 				1714444729A3D81B00ADBA03 /* Sources */,
 				1714444829A3D81B00ADBA03 /* Frameworks */,
@@ -1239,7 +1239,7 @@
 				179F2FC729B8BF7A00F01960 /* PBXTargetDependency */,
 				17A981FC29BA4782000A08BE /* PBXTargetDependency */,
 			);
-			name = Iffirmations;
+			name = Affirmify;
 			packageProductDependencies = (
 				179D945F29A76A3B00AB6F10 /* RevenueCat */,
 				17228F9529ACF1BA00415DBF /* SwiftProtobuf */,
@@ -1248,7 +1248,7 @@
 				17B5C3FB29C8B78B0036A663 /* SwiftUIPager */,
 			);
 			productName = Iffirmations;
-			productReference = 1714444B29A3D81B00ADBA03 /* Iffirmations.app */;
+			productReference = 1714444B29A3D81B00ADBA03 /* Affirmify.app */;
 			productType = "com.apple.product-type.application";
 		};
 		179F2FB629B8BF7900F01960 /* QuottieWidgetExtension */ = {
@@ -1331,7 +1331,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1714444A29A3D81B00ADBA03 /* Iffirmations */,
+				1714444A29A3D81B00ADBA03 /* Affirmify */,
 				179F2FB629B8BF7900F01960 /* QuottieWidgetExtension */,
 				17A981EF29BA4780000A08BE /* WatchOSIffirmation Watch App */,
 			);
@@ -1969,6 +1969,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Affirmify;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
@@ -1982,13 +1983,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Iffirmations.Mobile.Quotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2010,6 +2011,7 @@
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Iffirmations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Affirmify;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Add a custom phrase Siri can use to tell Quottie to run this shortcut";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "to deliver more personalized ads to you";
@@ -2023,13 +2025,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Iffirmations.Mobile.Quotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2168,7 +2170,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1714445929A3D81D00ADBA03 /* Build configuration list for PBXNativeTarget "Iffirmations" */ = {
+		1714445929A3D81D00ADBA03 /* Build configuration list for PBXNativeTarget "Affirmify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1714445A29A3D81D00ADBA03 /* Debug */,

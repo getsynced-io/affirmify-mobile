@@ -35,7 +35,7 @@ class LocalNotificationManager: ObservableObject {
             
             // Notification permission granted, schedule notifications
             let content = UNMutableNotificationContent()
-            content.title = "Quote of the Day"
+            content.title = "Affirmation of the Day"
             content.sound = UNNotificationSound.default
             
             let calender = Calendar.current

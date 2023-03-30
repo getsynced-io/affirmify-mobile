@@ -38,7 +38,7 @@ public extension UIImage {
     func resizeTestMain(toSize targetSize: CGSize)-> UIImage{
         autoreleasepool {
             let availableRect = AVFoundation.AVMakeRect(aspectRatio: self.size, insideRect: .init(origin: .zero, size: targetSize))
-            let availableSize = availableRect.size
+            let availableSize = CGSize(width:CGFloat(Int(availableRect.size.width)), height: CGFloat(Int(availableRect.size.height)))
 
             let format = UIGraphicsImageRendererFormat()
             format.scale = 1

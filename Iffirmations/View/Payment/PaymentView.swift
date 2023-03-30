@@ -204,6 +204,7 @@ struct PaymentView: View {
                     if error != nil {
                         withAnimation {paymentBlur = false}
                         withAnimation {paymentErrors.purchaseFailedAlert = true}
+                        print("payment error \(error)")
                         return
                     }
                     withAnimation {paymentBlur = false}

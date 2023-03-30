@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1714444A29A3D81B00ADBA03"
-               BuildableName = "Iffirmations.app"
-               BlueprintName = "Iffirmations"
+               BuildableName = "Affirmify.app"
+               BlueprintName = "Affirmify"
                ReferencedContainer = "container:Iffirmations.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1714444A29A3D81B00ADBA03"
-            BuildableName = "Iffirmations.app"
-            BlueprintName = "Iffirmations"
+            BuildableName = "Affirmify.app"
+            BlueprintName = "Affirmify"
             ReferencedContainer = "container:Iffirmations.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1714444A29A3D81B00ADBA03"
-            BuildableName = "Iffirmations.app"
-            BlueprintName = "Iffirmations"
+            BuildableName = "Affirmify.app"
+            BlueprintName = "Affirmify"
             ReferencedContainer = "container:Iffirmations.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

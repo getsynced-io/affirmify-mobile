@@ -6,93 +6,6 @@
 //
 
 import Foundation
-//
-//struct Category: Codable {
-//    let name: String
-//    let count: Int
-//}
-//
-//
-//class FeaturedFlaskApi {
-//
-//    static let instance : FeaturedFlaskApi = FeaturedFlaskApi(endpoint: "https://quotefeatured-production.up.railway.app")
-//    let endpoint: String
-//
-//    init(endpoint: String) {
-//        self.endpoint = endpoint
-//    }
-//
-//    func getBiggestCategoryCount(completion: @escaping (Result<Category, Error>) -> Void) {
-//        let endpoint = "\(self.endpoint)/biggest"
-//        guard let url = URL(string: endpoint) else {
-//            completion(.failure(FlaskAppError.invalidURL))
-//            return
-//        }
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: url) { data, response, error in
-//            if let error = error {
-//                completion(.failure(error))
-//                return
-//            }
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                  (200..<300).contains(httpResponse.statusCode) else {
-//                completion(.failure(FlaskAppError.invalidResponse))
-//                return
-//            }
-//            guard let data = data else {
-//                completion(.failure(FlaskAppError.invalidData))
-//                return
-//            }
-//            do {
-//                let decoder = JSONDecoder()
-//                let category = try decoder.decode(Category.self, from: data)
-//                completion(.success(category))
-//            } catch {
-//                completion(.failure(FlaskAppError.invalidData))
-//            }
-//        }
-//        task.resume()
-//    }
-//
-//    func incrementMultipleCategories(categories: [String], completion: @escaping (Result<Void, Error>) -> Void) {
-//        let endpoint = "\(self.endpoint)/increment-multiple"
-//        guard let url = URL(string: endpoint) else {
-//            completion(.failure(FlaskAppError.invalidURL))
-//            return
-//        }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        do {
-//            let requestBody = try JSONSerialization.data(withJSONObject: ["categories": categories])
-//            request.httpBody = requestBody
-//        } catch {
-//            completion(.failure(FlaskAppError.invalidRequestBody))
-//            return
-//        }
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                completion(.failure(error))
-//                return
-//            }
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                  (200..<300).contains(httpResponse.statusCode) else {
-//                completion(.failure(FlaskAppError.invalidResponse))
-//                return
-//            }
-//            completion(.success(()))
-//        }
-//        task.resume()
-//    }
-//}
-//
-//enum FlaskAppError: Error {
-//    case invalidURL
-//    case invalidData
-//    case invalidResponse
-//    case invalidRequestBody
-//}
 
 import Foundation
 
@@ -113,8 +26,8 @@ enum APIError: Error {
 }
 
 class APIManager {
-    private let baseURLString = "https://iffirmations-backend-production.up.railway.app"
-    private let token = "22f3db9538e03113707feceb8854f3514fe5729fd005fcf1abe408c0e13f18a4"
+    private let baseURLString = "https://affirmify-backend-production.up.railway.app"
+    private let token = "32c4cea1ed52695e298c7ad555a9b0541364c12d3dbff6ec247885c47bd922f8"
     static let shared : APIManager  = APIManager()
     func getBiggestCategory(completion: @escaping (Result<Category, APIError>) -> Void) {
         let urlString = "\(baseURLString)/biggest"

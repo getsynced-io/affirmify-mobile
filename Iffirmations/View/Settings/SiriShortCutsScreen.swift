@@ -43,10 +43,10 @@ struct SiriShortCutsScreen: View , SettingsViewProtocol {
             
                       
                         let activity = NSUserActivity(activityType: "com.Iffirmations.Quotes.viewquotes")
-                        activity.title = "Iffirmations Show \(item.title.rawValue) quotes"
+                        activity.title = "Affirmify Show \(item.title.rawValue) quotes"
                         activity.isEligibleForSearch = true
                         activity.isEligibleForPrediction = true
-                        activity.suggestedInvocationPhrase = "Iffirmations \(item.title.rawValue) quotes"
+                        activity.suggestedInvocationPhrase = "Affirmify \(item.title.rawValue) quotes"
                         activity.userInfo = ["category" : (item.title.rawValue)]
                
                         activity.becomeCurrent()

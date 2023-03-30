@@ -442,7 +442,7 @@ struct QuoteCardView: View {
                     
                     
                     if !StoreViewModel.shared.subscriptionActive && isForSnapshot {
-                    Text("Iffirmation.app")
+                    Text("Affirmify.app")
                         .customFont(font: .InterMedium, size: 16, color:Color(selectedTheme.fontColor).opacity(0.64))
                         .padding(.bottom , 16)
                 }
