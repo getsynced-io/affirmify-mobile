@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+let defaultQuote = "I am getting better and better every day."
 struct ThemeCustomisationImageView: View {
     @Binding var selectedTheme  : ThemeModel
     let stateUndoManager : StateUndoManager<ThemeModel>
@@ -35,7 +36,7 @@ struct ThemeCustomisationImageView: View {
             }
                 .padding(.bottom , 32)
             
-            QuoteCardView(selectedTheme: selectedTheme, quote: "If opportunity doesn't knock, build a door.",selectedItem: .image)
+            QuoteCardView(selectedTheme: selectedTheme, quote: defaultQuote ,selectedItem: .image)
             
             
             Spacer(minLength: 0)

@@ -32,7 +32,7 @@ struct ColorCustomisationView: View {
         }
         .padding(.bottom , 32)
             
-            QuoteCardView(selectedTheme: selectedTheme, quote: "If opportunity doesn't knock, build a door.",selectedItem: isBackGroundImage ? .image : .text)
+            QuoteCardView(selectedTheme: selectedTheme, quote: defaultQuote,selectedItem: isBackGroundImage ? .image : .text)
             
             
             Spacer(minLength: 0)

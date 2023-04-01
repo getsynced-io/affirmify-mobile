@@ -52,7 +52,7 @@ struct ThemeCustomisationMainView: View {
                 presentationMode.wrappedValue.dismiss()
             }
                 .padding(.bottom , 32)
-                QuoteCardView(selectedTheme: selectedTheme, quote: "If opportunity doesn't knock, build a door.")
+                QuoteCardView(selectedTheme: selectedTheme, quote: defaultQuote)
             
             
             Spacer(minLength: 0)

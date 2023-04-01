@@ -35,7 +35,7 @@ struct ThemeCustomisationTextView: View {
             }
                 .padding(.bottom , 32)
             
-            QuoteCardView(selectedTheme: selectedTheme, quote: "If opportunity doesn't knock, build a door.",selectedItem: .text)
+            QuoteCardView(selectedTheme: selectedTheme, quote: defaultQuote,selectedItem: .text)
             
             
             Spacer(minLength: 0)
