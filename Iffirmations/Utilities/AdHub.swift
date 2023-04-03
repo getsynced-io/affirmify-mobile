@@ -29,7 +29,8 @@ class AdHub : NSObject , GADFullScreenContentDelegate {
         if adCondition  {
             inProgress = true
             let request = GADRequest()
-            let adId = "ca-app-pub-3940256099942544/6978759866" // Todo: // must be replaced with real adId
+            let adId = //"ca-app-pub-3940256099942544/6978759866" // Todo: // must be replaced with real adId
+            "ca-app-pub-1039041642887733/6220269357"
             GADRewardedInterstitialAd.load(withAdUnitID: adId, request: request) {[weak self] ad, error in
                 if let error = error {
                     print("error \(error)")
