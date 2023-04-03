@@ -222,7 +222,7 @@ struct GenralView: View {
             .sensitivity(.high)
             .draggingAnimation(.custom(animation: .spring()))
             .contentLoadingPolicy(.lazy(recyclingRatio: 10))
-        
+            
     }
     
     func quoteFullCard(item : WQuote) -> some View  {
