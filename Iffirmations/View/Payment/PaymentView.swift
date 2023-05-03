@@ -157,8 +157,8 @@ struct PaymentView: View {
     func price(_ pr : PricePeriod,ex: Bool = false)-> String{
         let price = (annually?.storeProduct.price ?? 114.99) + (ex ?  5.0 : 0.0)  // remider to revert it back to 14.99
         switch pr {
-        case .Annually : return "\(price.Decimal2Digit()) US$"
-        case .Monthly : return "\((price / 12.0).Decimal2Digit()) US$"
+        case .Annually : return "\(price.Decimal2Digit()) \((annually?.storeProduct.currencyCode ?? "USD"))"
+        case .Monthly : return "\((price / 12.0).Decimal2Digit()) \((annually?.storeProduct.currencyCode ?? "USD"))"
         }
     }
     

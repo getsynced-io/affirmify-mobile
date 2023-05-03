@@ -222,7 +222,12 @@ struct GenralView: View {
             .sensitivity(.high)
             .draggingAnimation(.custom(animation: .spring()))
             .contentLoadingPolicy(.lazy(recyclingRatio: 10))
-            
+            .onPageChanged({ (newIndex) in
+                  // do something
+                if newIndex == 5 {
+                    ReviewConfiguration.shared.askForRatingIfNeeded()
+                }
+              })
     }
     
     func quoteFullCard(item : WQuote) -> some View  {

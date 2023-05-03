@@ -95,7 +95,10 @@ struct GeneralSettingsView: View  , SettingsViewProtocol{
                 seperator
                 
                 listRow(title: "Rate Us") {
-                    SKStoreReviewController.requestReview()
+                    ReviewConfiguration.shared.askForRatingIfNeeded{
+                        let urlStr = "https://itunes.apple.com/app/id6446781622?action=write-review" // (Option 2)
+                        urlStr.openUrl()
+                    }
                 }
                 seperator
             }
