@@ -133,7 +133,7 @@ struct GeneralSettingsView: View  , SettingsViewProtocol{
                 }
          
             HStack(spacing: 0) {
-                Text("v1.0")
+                Text("v1.2")
                     .customFont(font: .IBMPlexSerifRegular, size: 12,lineHeight: 16 , color: ._000000.opacity(0.64))
                     .padding(16)
                 Spacer(minLength: 0)
