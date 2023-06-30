@@ -13,7 +13,17 @@ class ThemeViewModel: ObservableObject{
     static let shared :  ThemeViewModel =  ThemeViewModel()
     @AppStorage("IFFirmationThemes",store: store) var themes: [ThemeModel]  = InitThemes.shared.initialThemes
     
-    @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0"
+    @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0" {
+        willSet {
+            DispatchQueue.main.async {[weak self] in
+                guard let self = self else {return}
+                withAnimation {
+                    self.AnimatedVidID = nil
+                }
+            }
+        }
+    }
+    @AppStorage("AnimatedVidlSelection",store: store) var AnimatedVidID : String?
   
     func reset(){
         self.themes = InitThemes.shared.initialThemes

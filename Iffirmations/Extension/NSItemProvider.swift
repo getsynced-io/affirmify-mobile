@@ -16,7 +16,7 @@ extension  NSItemProvider  {
                     if let image = image  as? UIImage {
                         let cpmressedImage = image.limitTo2k()
                         let fileName = "CustomImage-\(UUID().uuidString)"
-                        let path = LocalFileManager.instance.saveImageToFile(image: cpmressedImage, filename: fileName)
+                        _ = LocalFileManager.instance.saveImageToFile(image: cpmressedImage, filename: fileName)
                         completion(fileName)
                     }
                     else {

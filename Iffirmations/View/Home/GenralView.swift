@@ -198,8 +198,25 @@ struct GenralView: View {
     var paginationView : some View {
 
         Group{
+            ZStack{
+                if let annimatedTheme = annimatedTheme {
+                    VideoCard(video: annimatedTheme, withSelection: false)
+                        .padding(.vertical, 32)
+                        //.blendMode(.destinationOut)
+//                        .overlay (
+//                            pagginationContentView
+//                        )
+                }
+//                else {
+//                    pagginationContentView
+//                }
+                
                 pagginationContentView
+                    //.background(Color._F6F5EC.opacity(0.99))
+            }
+           
         }
+       
         .onChange(of: wQuoteVM.filtredQuotes) { newValue in
             page.update(.moveToFirst)
         }
@@ -217,7 +234,9 @@ struct GenralView: View {
                 LazyHStack(spacing: 0){
                 quoteFullCard(item: item)
                     .padding(.vertical, 32)
+                  
                 }
+              
             }
             .sensitivity(.high)
             .draggingAnimation(.custom(animation: .spring()))
@@ -228,29 +247,33 @@ struct GenralView: View {
                     ReviewConfiguration.shared.askForRatingIfNeeded()
                 }
               })
+            .background(Color._F6F5EC.opacity(0.99))
+            .compositingGroup()
+           // .blur(radius: 5)
+           
     }
     
+    @AppStorage("AnimatedVidlSelection",store: store) var AnimatedVidID : String?
+    var annimatedTheme : AnnimatedThemesModel?  {
+        AnnimatedThemesModel.animatedThemes.first(where: { video in video.id == AnimatedVidID})
+    }
     func quoteFullCard(item : WQuote) -> some View  {
         ZStack(alignment: .topTrailing){
 
-            QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForEdit: false)
-                .onAppear(perform: {
-                    curentItem  = item
-                })
-                .frame(width: UIScreen.main.bounds.width -   32, height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
-                .clipped()
                 
-          
+                QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForEdit: false)
+                    .onAppear(perform: {
+                        curentItem  = item
+                    })
+                    .frame(width: UIScreen.main.bounds.width -   32, height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
+                    .clipped()
+                
+      
                           
             likeButton(quote: item)
                 .frame(width: 24,height: 24)
                 .clipped()
                 .offset(x : -16,y: 16)
-             
-           
-           
-     
-               
 
         }
         
@@ -333,11 +356,29 @@ struct QuoteCardView: View {
     @Environment(\.mainWindowSize) var mainWindowSize
     var isForSnapshot : Bool = false
     var isForEdit : Bool = true
-
+    @AppStorage("AnimatedVidlSelection",store: store) var AnimatedVidID : String?
     var body: some View {
         ZStack{
             Group{
-                if let image = selectedTheme.backgroundImage {
+                
+                if !isForSnapshot && !isForEdit && AnimatedVidID != nil {
+                    Color.red
+                        .frame(width: UIScreen.main.bounds.width -  32)
+                        .frame(height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
+                        .cornerRadius(16)
+                        .animation(nil)
+                        .contentShape(Rectangle())
+                        .clipped()
+                        .blendMode(.destinationOut)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(lineWidth: 1, antialiased: true)
+                                .foregroundColor(Color._000000)
+                        )
+                    
+                }
+                
+              else   if let image = selectedTheme.backgroundImage {
                     backGroundImage(image)
                         .resizable()
                         .scaledToFill()

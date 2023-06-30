@@ -99,3 +99,23 @@ extension View {
         }
     }
 }
+
+extension View {
+    /// Applies the given transform if the given condition evaluates to `true`.
+    /// - Parameters:
+    ///   - condition: The condition to evaluate.
+    ///   - transform: The transform to apply to the source `View` if the condition is `true`.
+    ///   - else: The transform to apply to the source `View` if the condition is `false`.
+    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+    @ViewBuilder func `if`<TrueContent: View, FalseContent: View>(
+        _ condition: Bool,
+        transform: (Self) -> TrueContent,
+        else: (Self) -> FalseContent
+    ) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            `else`(self)
+        }
+    }
+}

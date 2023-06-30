@@ -18,6 +18,7 @@ struct ThemesView: View {
         ((UIScreen.main.bounds.width  - 48) / 2.0)
     }
     
+    @Binding var tabState  : TabState
     @Binding  var adsPopUpView : AnyView
     @Binding var adsPopUpIsPresented : Bool
     @State var showPaymentView : Bool = false
@@ -36,11 +37,7 @@ struct ThemesView: View {
                 .padding(.bottom,16)
             
             ZStack(alignment: .bottomTrailing){
-//                ScrollView{
-                   
                         themesMenue
-                
-//                }
                 Button {
                    addThemeAction()
                 } label: {
@@ -57,35 +54,71 @@ struct ThemesView: View {
         }
     }
     
-    var themesMenue : some View {
-        ScrollView {
-            ScrollViewReader { scroller in
-                VStack(spacing:0){
-                LazyVGrid(columns: columns, spacing: 0) {
-                    ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
-                        Button {
-                            withAnimation {
-                               themeAction(theme.id)
-                                withAnimation(){
-                                    scroller.scrollTo(theme.id,anchor: .top)
-                                }
-                            }
-                        } label: {
-                            themeCard(theme)
+    let width : CGFloat = (UIScreen.main.bounds.width - 16 * 5) / 3
+    var animatedThemes: some View {
+       
+        ScrollView(.horizontal,showsIndicators: false) {
+            LazyHStack(spacing: 16){
+                
+                ForEach(AnnimatedThemesModel.animatedThemes , id : \.id) { item in
+                    Button {
+                        withAnimation {
+                            animatedThemeAction(item.id)
                         }
-                        .padding(.top,16)
-                        .id(theme.id)
-                        
-                    }
-                    .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToTheme)) { obj in
-                        withAnimation(){
-                            scroller.scrollTo(selectedTheme.id,anchor: .top)
-                        }
+                    } label: {
+                       
+                        VideoCard(video: item)
+                            .frame(width: width,height: width * 1.77)
                     }
 
+                    
                 }
-                .padding(.bottom,32)
+                
+            }
         }
+    }
+    
+    var themesMenue : some View {
+        ScrollView {
+            
+            VStack(alignment: .leading ,spacing: 32){
+        
+                    Text("Animated")
+                        .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
+                    
+                    animatedThemes
+                
+                Text("Regular")
+                    .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
+                
+                ScrollViewReader { scroller in
+                    VStack(spacing:0){
+                        LazyVGrid(columns: columns, spacing: 0) {
+                            ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
+                                Button {
+                                    withAnimation {
+                                        themeAction(theme.id)
+                                        withAnimation(){
+                                            scroller.scrollTo(theme.id,anchor: .top)
+                                        }
+                                    }
+                                } label: {
+                                    themeCard(theme)
+                                }
+                                .padding(.top,16)
+                                .id(theme.id)
+                                
+                            }
+                            .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToTheme)) { obj in
+                                withAnimation(){
+                                    scroller.scrollTo(selectedTheme.id,anchor: .top)
+                                }
+                            }
+                            
+                        }
+                        .padding(.bottom,32)
+                    }
+                }
             }
         }
         .padding(.horizontal , 16 )
@@ -110,6 +143,18 @@ struct ThemesView: View {
                    
                 }
     }
+    
+    func animatedThemeAction(_ id: String){
+//        adsAction {
+            DispatchQueue.main.async {
+                ThemeViewModel.shared.AnimatedVidID = id
+                AppEvents.shared.logEvent(AppEvents.Name("Video-\(id)"))
+                
+            }
+//        }
+    }
+    
+    
     func addThemeAction(){
         adsAction {
             showAddThemeView = true
@@ -235,21 +280,21 @@ struct ThemesView: View {
     
     func  quoteView(_ theme : ThemeModel ) -> some View {
         
-        var textAlignment : SwiftUI.TextAlignment  = {
+        let textAlignment : SwiftUI.TextAlignment  = {
             switch theme.fontAlignment {
             case .left  : return .leading
             case .middle : return .center
             case .right : return .trailing
             }
         }()
-        var textAlignmentPadding : CGFloat =  {
+        let textAlignmentPadding : CGFloat =  {
             switch theme.fontAlignment {
             case .left  : return 0
             case .middle : return  16.0
             case .right : return 0
             }
         }()
-        var finalQuote : String =  {
+        let finalQuote : String =  {
             switch theme.textCase {
             case .sentence : return "Abcd"
             case .lowerCase : return "Abcd".lowercased()

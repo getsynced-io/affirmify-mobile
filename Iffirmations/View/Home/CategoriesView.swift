@@ -158,8 +158,8 @@ struct CategoriesView: View {
            let title  =  category.title.rawValue
            return (title == savedFeaturedCategory)
         } ?? categoryVM.categories[0]
-        return
-        Group{
+ 
+        return   Group{
             VStack(alignment: .leading , spacing: 32) {
                 MenueHeaderLabel("Featured")
          
@@ -353,7 +353,7 @@ struct CategoriesView: View {
               
             }
                    .frame(width: columnWidth,height: 72)
-                   .padding([.vertical] ,16)
+                   .padding([.vertical],16)
     }
     
     

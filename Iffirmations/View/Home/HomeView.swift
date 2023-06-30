@@ -52,7 +52,7 @@ struct HomeView: View {
                                 .zIndex(tabState == .Categories ? 2 : -2)
                                 .ignoresSafeArea(.keyboard , edges: .bottom)
                         
-                            ThemesView(adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
+                            ThemesView(tabState: $tabState,adsPopUpView: $adsPopUpView,adsPopUpIsPresented: $adsPopUpIsPresented)
                                 .background(
                                     Color._F6F5EC.ignoresSafeArea()
                                 )
