@@ -80,18 +80,18 @@ struct ThemesView: View {
     
     var themesMenue : some View {
         ScrollView {
-            
+            ScrollViewReader { scroller in
             VStack(alignment: .leading ,spacing: 32){
         
                     Text("Animated")
                         .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
-                    
+                        .id("Animated")
                     animatedThemes
                 
                 Text("Regular")
                     .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
                 
-                ScrollViewReader { scroller in
+             
                     VStack(spacing:0){
                         LazyVGrid(columns: columns, spacing: 0) {
                             ForEach(ThemeViewModel.shared.themes, id: \.id) { theme in
@@ -112,7 +112,7 @@ struct ThemesView: View {
                             .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToTheme)) { obj in
                                 withAnimation(){
                                     if  ThemeViewModel.shared.AnimatedVidID == nil {
-                                        scroller.scrollTo(selectedTheme.id,anchor: .top)
+                                        scroller.scrollTo("Animated",anchor: .top)
                                     }
                                 }
                             }

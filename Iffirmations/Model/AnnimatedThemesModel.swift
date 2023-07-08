@@ -29,7 +29,6 @@ struct AnnimatedThemesModel {
             AnnimatedThemesModel(id: "12797959", videoURL: "https://player.vimeo.com/progressive_redirect/playback/729254164/rendition/1080p/file.mp4?loc=external&oauth2_token_id=57447761&signature=110ce86849106a488ec7327170756d902934f8897c630e733a9554a1b3eb036c", image: "https://images.pexels.com/videos/12797959/chains-cold-heavy-imprison-12797959.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"),
             AnnimatedThemesModel(id: "7874762", videoURL: "https://player.vimeo.com/external/548515511.hd.mp4?s=9bb0fb2aeb494020b26c7d8ebcaedfd134e14bc4&profile_id=175&oauth2_token_id=57447761", image: "https://images.pexels.com/videos/7874762/abstract-abstract-art-animation-background-7874762.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"),
             AnnimatedThemesModel(id: "4151302", videoURL: "https://player.vimeo.com/external/407481912.hd.mp4?s=89902d01bca903afce630e77ae1db0e41a4e41ce&profile_id=169&oauth2_token_id=57447761", image: "https://images.pexels.com/videos/4151302/animation-art-backdrop-background-4151302.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"),
-            AnnimatedThemesModel(id: "4151302", videoURL: "https://player.vimeo.com/external/407481912.hd.mp4?s=89902d01bca903afce630e77ae1db0e41a4e41ce&profile_id=175&oauth2_token_id=57447761", image: "https://images.pexels.com/videos/4151302/animation-art-backdrop-background-4151302.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"),
             AnnimatedThemesModel(id: "7606112", videoURL: "https://player.vimeo.com/external/540014880.hd.mp4?s=fe9447950b98fc00a914874a5b9aebd3114ab20b&profile_id=175&oauth2_token_id=57447761", image: "https://images.pexels.com/videos/7606112/abstract-antique-art-artistic-7606112.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"),
             AnnimatedThemesModel(id: "10740616", videoURL: "https://player.vimeo.com/external/662205088.hd.mp4?s=e61edebf94aeac71c6b237e35a7b465a81dbfb92&profile_id=175&oauth_token_id=57447761", image: "https://images.pexels.com/videos/10740616/pexels-photo-10740616.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"),
             AnnimatedThemesModel(id: "7639980", videoURL: "https://player.vimeo.com/external/541233102.hd.mp4?s=ecd17a35afae1c2fd57d95338352e160e606424d&profile_id=175&oauth2_token_id=57447761", image: "https://images.pexels.com/videos/7639980/abstract-art-artistic-artsy-7639980.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"),
@@ -37,3 +36,6 @@ struct AnnimatedThemesModel {
         ]
     
 }
+
+
+

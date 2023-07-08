@@ -532,5 +532,85 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18C7C41E-7BF5-444F-B1C5-CDEB02A8CA88"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/Themes/VideoCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "makeUIViewController(context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "18C7C41E-7BF5-444F-B1C5-CDEB02A8CA88 - 754c7fbfc5d3c2af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Affirmify.PlayerViewController.makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext&lt;Affirmify.PlayerViewController&gt;) -&gt; __C.AVPlayerViewController"
+                  moduleName = "Affirmify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/Themes/VideoCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "18C7C41E-7BF5-444F-B1C5-CDEB02A8CA88 - 6eecd30b0a452e0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Foundation.Notification) -&gt; () in Affirmify.PlayerViewController.makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext&lt;Affirmify.PlayerViewController&gt;) -&gt; __C.AVPlayerViewController"
+                  moduleName = "Affirmify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/farescherni/Documents/Iffirmations/Iffirmations/View/Home/Themes/VideoCard.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB205AE4-92C1-469E-A089-DDEEEC1E2778"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/Themes/VideoCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "makeUIViewController(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81DB5A87-0A67-418C-B25F-675F1210B56C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Iffirmations/View/Home/Themes/VideoCard.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "updateUIViewController(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
