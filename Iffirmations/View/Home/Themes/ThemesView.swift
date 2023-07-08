@@ -58,7 +58,7 @@ struct ThemesView: View {
     var animatedThemes: some View {
        
         ScrollView(.horizontal,showsIndicators: false) {
-            LazyHStack(spacing: 16){
+       HStack(spacing: 16){
                 
                 ForEach(AnnimatedThemesModel.animatedThemes , id : \.id) { item in
                     Button {
@@ -111,7 +111,9 @@ struct ThemesView: View {
                             }
                             .onReceive(NotificationCenter.default.publisher(for: NSNotification.scrollToTheme)) { obj in
                                 withAnimation(){
-                                    scroller.scrollTo(selectedTheme.id,anchor: .top)
+                                    if  ThemeViewModel.shared.AnimatedVidID == nil {
+                                        scroller.scrollTo(selectedTheme.id,anchor: .top)
+                                    }
                                 }
                             }
                             
@@ -129,6 +131,7 @@ struct ThemesView: View {
                 adsAction {
                
                     DispatchQueue.main.async {
+                        ThemeViewModel.shared.AnimatedVidID = nil
                         ThemeViewModel.shared.ThemeiD = id
                         print("update widgetKit \(ThemeViewModel.shared.ThemeiD)")
                         ThemeViewModel.shared.themes[0] =  ThemeViewModel.shared.themes[0]
@@ -145,13 +148,14 @@ struct ThemesView: View {
     }
     
     func animatedThemeAction(_ id: String){
-//        adsAction {
+        adsAction {
             DispatchQueue.main.async {
                 ThemeViewModel.shared.AnimatedVidID = id
                 AppEvents.shared.logEvent(AppEvents.Name("Video-\(id)"))
                 
+                
             }
-//        }
+        }
     }
     
     
@@ -267,7 +271,7 @@ struct ThemesView: View {
                         
                     }
                     
-                    Image(theme.id == ThemeViewModel.shared.ThemeiD ?  "circle-check" : "circle")
+                    Image((theme.id == ThemeViewModel.shared.ThemeiD && ThemeViewModel.shared.AnimatedVidID == nil )  ?  "circle-check" : "circle")
                         .frame(width: 24,height: 24)
                         .padding(8)
                     

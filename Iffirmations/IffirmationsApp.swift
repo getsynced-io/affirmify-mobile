@@ -61,6 +61,9 @@ struct IffirmationsApp: App {
                         print("FeaturedFlaskApi Error \(error)")
                     }
                 }
+                
+                ThemeViewModel.shared.loadVideos()
+                
             } catch{
             }
         }

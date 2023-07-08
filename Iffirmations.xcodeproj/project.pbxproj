@@ -178,6 +178,12 @@
 		1774711229BB714E0005DC60 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711129BB714E0005DC60 /* CategoriesView.swift */; };
 		1774711429BB77E30005DC60 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711329BB77E30005DC60 /* QuotesView.swift */; };
 		1774711629BFA2960005DC60 /* FavoriteQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774711529BFA2960005DC60 /* FavoriteQuotesView.swift */; };
+		17766D382A5609C70078CE1A /* AnnimatedThemesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1736C9EF2A1E95CA00D71FEB /* AnnimatedThemesModel.swift */; };
+		17766D392A5609DE0078CE1A /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F0B4D2A5405AB00BCDDD7 /* VideoManager.swift */; };
+		1779E2F12A58CED600D3D4F1 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 1779E2F02A58CED600D3D4F1 /* Nuke */; };
+		1779E2F32A58CED600D3D4F1 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1779E2F22A58CED600D3D4F1 /* NukeExtensions */; };
+		1779E2F52A58CED600D3D4F1 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1779E2F42A58CED600D3D4F1 /* NukeUI */; };
+		178F0B4E2A5405AB00BCDDD7 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F0B4D2A5405AB00BCDDD7 /* VideoManager.swift */; };
 		179C3CE829CE114E001E39AE /* file.protobuf in Resources */ = {isa = PBXBuildFile; fileRef = 179C3CE729CE114E001E39AE /* file.protobuf */; };
 		179C3CE929CE114E001E39AE /* file.protobuf in Resources */ = {isa = PBXBuildFile; fileRef = 179C3CE729CE114E001E39AE /* file.protobuf */; };
 		179C3CEB29CE1175001E39AE /* WQuote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C3CEA29CE1175001E39AE /* WQuote.pb.swift */; };
@@ -679,6 +685,7 @@
 		1774711129BB714E0005DC60 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		1774711329BB77E30005DC60 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		1774711529BFA2960005DC60 /* FavoriteQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteQuotesView.swift; sourceTree = "<group>"; };
+		178F0B4D2A5405AB00BCDDD7 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		179C3CE729CE114E001E39AE /* file.protobuf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.protobuf; sourceTree = "<group>"; };
 		179C3CEA29CE1175001E39AE /* WQuote.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WQuote.pb.swift; path = ../../../../Desktop/Iffirmations/protobuf/WQuote.pb.swift; sourceTree = "<group>"; };
 		179D945929A768BA00AB6F10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -736,10 +743,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1779E2F52A58CED600D3D4F1 /* NukeUI in Frameworks */,
 				1736C9F62A1E973000D71FEB /* VideoPlayer in Frameworks */,
 				1762DF1029AF816B007D0453 /* GoogleMobileAds in Frameworks */,
 				17E316672A1EC039009EFB60 /* CachingPlayerItem in Frameworks */,
 				17A981EA29BA368B000A08BE /* FacebookCore in Frameworks */,
+				1779E2F12A58CED600D3D4F1 /* Nuke in Frameworks */,
+				1779E2F32A58CED600D3D4F1 /* NukeExtensions in Frameworks */,
 				17B5C3FC29C8B78B0036A663 /* SwiftUIPager in Frameworks */,
 				1736C9F92A1E9A0400D71FEB /* SDWebImageSwiftUI in Frameworks */,
 				179D946029A76A3B00AB6F10 /* RevenueCat in Frameworks */,
@@ -793,6 +803,7 @@
 		170871D629A4C6600078645B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				178F0B4D2A5405AB00BCDDD7 /* VideoManager.swift */,
 				17E3166B2A1ED35C009EFB60 /* CachingPlayerItem.swift */,
 				170871D729A4C67C0078645B /* HapticManager.swift */,
 				17E30EF229B774E9008E3E88 /* LocalNotificationManager.swift */,
@@ -1278,6 +1289,9 @@
 				1736C9F82A1E9A0400D71FEB /* SDWebImageSwiftUI */,
 				17E316662A1EC039009EFB60 /* CachingPlayerItem */,
 				17E316692A1EC75E009EFB60 /* Cache */,
+				1779E2F02A58CED600D3D4F1 /* Nuke */,
+				1779E2F22A58CED600D3D4F1 /* NukeExtensions */,
+				1779E2F42A58CED600D3D4F1 /* NukeUI */,
 			);
 			productName = Iffirmations;
 			productReference = 1714444B29A3D81B00ADBA03 /* Affirmify.app */;
@@ -1362,6 +1376,7 @@
 				1736C9F72A1E9A0400D71FEB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				17E316652A1EC039009EFB60 /* XCRemoteSwiftPackageReference "CachingPlayerItem" */,
 				17E316682A1EC75E009EFB60 /* XCRemoteSwiftPackageReference "Cache" */,
+				1779E2EF2A58CED500D3D4F1 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 1714444C29A3D81B00ADBA03 /* Products */;
 			projectDirPath = "";
@@ -1787,6 +1802,7 @@
 				17143D8129B929D500EF7E3D /* WidgetsScreen.swift in Sources */,
 				1762DF1929AFB9C8007D0453 /* FavoriteScreen.swift in Sources */,
 				170871D529A4C0770078645B /* UserConfigurationViewModel.swift in Sources */,
+				178F0B4E2A5405AB00BCDDD7 /* VideoManager.swift in Sources */,
 				171444A829A3E59E00ADBA03 /* EnumExtension.swift in Sources */,
 				1736C9F02A1E95CA00D71FEB /* AnnimatedThemesModel.swift in Sources */,
 				170871E129A5225B0078645B /* WidgetDemoView.swift in Sources */,
@@ -1834,6 +1850,7 @@
 				179F2FC229B8BF7900F01960 /* QuottieWidget.swift in Sources */,
 				179F2FCE29B8C06B00F01960 /* ThemeModel.swift in Sources */,
 				179F2FD429B8C1E000F01960 /* arraySafeAcces.swift in Sources */,
+				17766D382A5609C70078CE1A /* AnnimatedThemesModel.swift in Sources */,
 				179F2FD129B8C1A300F01960 /* ThemeViewModel.swift in Sources */,
 				179F2FEB29B8DC2C00F01960 /* FontsExtension.swift in Sources */,
 				179F2FD029B8C19D00F01960 /* CategoryViewModel.swift in Sources */,
@@ -1842,6 +1859,7 @@
 				17143D7F29B9197F00EF7E3D /* FilesManager.swift in Sources */,
 				179F2FBE29B8BF7900F01960 /* QuottieWidgetBundle.swift in Sources */,
 				179F2FD229B8C1A600F01960 /* UserConfigurationModel.swift in Sources */,
+				17766D392A5609DE0078CE1A /* VideoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2274,6 +2292,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		1779E2EF2A58CED500D3D4F1 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
 		179D945E29A76A3B00AB6F10 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -2336,6 +2362,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1762DF0E29AF816B007D0453 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		1779E2F02A58CED600D3D4F1 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1779E2EF2A58CED500D3D4F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		1779E2F22A58CED600D3D4F1 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1779E2EF2A58CED500D3D4F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		1779E2F42A58CED600D3D4F1 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1779E2EF2A58CED500D3D4F1 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 		179D945F29A76A3B00AB6F10 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -199,20 +199,12 @@ struct GenralView: View {
 
         Group{
             ZStack{
-                if let annimatedTheme = annimatedTheme {
-                    VideoCard(video: annimatedTheme, withSelection: false)
+                if let annimatedTheme = ThemeViewModel.shared.AnimatedVidID {
+                    VideoCardPager()
                         .padding(.vertical, 32)
-                        //.blendMode(.destinationOut)
-//                        .overlay (
-//                            pagginationContentView
-//                        )
                 }
-//                else {
-//                    pagginationContentView
-//                }
                 
                 pagginationContentView
-                    //.background(Color._F6F5EC.opacity(0.99))
             }
            
         }
@@ -253,10 +245,8 @@ struct GenralView: View {
            
     }
     
-    @AppStorage("AnimatedVidlSelection",store: store) var AnimatedVidID : String?
-    var annimatedTheme : AnnimatedThemesModel?  {
-        AnnimatedThemesModel.animatedThemes.first(where: { video in video.id == AnimatedVidID})
-    }
+
+    
     func quoteFullCard(item : WQuote) -> some View  {
         ZStack(alignment: .topTrailing){
 
@@ -356,7 +346,7 @@ struct QuoteCardView: View {
     @Environment(\.mainWindowSize) var mainWindowSize
     var isForSnapshot : Bool = false
     var isForEdit : Bool = true
-    @AppStorage("AnimatedVidlSelection",store: store) var AnimatedVidID : String?
+    @AppStorage("AnimatedVidlSelection") var AnimatedVidID : String?
     var body: some View {
         ZStack{
             Group{

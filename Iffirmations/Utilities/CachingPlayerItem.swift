@@ -11,6 +11,15 @@ fileprivate extension URL {
     
 }
 
+class SharedQueue{
+   static  let shared : SharedQueue = SharedQueue()
+    lazy var queue : OperationQueue = {
+        let result =  OperationQueue()
+     result.maxConcurrentOperationCount = 1
+        return result
+   }()
+}
+
 @objc protocol CachingPlayerItemDelegate {
     
     /// Is called when the media file is fully downloaded.
@@ -43,7 +52,8 @@ open class CachingPlayerItem: AVPlayerItem {
         var response: URLResponse?
         var pendingRequests = Set<AVAssetResourceLoadingRequest>()
         weak var owner: CachingPlayerItem?
-        
+    
+        // set maxConcurrentOperationCount to 1 so that only one operation can be run at one time
         func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
             
             if playingFromData {
@@ -57,9 +67,14 @@ open class CachingPlayerItem: AVPlayerItem {
                 guard let initialUrl = owner?.url else {
                     fatalError("internal inconsistency")
                 }
-
-                startDataRequest(with: initialUrl)
+                let operation = BlockOperation(block: {[weak self] in
+                    self?.startDataRequest(with: initialUrl)
+                    
+                }
+                                               )
+                SharedQueue.shared.queue.addOperation(operation)
             }
+            
             
             pendingRequests.insert(loadingRequest)
             processPendingRequests()
@@ -83,7 +98,7 @@ open class CachingPlayerItem: AVPlayerItem {
         func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
             mediaData?.append(data)
             processPendingRequests()
-            owner?.delegate?.playerItem?(owner!, didDownloadBytesSoFar: mediaData!.count, outOf: Int(dataTask.countOfBytesExpectedToReceive))
+           // owner?.delegate?.playerItem?(owner!, didDownloadBytesSoFar: mediaData!.count, outOf: Int(dataTask.countOfBytesExpectedToReceive))
         }
         
         func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
