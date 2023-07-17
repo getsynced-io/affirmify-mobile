@@ -199,8 +199,12 @@ struct GenralView: View {
 
         Group{
             ZStack{
-                if let annimatedTheme = ThemeViewModel.shared.AnimatedVidID {
+                if ThemeViewModel.shared.AnimatedVidID != nil {
                     VideoCardPager()
+                        .background(
+                            Color._EDEBDA
+                        
+                        )
                         .padding(.vertical, 32)
                 }
                 
@@ -360,11 +364,11 @@ struct QuoteCardView: View {
                         .contentShape(Rectangle())
                         .clipped()
                         .blendMode(.destinationOut)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .strokeBorder(lineWidth: 1, antialiased: true)
-                                .foregroundColor(Color._000000)
-                        )
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 16)
+//                                .strokeBorder(lineWidth: 1, antialiased: true)
+//                                .foregroundColor(Color._000000)
+//                        )
                     
                 }
                 

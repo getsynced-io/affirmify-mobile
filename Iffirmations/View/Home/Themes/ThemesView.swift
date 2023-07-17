@@ -56,25 +56,33 @@ struct ThemesView: View {
     
     let width : CGFloat = (UIScreen.main.bounds.width - 16 * 5) / 3
     var animatedThemes: some View {
-       
-        ScrollView(.horizontal,showsIndicators: false) {
-       HStack(spacing: 16){
-                
-                ForEach(AnnimatedThemesModel.animatedThemes , id : \.id) { item in
-                    Button {
-                        withAnimation {
-                            animatedThemeAction(item.id)
+        ScrollViewReader { scroller in
+            ScrollView(.horizontal,showsIndicators: false) {
+                HStack(spacing: 16){
+                    
+                    ForEach(AnnimatedThemesModel.animatedThemes , id : \.id) { item in
+                        Button {
+                            withAnimation {
+                                animatedThemeAction(item.id)
+                            }
+                            
+                            withAnimation(){
+                                scroller.scrollTo(item.id,anchor:.leading)
+                            }
+                        } label: {
+                            
+                            VideoCard(video: item)
+                                .frame(width: width,height: width * 1.77)
                         }
-                    } label: {
-                       
-                        VideoCard(video: item)
-                            .frame(width: width,height: width * 1.77)
+                        .id(item.id)
+                        
+                        
                     }
-
                     
                 }
-                
+                .padding(.horizontal , 16 )
             }
+            
         }
     }
     
@@ -86,11 +94,12 @@ struct ThemesView: View {
                     Text("Animated")
                         .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
                         .id("Animated")
+                        .padding(.horizontal , 16 )
                     animatedThemes
                 
                 Text("Regular")
                     .customFont(font: .IBMPlexSerifMedium, size: 24,lineHeight: 32, color: Color._000000)
-                
+                    .padding(.horizontal , 16 )
              
                     VStack(spacing:0){
                         LazyVGrid(columns: columns, spacing: 0) {
@@ -120,10 +129,11 @@ struct ThemesView: View {
                         }
                         .padding(.bottom,32)
                     }
+                    .padding(.horizontal , 16 )
                 }
             }
         }
-        .padding(.horizontal , 16 )
+       
     }
     
     

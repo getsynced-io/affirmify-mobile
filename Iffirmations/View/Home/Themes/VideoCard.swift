@@ -96,6 +96,7 @@ struct VideoCardPager: View {
                         .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width)
                         .frame(height: UIScreen.main.bounds.height - 44 - 64 - 48 - top - bottom)
+                        .clipped()
                     
                 }
                 
@@ -116,71 +117,6 @@ struct VideoCardPager: View {
     
 }
 
-//
-//struct PlayerViewController: UIViewControllerRepresentable {
-//
-//    let url : URL
-//    func makeUIViewController(context: Context) -> AVPlayerViewController {
-//        let player: AVPlayer = AVPlayer(url: url)
-//        let controller = AVPlayerViewController()
-//
-//        controller.modalPresentationStyle = .automatic
-//        controller.player = player
-//
-//        // Loop the video
-//        controller.player?.actionAtItemEnd = .none
-//        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
-//            controller.player?.seek(to: CMTime.zero)
-//            controller.player?.play()
-//        }
-//        controller.showsPlaybackControls = false
-//        controller.videoGravity = .resizeAspectFill
-//        controller.player?.play()
-//        return controller
-//    }
-//
-//    func updateUIViewController(_ playerController: AVPlayerViewController, context: Context) {
-//        playerController.player?.pause()
-//        playerController.player?.seek(to: .zero)
-//        playerController.player = AVPlayer(url: url)
-//        playerController.player?.play()
-//    }
-//}
-//
-//
-//
-//
-
-//struct PlayerViewController: UIViewControllerRepresentable {
-//
-//    let url : URL
-//
-//    func makeUIViewController(context: Context) -> AVPlayerViewController {
-//        let player: AVQueuePlayer = AVQueuePlayer()
-//        let controller = AVPlayerViewController()
-//
-//        controller.modalPresentationStyle = .automatic
-//        controller.player = player
-//
-//        // Loop the video
-//        let playerItem = AVPlayerItem(url: url)
-//        let playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
-//
-//        controller.showsPlaybackControls = false
-//        controller.videoGravity = .resizeAspectFill
-//        controller.player?.play()
-//
-//        return controller
-//    }
-//
-//    func updateUIViewController(_ playerController: AVPlayerViewController, context: Context) {
-////        playerController.player?.pause()
-////        playerController.player?.seek(to: .zero)
-////        playerController.player?.replaceCurrentItem(with: AVPlayerItem(url: url))
-////        playerController.player?.play()
-//    }
-//}
-
 
 
 
@@ -188,11 +124,14 @@ struct PlayerViewController: UIViewRepresentable {
     let url : URL
     
     func updateUIView(_ uiView: LoopingPlayerUIView, context: UIViewRepresentableContext<PlayerViewController>) {
-
+    
     }
 
     func makeUIView(context: Context) -> LoopingPlayerUIView {
-        return LoopingPlayerUIView(frame: .zero,url : url)
+    
+       let view =  LoopingPlayerUIView(frame: .zero,url : url)
+        view.clipsToBounds = true
+        return view
     }
 }
 
@@ -216,11 +155,13 @@ class LoopingPlayerUIView: UIView {
          
         playerLayer.player = player
         playerLayer.videoGravity = .resizeAspectFill
-        layer.addSublayer(playerLayer)
+        playerLayer.masksToBounds = true
+         layer.addSublayer(playerLayer)
          
         // Create a new player looper with the queue player and template item
         playerLooper = AVPlayerLooper(player: player, templateItem: item)
         // Start the movie
+      try?  AVAudioSession.sharedInstance().setCategory(.ambient)
         player.play()
     }
 

@@ -31,14 +31,7 @@ class VideoManager {
         
         return fileManager.fileExists(atPath: fileURL.path)
     }
-    
-//    func deleteFile(for fileId: String) {
-//        guard let fileURL = getFileURL(for: fileId) else {
-//            return
-//        }
-//
-//        try? fileManager.removeItem(at: fileURL)
-//    }
+
 
     func downloadVideo(id fileId: String,from url: URL) async throws  {
         guard let documentsDirectory = getDocumentsDirectory() else {
