@@ -12,7 +12,6 @@ let store =  UserDefaults(suiteName: "group.IffirmationsMobileQuotes")
 class ThemeViewModel: ObservableObject{
     static let shared :  ThemeViewModel =  ThemeViewModel()
     @AppStorage("IFFirmationThemes",store: store) var themes: [ThemeModel]  = InitThemes.shared.initialThemes
-    
     @AppStorage("ThemeModelSelection",store: store) var ThemeiD : String = "0" {
         willSet {
             DispatchQueue.main.async {[weak self] in
@@ -28,17 +27,13 @@ class ThemeViewModel: ObservableObject{
     func reset(){
         self.themes = InitThemes.shared.initialThemes
     }
-
     func getDefaultTheme()->ThemeModel {
         return ThemeModel(id : "\(themes.count)",   fontName: "IBMPlexSerifMedium", fontAlignment: .middle, fontColor: "000000", fontOpacity: 1.0, textCase: .sentence, backgroundImage: nil , backgroundColor: "EDEBDA", backgroundOpacity: 1.0)
     }
     
-    
     @Published var readyVieos :[String] = []
     func loadVideos(){
         Task{
-       
-            
             for item in    AnnimatedThemesModel.animatedThemes {
                 if let url = URL(string: item.videoURL) {
                    try  await VideoManager.shared.downloadAndSaveVideo(id: item.id, from: url )
@@ -49,9 +44,6 @@ class ThemeViewModel: ObservableObject{
             }
         }
     }
-    
-    
-    
 }
 
 

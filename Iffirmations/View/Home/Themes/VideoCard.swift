@@ -26,27 +26,49 @@ struct VideoCard: View {
 
     var body: some View {
         
-        ZStack(alignment: .topTrailing){
-     
+        ZStack{
+            ZStack(alignment: .topTrailing){
+                
                 if let urlToPlay = urlToPlay {
                     PlayerViewController(url: urlToPlay)
                         .frame(width: width,height: width * 1.77)
                         .cornerRadius(16)
                 }
-            else {
-                Image(video.id)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: width,height: width * 1.77)
-                    .cornerRadius(16)
+                else {
+                    Image(video.id)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width,height: width * 1.77)
+                        .cornerRadius(16)
+                    
+                }
                 
-            }
                 
-            
-    
-            Image(video.id ==  ThemeViewModel.shared.AnimatedVidID ?  "circle-check" : "circle")
+                
+                Image(video.id ==  ThemeViewModel.shared.AnimatedVidID ?  "circle-check" : "circle")
                     .frame(width: 24,height: 24)
                     .padding(8)
+                
+                
+            }
+            
+          //  InitThemes.shared.fontNames[safe: index] ?? "IBMPlexSerifMedium"
+            if  let index = AnnimatedThemesModel.animatedThemes.firstIndex(where: { theme in
+                theme.id ==  video.id
+            })
+            {
+                
+                VStack(spacing: 0){
+                    Text("Abcd")
+                        .customFont(font: FontsExtension(fromRawValue: InitThemes.shared.fontNames[safe: index] ?? "IBMPlexSerifMedium"), size: 24, color: Color("000000"))
+                        .multilineTextAlignment(.center)
+                        .padding(16)
+                        .fixedSize(horizontal: false , vertical: true)
+                }
+                
+                
+            }
+            
             
             
         }

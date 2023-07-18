@@ -16,26 +16,6 @@ extension UIView {
        return bounds.height
   }
 }
-//struct PagginableScrollView<Content>: View where Content: View {
-//    var views: Content
-//
-//    init(@ViewBuilder content: () -> Content) {
-//        self.views = content()
-//    }
-//
-//    var body: some View {
-//        ScrollView(.horizontal,showsIndicators: false){
-//            views
-//                .animation(nil)
-//        }
-//        .introspectScrollView { scrollView in
-//            scrollView.isPagingEnabled = true
-//            scrollView.setContentOffset(.zero, animated: false)
-//
-//        }
-//
-//    }
-//}
 
 struct PagginableScrollView<Content>: View where Content: View {
    
@@ -52,9 +32,6 @@ struct PagginableScrollView<Content>: View where Content: View {
                     self.views
                     .animation(nil)
             }
-         //   .content.offset(x: self.offset)
-          //  .frame(width: UIScreen.main.bounds.width - 32, alignment: .leading)
-           // .frame(maxWidth: .infinity, maxHeight: .infinity)
             .gesture(DragGesture().onChanged { value in
                 let offsetX = value.translation.width + self.offset
 
@@ -105,40 +82,37 @@ struct GenralView: View {
               { obj in
                  // Change key as per your "userInfo"
                   if let userInfo = obj.userInfo, let info = userInfo["category"] as? String {
-//                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
                           withAnimation {
                               CategoryViewModel.shared.selectedID = info
                           }
-//                      }
-                   
-                   
                  }
               }
         
     }
     
-   
+    @AppStorage("AnimatedVidlSelection") var animatedVidID : String?
     @Environment(\.mainWindowSize) var mainWindowSize
     var headerView : some View {
         ZStack{
             HStack(spacing: 0){
-                ButtonImage24(title: "upload") {
-                    withAnimation {
-                        loader = true
-                    }
-                    
-                    if let item = curentItem {
-                        let image = QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForSnapshot: true).frame(width: UIScreen.main.bounds.width,height: mainWindowSize.height).snapshot()
+                if  animatedVidID == nil {
+                    ButtonImage24(title: "upload") {
+                        withAnimation {
+                            loader = true
+                        }
                         
-                        image.share {
-                            withAnimation {
-                                loader = false
+                        if let item = curentItem {
+                            let image = QuoteCardView(selectedTheme: selectedTheme, quote: item.text,isForSnapshot: true).frame(width: UIScreen.main.bounds.width,height: mainWindowSize.height).snapshot()
+                            
+                            image.share {
+                                withAnimation {
+                                    loader = false
+                                }
                             }
                         }
+                        
                     }
-                   
                 }
-                
                 Spacer(minLength: 0)
                 
                 ButtonImage24(title: "settings") {withAnimation {settingsIsPresented = true}}
@@ -245,7 +219,6 @@ struct GenralView: View {
               })
             .background(Color._F6F5EC.opacity(0.99))
             .compositingGroup()
-           // .blur(radius: 5)
            
     }
     
@@ -364,11 +337,6 @@ struct QuoteCardView: View {
                         .contentShape(Rectangle())
                         .clipped()
                         .blendMode(.destinationOut)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 16)
-//                                .strokeBorder(lineWidth: 1, antialiased: true)
-//                                .foregroundColor(Color._000000)
-//                        )
                     
                 }
                 
@@ -458,36 +426,58 @@ struct QuoteCardView: View {
             return Image(path)
         }
     }
+@AppStorage("AnimatedVidlSelection") var animatedVidID : String?
     
     var quoteView : some View {
-        VStack(spacing: 0){
-            Text(finalQuote)
-                .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: Color(selectedTheme.fontColor))
-                .padding(.horizontal, textAlignmentPadding)
-                .multilineTextAlignment(textAlignment)
-                .opacity(selectedTheme.fontOpacity)
-                .foregroundColor(Color(selectedTheme.fontColor))
-                .frame(width: UIScreen.main.bounds.width - 64,alignment: textAlignment.alinment)
-                .fixedSize(horizontal: false , vertical: true)
-                .if(selectedItem == .text , transform: { view in
-                    view
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .strokeBorder(lineWidth: 1, antialiased: true)
-                                .foregroundColor(Color._000000)
-                               
-                        )
-                })
-                    .padding(.vertical , 16)
-                    
-                    
-                    if !StoreViewModel.shared.subscriptionActive && isForSnapshot {
-                    Text("Affirmify.app")
-                        .customFont(font: .InterMedium, size: 16, color:Color(selectedTheme.fontColor).opacity(0.64))
-                        .padding(.bottom , 16)
+        
+        
+        Group{
+            if  let animatedVidID =  animatedVidID  , let index = AnnimatedThemesModel.animatedThemes.firstIndex(where: { theme in
+                theme.id == animatedVidID
+            }){
+                VStack(spacing: 0){
+                    Text(finalQuote)
+                        .customFont(font: FontsExtension(fromRawValue: InitThemes.shared.fontNames[safe: index] ?? "IBMPlexSerifMedium"), size: 24, color: Color("000000"))
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical , 16)
+                        .frame(width: UIScreen.main.bounds.width - 64)
+                        .fixedSize(horizontal: false , vertical: true)
+                        .padding(.horizontal, 16)
                 }
-            
+            }
+            else {
+                VStack(spacing: 0){
+                    Text(finalQuote)
+                        .customFont(font: FontsExtension(fromRawValue: selectedTheme.fontName), size: 24, color: Color(selectedTheme.fontColor))
+                        .padding(.horizontal, textAlignmentPadding)
+                        .multilineTextAlignment(textAlignment)
+                        .opacity(selectedTheme.fontOpacity)
+                        .foregroundColor(Color(selectedTheme.fontColor))
+                        .frame(width: UIScreen.main.bounds.width - 64,alignment: textAlignment.alinment)
+                        .fixedSize(horizontal: false , vertical: true)
+                        .if(selectedItem == .text , transform: { view in
+                            view
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(lineWidth: 1, antialiased: true)
+                                        .foregroundColor(Color._000000)
+                                    
+                                )
+                        })
+                            .padding(.vertical , 16)
+                            
+                            
+                            if !StoreViewModel.shared.subscriptionActive && isForSnapshot {
+                            Text("Affirmify.app")
+                                .customFont(font: .InterMedium, size: 16, color:Color(selectedTheme.fontColor).opacity(0.64))
+                                .padding(.bottom , 16)
+                        }
+                    
+                }
+            }
+
         }
+        
     }
 }
 

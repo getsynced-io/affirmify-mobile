@@ -58,21 +58,25 @@ struct ThemesView: View {
     var animatedThemes: some View {
         ScrollViewReader { scroller in
             ScrollView(.horizontal,showsIndicators: false) {
-                HStack(spacing: 16){
+                HStack(spacing: 0){
                     
                     ForEach(AnnimatedThemesModel.animatedThemes , id : \.id) { item in
-                        Button {
-                            withAnimation {
-                                animatedThemeAction(item.id)
+                        
+                        HStack(spacing: 0){
+                            Button {
+                                withAnimation {
+                                    animatedThemeAction(item.id)
+                                }
+                                
+                                withAnimation(){
+                                    scroller.scrollTo(item.id,anchor:.leading)
+                                }
+                            } label: {
+                                
+                                VideoCard(video: item)
+                                    .frame(width: width,height: width * 1.77)
                             }
-                            
-                            withAnimation(){
-                                scroller.scrollTo(item.id,anchor:.leading)
-                            }
-                        } label: {
-                            
-                            VideoCard(video: item)
-                                .frame(width: width,height: width * 1.77)
+                            .padding(.leading , 16)
                         }
                         .id(item.id)
                         
@@ -80,7 +84,7 @@ struct ThemesView: View {
                     }
                     
                 }
-                .padding(.horizontal , 16 )
+                .padding(.trailing, 16 )
             }
             
         }
@@ -345,6 +349,7 @@ struct ThemesView: View {
         }
         
     }
+    @AppStorage("AnimatedVidlSelection") var AnimatedVidID : String?
     var headerView: some View {
         ZStack{
             HStack(spacing: 0){
@@ -368,13 +373,17 @@ struct ThemesView: View {
                 }
                 
                 Spacer(minLength: 0)
-                Button {
-                    withAnimation {
-                        editThemeAction()
+                
+                if AnimatedVidID  == nil {
+                    Button {
+                        withAnimation {
+                            editThemeAction()
+                        }
+                    } label: {
+                        Text("Edit")
+                            .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
                     }
-                } label: {
-                    Text("Edit")
-                         .customFont(font: .IBMPlexSerifMedium, size: 16, color: ._000000)
+                    .animation(.default,value: AnimatedVidID)
                 }
 
             }
